@@ -12,6 +12,13 @@ export const Hero = () => {
           transition={{ duration: 0.6 }}
           className="text-center space-y-6"
         >
+          <div className="mb-8">
+            <img
+              src="/lovable-uploads/9078973d-5f5e-4f0d-95ee-cfafef7ab155.png"
+              alt="Homegirls Who Launch Logo"
+              className="h-24 mx-auto"
+            />
+          </div>
           <span className="inline-block px-4 py-1.5 bg-primary/10 text-primary rounded-full text-sm font-medium mb-4">
             Launch Your Dream Business
           </span>
