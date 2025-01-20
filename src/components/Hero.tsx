@@ -14,7 +14,7 @@ export const Hero = () => {
         >
           <div className="mb-8">
             <img
-              src="/lovable-uploads/9078973d-5f5e-4f0d-95ee-cfafef7ab155.png"
+              src="lovable-uploads/9078973d-5f5e-4f0d-95ee-cfafef7ab155.png"
               alt="Homegirls Who Launch Logo"
               className="h-24 mx-auto"
             />
