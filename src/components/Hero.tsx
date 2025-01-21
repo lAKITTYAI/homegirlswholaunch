@@ -1,7 +1,26 @@
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
+import { Input } from "@/components/ui/input";
+import { useState } from "react";
+import { toast } from "sonner";
 
 export const Hero = () => {
+  const [email, setEmail] = useState("");
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email) {
+      toast.error("Please enter your email address");
+      return;
+    }
+    if (!/\S+@\S+\.\S+/.test(email)) {
+      toast.error("Please enter a valid email address");
+      return;
+    }
+    toast.success("Thank you for joining our waitlist!");
+    setEmail("");
+  };
+
   return (
     <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden px-4">
       <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5" />
@@ -16,7 +35,7 @@ export const Hero = () => {
             <img
               src="lovable-uploads/9078973d-5f5e-4f0d-95ee-cfafef7ab155.png"
               alt="Homegirls Who Launch Logo"
-              className="h-24 mx-auto"
+              className="h-32 mx-auto" // Increased from h-24 to h-32
             />
           </div>
           <span className="inline-block px-4 py-1.5 bg-primary/10 text-primary rounded-full text-sm font-medium mb-4">
@@ -30,18 +49,26 @@ export const Hero = () => {
             Join a community of ambitious entrepreneurs and get access to the resources,
             guidance, and funding you need to build your dream business.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
-            <Button size="lg" className="bg-primary hover:bg-primary-dark text-white">
-              Join the Waitlist
-            </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className="border-primary text-primary hover:bg-primary/5"
-            >
-              Learn More
-            </Button>
-          </div>
+          <form onSubmit={handleSubmit} className="max-w-md mx-auto space-y-4">
+            <div className="flex flex-col sm:flex-row gap-3">
+              <Input
+                type="email"
+                placeholder="Enter your email address"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="flex-grow"
+              />
+              <Button type="submit" className="bg-primary hover:bg-primary-dark text-white whitespace-nowrap">
+                Join Waitlist
+              </Button>
+            </div>
+          </form>
+          <Button
+            variant="outline"
+            className="border-primary text-primary hover:bg-primary/5 mt-4"
+          >
+            Learn More
+          </Button>
         </motion.div>
       </div>
     </section>
