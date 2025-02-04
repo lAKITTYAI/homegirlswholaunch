@@ -48,8 +48,8 @@ export default {
         },
       },
       fontFamily: {
-        sans: ["Inter", "sans-serif"],
-        body: ["Plus Jakarta Sans", "sans-serif"],
+        sans: ["'Old Standard TT'", "serif"],
+        body: ["'Playfair Display'", "serif"],
       },
       keyframes: {
         "fade-up": {
