@@ -20,9 +20,9 @@ export default {
     extend: {
       colors: {
         primary: {
-          DEFAULT: "#9b87f5",
-          light: "#b8a8f8",
-          dark: "#7e69ab",
+          DEFAULT: "#8B6FF7", // Mixed between #9b87f5 and #6F00FF
+          light: "#A794F8", // Lighter version of the mix
+          dark: "#6F00FF", // New purple
         },
         secondary: {
           DEFAULT: "#E5DEFF",
