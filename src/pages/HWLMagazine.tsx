@@ -2,9 +2,11 @@
 import React, { useState } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { BookOpen, Newspaper, AlertCircle } from "lucide-react";
+import { Input } from "@/components/ui/input";
 
 const HWLMagazine = () => {
   const [imageError, setImageError] = useState(false);
+  const imagePath = "lovable-uploads/c2603734-ee64-42e7-8fbf-8f495233ef63.png";
 
   return (
     <div className="container mx-auto px-4 py-8">
@@ -18,11 +20,11 @@ const HWLMagazine = () => {
                 <div className="bg-amber-50 border border-amber-200 rounded-lg p-4 text-center">
                   <AlertCircle className="mx-auto h-12 w-12 text-amber-500 mb-2" />
                   <p className="text-amber-800 font-medium">Image could not be loaded</p>
-                  <p className="text-amber-600 text-sm mt-1">Path: /lovable-uploads/7c2da9c5-137a-4446-ac19-309290052143.png</p>
+                  <p className="text-amber-600 text-sm mt-1">Path: {imagePath}</p>
                 </div>
               ) : (
                 <img 
-                  src="/lovable-uploads/7c2da9c5-137a-4446-ac19-309290052143.png" 
+                  src={imagePath}
                   alt="HWL Magazine Cover" 
                   className="rounded-lg shadow-lg mx-auto w-full max-w-md" 
                   onError={() => setImageError(true)}
@@ -69,7 +71,7 @@ const HWLMagazine = () => {
                 <form className="space-y-4">
                   <div>
                     <label htmlFor="email" className="block text-sm font-medium text-neutral-600 mb-1">Email address</label>
-                    <input type="email" id="email" className="w-full px-4 py-2 border border-neutral-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary" placeholder="youremail@example.com" />
+                    <Input type="email" id="email" placeholder="youremail@example.com" />
                   </div>
                   <button type="button" className="w-full bg-primary text-white font-medium py-2 px-4 rounded-md hover:bg-primary/90 transition-colors">
                     Subscribe Now
@@ -78,12 +80,6 @@ const HWLMagazine = () => {
               </CardContent>
             </Card>
           </div>
-        </div>
-        
-        {/* Debug information */}
-        <div className="mt-4 p-4 bg-gray-100 rounded-md">
-          <p className="text-sm text-gray-600">Image path: /lovable-uploads/7c2da9c5-137a-4446-ac19-309290052143.png</p>
-          <p className="text-sm text-gray-600">If the image is not displaying, please ensure it has been uploaded correctly.</p>
         </div>
       </div>
     </div>
