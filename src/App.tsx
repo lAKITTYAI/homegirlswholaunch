@@ -10,6 +10,7 @@ import Resources from "./pages/Resources";
 import Community from "./pages/Community";
 import AboutHWL from "./pages/AboutHWL";
 import HWLMagazine from "./pages/HWLMagazine";
+import Pricing from "./pages/Pricing";
 import Layout from "./components/Layout";
 
 const queryClient = new QueryClient();
@@ -28,6 +29,7 @@ const App = () => (
             <Route path="/community" element={<Community />} />
             <Route path="/about" element={<AboutHWL />} />
             <Route path="/magazine" element={<HWLMagazine />} />
+            <Route path="/pricing" element={<Pricing />} />
           </Route>
         </Routes>
       </BrowserRouter>

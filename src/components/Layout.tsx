@@ -8,6 +8,7 @@ const Navigation = () => {
   
   const links = [
     { to: "/", label: "Home" },
+    { to: "/pricing", label: "Pricing" },
     { to: "/launch-plans", label: "Launch Plans" },
     { to: "/resources", label: "Resources" },
     { to: "/community", label: "Community" },
