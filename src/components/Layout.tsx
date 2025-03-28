@@ -11,6 +11,8 @@ const Navigation = () => {
     { to: "/launch-plans", label: "Launch Plans" },
     { to: "/resources", label: "Resources" },
     { to: "/community", label: "Community" },
+    { to: "/about", label: "About HWL" },
+    { to: "/magazine", label: "HWL Magazine" },
   ];
 
   return (

@@ -8,6 +8,8 @@ import Index from "./pages/Index";
 import LaunchPlans from "./pages/LaunchPlans";
 import Resources from "./pages/Resources";
 import Community from "./pages/Community";
+import AboutHWL from "./pages/AboutHWL";
+import HWLMagazine from "./pages/HWLMagazine";
 import Layout from "./components/Layout";
 
 const queryClient = new QueryClient();
@@ -24,6 +26,8 @@ const App = () => (
             <Route path="/launch-plans" element={<LaunchPlans />} />
             <Route path="/resources" element={<Resources />} />
             <Route path="/community" element={<Community />} />
+            <Route path="/about" element={<AboutHWL />} />
+            <Route path="/magazine" element={<HWLMagazine />} />
           </Route>
         </Routes>
       </BrowserRouter>
