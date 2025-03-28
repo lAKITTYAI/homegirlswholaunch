@@ -1,8 +1,10 @@
+
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { Input } from "@/components/ui/input";
 import { useState } from "react";
 import { toast } from "sonner";
+import { Link } from "react-router-dom";
 
 export const Hero = () => {
   const [email, setEmail] = useState("");
@@ -35,7 +37,7 @@ export const Hero = () => {
             <img
               src="lovable-uploads/9078973d-5f5e-4f0d-95ee-cfafef7ab155.png"
               alt="Homegirls Who Launch Logo"
-              className="h-32 mx-auto" // Increased from h-24 to h-32
+              className="h-32 mx-auto"
             />
           </div>
           <span className="inline-block px-4 py-1.5 bg-primary/10 text-primary rounded-full text-sm font-medium mb-4">
@@ -63,14 +65,31 @@ export const Hero = () => {
               </Button>
             </div>
           </form>
-          <Button
-            variant="outline"
-            className="border-primary text-primary hover:bg-primary/5 mt-4"
-          >
-            Learn More
-          </Button>
+          <div className="flex flex-wrap justify-center gap-3 pt-2">
+            <Button
+              variant="outline"
+              className="border-primary text-primary hover:bg-primary/5"
+              asChild
+            >
+              <Link to="/launch-plans">Explore Launch Plans</Link>
+            </Button>
+            <Button
+              variant="outline"
+              className="border-primary text-primary hover:bg-primary/5"
+              asChild
+            >
+              <Link to="/resources">Browse Resources</Link>
+            </Button>
+            <Button
+              variant="outline"
+              className="border-primary text-primary hover:bg-primary/5"
+              asChild
+            >
+              <Link to="/community">Join Community</Link>
+            </Button>
+          </div>
         </motion.div>
       </div>
     </section>
   );
-};
+}
