@@ -11,6 +11,7 @@ import Community from "./pages/Community";
 import AboutHWL from "./pages/AboutHWL";
 import HWLMagazine from "./pages/HWLMagazine";
 import Pricing from "./pages/Pricing";
+import Donate from "./pages/Donate";
 import Layout from "./components/Layout";
 
 const queryClient = new QueryClient();
@@ -30,6 +31,7 @@ const App = () => (
             <Route path="/about" element={<AboutHWL />} />
             <Route path="/magazine" element={<HWLMagazine />} />
             <Route path="/pricing" element={<Pricing />} />
+            <Route path="/donate" element={<Donate />} />
           </Route>
         </Routes>
       </BrowserRouter>

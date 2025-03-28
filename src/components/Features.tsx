@@ -1,5 +1,7 @@
+
 import { motion } from "framer-motion";
-import { Lightbulb, Users, Wallet } from "lucide-react";
+import { Lightbulb, Users, Heart } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const features = [
   {
@@ -13,9 +15,10 @@ const features = [
     description: "Connect with like-minded individuals who share your entrepreneurial journey.",
   },
   {
-    icon: Wallet,
-    title: "Funding Solutions",
-    description: "Access various funding options and financial resources to grow your business.",
+    icon: Heart,
+    title: "Sponsor a Launch",
+    description: "Support female entrepreneurs through our HomeGirls Launch Fund.",
+    link: "/donate"
   },
 ];
 
@@ -58,6 +61,14 @@ export const Features = () => {
                   {feature.title}
                 </h3>
                 <p className="text-neutral-600">{feature.description}</p>
+                {feature.link && (
+                  <Link 
+                    to={feature.link} 
+                    className="mt-4 inline-block text-primary hover:underline font-medium"
+                  >
+                    Learn more
+                  </Link>
+                )}
               </div>
             </motion.div>
           ))}
