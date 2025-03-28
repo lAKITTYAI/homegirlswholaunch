@@ -1,21 +1,33 @@
 
-import React from "react";
+import React, { useState } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { BookOpen, Newspaper } from "lucide-react";
+import { BookOpen, Newspaper, AlertCircle } from "lucide-react";
 
 const HWLMagazine = () => {
-  return <div className="container mx-auto px-4 py-8">
+  const [imageError, setImageError] = useState(false);
+
+  return (
+    <div className="container mx-auto px-4 py-8">
       <div className="max-w-5xl mx-auto">
         <h1 className="text-4xl font-bold text-center mb-8">HWL Magazine</h1>
         
         <div className="flex flex-col lg:flex-row gap-8 mb-12">
           <div className="lg:w-1/2">
             <div className="sticky top-24">
-              <img 
-                src="/lovable-uploads/7c2da9c5-137a-4446-ac19-309290052143.png" 
-                alt="HWL Magazine Cover" 
-                className="rounded-lg shadow-lg mx-auto w-full max-w-md" 
-              />
+              {imageError ? (
+                <div className="bg-amber-50 border border-amber-200 rounded-lg p-4 text-center">
+                  <AlertCircle className="mx-auto h-12 w-12 text-amber-500 mb-2" />
+                  <p className="text-amber-800 font-medium">Image could not be loaded</p>
+                  <p className="text-amber-600 text-sm mt-1">Path: /lovable-uploads/7c2da9c5-137a-4446-ac19-309290052143.png</p>
+                </div>
+              ) : (
+                <img 
+                  src="/lovable-uploads/7c2da9c5-137a-4446-ac19-309290052143.png" 
+                  alt="HWL Magazine Cover" 
+                  className="rounded-lg shadow-lg mx-auto w-full max-w-md" 
+                  onError={() => setImageError(true)}
+                />
+              )}
               <div className="mt-6 text-center">
                 <h2 className="text-2xl font-bold">Current Issue</h2>
                 <p className="text-neutral-600 mt-2">Spring 2025</p>
@@ -67,8 +79,15 @@ const HWLMagazine = () => {
             </Card>
           </div>
         </div>
+        
+        {/* Debug information */}
+        <div className="mt-4 p-4 bg-gray-100 rounded-md">
+          <p className="text-sm text-gray-600">Image path: /lovable-uploads/7c2da9c5-137a-4446-ac19-309290052143.png</p>
+          <p className="text-sm text-gray-600">If the image is not displaying, please ensure it has been uploaded correctly.</p>
+        </div>
       </div>
-    </div>;
+    </div>
+  );
 };
 
 export default HWLMagazine;
