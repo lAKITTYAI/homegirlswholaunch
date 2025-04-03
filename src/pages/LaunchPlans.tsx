@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Card, CardHeader, CardTitle, CardContent, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import { Check, Plus } from "lucide-react";
+import { Check, Plus, Rocket, Calendar, Star } from "lucide-react";
 import { toast } from "sonner";
 
 // Sample launch plan templates
@@ -47,6 +47,20 @@ const launchPlanTemplates = [
     ],
     timeframe: "6 weeks",
   },
+  {
+    id: 4,
+    title: "HWL Custom Launch Plan",
+    description: "A hyper custom launch plan for our members who need a step by step plan for their first business launch.",
+    steps: [
+      "1-on-1 strategy call with a launch expert",
+      "Personalized timeline & milestone creation",
+      "Custom marketing & branding strategy",
+      "Weekly accountability check-ins",
+      "Post-launch review & next steps planning",
+    ],
+    timeframe: "4 weeks",
+    featured: true,
+  },
 ];
 
 export default function LaunchPlans() {
@@ -87,10 +101,23 @@ export default function LaunchPlans() {
               viewport={{ once: true }}
               transition={{ duration: 0.4 }}
             >
-              <Card className="h-full flex flex-col hover:shadow-md transition-shadow">
-                <CardHeader>
+              <Card className={`h-full flex flex-col hover:shadow-md transition-shadow ${template.featured ? 'border-primary border-2' : ''}`}>
+                {template.featured && (
+                  <div className="bg-primary text-white text-center py-1 text-sm font-medium">
+                    FEATURED
+                  </div>
+                )}
+                <CardHeader className="relative">
+                  {template.featured ? (
+                    <div className="absolute top-0 right-0 mt-2 mr-2">
+                      <Star className="h-5 w-5 text-primary fill-primary" />
+                    </div>
+                  ) : null}
                   <CardTitle>{template.title}</CardTitle>
-                  <p className="text-neutral-500 text-sm">Timeframe: {template.timeframe}</p>
+                  <div className="flex items-center text-neutral-500 text-sm mt-1">
+                    <Calendar className="h-4 w-4 mr-1" />
+                    <p>Timeframe: {template.timeframe}</p>
+                  </div>
                 </CardHeader>
                 <CardContent className="flex-grow">
                   <p className="text-neutral-600 mb-4">{template.description}</p>
@@ -104,6 +131,20 @@ export default function LaunchPlans() {
                       </li>
                     ))}
                   </ul>
+                  {template.featured && (
+                    <div className="mt-4 bg-primary/10 p-3 rounded-md">
+                      <div className="flex items-center text-primary font-medium mb-2">
+                        <Rocket size={16} className="mr-2" />
+                        Additional Features:
+                      </div>
+                      <ul className="text-sm space-y-1 text-neutral-700">
+                        <li>• Priority access to launch experts</li>
+                        <li>• Custom social media content calendar</li>
+                        <li>• Personalized launch day checklist</li>
+                        <li>• Post-launch analytics & assessment</li>
+                      </ul>
+                    </div>
+                  )}
                 </CardContent>
                 <CardFooter className="flex justify-between">
                   <Button 
@@ -121,7 +162,9 @@ export default function LaunchPlans() {
                       </>
                     )}
                   </Button>
-                  <Button className="bg-primary hover:bg-primary-dark">Customize</Button>
+                  <Button className={`${template.featured ? 'bg-primary hover:bg-primary-dark' : 'bg-primary hover:bg-primary-dark'}`}>
+                    {template.featured ? 'Apply Now' : 'Customize'}
+                  </Button>
                 </CardFooter>
               </Card>
             </motion.div>
