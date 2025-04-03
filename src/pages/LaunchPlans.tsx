@@ -9,6 +9,20 @@ import { toast } from "sonner";
 // Sample launch plan templates
 const launchPlanTemplates = [
   {
+    id: 4,
+    title: "HWL Custom Launch Plan",
+    description: "A hyper custom launch plan for our members who need a step by step plan for their first business launch.",
+    steps: [
+      "1-on-1 strategy call with a launch expert",
+      "Personalized timeline & milestone creation",
+      "Custom marketing & branding strategy",
+      "Weekly accountability check-ins",
+      "Post-launch review & next steps planning",
+    ],
+    timeframe: "4 weeks",
+    featured: true,
+  },
+  {
     id: 1,
     title: "E-Commerce Launch",
     description: "Perfect for product-based businesses looking to establish an online presence.",
@@ -46,20 +60,6 @@ const launchPlanTemplates = [
       "Set up affiliate program",
     ],
     timeframe: "6 weeks",
-  },
-  {
-    id: 4,
-    title: "HWL Custom Launch Plan",
-    description: "A hyper custom launch plan for our members who need a step by step plan for their first business launch.",
-    steps: [
-      "1-on-1 strategy call with a launch expert",
-      "Personalized timeline & milestone creation",
-      "Custom marketing & branding strategy",
-      "Weekly accountability check-ins",
-      "Post-launch review & next steps planning",
-    ],
-    timeframe: "4 weeks",
-    featured: true,
   },
 ];
 
