@@ -46,6 +46,10 @@ const HWLMagazine = () => {
               </CardHeader>
               <CardContent className="space-y-4">
                 <div>
+                  <h3 className="text-lg font-semibold">How a new app called Meta-Morph Fitness AI is changing the health and fitness space</h3>
+                  <p className="text-neutral-600">Revolutionizing workouts with personalized AI-driven fitness solutions.</p>
+                </div>
+                <div>
                   <h3 className="text-lg font-semibold">From Idea to Launch: 5 Women Share Their Stories</h3>
                   <p className="text-neutral-600">Real-world advice from entrepreneurs who've been there.</p>
                 </div>
