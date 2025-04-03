@@ -6,7 +6,7 @@ import { Input } from "@/components/ui/input";
 
 const HWLMagazine = () => {
   const [imageError, setImageError] = useState(false);
-  const imagePath = "lovable-uploads/c2603734-ee64-42e7-8fbf-8f495233ef63.png";
+  const imagePath = "lovable-uploads/0f3ae161-3dd9-434f-9316-8f65db121502.png";
 
   return (
     <div className="container mx-auto px-4 py-8">
