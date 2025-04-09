@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { Input } from "@/components/ui/input";
@@ -35,7 +34,7 @@ export const Hero = () => {
         >
           <div className="mb-8">
             <img
-              src="lovable-uploads/9078973d-5f5e-4f0d-95ee-cfafef7ab155.png"
+              src="lovable-uploads/e0b98406-c828-4fe9-a386-fcd9612d9a77.png"
               alt="Homegirls Who Launch Logo"
               className="h-32 mx-auto"
             />
