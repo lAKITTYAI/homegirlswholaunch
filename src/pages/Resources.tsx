@@ -22,7 +22,7 @@ const resources = [
     category: "Guides",
     description: "Learn how to create an effective marketing strategy for your new business.",
     downloadUrl: "#",
-    imageUrl: "lovable-uploads/a089a6dd-c689-417d-8790-90eb4c3122ec.png",
+    imageUrl: "lovable-uploads/a90ca758-37bd-46cf-b6d1-002bfeaf4138.png",
     featured: false,
   },
   {
