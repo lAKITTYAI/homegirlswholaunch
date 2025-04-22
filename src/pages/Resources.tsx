@@ -14,7 +14,7 @@ const resources = [
     category: "Templates",
     description: "A comprehensive business plan template to help you outline your business strategy.",
     downloadUrl: "#",
-    imageUrl: "https://via.placeholder.com/300x200",
+    imageUrl: "lovable-uploads/3f183ddf-0811-45ca-9ed5-88983caa10ee.png",
     featured: true,
   },
   {
