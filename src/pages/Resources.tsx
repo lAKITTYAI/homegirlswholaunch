@@ -32,7 +32,7 @@ const resources = [
     category: "Templates",
     description: "Track your financial projections with this easy-to-use spreadsheet template.",
     downloadUrl: "#",
-    imageUrl: "https://via.placeholder.com/300x200",
+    imageUrl: "lovable-uploads/7d82b6d9-3e36-4297-b7b6-e340cc37eeae.png",
     featured: true,
   },
   {
