@@ -40,7 +40,7 @@ const resources = [
     category: "Templates",
     description: "Plan your social media content strategy with this organized calendar template.",
     downloadUrl: "#",
-    imageUrl: "https://via.placeholder.com/300x200",
+    imageUrl: "lovable-uploads/920b9283-bf22-4903-b219-8ef192b946c5.png",
     featured: false,
   },
   {
