@@ -49,7 +49,7 @@ const resources = [
     category: "Checklists",
     description: "Ensure your business has all the necessary legal foundations with this checklist.",
     downloadUrl: "#",
-    imageUrl: "https://via.placeholder.com/300x200",
+    imageUrl: "lovable-uploads/192787cb-ffb3-42b6-877e-42e8270d07a8.png",
     featured: false,
   },
   {
