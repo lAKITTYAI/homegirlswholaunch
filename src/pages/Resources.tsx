@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Card, CardHeader, CardContent, CardFooter, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -14,7 +13,7 @@ const resources = [
     category: "Templates",
     description: "A comprehensive business plan template to help you outline your business strategy.",
     downloadUrl: "#",
-    imageUrl: "lovable-uploads/3f183ddf-0811-45ca-9ed5-88983caa10ee.png",
+    imageUrl: "lovable-uploads/06c5956a-514c-4dba-a0f4-1ab371d645bb.png",
     featured: true,
   },
   {
