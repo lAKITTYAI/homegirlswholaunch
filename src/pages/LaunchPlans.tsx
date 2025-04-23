@@ -36,14 +36,14 @@ const kitItems = [
 // Sample launch plan templates (Homegirls Kit first)
 const launchPlanTemplates = [
   {
-    id: "kit", // use string for uniqueness
+    id: "kit",
     title: "The Homegirls Who Launch Kit",
     description: "Everything you need to launch your business like a boss. For a limited time, get our ultimate launch kit packed with premium branding, social media, and business essentials.",
     kit: true,
     price: "$149.00",
     limitedTime: true,
     featured: true,
-    coverImage: "lovable-uploads/49583cd3-b56e-4845-ab46-3dac09dbd1ac.png",
+    coverImage: "lovable-uploads/d6a46aa3-d113-4a19-97cf-afddac24fe70.png",
     kitItems,
   },
 
