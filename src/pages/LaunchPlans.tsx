@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Card, CardHeader, CardTitle, CardContent, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -6,8 +5,49 @@ import { motion } from "framer-motion";
 import { Check, Plus, Rocket, Calendar, Star } from "lucide-react";
 import { toast } from "sonner";
 
-// Sample launch plan templates
+// Kit visual list
+const kitItems = [
+  {
+    label: "Custom Logo",
+    description: "A mock brand called Aurora Accessories shown on a sleek laptop screen.",
+  },
+  {
+    label: "Brand Moodboard",
+    description: "A clean Canva-style collage with fonts + color swatches.",
+  },
+  {
+    label: "Business Bio & Tagline",
+    description: "Shown on a mobile preview (feels like their real brand).",
+  },
+  {
+    label: "Welcome Email Template",
+    description: "Rendered as a phone email mockup with luxury product photo.",
+  },
+  {
+    label: "5 IG Captions",
+    description: "Displayed via a sample IG post format.",
+  },
+  {
+    label: '"What’s Next" Checklist',
+    description: "Multiple checklist styles on cute lavender/gold cards.",
+  },
+];
+
+// Sample launch plan templates (Homegirls Kit first)
 const launchPlanTemplates = [
+  {
+    id: "kit", // use string for uniqueness
+    title: "The Homegirls Who Launch Kit",
+    description: "Everything you need to launch your business like a boss. For a limited time, get our ultimate launch kit packed with premium branding, social media, and business essentials.",
+    kit: true,
+    price: "$149.00",
+    limitedTime: true,
+    featured: true,
+    coverImage: "lovable-uploads/49583cd3-b56e-4845-ab46-3dac09dbd1ac.png",
+    kitItems,
+  },
+
+  // original plans, keep IDs as numbers for all other plans
   {
     id: 4,
     title: "HWL Custom Launch Plan",
@@ -93,82 +133,139 @@ export default function LaunchPlans() {
         </div>
         
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          {launchPlanTemplates.map((template) => (
-            <motion.div
-              key={template.id}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4 }}
-            >
-              <Card className={`h-full flex flex-col hover:shadow-md transition-shadow ${template.featured ? 'border-primary border-2' : ''}`}>
-                {template.featured && (
-                  <div className="bg-primary text-white text-center py-1 text-sm font-medium">
-                    FEATURED
+          {launchPlanTemplates.map((template, idx) =>
+            template.kit ? (
+              <motion.div
+                key={template.id}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4 }}
+                className="md:col-span-2 lg:col-span-3" // Make kit span full row in grid
+              >
+                <Card className="h-full flex flex-col border-primary bg-primary/5 border-2 shadow-lg relative">
+                  <div className="absolute top-4 left-4 z-10">
+                    <span className="bg-secondary-dark text-primary px-3 py-1 rounded-full font-semibold text-xs uppercase tracking-wider shadow">
+                      Limited Time Special
+                    </span>
                   </div>
-                )}
-                <CardHeader className="relative">
-                  {template.featured ? (
-                    <div className="absolute top-0 right-0 mt-2 mr-2">
-                      <Star className="h-5 w-5 text-primary fill-primary" />
+                  <img
+                    src={template.coverImage}
+                    alt="Homegirls Who Launch Kit Visual"
+                    className="rounded-t-lg w-full object-cover max-h-80 border-b border-primary"
+                  />
+                  <CardHeader>
+                    <div className="flex items-center justify-between mb-1">
+                      <CardTitle className="text-2xl font-extrabold text-primary-dark">
+                        {template.title}
+                      </CardTitle>
+                      <span className="text-lg font-semibold bg-primary text-white rounded-full px-4 py-1 shadow">${template.price}</span>
                     </div>
-                  ) : null}
-                  <CardTitle>{template.title}</CardTitle>
-                  <div className="flex items-center text-neutral-500 text-sm mt-1">
-                    <Calendar className="h-4 w-4 mr-1" />
-                    <p>Timeframe: {template.timeframe}</p>
-                  </div>
-                </CardHeader>
-                <CardContent className="flex-grow">
-                  <p className="text-neutral-600 mb-4">{template.description}</p>
-                  <ul className="space-y-2">
-                    {template.steps.map((step, index) => (
-                      <li key={index} className="flex items-start">
-                        <span className="mr-2 mt-1 text-primary">
-                          <Check size={16} />
-                        </span>
-                        <span>{step}</span>
-                      </li>
-                    ))}
-                  </ul>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-neutral-700 text-base mb-4">
+                      {template.description}
+                    </p>
+                    <ul className="grid md:grid-cols-3 gap-y-3 gap-x-6 text-sm mb-4">
+                      {template.kitItems.map((item, i) => (
+                        <li key={i} className="flex items-start gap-2">
+                          <Check className="text-primary mt-1" size={18} />
+                          <span>
+                            <span className="font-medium">{item.label}</span>
+                            <span className="block text-neutral-600">{item.description}</span>
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
+                  </CardContent>
+                  <CardFooter className="flex flex-col gap-3 pt-0 items-center">
+                    <Button className="bg-primary px-8 py-3 w-full text-lg font-bold hover:bg-primary-dark shadow-md">
+                      Purchase Now – $149.00
+                    </Button>
+                    <span className="text-xs text-primary-dark opacity-70 tracking-wide">Includes all kit items shown above</span>
+                  </CardFooter>
+                </Card>
+              </motion.div>
+            ) : (
+            // regular plan cards
+              <motion.div
+                key={template.id}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4 }}
+              >
+                <Card className={`h-full flex flex-col hover:shadow-md transition-shadow ${template.featured ? 'border-primary border-2' : ''}`}>
                   {template.featured && (
-                    <div className="mt-4 bg-primary/10 p-3 rounded-md">
-                      <div className="flex items-center text-primary font-medium mb-2">
-                        <Rocket size={16} className="mr-2" />
-                        Additional Features:
-                      </div>
-                      <ul className="text-sm space-y-1 text-neutral-700">
-                        <li>• Priority access to launch experts</li>
-                        <li>• Custom social media content calendar</li>
-                        <li>• Personalized launch day checklist</li>
-                        <li>• Post-launch analytics & assessment</li>
-                      </ul>
+                    <div className="bg-primary text-white text-center py-1 text-sm font-medium">
+                      FEATURED
                     </div>
                   )}
-                </CardContent>
-                <CardFooter className="flex justify-between">
-                  <Button 
-                    variant="outline" 
-                    className="border-primary text-primary hover:bg-primary/5"
-                    onClick={() => savePlan(template.id)}
-                  >
-                    {savedPlans.includes(template.id) ? (
-                      <>
-                        <Check size={16} className="mr-1" /> Saved
-                      </>
-                    ) : (
-                      <>
-                        <Plus size={16} className="mr-1" /> Save
-                      </>
+                  <CardHeader className="relative">
+                    {template.featured ? (
+                      <div className="absolute top-0 right-0 mt-2 mr-2">
+                        <Star className="h-5 w-5 text-primary fill-primary" />
+                      </div>
+                    ) : null}
+                    <CardTitle>{template.title}</CardTitle>
+                    {template.timeframe &&
+                      <div className="flex items-center text-neutral-500 text-sm mt-1">
+                        <Calendar className="h-4 w-4 mr-1" />
+                        <p>Timeframe: {template.timeframe}</p>
+                      </div>
+                    }
+                  </CardHeader>
+                  <CardContent className="flex-grow">
+                    <p className="text-neutral-600 mb-4">{template.description}</p>
+                    {template.steps && <ul className="space-y-2">
+                      {template.steps.map((step, index) => (
+                        <li key={index} className="flex items-start">
+                          <span className="mr-2 mt-1 text-primary">
+                            <Check size={16} />
+                          </span>
+                          <span>{step}</span>
+                        </li>
+                      ))}
+                    </ul>}
+                    {template.featured && (
+                      <div className="mt-4 bg-primary/10 p-3 rounded-md">
+                        <div className="flex items-center text-primary font-medium mb-2">
+                          <Rocket size={16} className="mr-2" />
+                          Additional Features:
+                        </div>
+                        <ul className="text-sm space-y-1 text-neutral-700">
+                          <li>• Priority access to launch experts</li>
+                          <li>• Custom social media content calendar</li>
+                          <li>• Personalized launch day checklist</li>
+                          <li>• Post-launch analytics & assessment</li>
+                        </ul>
+                      </div>
                     )}
-                  </Button>
-                  <Button className={`${template.featured ? 'bg-primary hover:bg-primary-dark' : 'bg-primary hover:bg-primary-dark'}`}>
-                    {template.featured ? 'Apply Now' : 'Customize'}
-                  </Button>
-                </CardFooter>
-              </Card>
-            </motion.div>
-          ))}
+                  </CardContent>
+                  <CardFooter className="flex justify-between">
+                    <Button 
+                      variant="outline" 
+                      className="border-primary text-primary hover:bg-primary/5"
+                      onClick={() => savePlan(template.id as number)}
+                    >
+                      {savedPlans.includes(template.id as number) ? (
+                        <>
+                          <Check size={16} className="mr-1" /> Saved
+                        </>
+                      ) : (
+                        <>
+                          <Plus size={16} className="mr-1" /> Save
+                        </>
+                      )}
+                    </Button>
+                    <Button className={`${template.featured ? 'bg-primary hover:bg-primary-dark' : 'bg-primary hover:bg-primary-dark'}`}>
+                      {template.featured ? 'Apply Now' : 'Customize'}
+                    </Button>
+                  </CardFooter>
+                </Card>
+              </motion.div>
+          )
+          )}
         </div>
       </motion.div>
     </div>
