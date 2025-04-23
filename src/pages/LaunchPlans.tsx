@@ -141,7 +141,7 @@ export default function LaunchPlans() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4 }}
-                className="md:col-span-2 lg:col-span-3" // Make kit span full row in grid
+                className="md:col-span-2 lg:col-span-3"
               >
                 <Card className="h-full flex flex-col border-primary bg-primary/5 border-2 shadow-lg relative">
                   <div className="absolute top-4 left-4 z-10">
@@ -159,7 +159,7 @@ export default function LaunchPlans() {
                       <CardTitle className="text-2xl font-extrabold text-primary-dark">
                         {template.title}
                       </CardTitle>
-                      <span className="text-lg font-semibold bg-primary text-white rounded-full px-4 py-1 shadow">${template.price}</span>
+                      <span className="text-lg font-semibold bg-primary text-white rounded-full px-4 py-1 shadow">{template.price}</span>
                     </div>
                   </CardHeader>
                   <CardContent>
@@ -180,14 +180,13 @@ export default function LaunchPlans() {
                   </CardContent>
                   <CardFooter className="flex flex-col gap-3 pt-0 items-center">
                     <Button className="bg-primary px-8 py-3 w-full text-lg font-bold hover:bg-primary-dark shadow-md">
-                      Purchase Now – $149.00
+                      Purchase Now – {template.price}
                     </Button>
                     <span className="text-xs text-primary-dark opacity-70 tracking-wide">Includes all kit items shown above</span>
                   </CardFooter>
                 </Card>
               </motion.div>
             ) : (
-            // regular plan cards
               <motion.div
                 key={template.id}
                 initial={{ opacity: 0, y: 20 }}
@@ -264,7 +263,7 @@ export default function LaunchPlans() {
                   </CardFooter>
                 </Card>
               </motion.div>
-          )
+            )
           )}
         </div>
       </motion.div>
