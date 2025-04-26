@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
@@ -29,6 +30,7 @@ const grants = [{
   description: "For businesses that contribute to local community development.",
   link: "#"
 }];
+
 export default function FundingOptions() {
   const [activeTab, setActiveTab] = useState<'grants' | 'apply'>('grants');
   return <div className="container mx-auto px-4 py-12">
@@ -52,15 +54,22 @@ export default function FundingOptions() {
 
         <div className="flex flex-col md:flex-row items-center gap-8 mb-12">
           <div className="md:w-1/2">
-            <motion.img src="/lovable-uploads/ffa347f0-8c3f-4f05-aff6-a242fcb715a4.png" alt="Successful businesswoman with money" className="rounded-lg shadow-lg w-full object-cover" initial={{
-            opacity: 0,
-            scale: 0.95
-          }} animate={{
-            opacity: 1,
-            scale: 1
-          }} transition={{
-            duration: 0.5
-          }} />
+            <motion.img 
+              src="/lovable-uploads/bc89ec6d-5d5e-45f0-bce5-0248653e1334.png" 
+              alt="Woman with money representing funding opportunities" 
+              className="rounded-lg shadow-lg w-full object-cover" 
+              initial={{
+                opacity: 0,
+                scale: 0.95
+              }} 
+              animate={{
+                opacity: 1,
+                scale: 1
+              }} 
+              transition={{
+                duration: 0.5
+              }} 
+            />
           </div>
           <div className="md:w-1/2 text-center md:text-left">
             <h2 className="text-3xl font-bold mb-4 text-neutral-800">Apply for funding here.</h2>
