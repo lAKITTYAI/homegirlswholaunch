@@ -1,5 +1,5 @@
-
 import React from "react";
+import { motion } from "framer-motion";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 
 const AboutHWL = () => {
@@ -106,6 +106,19 @@ const AboutHWL = () => {
             </p>
           </CardContent>
         </Card>
+
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.7 }}
+          className="mb-12 rounded-2xl overflow-hidden shadow-xl"
+        >
+          <img
+            src="/lovable-uploads/9510ed68-4963-4ea8-9ec1-5d3e48abfe30.png"
+            alt="Madam L.A. Kitty Speaking at Homegirls Who Launch Event"
+            className="w-full h-auto object-cover"
+          />
+        </motion.div>
       </div>
     </div>
   );
