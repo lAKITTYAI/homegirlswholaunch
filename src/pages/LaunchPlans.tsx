@@ -38,12 +38,12 @@ const launchPlanTemplates = [
   {
     id: "kit",
     title: "The Homegirls Who Launch Kit",
-    description: "Everything you need to launch your business like a boss. For a limited time, get our ultimate launch kit packed with premium branding, social media, and business essentials.",
+    description: "Everything you need to launch like a boss. For a limited time, get our ultimate launch kit packed with premium branding, social media, and business essentials.",
     kit: true,
     price: "$149.00",
     limitedTime: true,
     featured: true,
-    coverImage: "lovable-uploads/d6a46aa3-d113-4a19-97cf-afddac24fe70.png",
+    coverImage: "lovable-uploads/cfe6854d-e51a-475a-92a3-9642213f75a3.png",
     kitItems,
   },
 
@@ -209,11 +209,11 @@ export default function LaunchPlans() {
                 transition={{ duration: 0.4 }}
               >
                 <Card className={`h-full flex flex-col hover:shadow-md transition-shadow ${template.featured ? 'border-primary border-2' : ''}`}>
-                  {template.featured && (
+                  {template.featured ? (
                     <div className="bg-primary text-white text-center py-1 text-sm font-medium">
                       FEATURED
                     </div>
-                  )}
+                  ) : null}
                   <CardHeader className="relative">
                     {template.featured ? (
                       <div className="absolute top-0 right-0 mt-2 mr-2">
