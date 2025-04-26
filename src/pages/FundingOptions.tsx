@@ -117,6 +117,16 @@ export default function FundingOptions() {
                   </CardHeader>
                   <CardContent>
                     <p className="text-neutral-600 mb-4">{grant.description}</p>
+                    <div className="mb-4">
+                      <motion.img 
+                        src="/lovable-uploads/1bc283bc-a932-4cb4-bc6f-3c16776a2177.png" 
+                        alt="Woman in white robe with dollar bills" 
+                        className="w-full rounded-lg object-cover max-h-96" 
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ duration: 0.5 }}
+                      />
+                    </div>
                     <p className="text-sm text-neutral-500">
                       Application Deadline: {grant.deadline}
                     </p>
