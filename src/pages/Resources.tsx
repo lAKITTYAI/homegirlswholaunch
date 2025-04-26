@@ -13,7 +13,7 @@ const resources = [
     category: "Opportunities",
     description: "Join our ambassador program to empower women, make money, and build your brand while representing HWL.",
     downloadUrl: "#",
-    imageUrl: "lovable-uploads/2c105490-135c-4700-8f41-e99f0e3ccd53.png",
+    imageUrl: "lovable-uploads/bdbeea70-f9c3-41a9-a8be-6e10d79be146.png",
     featured: true,
   },
   {
