@@ -6,7 +6,7 @@ import { Input } from "@/components/ui/input";
 
 const HWLMagazine = () => {
   const [imageError, setImageError] = useState(false);
-  const imagePath = "lovable-uploads/4625f5a4-3c0b-41a8-b85b-a5e0bbfff941.png";
+  const imagePath = "lovable-uploads/10be624b-3394-497b-b424-ed3e2b069b56.png";
 
   return (
     <div className="container mx-auto px-4 py-8">
@@ -25,7 +25,7 @@ const HWLMagazine = () => {
               ) : (
                 <img 
                   src={imagePath}
-                  alt="HWL Magazine Cover" 
+                  alt="HWL Magazine Spring 2025 Issue" 
                   className="rounded-lg shadow-lg mx-auto w-full max-w-md" 
                   onError={() => setImageError(true)}
                 />
