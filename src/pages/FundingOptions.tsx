@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
@@ -13,21 +14,24 @@ const grants = [{
   amount: "$25,000",
   deadline: "May 15, 2025",
   description: "For innovative small businesses focused on technology and sustainability.",
-  link: "#"
+  link: "#",
+  image: "/lovable-uploads/192787cb-ffb3-42b6-877e-42e8270d07a8.png" // Different image for first grant
 }, {
   id: 2,
   title: "Women Entrepreneurs Fund",
   amount: "$15,000",
   deadline: "June 1, 2025",
   description: "Supporting women-owned businesses in their early stages.",
-  link: "#"
+  link: "#",
+  image: "/lovable-uploads/8d850553-3b5c-492c-9401-c6aaf29d07c9.png" // Different image for second grant
 }, {
   id: 3,
   title: "Community Business Development Grant",
   amount: "$10,000",
   deadline: "July 30, 2025",
   description: "For businesses that contribute to local community development.",
-  link: "#"
+  link: "#",
+  image: "/lovable-uploads/1bc283bc-a932-4cb4-bc6f-3c16776a2177.png" // Keep this image for third grant
 }];
 
 export default function FundingOptions() {
@@ -119,8 +123,8 @@ export default function FundingOptions() {
                     <p className="text-neutral-600 mb-4">{grant.description}</p>
                     <div className="mb-4">
                       <motion.img 
-                        src="/lovable-uploads/1bc283bc-a932-4cb4-bc6f-3c16776a2177.png" 
-                        alt="Woman in white robe with dollar bills" 
+                        src={grant.image} 
+                        alt={`Image for ${grant.title}`} 
                         className="w-full rounded-lg object-cover max-h-96" 
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
