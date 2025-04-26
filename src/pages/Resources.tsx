@@ -1,9 +1,11 @@
+
 import { useState } from "react";
 import { Card, CardHeader, CardContent, CardFooter, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { Search } from "lucide-react";
 import { Input } from "@/components/ui/input";
+import { Dialog, DialogContent } from "@/components/ui/dialog";
 
 // Sample resource data
 const resources = [
@@ -78,6 +80,7 @@ const categories = ["All", "Templates", "Guides", "Checklists", "Opportunities"]
 export default function Resources() {
   const [searchQuery, setSearchQuery] = useState("");
   const [activeCategory, setActiveCategory] = useState("All");
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   // Filter resources based on search query and active category
   const filteredResources = resources.filter(resource => {
@@ -146,7 +149,8 @@ export default function Resources() {
                     <img 
                       src={resource.imageUrl} 
                       alt={resource.title} 
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-cover cursor-pointer"
+                      onClick={() => setSelectedImage(resource.imageUrl)}
                     />
                     {resource.featured && (
                       <span className="absolute top-2 right-2 bg-primary text-white text-xs px-2 py-1 rounded-full">
@@ -178,6 +182,18 @@ export default function Resources() {
           </div>
         )}
       </motion.div>
+
+      <Dialog open={!!selectedImage} onOpenChange={() => setSelectedImage(null)}>
+        <DialogContent className="max-w-4xl">
+          {selectedImage && (
+            <img
+              src={selectedImage}
+              alt="Full size resource"
+              className="w-full h-auto"
+            />
+          )}
+        </DialogContent>
+      </Dialog>
     </div>
   );
 }
