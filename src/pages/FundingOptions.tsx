@@ -55,6 +55,27 @@ export default function FundingOptions() {
           </p>
         </div>
 
+        <div className="flex flex-col md:flex-row items-center gap-8 mb-12">
+          <div className="md:w-1/2">
+            <motion.img 
+              src="/lovable-uploads/d3e3d134-3bf4-487e-b104-9968cb918358.png" 
+              alt="Woman with money" 
+              className="rounded-lg shadow-lg w-full object-cover"
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5 }}
+            />
+          </div>
+          <div className="md:w-1/2 text-center md:text-left">
+            <h2 className="text-3xl font-bold mb-4 text-neutral-800">
+              Your Financial Journey Starts Here
+            </h2>
+            <p className="text-neutral-600 mb-6">
+              We understand that every entrepreneur's financial path is unique. Our funding options are designed to support you at every stage of your business.
+            </p>
+          </div>
+        </div>
+
         <div className="flex justify-center gap-4 mb-8">
           <Button
             variant={activeTab === 'grants' ? 'default' : 'outline'}
@@ -153,3 +174,4 @@ export default function FundingOptions() {
     </div>
   );
 }
+
