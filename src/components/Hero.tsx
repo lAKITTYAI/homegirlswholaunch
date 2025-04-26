@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { Input } from "@/components/ui/input";
@@ -87,6 +86,17 @@ export const Hero = () => {
             >
               <Link to="/community">Join Community</Link>
             </Button>
+          </div>
+
+          <div className="mt-12 max-w-5xl mx-auto">
+            <motion.img
+              src="/lovable-uploads/8fea9761-8ba1-415e-8656-01480e5735f2.png"
+              alt="Homegirls Who Launch Team"
+              className="w-full rounded-xl shadow-lg"
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.7, delay: 0.3 }}
+            />
           </div>
         </motion.div>
       </div>
