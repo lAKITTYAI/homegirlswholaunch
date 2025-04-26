@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
@@ -8,7 +7,6 @@ import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/component
 import { Search, Plus, Users } from "lucide-react";
 import { toast } from "sonner";
 
-// Sample forum data
 const forumCategories = [
   { id: 1, name: "Introductions", description: "Introduce yourself to the community", postCount: 156, members: 245 },
   { id: 2, name: "Business Strategy", description: "Discuss business strategy and planning", postCount: 284, members: 312 },
@@ -62,7 +60,6 @@ export default function Community() {
     toast.info("Discussion feature coming soon!");
   };
 
-  // Filter categories based on search
   const filteredCategories = forumCategories.filter(
     category => category.name.toLowerCase().includes(searchQuery.toLowerCase())
   );
@@ -142,6 +139,17 @@ export default function Community() {
                 </CollapsibleContent>
               </Collapsible>
             ))}
+          </div>
+
+          <div className="mb-8">
+            <motion.img
+              src="/lovable-uploads/8fea9761-8ba1-415e-8656-01480e5735f2.png"
+              alt="Homegirls Who Launch Team"
+              className="w-full rounded-xl shadow-lg mt-12"
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.7, delay: 0.3 }}
+            />
           </div>
 
           <div className="mb-8">
