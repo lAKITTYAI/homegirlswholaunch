@@ -29,24 +29,28 @@ const Navigation = () => {
             />
           </Link>
         </div>
-        <nav className="flex items-center space-x-1 md:space-x-2 overflow-auto">
+        <nav className="flex items-center space-x-4 overflow-x-auto scrollbar-hide">
           {links.map((link) => (
             <Link
               key={link.to}
               to={link.to}
               className={cn(
-                "relative px-3 py-2 text-sm font-medium rounded-md",
+                "relative px-3 py-2 text-sm font-medium rounded-md transition-all duration-300 ease-in-out",
                 location.pathname === link.to
-                  ? "text-primary"
-                  : "text-neutral-600 hover:text-primary transition-colors"
+                  ? "text-primary font-semibold"
+                  : "text-neutral-600 hover:text-primary hover:bg-neutral-100"
               )}
             >
               {link.label}
               {location.pathname === link.to && (
                 <motion.div
-                  className="absolute bottom-0 left-0 right-0 h-0.5 bg-primary"
+                  className="absolute bottom-0 left-0 right-0 h-0.5 bg-primary rounded-full"
                   layoutId="navbar-indicator"
-                  transition={{ type: "spring", duration: 0.6 }}
+                  transition={{ 
+                    type: "spring", 
+                    stiffness: 300, 
+                    damping: 30 
+                  }}
                 />
               )}
             </Link>
