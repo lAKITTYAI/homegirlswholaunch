@@ -8,6 +8,15 @@ import { Input } from "@/components/ui/input";
 // Sample resource data
 const resources = [
   {
+    id: 7,
+    title: "Become a HWL Ambassador",
+    category: "Opportunities",
+    description: "Join our ambassador program to empower women, make money, and build your brand while representing HWL.",
+    downloadUrl: "#",
+    imageUrl: "lovable-uploads/2c105490-135c-4700-8f41-e99f0e3ccd53.png",
+    featured: true,
+  },
+  {
     id: 1,
     title: "Business Plan Template",
     category: "Templates",
@@ -64,7 +73,7 @@ const resources = [
 ];
 
 // Categories for filtering
-const categories = ["All", "Templates", "Guides", "Checklists"];
+const categories = ["All", "Templates", "Guides", "Checklists", "Opportunities"];
 
 export default function Resources() {
   const [searchQuery, setSearchQuery] = useState("");
