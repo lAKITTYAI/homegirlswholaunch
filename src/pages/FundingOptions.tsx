@@ -53,8 +53,8 @@ export default function FundingOptions() {
           </p>
         </div>
 
-        <div className="flex flex-col md:flex-row items-center gap-8 mb-12">
-          <div className="md:w-1/2">
+        <div className="flex flex-col items-center gap-8 mb-12">
+          <div className="w-full max-w-2xl">
             <motion.img 
               src="/lovable-uploads/d51ba94c-7ed2-47ff-a662-f9479d1b7c29.png" 
               alt="Entrepreneur surrounded by money, representing funding opportunities" 
@@ -72,7 +72,7 @@ export default function FundingOptions() {
               }} 
             />
           </div>
-          <div className="md:w-1/2 text-center md:text-left">
+          <div className="text-center">
             <h2 className="text-3xl font-bold mb-4 text-neutral-800">Apply for funding here.</h2>
             <p className="text-neutral-600 mb-6">
               We understand that every entrepreneur's financial path is unique. Our funding options are designed to support you at every stage of your business.
