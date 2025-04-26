@@ -133,6 +133,20 @@ export default function LaunchPlans() {
         </div>
         
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4 }}
+            className="md:col-span-2 lg:col-span-3 mb-8"
+          >
+            <img
+              src="public/lovable-uploads/c7ce2bf2-7c2d-4583-8804-83d2ba602e6a.png"
+              alt="Team collaborating on launch plans"
+              className="w-full rounded-lg shadow-lg object-cover max-h-[500px]"
+            />
+          </motion.div>
+
           {launchPlanTemplates.map((template, idx) =>
             template.kit ? (
               <motion.div
