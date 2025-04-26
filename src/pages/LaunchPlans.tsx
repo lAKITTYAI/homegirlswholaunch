@@ -43,7 +43,7 @@ const launchPlanTemplates = [
     price: "$149.00",
     limitedTime: true,
     featured: true,
-    coverImage: "lovable-uploads/cfe6854d-e51a-475a-92a3-9642213f75a3.png",
+    coverImage: "lovable-uploads/d52b24e7-2c37-4b90-a1ab-a0ed13332b9e.png",
     kitItems,
   },
 
