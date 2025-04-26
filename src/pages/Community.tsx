@@ -143,8 +143,8 @@ export default function Community() {
 
           <div className="mb-8">
             <motion.img
-              src="/lovable-uploads/8fea9761-8ba1-415e-8656-01480e5735f2.png"
-              alt="Homegirls Who Launch Team"
+              src="/lovable-uploads/f91aedcc-e16c-4cc7-a62e-7ba82f175dc1.png"
+              alt="Homegirls Who Launch Community"
               className="w-full rounded-xl shadow-lg mt-12"
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
