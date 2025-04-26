@@ -15,23 +15,21 @@ const grants = [{
   deadline: "May 15, 2025",
   description: "For innovative small businesses focused on technology and sustainability.",
   link: "#",
-  image: "/lovable-uploads/192787cb-ffb3-42b6-877e-42e8270d07a8.png" // Different image for first grant
+  image: "/lovable-uploads/192787cb-ffb3-42b6-877e-42e8270d07a8.png" // Keep image for first grant
 }, {
   id: 2,
   title: "Women Entrepreneurs Fund",
   amount: "$15,000",
   deadline: "June 1, 2025",
   description: "Supporting women-owned businesses in their early stages.",
-  link: "#",
-  image: "/lovable-uploads/8d850553-3b5c-492c-9401-c6aaf29d07c9.png" // Different image for second grant
+  link: "#"
 }, {
   id: 3,
   title: "Community Business Development Grant",
   amount: "$10,000",
   deadline: "July 30, 2025",
   description: "For businesses that contribute to local community development.",
-  link: "#",
-  image: "/lovable-uploads/1bc283bc-a932-4cb4-bc6f-3c16776a2177.png" // Keep this image for third grant
+  link: "#"
 }];
 
 export default function FundingOptions() {
@@ -94,7 +92,7 @@ export default function FundingOptions() {
         </div>
 
         {activeTab === 'grants' ? <div className="grid gap-6">
-            {grants.map(grant => <motion.div key={grant.id} initial={{
+            {grants.map((grant, index) => <motion.div key={grant.id} initial={{
           opacity: 0,
           y: 20
         }} animate={{
@@ -121,16 +119,21 @@ export default function FundingOptions() {
                   </CardHeader>
                   <CardContent>
                     <p className="text-neutral-600 mb-4">{grant.description}</p>
-                    <div className="mb-4">
-                      <motion.img 
-                        src={grant.image} 
-                        alt={`Image for ${grant.title}`} 
-                        className="w-full rounded-lg object-cover max-h-96" 
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ duration: 0.5 }}
-                      />
-                    </div>
+                    
+                    {/* Show image only for the first grant */}
+                    {index === 0 && grant.image && (
+                      <div className="mb-4">
+                        <motion.img 
+                          src={grant.image} 
+                          alt={`Image for ${grant.title}`} 
+                          className="w-full rounded-lg object-cover max-h-96" 
+                          initial={{ opacity: 0 }}
+                          animate={{ opacity: 1 }}
+                          transition={{ duration: 0.5 }}
+                        />
+                      </div>
+                    )}
+                    
                     <p className="text-sm text-neutral-500">
                       Application Deadline: {grant.deadline}
                     </p>
