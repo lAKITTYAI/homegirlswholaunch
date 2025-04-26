@@ -15,7 +15,7 @@ const grants = [{
   deadline: "May 15, 2025",
   description: "For innovative small businesses focused on technology and sustainability.",
   link: "#",
-  image: "/lovable-uploads/192787cb-ffb3-42b6-877e-42e8270d07a8.png" // Keep image for first grant
+  image: "/lovable-uploads/f27c5ae8-b4d5-4dcf-82c0-14957122bdb7.png" // Updated image
 }, {
   id: 2,
   title: "Women Entrepreneurs Fund",
