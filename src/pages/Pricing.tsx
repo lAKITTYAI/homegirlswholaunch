@@ -66,7 +66,8 @@ const Pricing = () => {
         "Access to the HomeGirls Who Launch community",
         "Monthly Launch Playbooks",
         "Office Hours – Monthly group Q&A sessions",
-        "Member-exclusive newsletters"
+        "Member-exclusive newsletters",
+        "Free Grant List"
       ]
     },
     {
