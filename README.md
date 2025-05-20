@@ -1,4 +1,9 @@
-# Welcome to your Lovable project
+
+# HomeGirls Who Launch
+
+**Copyright © 2025 HomeGirls Who Launch. All Rights Reserved.**
+
+This software and content are protected by copyright laws and international treaties. Unauthorized reproduction or distribution of this software, or any portion of it, may result in severe civil and criminal penalties, and will be prosecuted to the maximum extent possible under law.
 
 ## Project info
 
