@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
@@ -29,7 +30,8 @@ const grants = [{
   amount: "$10,000",
   deadline: "July 30, 2025",
   description: "For businesses that contribute to local community development.",
-  link: "#"
+  link: "#",
+  image: "/lovable-uploads/76c729f3-0e2d-48c2-8865-6d42e33807ee.png" // Added new image
 }];
 
 export default function FundingOptions() {
