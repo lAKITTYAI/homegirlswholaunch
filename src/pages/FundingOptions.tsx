@@ -32,6 +32,14 @@ const grants = [{
   description: "For businesses that contribute to local community development.",
   link: "#",
   image: "/lovable-uploads/76c729f3-0e2d-48c2-8865-6d42e33807ee.png" // Added new image
+}, {
+  id: 4,
+  title: "The Single Mom in Business Grant",
+  amount: "$20,000",
+  deadline: "August 15, 2025",
+  description: "Supporting single mothers who are starting or growing their own businesses while balancing family responsibilities.",
+  link: "#",
+  image: "/lovable-uploads/1b524a66-7144-4bc8-b40d-0ad7a6a3d9b1.png" // Added new image
 }];
 
 export default function FundingOptions() {
