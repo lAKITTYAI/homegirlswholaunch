@@ -1,34 +1,32 @@
+
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Play, Youtube, Mic } from "lucide-react";
+
 export const PodcastSection = () => {
-  return <section className="py-16 px-4 bg-gradient-to-br from-primary/5 to-secondary/5">
+  return (
+    <section className="py-16 px-4 bg-gradient-to-br from-primary/5 to-secondary/5">
       <div className="container mx-auto max-w-6xl">
-        <motion.div initial={{
-        opacity: 0,
-        y: 20
-      }} animate={{
-        opacity: 1,
-        y: 0
-      }} transition={{
-        duration: 0.6
-      }} className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 mb-4">Our mission is to show our Homegirls how to get RICH!</h2>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-12"
+        >
+          <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 mb-4">
+            Our mission is to show our Homegirls how to get RICH!
+          </h2>
           <p className="text-lg text-neutral-600 max-w-2xl mx-auto">
             Join our community and access exclusive content through our podcast and YouTube channel
           </p>
         </motion.div>
 
-        <motion.div initial={{
-        opacity: 0,
-        scale: 0.95
-      }} animate={{
-        opacity: 1,
-        scale: 1
-      }} transition={{
-        duration: 0.6,
-        delay: 0.2
-      }} className="bg-white rounded-2xl shadow-xl overflow-hidden">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="bg-white rounded-2xl shadow-xl overflow-hidden"
+        >
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div className="p-8 md:p-12">
               <div className="flex items-center gap-3 mb-6">
@@ -59,19 +57,18 @@ export const PodcastSection = () => {
             </div>
             
             <div className="relative">
-              <motion.img src="/lovable-uploads/6cc18a37-57fa-4913-aba1-c8fdcac8f27d.png" alt="Homegirls Who Launch Podcast recording session with host getting makeup done" className="w-full h-full object-cover" initial={{
-              opacity: 0,
-              x: 20
-            }} animate={{
-              opacity: 1,
-              x: 0
-            }} transition={{
-              duration: 0.6,
-              delay: 0.4
-            }} />
+              <motion.img
+                src="/lovable-uploads/316cf67d-f73c-4fc8-b3b0-c054aa99fde2.png"
+                alt="Homegirls Who Launch Podcast recording session with host getting makeup done"
+                className="w-full h-full object-cover"
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+              />
             </div>
           </div>
         </motion.div>
       </div>
-    </section>;
+    </section>
+  );
 };
