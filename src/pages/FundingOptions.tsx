@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
@@ -15,7 +14,7 @@ const grants = [{
   deadline: "May 15, 2025",
   description: "For innovative small businesses focused on technology and sustainability.",
   link: "#",
-  image: "/lovable-uploads/f27c5ae8-b4d5-4dcf-82c0-14957122bdb7.png" // Updated image
+  image: "/lovable-uploads/abeb93d9-d013-4590-bac7-4b09da2ccee8.png" // Updated image
 }, {
   id: 2,
   title: "Women Entrepreneurs Fund",
