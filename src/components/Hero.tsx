@@ -35,9 +35,9 @@ export const Hero = () => {
         >
           <div className="mb-8">
             <img 
-              src="/lovable-uploads/059f52f4-e079-48bc-882c-d787435cf13b.png" 
-              alt="Homegirls Who Launch - Professional woman in purple suit" 
-              className="h-64 mx-auto object-contain" 
+              src="/lovable-uploads/9078973d-5f5e-4f0d-95ee-cfafef7ab155.png" 
+              alt="Homegirls Who Launch Logo" 
+              className="h-32 mx-auto" 
             />
           </div>
           <span className="inline-block px-4 py-1.5 bg-primary/10 text-primary rounded-full text-sm font-medium mb-4">
@@ -47,6 +47,13 @@ export const Hero = () => {
             Turn Your Side Hustle Into Your
             <span className="text-purple-700"> Main Hustle</span>
           </h1>
+          <div className="mb-6">
+            <img 
+              src="/lovable-uploads/059f52f4-e079-48bc-882c-d787435cf13b.png" 
+              alt="Homegirls Who Launch - Professional woman in purple suit" 
+              className="h-64 mx-auto object-contain" 
+            />
+          </div>
           <p className="text-lg md:text-xl text-neutral-600 max-w-2xl mx-auto">
             Join a community of ambitious entrepreneurs and get access to the resources,
             guidance, and funding you need to build your dream business.
