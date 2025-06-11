@@ -103,7 +103,7 @@ const launchPlanTemplates = [
       "Set up affiliate program",
     ],
     timeframe: "6 weeks",
-    coverImage: "lovable-uploads/678afb12-0c7b-4965-8f20-7692a2a3ad67.png",
+    coverImage: "lovable-uploads/c89ebdaa-4404-42bb-b02e-c7958dd17e05.png",
   },
 ];
 
