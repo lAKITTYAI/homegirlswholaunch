@@ -66,8 +66,8 @@ export default function FundingOptions() {
         <div className="flex flex-col items-center gap-8 mb-12">
           <div className="w-full max-w-2xl">
             <motion.img 
-              src="/lovable-uploads/4dfb2a6d-8cfc-4bf8-bc0b-aa014baa8222.png" 
-              alt="Entrepreneur surrounded by money, representing funding opportunities" 
+              src="/lovable-uploads/88786662-9d6b-404c-ac1b-557e302c3948.png" 
+              alt="Professional businesswoman in green suit surrounded by gold elements, representing funding success" 
               className="rounded-lg shadow-lg w-full object-cover" 
               initial={{
                 opacity: 0,
