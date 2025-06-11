@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { Input } from "@/components/ui/input";
@@ -47,13 +46,6 @@ export const Hero = () => {
             Turn Your Side Hustle Into Your
             <span className="text-purple-700"> Main Hustle</span>
           </h1>
-          <div className="mb-6">
-            <img 
-              src="/lovable-uploads/059f52f4-e079-48bc-882c-d787435cf13b.png" 
-              alt="Homegirls Who Launch - Professional woman in purple suit" 
-              className="h-64 mx-auto object-contain" 
-            />
-          </div>
           <p className="text-lg md:text-xl text-neutral-600 max-w-2xl mx-auto">
             Join a community of ambitious entrepreneurs and get access to the resources,
             guidance, and funding you need to build your dream business.
