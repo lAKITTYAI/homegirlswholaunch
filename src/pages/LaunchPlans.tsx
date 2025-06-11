@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Card, CardHeader, CardTitle, CardContent, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -104,7 +103,7 @@ const launchPlanTemplates = [
       "Set up affiliate program",
     ],
     timeframe: "6 weeks",
-    coverImage: "lovable-uploads/04ae625b-b6e4-4aca-b432-1ffb942b1de3.png",
+    coverImage: "lovable-uploads/678afb12-0c7b-4965-8f20-7692a2a3ad67.png",
   },
 ];
 
