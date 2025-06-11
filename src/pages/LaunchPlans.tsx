@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Card, CardHeader, CardTitle, CardContent, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -89,6 +90,7 @@ const launchPlanTemplates = [
       "Develop referral program",
     ],
     timeframe: "2 months",
+    coverImage: "lovable-uploads/f8ef299d-aa55-4b32-8e6b-a07c1b39a420.png",
   },
   {
     id: 3,
