@@ -75,6 +75,7 @@ const launchPlanTemplates = [
       "Create marketing plan",
     ],
     timeframe: "3 months",
+    coverImage: "lovable-uploads/ee800c71-472a-4278-8e54-0d2034deb217.png",
   },
   {
     id: 2,
