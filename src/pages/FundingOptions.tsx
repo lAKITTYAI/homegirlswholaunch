@@ -21,7 +21,8 @@ const grants = [{
   amount: "$15,000",
   deadline: "June 1, 2025",
   description: "Supporting women-owned businesses in their early stages.",
-  link: "#"
+  link: "#",
+  image: "/lovable-uploads/75e3f453-06a4-4d81-9a42-044bc966c6e1.png" // Added new image
 }, {
   id: 3,
   title: "Community Business Development Grant",
@@ -91,7 +92,7 @@ export default function FundingOptions() {
         </div>
 
         {activeTab === 'grants' ? <div className="grid gap-6">
-            {grants.map((grant, index) => <motion.div key={grant.id} initial={{
+            {grants.map((grant) => <motion.div key={grant.id} initial={{
           opacity: 0,
           y: 20
         }} animate={{
@@ -119,8 +120,8 @@ export default function FundingOptions() {
                   <CardContent>
                     <p className="text-neutral-600 mb-4">{grant.description}</p>
                     
-                    {/* Show image only for the first grant */}
-                    {index === 0 && grant.image && (
+                    {/* Show image if available */}
+                    {grant.image && (
                       <div className="mb-4">
                         <motion.img 
                           src={grant.image} 
