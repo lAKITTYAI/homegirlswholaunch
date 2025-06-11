@@ -1,38 +1,25 @@
-
 import React, { useState } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { BookOpen, Newspaper, AlertCircle } from "lucide-react";
 import { Input } from "@/components/ui/input";
-
 const HWLMagazine = () => {
   const [imageError, setImageError] = useState(false);
   const imagePath = "lovable-uploads/10be624b-3394-497b-b424-ed3e2b069b56.png";
-
-  return (
-    <div className="container mx-auto px-4 py-8">
+  return <div className="container mx-auto px-4 py-8">
       <div className="max-w-5xl mx-auto">
         <h1 className="text-4xl font-bold text-center mb-8">HWL Magazine</h1>
         
         <div className="flex flex-col lg:flex-row gap-8 mb-12">
           <div className="lg:w-1/2">
             <div className="sticky top-24">
-              {imageError ? (
-                <div className="bg-amber-50 border border-amber-200 rounded-lg p-4 text-center">
+              {imageError ? <div className="bg-amber-50 border border-amber-200 rounded-lg p-4 text-center">
                   <AlertCircle className="mx-auto h-12 w-12 text-amber-500 mb-2" />
                   <p className="text-amber-800 font-medium">Image could not be loaded</p>
                   <p className="text-amber-600 text-sm mt-1">Path: {imagePath}</p>
-                </div>
-              ) : (
-                <img 
-                  src={imagePath}
-                  alt="HWL Magazine Spring 2025 Issue" 
-                  className="rounded-lg shadow-lg mx-auto w-full max-w-md" 
-                  onError={() => setImageError(true)}
-                />
-              )}
+                </div> : <img src={imagePath} alt="HWL Magazine Spring 2025 Issue" className="rounded-lg shadow-lg mx-auto w-full max-w-md" onError={() => setImageError(true)} />}
               <div className="mt-6 text-center">
                 <h2 className="text-2xl font-bold">Current Issue</h2>
-                <p className="text-neutral-600 mt-2">Spring 2025</p>
+                <p className="text-neutral-600 mt-2">Summer 2025</p>
               </div>
             </div>
           </div>
@@ -86,8 +73,6 @@ const HWLMagazine = () => {
           </div>
         </div>
       </div>
-    </div>
-  );
+    </div>;
 };
-
 export default HWLMagazine;
