@@ -28,7 +28,7 @@ const kitItems = [
     description: "Displayed via a sample IG post format.",
   },
   {
-    label: '"What’s Next" Checklist',
+    label: '"What\'s Next" Checklist',
     description: "Multiple checklist styles on cute lavender/gold cards.",
   },
 ];
@@ -61,6 +61,7 @@ const launchPlanTemplates = [
     ],
     timeframe: "4 weeks",
     featured: true,
+    coverImage: "lovable-uploads/45bac26b-54f9-4d58-8840-05424b9a8cbe.png",
   },
   {
     id: 1,
@@ -214,6 +215,13 @@ export default function LaunchPlans() {
                       FEATURED
                     </div>
                   ) : null}
+                  {template.coverImage && (
+                    <img
+                      src={template.coverImage}
+                      alt={`${template.title} cover image`}
+                      className="rounded-t-lg w-full object-cover max-h-60"
+                    />
+                  )}
                   <CardHeader className="relative">
                     {template.featured ? (
                       <div className="absolute top-0 right-0 mt-2 mr-2">
