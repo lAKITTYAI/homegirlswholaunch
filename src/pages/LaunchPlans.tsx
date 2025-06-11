@@ -219,7 +219,7 @@ export default function LaunchPlans() {
                     <img
                       src={template.coverImage}
                       alt={`${template.title} cover image`}
-                      className="rounded-t-lg w-full object-cover max-h-60"
+                      className={`rounded-t-lg w-full object-cover ${template.id === 4 ? 'max-h-80' : 'max-h-60'}`}
                     />
                   )}
                   <CardHeader className="relative">
