@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Card, CardHeader, CardTitle, CardContent, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -43,7 +44,7 @@ const launchPlanTemplates = [
     price: "$149.00",
     limitedTime: true,
     featured: true,
-    coverImage: "lovable-uploads/d52b24e7-2c37-4b90-a1ab-a0ed13332b9e.png",
+    coverImage: "/lovable-uploads/e8248008-7075-4ddc-84c0-cedcfbd591e3.png",
     kitItems,
   },
 
