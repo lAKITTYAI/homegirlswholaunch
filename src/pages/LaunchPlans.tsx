@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Card, CardHeader, CardTitle, CardContent, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -34,8 +33,44 @@ const kitItems = [
   },
 ];
 
-// Sample launch plan templates (Homegirls Kit first)
+// Sample launch plan templates (Ultimate Branding Package first, then Homegirls Kit)
 const launchPlanTemplates = [
+  {
+    id: "ultimate-branding",
+    title: "Ultimate Branding Package",
+    description: "Everything you need to stand out like a boss. For a limited time, get $75 secrets to branding + brand essentials.",
+    kit: true,
+    price: "$75.00",
+    limitedTime: true,
+    featured: true,
+    coverImage: "/lovable-uploads/31e73e7b-f073-44bd-ae9d-635a594b3ad7.png",
+    kitItems: [
+      {
+        label: "GANG Branded Hoodie",
+        description: "Premium black hoodie with gold GANG logo branding.",
+      },
+      {
+        label: "Designer Blue Jeans",
+        description: "High-quality fitted blue jeans for that boss look.",
+      },
+      {
+        label: "GANG Branded T-Shirt",
+        description: "Stylish black tee with elegant GANG branding.",
+      },
+      {
+        label: "GANG Baseball Cap",
+        description: "Sleek black cap with gold GANG logo detail.",
+      },
+      {
+        label: "GANG Branded Sweatpants",
+        description: "Comfortable black sweatpants with GANG branding.",
+      },
+      {
+        label: "Brand Essentials Guide",
+        description: "Complete branding secrets and business essentials.",
+      },
+    ],
+  },
   {
     id: "kit",
     title: "The Homegirls Who Launch Kit",
