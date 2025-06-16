@@ -205,8 +205,8 @@ export default function LaunchPlans() {
                   </div>
                   <img
                     src={template.coverImage}
-                    alt="Homegirls Who Launch Kit Visual"
-                    className="rounded-t-lg w-full object-cover max-h-80 border-b border-primary"
+                    alt={`${template.title} Visual`}
+                    className="rounded-t-lg w-full object-contain h-auto min-h-[300px] max-h-[500px] border-b border-primary bg-white"
                   />
                   <CardHeader>
                     <div className="flex items-center justify-between mb-1">
