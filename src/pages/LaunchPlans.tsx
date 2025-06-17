@@ -88,7 +88,7 @@ const launchPlanTemplates = [
     description: "Join our ambassador program to empower women, make money, and build your brand while representing HWL with 30% commission and no cap.",
     ambassador: true,
     featured: true,
-    coverImage: "/lovable-uploads/c2603734-ee64-42e7-8fbf-8f495233ef63.png",
+    coverImage: "/lovable-uploads/0b966f7b-2f50-40af-9717-c44658bece2e.png",
     benefits: [
       "30% commission on all referrals",
       "No commission caps or limits",
@@ -281,7 +281,7 @@ export default function LaunchPlans() {
                       <CardTitle className="text-2xl font-extrabold text-primary-dark">
                         {template.title}
                       </CardTitle>
-                      <span className="text-lg font-semibold bg-green-600 text-white rounded-full px-4 py-1 shadow">30% Commission</span>
+                      <span className="text-lg font-semibold bg-primary text-white rounded-full px-4 py-1 shadow">30% Commission</span>
                     </div>
                   </CardHeader>
                   <CardContent>
@@ -298,7 +298,7 @@ export default function LaunchPlans() {
                     </ul>
                   </CardContent>
                   <CardFooter className="flex flex-col gap-3 pt-0 items-center">
-                    <Button className="bg-green-600 px-8 py-3 w-full text-lg font-bold hover:bg-green-700 shadow-md">
+                    <Button className="bg-primary px-8 py-3 w-full text-lg font-bold hover:bg-primary-dark shadow-md">
                       Apply Today!
                     </Button>
                     <span className="text-xs text-primary-dark opacity-70 tracking-wide">Start earning with no commission caps</span>
