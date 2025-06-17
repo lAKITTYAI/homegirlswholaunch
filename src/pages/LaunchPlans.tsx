@@ -33,7 +33,7 @@ const kitItems = [
   },
 ];
 
-// Sample launch plan templates (Ultimate Branding Package first, then Homegirls Kit)
+// Sample launch plan templates (Ultimate Branding Package first, then Homegirls Kit, then Ambassador)
 const launchPlanTemplates = [
   {
     id: "ultimate-branding",
@@ -81,6 +81,22 @@ const launchPlanTemplates = [
     featured: true,
     coverImage: "/lovable-uploads/e8248008-7075-4ddc-84c0-cedcfbd591e3.png",
     kitItems,
+  },
+  {
+    id: "ambassador",
+    title: "Become a HWL Ambassador",
+    description: "Join our ambassador program to empower women, make money, and build your brand while representing HWL with 30% commission and no cap.",
+    ambassador: true,
+    featured: true,
+    coverImage: "/lovable-uploads/c2603734-ee64-42e7-8fbf-8f495233ef63.png",
+    benefits: [
+      "30% commission on all referrals",
+      "No commission caps or limits",
+      "Exclusive ambassador resources",
+      "Personal branding support",
+      "Community recognition",
+      "Early access to new programs"
+    ]
   },
 
   // original plans, keep IDs as numbers for all other plans
@@ -237,6 +253,55 @@ export default function LaunchPlans() {
                       Purchase Now – {template.price}
                     </Button>
                     <span className="text-xs text-primary-dark opacity-70 tracking-wide">Includes all kit items shown above</span>
+                  </CardFooter>
+                </Card>
+              </motion.div>
+            ) : template.ambassador ? (
+              <motion.div
+                key={template.id}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4 }}
+                className="md:col-span-2 lg:col-span-3"
+              >
+                <Card className="h-full flex flex-col border-primary bg-primary/5 border-2 shadow-lg relative">
+                  <div className="absolute top-4 left-4 z-10">
+                    <span className="bg-secondary-dark text-primary px-3 py-1 rounded-full font-semibold text-xs uppercase tracking-wider shadow">
+                      Ambassador Program
+                    </span>
+                  </div>
+                  <img
+                    src={template.coverImage}
+                    alt={`${template.title} Visual`}
+                    className="rounded-t-lg w-full object-contain h-auto min-h-[300px] max-h-[500px] border-b border-primary bg-white"
+                  />
+                  <CardHeader>
+                    <div className="flex items-center justify-between mb-1">
+                      <CardTitle className="text-2xl font-extrabold text-primary-dark">
+                        {template.title}
+                      </CardTitle>
+                      <span className="text-lg font-semibold bg-green-600 text-white rounded-full px-4 py-1 shadow">30% Commission</span>
+                    </div>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-neutral-700 text-base mb-4">
+                      {template.description}
+                    </p>
+                    <ul className="grid md:grid-cols-2 gap-y-3 gap-x-6 text-sm mb-4">
+                      {template.benefits.map((benefit, i) => (
+                        <li key={i} className="flex items-start gap-2">
+                          <Check className="text-primary mt-1" size={18} />
+                          <span className="font-medium">{benefit}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </CardContent>
+                  <CardFooter className="flex flex-col gap-3 pt-0 items-center">
+                    <Button className="bg-green-600 px-8 py-3 w-full text-lg font-bold hover:bg-green-700 shadow-md">
+                      Apply Today!
+                    </Button>
+                    <span className="text-xs text-primary-dark opacity-70 tracking-wide">Start earning with no commission caps</span>
                   </CardFooter>
                 </Card>
               </motion.div>

@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Card, CardHeader, CardContent, CardFooter, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -7,17 +6,8 @@ import { Search } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 
-// Sample resource data
+// Sample resource data (removed ambassador item as it's moved to Launch Plans)
 const resources = [
-  {
-    id: 7,
-    title: "Become a HWL Ambassador",
-    category: "Opportunities",
-    description: "Join our ambassador program to empower women, make money, and build your brand while representing HWL.",
-    downloadUrl: "#",
-    imageUrl: "lovable-uploads/8d850553-3b5c-492c-9401-c6aaf29d07c9.png",
-    featured: true,
-  },
   {
     id: 1,
     title: "Business Plan Template",
@@ -74,8 +64,8 @@ const resources = [
   },
 ];
 
-// Categories for filtering
-const categories = ["All", "Templates", "Guides", "Checklists", "Opportunities"];
+// Categories for filtering (removed Opportunities since ambassador moved)
+const categories = ["All", "Templates", "Guides", "Checklists"];
 
 export default function Resources() {
   const [searchQuery, setSearchQuery] = useState("");
