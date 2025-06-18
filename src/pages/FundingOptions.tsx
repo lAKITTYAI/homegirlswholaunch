@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
@@ -23,7 +22,7 @@ const grants = [{
   deadline: "June 1, 2025",
   description: "Supporting women-owned businesses in their early stages.",
   link: "#",
-  image: "/lovable-uploads/41d03a27-d4da-4993-bd51-1a3541cb1fee.png"
+  image: "/lovable-uploads/745ce114-a155-458b-94c3-39ed6710c6d9.png"
 }, {
   id: 3,
   title: "Community Business Development Grant",
