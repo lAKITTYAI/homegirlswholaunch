@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
@@ -132,11 +131,11 @@ export default function FundingOptions() {
                     
                     {/* Show image if available */}
                     {grant.image && (
-                      <div className="mb-4">
+                      <div className="mb-4 flex justify-center">
                         <motion.img 
                           src={grant.image} 
                           alt={`Image for ${grant.title}`} 
-                          className="w-full rounded-lg object-cover max-h-96" 
+                          className="rounded-lg object-contain max-w-md max-h-48 w-auto h-auto" 
                           initial={{ opacity: 0 }}
                           animate={{ opacity: 1 }}
                           transition={{ duration: 0.5 }}
