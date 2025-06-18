@@ -15,7 +15,7 @@ const grants = [{
   deadline: "May 15, 2025",
   description: "For innovative small businesses focused on technology and sustainability.",
   link: "#",
-  image: "/lovable-uploads/abeb93d9-d013-4590-bac7-4b09da2ccee8.png" // Updated image
+  image: "/lovable-uploads/abeb93d9-d013-4590-bac7-4b09da2ccee8.png"
 }, {
   id: 2,
   title: "Women Entrepreneurs Fund",
@@ -23,7 +23,7 @@ const grants = [{
   deadline: "June 1, 2025",
   description: "Supporting women-owned businesses in their early stages.",
   link: "#",
-  image: "/lovable-uploads/75e3f453-06a4-4d81-9a42-044bc966c6e1.png" // Added new image
+  image: "/lovable-uploads/41d03a27-d4da-4993-bd51-1a3541cb1fee.png"
 }, {
   id: 3,
   title: "Community Business Development Grant",
@@ -31,7 +31,7 @@ const grants = [{
   deadline: "July 30, 2025",
   description: "For businesses that contribute to local community development.",
   link: "#",
-  image: "/lovable-uploads/76c729f3-0e2d-48c2-8865-6d42e33807ee.png" // Added new image
+  image: "/lovable-uploads/76c729f3-0e2d-48c2-8865-6d42e33807ee.png"
 }, {
   id: 4,
   title: "The Single Mom in Business Grant",
@@ -39,7 +39,7 @@ const grants = [{
   deadline: "August 15, 2025",
   description: "Supporting single mothers who are starting or growing their own businesses while balancing family responsibilities.",
   link: "#",
-  image: "/lovable-uploads/1b524a66-7144-4bc8-b40d-0ad7a6a3d9b1.png" // Added new image
+  image: "/lovable-uploads/1b524a66-7144-4bc8-b40d-0ad7a6a3d9b1.png"
 }];
 
 export default function FundingOptions() {
