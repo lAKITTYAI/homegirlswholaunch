@@ -12,6 +12,7 @@ const Navigation = () => {
     { to: "/launch-plans", label: "Launch Plans" },
     { to: "/resources", label: "Resources" },
     { to: "/funding", label: "Funding Options" },
+    { to: "/credit-builder", label: "Credit Builder" },
     { to: "/community", label: "Community" },
     { to: "/about", label: "About HWL" },
     { to: "/magazine", label: "HWL Magazine" },

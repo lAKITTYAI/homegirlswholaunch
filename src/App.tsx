@@ -13,6 +13,7 @@ import HWLMagazine from "./pages/HWLMagazine";
 import Pricing from "./pages/Pricing";
 import Donate from "./pages/Donate";
 import FundingOptions from "./pages/FundingOptions";
+import BusinessCreditBuilder from "./pages/BusinessCreditBuilder";
 import Layout from "./components/Layout";
 
 const queryClient = new QueryClient();
@@ -34,6 +35,7 @@ const App = () => (
             <Route path="/pricing" element={<Pricing />} />
             <Route path="/donate" element={<Donate />} />
             <Route path="/funding" element={<FundingOptions />} />
+            <Route path="/credit-builder" element={<BusinessCreditBuilder />} />
           </Route>
         </Routes>
       </BrowserRouter>
