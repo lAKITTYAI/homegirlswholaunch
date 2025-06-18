@@ -88,7 +88,7 @@ const launchPlanTemplates = [
     description: "Join our ambassador program to empower women, make money, and build your brand while representing HWL with 30% commission and no cap.",
     ambassador: true,
     featured: true,
-    coverImage: "/lovable-uploads/8ad3019d-6767-46ce-b9bf-0aed21a36063.png",
+    coverImage: "/lovable-uploads/13b7dca7-8944-4d2c-bdd4-dfa4f7b94e33.png",
     benefits: [
       "30% commission on all referrals",
       "No commission caps or limits",
