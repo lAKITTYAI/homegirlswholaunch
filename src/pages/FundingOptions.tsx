@@ -139,7 +139,7 @@ export default function FundingOptions() {
                         <motion.img 
                           src={grant.image} 
                           alt={`Image for ${grant.title}`} 
-                          className="w-full rounded-lg object-contain max-h-80 bg-gray-50"
+                          className="w-full rounded-lg object-contain max-h-96 bg-gray-50"
                           initial={{ opacity: 0 }}
                           animate={{ opacity: 1 }}
                           transition={{ duration: 0.5 }}
