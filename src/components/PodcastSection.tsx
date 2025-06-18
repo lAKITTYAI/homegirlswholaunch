@@ -13,8 +13,7 @@ export const PodcastSection = () => {
       }} transition={{
         duration: 0.6
       }} className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 mb-4">&quot;Our goal is to show you how to  turn your first business into wealth that last generations&quot; 
--Madam L.A Kitty</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 mb-4">&quot;My goal is to show my Homegirls how to turn their first business into wealth that last generations&quot; -Madam L.A Kitty</h2>
           <p className="text-lg text-neutral-600 max-w-2xl mx-auto">
             Join our community and access exclusive content through our podcast and YouTube channel
           </p>
