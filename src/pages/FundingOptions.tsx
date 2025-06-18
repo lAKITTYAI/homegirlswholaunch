@@ -67,7 +67,7 @@ export default function FundingOptions() {
         <div className="flex flex-col items-center gap-8 mb-12">
           <div className="w-full max-w-2xl">
             <motion.img 
-              src="/lovable-uploads/41d03a27-d4da-4993-bd51-1a3541cb1fee.png" 
+              src="/lovable-uploads/63fbfc83-e622-451b-95b9-03a22a6943ef.png" 
               alt="Women Entrepreneurs Fund - Apply for funding here" 
               className="rounded-lg shadow-lg w-full object-cover" 
               initial={{
