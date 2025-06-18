@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
@@ -67,8 +68,8 @@ export default function FundingOptions() {
         <div className="flex flex-col items-center gap-8 mb-12">
           <div className="w-full max-w-2xl">
             <motion.img 
-              src="/lovable-uploads/88786662-9d6b-404c-ac1b-557e302c3948.png" 
-              alt="Professional businesswoman in green suit surrounded by gold elements, representing funding success" 
+              src="/lovable-uploads/41d03a27-d4da-4993-bd51-1a3541cb1fee.png" 
+              alt="Women Entrepreneurs Fund - Apply for funding here" 
               className="rounded-lg shadow-lg w-full object-cover" 
               initial={{
                 opacity: 0,
