@@ -43,16 +43,18 @@ const grants = [{
 
 export default function FundingOptions() {
   const [activeTab, setActiveTab] = useState<'grants' | 'apply'>('grants');
-  return <div className="container mx-auto px-4 py-12">
+  
+  return (
+    <div className="container mx-auto px-4 py-12">
       <motion.div initial={{
-      opacity: 0,
-      y: 20
-    }} animate={{
-      opacity: 1,
-      y: 0
-    }} transition={{
-      duration: 0.6
-    }} className="max-w-6xl mx-auto">
+        opacity: 0,
+        y: 20
+      }} animate={{
+        opacity: 1,
+        y: 0
+      }} transition={{
+        duration: 0.6
+      }} className="max-w-6xl mx-auto">
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold text-neutral-900 mb-4">
             Funding Options
@@ -100,16 +102,18 @@ export default function FundingOptions() {
           </Button>
         </div>
 
-        {activeTab === 'grants' ? <div className="grid gap-6">
-            {grants.map((grant) => <motion.div key={grant.id} initial={{
-          opacity: 0,
-          y: 20
-        }} animate={{
-          opacity: 1,
-          y: 0
-        }} transition={{
-          duration: 0.4
-        }}>
+        {activeTab === 'grants' ? (
+          <div className="grid gap-6">
+            {grants.map((grant) => (
+              <motion.div key={grant.id} initial={{
+                opacity: 0,
+                y: 20
+              }} animate={{
+                opacity: 1,
+                y: 0
+              }} transition={{
+                duration: 0.4
+              }}>
                 <Card>
                   <CardHeader>
                     <div className="flex justify-between items-start">
@@ -131,11 +135,15 @@ export default function FundingOptions() {
                     
                     {/* Show image if available */}
                     {grant.image && (
-                      <div className="mb-4 flex justify-center">
+                      <div className="mb-4">
                         <motion.img 
                           src={grant.image} 
                           alt={`Image for ${grant.title}`} 
-                          className="rounded-lg object-contain max-w-md max-h-48 w-auto h-auto" 
+                          className={
+                            grant.id === 2 
+                              ? "w-full rounded-lg object-contain max-h-64" 
+                              : "w-full rounded-lg object-cover max-h-96"
+                          }
                           initial={{ opacity: 0 }}
                           animate={{ opacity: 1 }}
                           transition={{ duration: 0.5 }}
@@ -148,8 +156,11 @@ export default function FundingOptions() {
                     </p>
                   </CardContent>
                 </Card>
-              </motion.div>)}
-          </div> : <Card className="p-6">
+              </motion.div>
+            ))}
+          </div>
+        ) : (
+          <Card className="p-6">
             <CardHeader>
               <CardTitle className="text-2xl mb-4">Apply for Funding</CardTitle>
               <CardDescription>
@@ -182,7 +193,9 @@ export default function FundingOptions() {
                 </Button>
               </form>
             </CardContent>
-          </Card>}
+          </Card>
+        )}
       </motion.div>
-    </div>;
+    </div>
+  );
 }
