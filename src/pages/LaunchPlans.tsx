@@ -46,28 +46,28 @@ const launchPlanTemplates = [
     coverImage: "/lovable-uploads/31e73e7b-f073-44bd-ae9d-635a594b3ad7.png",
     kitItems: [
       {
-        label: "GANG Branded Hoodie",
-        description: "Premium black hoodie with gold GANG logo branding.",
+        label: "Brand Strategy Guide",
+        description: "Step-by-step guide to developing your unique brand identity.",
       },
       {
-        label: "Designer Blue Jeans",
-        description: "High-quality fitted blue jeans for that boss look.",
+        label: "Logo Design Templates",
+        description: "Professional logo templates and design principles.",
       },
       {
-        label: "GANG Branded T-Shirt",
-        description: "Stylish black tee with elegant GANG branding.",
+        label: "Color Palette & Typography Guide",
+        description: "Choose the perfect colors and fonts for your brand.",
       },
       {
-        label: "GANG Baseball Cap",
-        description: "Sleek black cap with gold GANG logo detail.",
+        label: "Brand Voice & Messaging Kit",
+        description: "Develop your brand's personality and communication style.",
       },
       {
-        label: "GANG Branded Sweatpants",
-        description: "Comfortable black sweatpants with GANG branding.",
+        label: "Social Media Branding Templates",
+        description: "Consistent branding across all your social platforms.",
       },
       {
-        label: "Brand Essentials Guide",
-        description: "Complete branding secrets and business essentials.",
+        label: "Business Branding Checklist",
+        description: "Complete checklist to ensure brand consistency everywhere.",
       },
     ],
   },
