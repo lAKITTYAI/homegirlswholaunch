@@ -80,7 +80,8 @@ const Pricing = () => {
         "Bi-Weekly Masterclasses",
         "Personalized Business Audits",
         "Access to Resource Vault",
-        "Priority Coaching"
+        "Priority Coaching",
+        "HWL Magazine Spotlight opportunities"
       ],
       highlighted: true
     },
@@ -93,7 +94,7 @@ const Pricing = () => {
         "Everything in Boss Builder",
         "1:1 Strategy Session (Monthly)",
         "Exclusive Inner Circle Retreats",
-        "Spotlight Opportunities",
+        "HWL Magazine Spotlight opportunities",
         "VIP Access to exclusive events"
       ]
     }
