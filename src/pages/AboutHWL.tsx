@@ -2,6 +2,8 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Mic, ArrowRight } from "lucide-react";
 
 const AboutHWL = () => {
   return (
@@ -120,6 +122,41 @@ const AboutHWL = () => {
             </p>
           </CardContent>
         </Card>
+
+        {/* Become A HWL Speaker Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="mb-12"
+        >
+          <Card className="bg-gradient-to-r from-primary/10 to-secondary/10 border-primary/20">
+            <CardContent className="p-8">
+              <div className="text-center">
+                <div className="flex justify-center mb-4">
+                  <div className="bg-primary/20 p-3 rounded-full">
+                    <Mic className="w-8 h-8 text-primary" />
+                  </div>
+                </div>
+                <h3 className="text-2xl font-bold text-neutral-900 mb-4">
+                  Become A HWL Speaker?
+                </h3>
+                <p className="text-lg text-neutral-600 mb-6 max-w-2xl mx-auto">
+                  Want to learn how to join the HWL movement that is helping women entrepreneurs 
+                  all over the world launch successful businesses?
+                </p>
+                <Button 
+                  className="bg-primary hover:bg-primary/90 text-white px-8 py-3 text-lg"
+                  size="lg"
+                >
+                  Apply Here
+                  <ArrowRight className="w-5 h-5 ml-2" />
+                </Button>
+              </div>
+            </CardContent>
+          </Card>
+        </motion.div>
 
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
