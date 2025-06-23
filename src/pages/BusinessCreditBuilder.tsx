@@ -201,10 +201,13 @@ export default function BusinessCreditBuilder() {
                     </div>
                     <div className="text-3xl font-bold text-primary">
                       {program.price}
-                      {program.type === 'membership' ? '/month' : '/month+'}
+                      {program.type === 'savings' ? '/month' : ''}
                     </div>
                     <CardDescription className="text-sm font-medium">
-                      Credit Building: {program.creditLimit}
+                      {program.type === 'membership' 
+                        ? 'Net 30 Payment Terms' 
+                        : `Monthly Savings: ${program.creditLimit}`
+                      }
                     </CardDescription>
                     <p className="text-sm text-neutral-600 mt-2">{program.description}</p>
                   </CardHeader>
@@ -381,8 +384,8 @@ export default function BusinessCreditBuilder() {
                       </div>
                     ) : (
                       <div className="text-sm text-neutral-600">
-                        <p>Program Cost: {creditPrograms.find(p => p.name === selectedProgram)?.price}/month</p>
-                        <p>Includes full membership benefits + Net 30 credit building</p>
+                        <p>Program Cost: {creditPrograms.find(p => p.name === selectedProgram)?.price} (Net 30 Terms)</p>
+                        <p>Pay in full within 30 days + full membership benefits</p>
                       </div>
                     )}
                   </div>
@@ -423,9 +426,9 @@ export default function BusinessCreditBuilder() {
                     <span className="text-primary font-bold text-sm">1</span>
                   </div>
                   <div>
-                    <h5 className="font-semibold">Join Membership</h5>
+                    <h5 className="font-semibold">Join Membership (Net 30)</h5>
                     <p className="text-sm text-neutral-600">
-                      Get full access to Boss Builder ($79) or Inner Circle ($249) membership benefits
+                      Pay $79 (Boss Builder) or $249 (Inner Circle) in full within 30 days
                     </p>
                   </div>
                 </div>
@@ -434,9 +437,9 @@ export default function BusinessCreditBuilder() {
                     <span className="text-primary font-bold text-sm">2</span>
                   </div>
                   <div>
-                    <h5 className="font-semibold">Net 30 Setup</h5>
+                    <h5 className="font-semibold">Credit Building Setup</h5>
                     <p className="text-sm text-neutral-600">
-                      We set up your Net 30 vendor accounts and credit reporting
+                      We set up your Net 30 vendor accounts and credit reporting to D&B
                     </p>
                   </div>
                 </div>
@@ -445,9 +448,9 @@ export default function BusinessCreditBuilder() {
                     <span className="text-primary font-bold text-sm">3</span>
                   </div>
                   <div>
-                    <h5 className="font-semibold">Build & Learn</h5>
+                    <h5 className="font-semibold">Build Credit & Access Benefits</h5>
                     <p className="text-sm text-neutral-600">
-                      Use Net 30 terms while accessing coaching, courses, and community support
+                      Build business credit while accessing full membership benefits and coaching
                     </p>
                   </div>
                 </div>
