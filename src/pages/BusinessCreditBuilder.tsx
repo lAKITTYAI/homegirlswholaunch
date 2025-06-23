@@ -14,14 +14,16 @@ import {
   Calendar,
   CheckCircle,
   Star,
-  DollarSign
+  DollarSign,
+  PiggyBank,
+  Users
 } from "lucide-react";
 
 const creditBenefits = [
   {
     icon: TrendingUp,
     title: "Build Credit Fast",
-    description: "Establish business credit in as little as 30-45 days with our Net 30 program"
+    description: "Establish business credit in as little as 30-45 days with our integrated programs"
   },
   {
     icon: Shield,
@@ -34,56 +36,73 @@ const creditBenefits = [
     description: "Keep your personal and business credit separate for better financial health"
   },
   {
-    icon: Star,
-    title: "Premium Vendors",
-    description: "Access to quality suppliers and vendors with Net 30 payment terms"
+    icon: PiggyBank,
+    title: "Multiple Building Methods",
+    description: "Choose from Net 30 programs or savings account options to fit your budget"
   }
 ];
 
-const creditTiers = [
+const creditPrograms = [
   {
-    name: "Starter",
-    price: "$297",
-    creditLimit: "$500 - $2,500",
+    name: "Boss Builder Net 30",
+    price: "$79",
+    type: "membership",
+    description: "Net 30 program integrated with Boss Builder membership",
     features: [
-      "Basic business credit setup",
-      "2 Net 30 vendor accounts",
+      "Full Boss Builder membership benefits",
+      "Net 30 vendor account setup",
       "Dun & Bradstreet reporting",
+      "Bi-Weekly Masterclasses",
+      "Personalized Business Audits",
       "Credit monitoring dashboard",
-      "Email support"
-    ]
-  },
-  {
-    name: "Growth",
-    price: "$497",
-    creditLimit: "$2,500 - $10,000",
-    features: [
-      "Advanced credit profile optimization",
-      "5 Net 30 vendor accounts",
-      "Dun & Bradstreet + Experian reporting",
-      "Priority credit monitoring",
-      "Phone + Email support",
-      "Credit coaching sessions"
+      "Business credit coaching"
     ],
+    creditLimit: "$2,500 - $10,000",
     popular: true
   },
   {
-    name: "Enterprise",
-    price: "$797",
-    creditLimit: "$10,000+",
+    name: "Inner Circle Net 30",
+    price: "$249",
+    type: "membership",
+    description: "Premium Net 30 program with Inner Circle membership",
     features: [
-      "Complete credit suite setup",
-      "10+ Net 30 vendor accounts",
+      "Full Inner Circle membership benefits",
+      "Premium Net 30 vendor accounts",
       "All 3 bureau reporting (D&B, Experian, Equifax)",
-      "Real-time credit alerts",
+      "1:1 Strategy Sessions (Monthly)",
+      "Exclusive Inner Circle Retreats",
       "Dedicated account manager",
-      "Monthly strategy calls"
-    ]
+      "Priority credit building support"
+    ],
+    creditLimit: "$10,000+"
+  },
+  {
+    name: "Credit Savings Builder",
+    price: "Starting at $10",
+    type: "savings",
+    description: "Monthly savings account program for gradual credit building",
+    features: [
+      "Choose $10, $15, or $30 monthly payments",
+      "Build to $500 or $1000 savings goal",
+      "Reported every 30-60 days",
+      "Money returned after completion",
+      "No membership required",
+      "Flexible payment schedule",
+      "Perfect for budget-conscious builders"
+    ],
+    creditLimit: "$500 - $1,000"
   }
 ];
 
+const savingsOptions = [
+  { monthly: 10, goal: 500, duration: "50 months", reporting: "Every 30 days" },
+  { monthly: 15, goal: 500, duration: "33 months", reporting: "Every 45 days" },
+  { monthly: 30, goal: 1000, duration: "33 months", reporting: "Every 60 days" }
+];
+
 export default function BusinessCreditBuilder() {
-  const [selectedTier, setSelectedTier] = useState<string | null>(null);
+  const [selectedProgram, setSelectedProgram] = useState<string | null>(null);
+  const [selectedSavingsOption, setSelectedSavingsOption] = useState<number | null>(null);
   const [formData, setFormData] = useState({
     businessName: "",
     ein: "",
@@ -108,25 +127,29 @@ export default function BusinessCreditBuilder() {
         {/* Header Section */}
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold text-neutral-900 mb-4">
-            Business Credit Builder
+            Business Credit Builder Programs
           </h1>
-          <p className="text-lg text-neutral-600 max-w-2xl mx-auto mb-8">
-            Build strong business credit with our Net 30 program. Get reported to Dun & Bradstreet 
-            and establish creditworthiness separate from your personal credit.
+          <p className="text-lg text-neutral-600 max-w-3xl mx-auto mb-8">
+            Build strong business credit through our integrated membership programs with Net 30 terms, 
+            or start small with our monthly savings account program. All options report to major credit bureaus.
           </p>
           
-          <div className="flex justify-center items-center gap-4 mb-8">
+          <div className="flex justify-center items-center gap-4 mb-8 flex-wrap">
             <Badge variant="secondary" className="text-sm">
               <CheckCircle className="w-4 h-4 mr-1" />
               Dun & Bradstreet Reporting
             </Badge>
             <Badge variant="secondary" className="text-sm">
               <Calendar className="w-4 h-4 mr-1" />
-              Net 30 Terms
+              Net 30 & Savings Options
             </Badge>
             <Badge variant="secondary" className="text-sm">
-              <Shield className="w-4 h-4 mr-1" />
-              Business Credit Protection
+              <Users className="w-4 h-4 mr-1" />
+              Membership Integration
+            </Badge>
+            <Badge variant="secondary" className="text-sm">
+              <PiggyBank className="w-4 h-4 mr-1" />
+              Money Back Guarantee
             </Badge>
           </div>
         </div>
@@ -153,34 +176,41 @@ export default function BusinessCreditBuilder() {
           ))}
         </div>
 
-        {/* Pricing Tiers */}
+        {/* Credit Building Programs */}
         <div className="mb-12">
-          <h2 className="text-3xl font-bold text-center mb-8">Choose Your Credit Building Plan</h2>
-          <div className="grid md:grid-cols-3 gap-6">
-            {creditTiers.map((tier) => (
+          <h2 className="text-3xl font-bold text-center mb-8">Choose Your Credit Building Path</h2>
+          <div className="grid lg:grid-cols-3 gap-6 mb-8">
+            {creditPrograms.map((program) => (
               <motion.div
-                key={tier.name}
+                key={program.name}
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.4 }}
                 className="relative"
               >
-                <Card className={`h-full ${tier.popular ? 'ring-2 ring-primary shadow-lg' : ''}`}>
-                  {tier.popular && (
+                <Card className={`h-full ${program.popular ? 'ring-2 ring-primary shadow-lg' : ''}`}>
+                  {program.popular && (
                     <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
                       <Badge className="bg-primary text-white">Most Popular</Badge>
                     </div>
                   )}
                   <CardHeader className="text-center">
-                    <CardTitle className="text-2xl">{tier.name}</CardTitle>
-                    <div className="text-3xl font-bold text-primary">{tier.price}</div>
-                    <CardDescription className="text-lg font-medium">
-                      Credit Limit: {tier.creditLimit}
+                    <div className="flex items-center justify-center gap-2 mb-2">
+                      {program.type === 'membership' ? <Users className="w-5 h-5" /> : <PiggyBank className="w-5 h-5" />}
+                      <CardTitle className="text-xl">{program.name}</CardTitle>
+                    </div>
+                    <div className="text-3xl font-bold text-primary">
+                      {program.price}
+                      {program.type === 'membership' ? '/month' : '/month+'}
+                    </div>
+                    <CardDescription className="text-sm font-medium">
+                      Credit Building: {program.creditLimit}
                     </CardDescription>
+                    <p className="text-sm text-neutral-600 mt-2">{program.description}</p>
                   </CardHeader>
                   <CardContent>
                     <ul className="space-y-3 mb-6">
-                      {tier.features.map((feature, index) => (
+                      {program.features.map((feature, index) => (
                         <li key={index} className="flex items-start gap-2">
                           <CheckCircle className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
                           <span className="text-sm">{feature}</span>
@@ -189,20 +219,69 @@ export default function BusinessCreditBuilder() {
                     </ul>
                     <Button 
                       className="w-full"
-                      variant={selectedTier === tier.name ? "default" : "outline"}
-                      onClick={() => setSelectedTier(tier.name)}
+                      variant={selectedProgram === program.name ? "default" : "outline"}
+                      onClick={() => setSelectedProgram(program.name)}
                     >
-                      {selectedTier === tier.name ? "Selected" : "Select Plan"}
+                      {selectedProgram === program.name ? "Selected" : "Select Program"}
                     </Button>
                   </CardContent>
                 </Card>
               </motion.div>
             ))}
           </div>
+
+          {/* Savings Account Options */}
+          {selectedProgram === "Credit Savings Builder" && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="mb-8"
+            >
+              <Card className="max-w-4xl mx-auto">
+                <CardHeader className="text-center">
+                  <CardTitle className="flex items-center justify-center gap-2">
+                    <PiggyBank className="w-5 h-5" />
+                    Choose Your Savings Plan
+                  </CardTitle>
+                  <CardDescription>
+                    Select your monthly payment amount and savings goal. Your money will be returned after completion.
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <div className="grid md:grid-cols-3 gap-4">
+                    {savingsOptions.map((option, index) => (
+                      <Card 
+                        key={index}
+                        className={`cursor-pointer transition-all ${
+                          selectedSavingsOption === index ? 'ring-2 ring-primary bg-primary/5' : 'hover:shadow-md'
+                        }`}
+                        onClick={() => setSelectedSavingsOption(index)}
+                      >
+                        <CardContent className="pt-6 text-center">
+                          <div className="text-2xl font-bold text-primary mb-2">
+                            ${option.monthly}/month
+                          </div>
+                          <div className="space-y-2 text-sm">
+                            <p><strong>Goal:</strong> ${option.goal}</p>
+                            <p><strong>Duration:</strong> {option.duration}</p>
+                            <p><strong>Reporting:</strong> {option.reporting}</p>
+                            <p className="text-green-600 font-medium">
+                              Money returned after completion
+                            </p>
+                          </div>
+                        </CardContent>
+                      </Card>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+            </motion.div>
+          )}
         </div>
 
         {/* Application Form */}
-        {selectedTier && (
+        {selectedProgram && (
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -212,10 +291,13 @@ export default function BusinessCreditBuilder() {
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
                   <CreditCard className="w-5 h-5" />
-                  Business Credit Application - {selectedTier} Plan
+                  Credit Building Application - {selectedProgram}
                 </CardTitle>
                 <CardDescription>
-                  Complete your application to start building business credit with Net 30 terms
+                  {selectedProgram === "Credit Savings Builder" 
+                    ? "Start your monthly savings plan to build business credit gradually"
+                    : "Get started with Net 30 terms and full membership benefits"
+                  }
                 </CardDescription>
               </CardHeader>
               <CardContent>
@@ -287,23 +369,34 @@ export default function BusinessCreditBuilder() {
                   <div className="bg-neutral-50 p-4 rounded-lg">
                     <h4 className="font-medium mb-2 flex items-center gap-2">
                       <DollarSign className="w-4 h-4" />
-                      Selected Plan: {selectedTier}
+                      Selected Program: {selectedProgram}
                     </h4>
-                    <p className="text-sm text-neutral-600 mb-2">
-                      Plan Cost: {creditTiers.find(t => t.name === selectedTier)?.price}
-                    </p>
-                    <p className="text-xs text-neutral-500">
-                      * One-time setup fee. Net 30 terms begin immediately after approval.
-                    </p>
+                    {selectedProgram === "Credit Savings Builder" && selectedSavingsOption !== null ? (
+                      <div className="text-sm text-neutral-600 space-y-1">
+                        <p>Monthly Payment: ${savingsOptions[selectedSavingsOption].monthly}</p>
+                        <p>Savings Goal: ${savingsOptions[selectedSavingsOption].goal}</p>
+                        <p>Duration: {savingsOptions[selectedSavingsOption].duration}</p>
+                        <p>Reporting: {savingsOptions[selectedSavingsOption].reporting}</p>
+                        <p className="text-green-600 font-medium">Money returned after completion</p>
+                      </div>
+                    ) : (
+                      <div className="text-sm text-neutral-600">
+                        <p>Program Cost: {creditPrograms.find(p => p.name === selectedProgram)?.price}/month</p>
+                        <p>Includes full membership benefits + Net 30 credit building</p>
+                      </div>
+                    )}
                   </div>
 
                   <Button type="submit" className="w-full">
-                    Submit Application & Start Building Credit
+                    {selectedProgram === "Credit Savings Builder" 
+                      ? "Start Savings Plan & Build Credit"
+                      : "Join Membership & Start Building Credit"
+                    }
                   </Button>
 
                   <p className="text-xs text-center text-neutral-500">
                     By submitting this application, you agree to our terms of service and 
-                    authorize us to report your payment history to Dun & Bradstreet.
+                    authorize us to report your payment history to major credit bureaus.
                   </p>
                 </form>
               </CardContent>
@@ -311,37 +404,96 @@ export default function BusinessCreditBuilder() {
           </motion.div>
         )}
 
-        {/* Info Section */}
+        {/* How It Works Section */}
         <div className="mt-12 bg-gradient-to-r from-primary/5 to-secondary/5 rounded-lg p-8">
-          <div className="text-center">
-            <h3 className="text-2xl font-bold mb-4">How Our Net 30 Program Works</h3>
-            <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-              <div>
-                <div className="bg-primary/10 p-3 rounded-full w-fit mx-auto mb-3">
-                  <span className="text-primary font-bold">1</span>
+          <div className="text-center mb-8">
+            <h3 className="text-2xl font-bold mb-4">How Our Credit Building Programs Work</h3>
+          </div>
+          
+          <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+            {/* Net 30 Programs */}
+            <div>
+              <h4 className="text-xl font-semibold mb-4 flex items-center gap-2">
+                <Users className="w-5 h-5 text-primary" />
+                Net 30 Membership Programs
+              </h4>
+              <div className="space-y-4">
+                <div className="flex gap-3">
+                  <div className="bg-primary/10 p-2 rounded-full w-fit h-fit">
+                    <span className="text-primary font-bold text-sm">1</span>
+                  </div>
+                  <div>
+                    <h5 className="font-semibold">Join Membership</h5>
+                    <p className="text-sm text-neutral-600">
+                      Get full access to Boss Builder ($79) or Inner Circle ($249) membership benefits
+                    </p>
+                  </div>
                 </div>
-                <h4 className="font-semibold mb-2">Apply & Get Approved</h4>
-                <p className="text-sm text-neutral-600">
-                  Submit your application and get approved for Net 30 terms with our vendor partners
-                </p>
+                <div className="flex gap-3">
+                  <div className="bg-primary/10 p-2 rounded-full w-fit h-fit">
+                    <span className="text-primary font-bold text-sm">2</span>
+                  </div>
+                  <div>
+                    <h5 className="font-semibold">Net 30 Setup</h5>
+                    <p className="text-sm text-neutral-600">
+                      We set up your Net 30 vendor accounts and credit reporting
+                    </p>
+                  </div>
+                </div>
+                <div className="flex gap-3">
+                  <div className="bg-primary/10 p-2 rounded-full w-fit h-fit">
+                    <span className="text-primary font-bold text-sm">3</span>
+                  </div>
+                  <div>
+                    <h5 className="font-semibold">Build & Learn</h5>
+                    <p className="text-sm text-neutral-600">
+                      Use Net 30 terms while accessing coaching, courses, and community support
+                    </p>
+                  </div>
+                </div>
               </div>
-              <div>
-                <div className="bg-primary/10 p-3 rounded-full w-fit mx-auto mb-3">
-                  <span className="text-primary font-bold">2</span>
+            </div>
+
+            {/* Savings Program */}
+            <div>
+              <h4 className="text-xl font-semibold mb-4 flex items-center gap-2">
+                <PiggyBank className="w-5 h-5 text-primary" />
+                Monthly Savings Program
+              </h4>
+              <div className="space-y-4">
+                <div className="flex gap-3">
+                  <div className="bg-primary/10 p-2 rounded-full w-fit h-fit">
+                    <span className="text-primary font-bold text-sm">1</span>
+                  </div>
+                  <div>
+                    <h5 className="font-semibold">Choose Your Plan</h5>
+                    <p className="text-sm text-neutral-600">
+                      Select $10, $15, or $30 monthly payments to build to $500-$1000
+                    </p>
+                  </div>
                 </div>
-                <h4 className="font-semibold mb-2">Make Purchases</h4>
-                <p className="text-sm text-neutral-600">
-                  Use your Net 30 accounts to purchase business supplies and services
-                </p>
-              </div>
-              <div>
-                <div className="bg-primary/10 p-3 rounded-full w-fit mx-auto mb-3">
-                  <span className="text-primary font-bold">3</span>
+                <div className="flex gap-3">
+                  <div className="bg-primary/10 p-2 rounded-full w-fit h-fit">
+                    <span className="text-primary font-bold text-sm">2</span>
+                  </div>
+                  <div>
+                    <h5 className="font-semibold">Regular Reporting</h5>
+                    <p className="text-sm text-neutral-600">
+                      Your payments are reported every 30-60 days to build your credit history
+                    </p>
+                  </div>
                 </div>
-                <h4 className="font-semibold mb-2">Build Credit</h4>
-                <p className="text-sm text-neutral-600">
-                  Pay on time and watch your business credit score grow with D&B reporting
-                </p>
+                <div className="flex gap-3">
+                  <div className="bg-primary/10 p-2 rounded-full w-fit h-fit">
+                    <span className="text-primary font-bold text-sm">3</span>
+                  </div>
+                  <div>
+                    <h5 className="font-semibold">Get Money Back</h5>
+                    <p className="text-sm text-neutral-600">
+                      Once you reach your savings goal, your money is returned to you
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
