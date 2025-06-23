@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
@@ -16,7 +15,8 @@ import {
   Star,
   DollarSign,
   PiggyBank,
-  Users
+  Users,
+  AlertCircle
 } from "lucide-react";
 
 const creditBenefits = [
@@ -496,6 +496,21 @@ export default function BusinessCreditBuilder() {
                       Once you reach your savings goal, your money is returned to you
                     </p>
                   </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Business Verification Memo */}
+          <div className="mt-8 pt-6 border-t border-neutral-200">
+            <div className="bg-amber-50 border border-amber-200 rounded-lg p-4">
+              <div className="flex items-start gap-3">
+                <AlertCircle className="w-5 h-5 text-amber-600 mt-0.5 flex-shrink-0" />
+                <div>
+                  <h4 className="font-semibold text-amber-800 mb-2">Business Verification Requirements</h4>
+                  <p className="text-sm text-amber-700">
+                    <strong>Important Notice:</strong> All businesses undergo comprehensive verification and must demonstrate proper legal structure and compliance standards to qualify for our credit building programs. Applications will be thoroughly reviewed to ensure legitimacy, appropriate business formation, and adherence to our qualification criteria. Businesses that do not meet our verification standards will not be approved for program participation.
+                  </p>
                 </div>
               </div>
             </div>
