@@ -22,6 +22,7 @@ const formSchema = z.object({
   lastName: z.string().min(2, "Last name must be at least 2 characters"),
   email: z.string().email("Invalid email address"),
   phone: z.string().min(10, "Phone number must be at least 10 digits"),
+  city: z.string().min(2, "City is required"),
   businessName: z.string().min(2, "Business name is required"),
   businessWebsite: z.string().url("Invalid website URL").optional().or(z.literal("")),
   yearsInBusiness: z.string().min(1, "Please specify years in business"),
@@ -47,6 +48,7 @@ const SpeakerApplicationForm: React.FC<SpeakerApplicationFormProps> = ({ onSubmi
       lastName: "",
       email: "",
       phone: "",
+      city: "",
       businessName: "",
       businessWebsite: "",
       yearsInBusiness: "",
@@ -126,6 +128,20 @@ const SpeakerApplicationForm: React.FC<SpeakerApplicationFormProps> = ({ onSubmi
             )}
           />
         </div>
+
+        <FormField
+          control={form.control}
+          name="city"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>What city do you live in? *</FormLabel>
+              <FormControl>
+                <Input placeholder="Enter your city" {...field} />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <FormField
