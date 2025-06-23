@@ -1,11 +1,25 @@
-
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Mic, ArrowRight } from "lucide-react";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import SpeakerApplicationForm from "@/components/SpeakerApplicationForm";
 
 const AboutHWL = () => {
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
+
+  const handleApplicationSubmit = () => {
+    setIsDialogOpen(false);
+  };
+
   return (
     <div className="container mx-auto px-4 py-8">
       <div className="max-w-4xl mx-auto">
@@ -146,13 +160,27 @@ const AboutHWL = () => {
                   Want to learn how to join the HWL movement that is helping women entrepreneurs 
                   all over the world launch successful businesses?
                 </p>
-                <Button 
-                  className="bg-primary hover:bg-primary/90 text-white px-8 py-3 text-lg"
-                  size="lg"
-                >
-                  Apply Here
-                  <ArrowRight className="w-5 h-5 ml-2" />
-                </Button>
+                <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
+                  <DialogTrigger asChild>
+                    <Button 
+                      className="bg-primary hover:bg-primary/90 text-white px-8 py-3 text-lg"
+                      size="lg"
+                    >
+                      Apply Here
+                      <ArrowRight className="w-5 h-5 ml-2" />
+                    </Button>
+                  </DialogTrigger>
+                  <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
+                    <DialogHeader>
+                      <DialogTitle className="text-2xl font-bold">HWL Speaker Application</DialogTitle>
+                      <DialogDescription>
+                        Join our community of inspiring women speakers who are empowering entrepreneurs worldwide. 
+                        Please fill out the application below to be considered for speaking opportunities.
+                      </DialogDescription>
+                    </DialogHeader>
+                    <SpeakerApplicationForm onSubmit={handleApplicationSubmit} />
+                  </DialogContent>
+                </Dialog>
               </div>
             </CardContent>
           </Card>
