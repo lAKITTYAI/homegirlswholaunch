@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
@@ -220,13 +219,13 @@ export default function FundingOptions() {
               </CardDescription>
             </CardHeader>
             <CardContent>
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form onSubmit={handleSubmit} className="space-y-8">
                 {/* Business Information Section */}
-                <div className="space-y-4">
+                <div className="space-y-6">
                   <h3 className="text-lg font-semibold text-neutral-800 border-b pb-2">Business Information</h3>
                   
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div className="space-y-2">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="space-y-3">
                       <Label htmlFor="businessName">Business Name *</Label>
                       <Input 
                         id="businessName" 
@@ -237,93 +236,93 @@ export default function FundingOptions() {
                       />
                     </div>
                     
-                    <div className="space-y-2">
+                    <div className="space-y-3">
                       <Label htmlFor="businessStructure">Business Structure *</Label>
                       <Select onValueChange={(value) => handleInputChange('businessStructure', value)} required>
-                        <SelectTrigger>
+                        <SelectTrigger className="h-12">
                           <SelectValue placeholder="Select business structure" />
                         </SelectTrigger>
-                        <SelectContent>
-                          <SelectItem value="llc">LLC</SelectItem>
-                          <SelectItem value="corporation">Corporation</SelectItem>
-                          <SelectItem value="partnership">Partnership</SelectItem>
-                          <SelectItem value="sole-proprietorship">Sole Proprietorship</SelectItem>
-                          <SelectItem value="s-corp">S-Corporation</SelectItem>
-                          <SelectItem value="non-profit">Non-Profit</SelectItem>
+                        <SelectContent className="bg-white border shadow-lg z-50">
+                          <SelectItem value="llc" className="py-3 px-4">LLC (Limited Liability Company)</SelectItem>
+                          <SelectItem value="corporation" className="py-3 px-4">Corporation</SelectItem>
+                          <SelectItem value="partnership" className="py-3 px-4">Partnership</SelectItem>
+                          <SelectItem value="sole-proprietorship" className="py-3 px-4">Sole Proprietorship</SelectItem>
+                          <SelectItem value="s-corp" className="py-3 px-4">S-Corporation</SelectItem>
+                          <SelectItem value="non-profit" className="py-3 px-4">Non-Profit Organization</SelectItem>
                         </SelectContent>
                       </Select>
                     </div>
                   </div>
 
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div className="space-y-2">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="space-y-3">
                       <Label htmlFor="yearsInOperation">Years in Operation *</Label>
                       <Select onValueChange={(value) => handleInputChange('yearsInOperation', value)} required>
-                        <SelectTrigger>
+                        <SelectTrigger className="h-12">
                           <SelectValue placeholder="Select years in operation" />
                         </SelectTrigger>
-                        <SelectContent>
-                          <SelectItem value="startup">Startup (0-1 year)</SelectItem>
-                          <SelectItem value="1-2">1-2 years</SelectItem>
-                          <SelectItem value="3-5">3-5 years</SelectItem>
-                          <SelectItem value="5-10">5-10 years</SelectItem>
-                          <SelectItem value="10+">10+ years</SelectItem>
+                        <SelectContent className="bg-white border shadow-lg z-50">
+                          <SelectItem value="startup" className="py-3 px-4">Startup (0-1 year)</SelectItem>
+                          <SelectItem value="1-2" className="py-3 px-4">1-2 years</SelectItem>
+                          <SelectItem value="3-5" className="py-3 px-4">3-5 years</SelectItem>
+                          <SelectItem value="5-10" className="py-3 px-4">5-10 years</SelectItem>
+                          <SelectItem value="10+" className="py-3 px-4">10+ years</SelectItem>
                         </SelectContent>
                       </Select>
                     </div>
 
-                    <div className="space-y-2">
+                    <div className="space-y-3">
                       <Label htmlFor="industryType">Industry Type *</Label>
                       <Select onValueChange={(value) => handleInputChange('industryType', value)} required>
-                        <SelectTrigger>
+                        <SelectTrigger className="h-12">
                           <SelectValue placeholder="Select your industry" />
                         </SelectTrigger>
-                        <SelectContent>
-                          <SelectItem value="technology">Technology</SelectItem>
-                          <SelectItem value="retail">Retail</SelectItem>
-                          <SelectItem value="food-beverage">Food & Beverage</SelectItem>
-                          <SelectItem value="healthcare">Healthcare</SelectItem>
-                          <SelectItem value="professional-services">Professional Services</SelectItem>
-                          <SelectItem value="manufacturing">Manufacturing</SelectItem>
-                          <SelectItem value="real-estate">Real Estate</SelectItem>
-                          <SelectItem value="education">Education</SelectItem>
-                          <SelectItem value="other">Other</SelectItem>
+                        <SelectContent className="bg-white border shadow-lg z-50">
+                          <SelectItem value="technology" className="py-3 px-4">Technology & Software</SelectItem>
+                          <SelectItem value="retail" className="py-3 px-4">Retail & E-commerce</SelectItem>
+                          <SelectItem value="food-beverage" className="py-3 px-4">Food & Beverage</SelectItem>
+                          <SelectItem value="healthcare" className="py-3 px-4">Healthcare & Wellness</SelectItem>
+                          <SelectItem value="professional-services" className="py-3 px-4">Professional Services</SelectItem>
+                          <SelectItem value="manufacturing" className="py-3 px-4">Manufacturing</SelectItem>
+                          <SelectItem value="real-estate" className="py-3 px-4">Real Estate</SelectItem>
+                          <SelectItem value="education" className="py-3 px-4">Education & Training</SelectItem>
+                          <SelectItem value="other" className="py-3 px-4">Other</SelectItem>
                         </SelectContent>
                       </Select>
                     </div>
                   </div>
 
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div className="space-y-2">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="space-y-3">
                       <Label htmlFor="numberOfEmployees">Number of Employees</Label>
                       <Select onValueChange={(value) => handleInputChange('numberOfEmployees', value)}>
-                        <SelectTrigger>
+                        <SelectTrigger className="h-12">
                           <SelectValue placeholder="Select number of employees" />
                         </SelectTrigger>
-                        <SelectContent>
-                          <SelectItem value="1">Just me</SelectItem>
-                          <SelectItem value="2-5">2-5 employees</SelectItem>
-                          <SelectItem value="6-10">6-10 employees</SelectItem>
-                          <SelectItem value="11-25">11-25 employees</SelectItem>
-                          <SelectItem value="26-50">26-50 employees</SelectItem>
-                          <SelectItem value="50+">50+ employees</SelectItem>
+                        <SelectContent className="bg-white border shadow-lg z-50">
+                          <SelectItem value="1" className="py-3 px-4">Just me (1 person)</SelectItem>
+                          <SelectItem value="2-5" className="py-3 px-4">2-5 employees</SelectItem>
+                          <SelectItem value="6-10" className="py-3 px-4">6-10 employees</SelectItem>
+                          <SelectItem value="11-25" className="py-3 px-4">11-25 employees</SelectItem>
+                          <SelectItem value="26-50" className="py-3 px-4">26-50 employees</SelectItem>
+                          <SelectItem value="50+" className="py-3 px-4">50+ employees</SelectItem>
                         </SelectContent>
                       </Select>
                     </div>
 
-                    <div className="space-y-2">
+                    <div className="space-y-3">
                       <Label htmlFor="monthlyRevenue">Monthly Revenue</Label>
                       <Select onValueChange={(value) => handleInputChange('monthlyRevenue', value)}>
-                        <SelectTrigger>
+                        <SelectTrigger className="h-12">
                           <SelectValue placeholder="Select monthly revenue range" />
                         </SelectTrigger>
-                        <SelectContent>
-                          <SelectItem value="0-1k">$0 - $1,000</SelectItem>
-                          <SelectItem value="1k-5k">$1,000 - $5,000</SelectItem>
-                          <SelectItem value="5k-10k">$5,000 - $10,000</SelectItem>
-                          <SelectItem value="10k-25k">$10,000 - $25,000</SelectItem>
-                          <SelectItem value="25k-50k">$25,000 - $50,000</SelectItem>
-                          <SelectItem value="50k+">$50,000+</SelectItem>
+                        <SelectContent className="bg-white border shadow-lg z-50">
+                          <SelectItem value="0-1k" className="py-3 px-4">$0 - $1,000</SelectItem>
+                          <SelectItem value="1k-5k" className="py-3 px-4">$1,000 - $5,000</SelectItem>
+                          <SelectItem value="5k-10k" className="py-3 px-4">$5,000 - $10,000</SelectItem>
+                          <SelectItem value="10k-25k" className="py-3 px-4">$10,000 - $25,000</SelectItem>
+                          <SelectItem value="25k-50k" className="py-3 px-4">$25,000 - $50,000</SelectItem>
+                          <SelectItem value="50k+" className="py-3 px-4">$50,000+</SelectItem>
                         </SelectContent>
                       </Select>
                     </div>
@@ -331,11 +330,11 @@ export default function FundingOptions() {
                 </div>
 
                 {/* Contact Information Section */}
-                <div className="space-y-4">
+                <div className="space-y-6">
                   <h3 className="text-lg font-semibold text-neutral-800 border-b pb-2">Contact Information</h3>
                   
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div className="space-y-2">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="space-y-3">
                       <Label htmlFor="email">Email Address *</Label>
                       <Input 
                         id="email" 
@@ -347,7 +346,7 @@ export default function FundingOptions() {
                       />
                     </div>
                     
-                    <div className="space-y-2">
+                    <div className="space-y-3">
                       <Label htmlFor="phone">Phone Number</Label>
                       <Input 
                         id="phone" 
@@ -361,10 +360,10 @@ export default function FundingOptions() {
                 </div>
 
                 {/* Funding Information Section */}
-                <div className="space-y-4">
+                <div className="space-y-6">
                   <h3 className="text-lg font-semibold text-neutral-800 border-b pb-2">Funding Information</h3>
                   
-                  <div className="space-y-2">
+                  <div className="space-y-3">
                     <Label htmlFor="fundingAmount">Funding Amount Needed *</Label>
                     <div className="relative">
                       <Banknote className="absolute left-3 top-1/2 transform -translate-y-1/2 text-neutral-400" />
@@ -380,7 +379,7 @@ export default function FundingOptions() {
                     </div>
                   </div>
 
-                  <div className="space-y-2">
+                  <div className="space-y-3">
                     <Label htmlFor="fundingUse">How will you use the funds for your business? *</Label>
                     <Textarea 
                       id="fundingUse" 
@@ -392,30 +391,30 @@ export default function FundingOptions() {
                     />
                   </div>
 
-                  <div className="space-y-2">
+                  <div className="space-y-3">
                     <Label htmlFor="previousFunding">Previous Funding History</Label>
                     <Select onValueChange={(value) => handleInputChange('previousFunding', value)}>
-                      <SelectTrigger>
+                      <SelectTrigger className="h-12">
                         <SelectValue placeholder="Have you received funding before?" />
                       </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="none">No previous funding</SelectItem>
-                        <SelectItem value="personal">Personal savings/bootstrap</SelectItem>
-                        <SelectItem value="friends-family">Friends & Family</SelectItem>
-                        <SelectItem value="bank-loan">Bank Loan</SelectItem>
-                        <SelectItem value="grant">Grant Funding</SelectItem>
-                        <SelectItem value="investor">Angel/VC Investor</SelectItem>
-                        <SelectItem value="other">Other</SelectItem>
+                      <SelectContent className="bg-white border shadow-lg z-50">
+                        <SelectItem value="none" className="py-3 px-4">No previous funding</SelectItem>
+                        <SelectItem value="personal" className="py-3 px-4">Personal savings/bootstrap</SelectItem>
+                        <SelectItem value="friends-family" className="py-3 px-4">Friends & Family</SelectItem>
+                        <SelectItem value="bank-loan" className="py-3 px-4">Bank Loan</SelectItem>
+                        <SelectItem value="grant" className="py-3 px-4">Grant Funding</SelectItem>
+                        <SelectItem value="investor" className="py-3 px-4">Angel/VC Investor</SelectItem>
+                        <SelectItem value="other" className="py-3 px-4">Other</SelectItem>
                       </SelectContent>
                     </Select>
                   </div>
                 </div>
 
                 {/* Business Goals & Challenges Section */}
-                <div className="space-y-4">
+                <div className="space-y-6">
                   <h3 className="text-lg font-semibold text-neutral-800 border-b pb-2">Business Goals & Challenges</h3>
                   
-                  <div className="space-y-2">
+                  <div className="space-y-3">
                     <Label htmlFor="businessGoals">What are your primary business goals? *</Label>
                     <Textarea 
                       id="businessGoals" 
@@ -427,7 +426,7 @@ export default function FundingOptions() {
                     />
                   </div>
 
-                  <div className="space-y-2">
+                  <div className="space-y-3">
                     <Label htmlFor="currentChallenges">Current Business Challenges</Label>
                     <Textarea 
                       id="currentChallenges" 
@@ -438,7 +437,7 @@ export default function FundingOptions() {
                     />
                   </div>
 
-                  <div className="space-y-2">
+                  <div className="space-y-3">
                     <Label htmlFor="businessDescription">Business Description *</Label>
                     <Textarea 
                       id="businessDescription" 
@@ -451,7 +450,7 @@ export default function FundingOptions() {
                   </div>
                 </div>
 
-                <Button type="submit" className="w-full">
+                <Button type="submit" className="w-full h-12 text-lg">
                   Submit Application
                 </Button>
               </form>
