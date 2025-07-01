@@ -14,6 +14,7 @@ import Pricing from "./pages/Pricing";
 import Donate from "./pages/Donate";
 import FundingOptions from "./pages/FundingOptions";
 import BusinessCreditBuilder from "./pages/BusinessCreditBuilder";
+import Success from "./pages/Success";
 import Layout from "./components/Layout";
 
 const queryClient = new QueryClient();
@@ -36,6 +37,7 @@ const App = () => (
             <Route path="/donate" element={<Donate />} />
             <Route path="/funding" element={<FundingOptions />} />
             <Route path="/credit-builder" element={<BusinessCreditBuilder />} />
+            <Route path="/success" element={<Success />} />
           </Route>
         </Routes>
       </BrowserRouter>

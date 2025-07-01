@@ -1,9 +1,9 @@
-
-import React from "react";
+import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Check } from "lucide-react";
+import CheckoutModal from "@/components/CheckoutModal";
 
 const PricingTier = ({ 
   title, 
@@ -12,7 +12,8 @@ const PricingTier = ({
   features, 
   buttonText = "Get Started", 
   highlighted = false,
-  annualPrice
+  annualPrice,
+  onSubscribe
 }: { 
   title: string;
   price: string;
@@ -21,6 +22,7 @@ const PricingTier = ({
   buttonText?: string;
   highlighted?: boolean;
   annualPrice?: string;
+  onSubscribe: () => void;
 }) => (
   <Card className={`flex flex-col h-full ${highlighted ? 'border-primary shadow-lg' : ''}`}>
     <CardHeader>
@@ -48,7 +50,11 @@ const PricingTier = ({
       </ul>
     </CardContent>
     <CardFooter>
-      <Button variant={highlighted ? "default" : "outline"} className="w-full">
+      <Button 
+        variant={highlighted ? "default" : "outline"} 
+        className="w-full"
+        onClick={onSubscribe}
+      >
         {buttonText}
       </Button>
     </CardFooter>
@@ -56,6 +62,20 @@ const PricingTier = ({
 );
 
 const Pricing = () => {
+  const [checkoutModal, setCheckoutModal] = useState<{
+    isOpen: boolean;
+    planName: string;
+    monthlyPrice: string;
+    annualPrice: string;
+    features: string[];
+  }>({
+    isOpen: false,
+    planName: '',
+    monthlyPrice: '',
+    annualPrice: '',
+    features: []
+  });
+
   const tiers = [
     {
       title: "Launch Squad",
@@ -100,6 +120,16 @@ const Pricing = () => {
     }
   ];
 
+  const handleSubscribe = (tier: typeof tiers[0]) => {
+    setCheckoutModal({
+      isOpen: true,
+      planName: tier.title,
+      monthlyPrice: tier.price,
+      annualPrice: tier.annualPrice,
+      features: tier.features
+    });
+  };
+
   return (
     <div className="container mx-auto px-4 py-12">
       <div className="max-w-6xl mx-auto">
@@ -120,6 +150,7 @@ const Pricing = () => {
               description={tier.description}
               features={tier.features}
               highlighted={tier.highlighted}
+              onSubscribe={() => handleSubscribe(tier)}
             />
           ))}
         </div>
@@ -145,6 +176,15 @@ const Pricing = () => {
           </div>
         </div>
       </div>
+
+      <CheckoutModal
+        isOpen={checkoutModal.isOpen}
+        onClose={() => setCheckoutModal({ ...checkoutModal, isOpen: false })}
+        planName={checkoutModal.planName}
+        monthlyPrice={checkoutModal.monthlyPrice}
+        annualPrice={checkoutModal.annualPrice}
+        features={checkoutModal.features}
+      />
     </div>
   );
 };
