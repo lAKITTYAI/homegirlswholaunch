@@ -1,15 +1,13 @@
 
-import React, { useState } from 'react';
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import { Card, CardContent } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
-import { Switch } from '@/components/ui/switch';
-import { CreditCard, Mail, Calendar, DollarSign } from 'lucide-react';
-import { supabase } from '@/integrations/supabase/client';
-import { useToast } from '@/hooks/use-toast';
+import React, { useState } from "react";
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Card, CardContent } from "@/components/ui/card";
+import { Check, X } from "lucide-react";
+import { supabase } from "@/integrations/supabase/client";
 
 interface CheckoutModalProps {
   isOpen: boolean;
@@ -21,153 +19,152 @@ interface CheckoutModalProps {
 }
 
 const CheckoutModal = ({ isOpen, onClose, planName, monthlyPrice, annualPrice, features }: CheckoutModalProps) => {
-  const [email, setEmail] = useState('');
-  const [isAnnual, setIsAnnual] = useState(false);
-  const [loading, setLoading] = useState(false);
-  const { toast } = useToast();
+  const [email, setEmail] = useState("");
+  const [billingType, setBillingType] = useState<"monthly" | "annual">("monthly");
+  const [isLoading, setIsLoading] = useState(false);
 
-  const currentPrice = isAnnual ? annualPrice : monthlyPrice;
-  const savings = isAnnual ? "Save 2 months!" : "";
+  const currentPrice = billingType === "annual" ? annualPrice : monthlyPrice;
+  const priceDisplay = billingType === "annual" ? `${annualPrice}/year` : `${monthlyPrice}/month`;
 
   const handleCheckout = async () => {
-    if (!email || !email.includes('@')) {
-      toast({
-        title: "Invalid Email",
-        description: "Please enter a valid email address.",
-        variant: "destructive",
-      });
+    if (!email) {
+      alert("Please enter your email address");
       return;
     }
 
-    setLoading(true);
+    setIsLoading(true);
+    console.log("Starting checkout process...", { planName, email, isAnnual: billingType === "annual" });
+
     try {
       const { data, error } = await supabase.functions.invoke('create-checkout', {
         body: {
           planName,
           email,
-          isAnnual,
-        },
+          isAnnual: billingType === "annual"
+        }
       });
 
-      if (error) throw error;
+      console.log("Checkout response:", { data, error });
+
+      if (error) {
+        console.error("Checkout error:", error);
+        alert("There was an error processing your request. Please try again.");
+        return;
+      }
 
       if (data?.url) {
-        // Open Stripe checkout in a new tab
-        window.open(data.url, '_blank');
-        onClose();
+        console.log("Redirecting to checkout:", data.url);
+        window.location.href = data.url;
+      } else {
+        console.error("No checkout URL returned");
+        alert("There was an error processing your request. Please try again.");
       }
     } catch (error) {
-      console.error('Checkout error:', error);
-      toast({
-        title: "Checkout Error",
-        description: "There was an error processing your request. Please try again.",
-        variant: "destructive",
-      });
+      console.error("Checkout error:", error);
+      alert("There was an error processing your request. Please try again.");
     } finally {
-      setLoading(false);
+      setIsLoading(false);
     }
   };
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-md">
+      <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto bg-white">
         <DialogHeader>
-          <DialogTitle className="flex items-center gap-2">
-            <CreditCard className="w-5 h-5" />
+          <DialogTitle className="text-2xl font-bold text-center">
             Subscribe to {planName}
           </DialogTitle>
         </DialogHeader>
-        
-        <div className="space-y-6">
-          {/* Plan Summary */}
-          <Card>
-            <CardContent className="pt-4">
-              <div className="text-center">
-                <h3 className="font-semibold text-lg">{planName}</h3>
-                <div className="flex items-center justify-center gap-2 mt-2">
-                  <span className="text-2xl font-bold text-primary">
-                    {currentPrice}
-                  </span>
-                  <span className="text-sm text-muted-foreground">
-                    /{isAnnual ? 'year' : 'month'}
-                  </span>
-                </div>
-                {savings && (
-                  <Badge variant="secondary" className="mt-2">
-                    {savings}
-                  </Badge>
+
+        <div className="grid md:grid-cols-2 gap-6">
+          {/* Plan Details */}
+          <Card className="bg-gray-50">
+            <CardContent className="p-6">
+              <h3 className="text-xl font-semibold mb-4">{planName}</h3>
+              <div className="mb-4">
+                <span className="text-3xl font-bold">{currentPrice}</span>
+                <span className="text-gray-600">/{billingType === "annual" ? "year" : "month"}</span>
+                {billingType === "annual" && (
+                  <div className="text-sm text-green-600 font-medium">Save 2 months!</div>
                 )}
               </div>
+              <ul className="space-y-2">
+                {features.map((feature, index) => (
+                  <li key={index} className="flex items-start">
+                    <Check className="h-5 w-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
+                    <span className="text-sm">{feature}</span>
+                  </li>
+                ))}
+              </ul>
             </CardContent>
           </Card>
 
-          {/* Billing Toggle */}
-          <div className="flex items-center justify-between p-4 bg-muted rounded-lg">
-            <div className="flex items-center gap-2">
-              <Calendar className="w-4 h-4" />
-              <span className="text-sm font-medium">
-                {isAnnual ? 'Annual Billing' : 'Monthly Billing'}
-              </span>
+          {/* Checkout Form */}
+          <div className="space-y-4">
+            <div>
+              <Label htmlFor="email">Email Address</Label>
+              <Input
+                id="email"
+                type="email"
+                placeholder="Enter your email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="mt-1"
+              />
             </div>
-            <Switch
-              checked={isAnnual}
-              onCheckedChange={setIsAnnual}
-            />
+
+            <div>
+              <Label htmlFor="billing-type">Billing Period</Label>
+              <Select value={billingType} onValueChange={(value: "monthly" | "annual") => setBillingType(value)}>
+                <SelectTrigger className="mt-1 bg-white border-gray-300 text-gray-900">
+                  <SelectValue />
+                </SelectTrigger>
+                <SelectContent className="bg-white border border-gray-300 shadow-lg z-[9999]">
+                  <SelectItem 
+                    value="monthly" 
+                    className="text-gray-900 hover:bg-gray-100 focus:bg-gray-100 cursor-pointer px-4 py-2"
+                  >
+                    Monthly - {monthlyPrice}/month
+                  </SelectItem>
+                  <SelectItem 
+                    value="annual" 
+                    className="text-gray-900 hover:bg-gray-100 focus:bg-gray-100 cursor-pointer px-4 py-2"
+                  >
+                    Annual - {annualPrice}/year (Save 2 months!)
+                  </SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+
+            <div className="border-t pt-4">
+              <div className="flex justify-between items-center mb-4">
+                <span className="font-medium">Total:</span>
+                <span className="text-xl font-bold">{priceDisplay}</span>
+              </div>
+              
+              <Button 
+                onClick={handleCheckout} 
+                disabled={isLoading || !email}
+                className="w-full"
+              >
+                {isLoading ? "Processing..." : `Subscribe for ${priceDisplay}`}
+              </Button>
+              
+              <p className="text-xs text-gray-500 mt-2 text-center">
+                You will be redirected to Stripe to complete your payment securely.
+              </p>
+            </div>
           </div>
-
-          {/* Email Input */}
-          <div className="space-y-2">
-            <Label htmlFor="email" className="flex items-center gap-2">
-              <Mail className="w-4 h-4" />
-              Email Address
-            </Label>
-            <Input
-              id="email"
-              type="email"
-              placeholder="Enter your email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-            />
-            <p className="text-xs text-muted-foreground">
-              We'll send your receipt and membership details to this email.
-            </p>
-          </div>
-
-          {/* Features Preview */}
-          <div className="bg-muted/50 p-3 rounded-lg">
-            <h4 className="text-sm font-medium mb-2">What's included:</h4>
-            <ul className="text-xs space-y-1 text-muted-foreground">
-              {features.slice(0, 3).map((feature, index) => (
-                <li key={index}>• {feature}</li>
-              ))}
-              {features.length > 3 && (
-                <li>• And {features.length - 3} more...</li>
-              )}
-            </ul>
-          </div>
-
-          {/* Checkout Button */}
-          <Button 
-            onClick={handleCheckout} 
-            disabled={loading}
-            className="w-full"
-            size="lg"
-          >
-            {loading ? (
-              "Processing..."
-            ) : (
-              <>
-                <DollarSign className="w-4 h-4 mr-2" />
-                Continue to Payment
-              </>
-            )}
-          </Button>
-
-          <p className="text-xs text-center text-muted-foreground">
-            Secure payment powered by Stripe. Cancel anytime.
-          </p>
         </div>
+
+        <Button
+          variant="ghost"
+          size="icon"
+          className="absolute right-4 top-4"
+          onClick={onClose}
+        >
+          <X className="h-4 w-4" />
+        </Button>
       </DialogContent>
     </Dialog>
   );
