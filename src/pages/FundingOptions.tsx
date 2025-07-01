@@ -6,6 +6,8 @@ import { Card, CardHeader, CardContent, CardTitle, CardDescription } from "@/com
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { useToast } from "@/hooks/use-toast";
 import { Banknote, BadgeDollarSign, FileSearch } from "lucide-react";
 
 // Sample grants data - replace with real data later
@@ -45,6 +47,60 @@ const grants = [{
 
 export default function FundingOptions() {
   const [activeTab, setActiveTab] = useState<'grants' | 'apply'>('grants');
+  const [formData, setFormData] = useState({
+    businessName: '',
+    email: '',
+    phone: '',
+    businessStructure: '',
+    businessAge: '',
+    industryType: '',
+    monthlyRevenue: '',
+    fundingAmount: '',
+    fundingUse: '',
+    businessGoals: '',
+    currentChallenges: '',
+    previousFunding: '',
+    businessDescription: '',
+    yearsInOperation: '',
+    numberOfEmployees: ''
+  });
+  
+  const { toast } = useToast();
+
+  const handleInputChange = (field: string, value: string) => {
+    setFormData(prev => ({ ...prev, [field]: value }));
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    console.log('Funding application submitted:', formData);
+    toast({
+      title: "Application Submitted Successfully!",
+      description: "We'll review your application and get back to you within 5 business days.",
+    });
+    // Reset form
+    setFormData({
+      businessName: '',
+      email: '',
+      phone: '',
+      businessStructure: '',
+      businessAge: '',
+      industryType: '',
+      monthlyRevenue: '',
+      fundingAmount: '',
+      fundingUse: '',
+      businessGoals: '',
+      currentChallenges: '',
+      previousFunding: '',
+      businessDescription: '',
+      yearsInOperation: '',
+      numberOfEmployees: ''
+    });
+  };
+
+  const handleApplyNow = () => {
+    setActiveTab('apply');
+  };
   
   return (
     <div className="container mx-auto px-4 py-12">
@@ -125,10 +181,8 @@ export default function FundingOptions() {
                           Amount: {grant.amount}
                         </CardDescription>
                       </div>
-                      <Button asChild>
-                        <a href={grant.link} target="_blank" rel="noopener noreferrer">
-                          Apply Now
-                        </a>
+                      <Button onClick={handleApplyNow}>
+                        Apply Now
                       </Button>
                     </div>
                   </CardHeader>
@@ -162,38 +216,241 @@ export default function FundingOptions() {
             <CardHeader>
               <CardTitle className="text-2xl mb-4">Apply for Funding</CardTitle>
               <CardDescription>
-                Submit your application for funding consideration. We'll review your submission and get back to you within 5 business days.
+                Submit your comprehensive business application for funding consideration. We'll review your submission and get back to you within 5 business days.
               </CardDescription>
             </CardHeader>
             <CardContent>
-              <form className="space-y-6">
-                <div className="space-y-2">
-                  <Label htmlFor="businessName">Business Name</Label>
-                  <Input id="businessName" placeholder="Enter your business name" />
-                </div>
-                <div className="space-y-2">
-                  <Label htmlFor="email">Email Address</Label>
-                  <Input id="email" type="email" placeholder="Enter your email" />
-                </div>
-                <div className="space-y-2">
-                  <Label htmlFor="amount">Funding Amount Needed</Label>
-                  <div className="relative">
-                    <Banknote className="absolute left-3 top-1/2 transform -translate-y-1/2 text-neutral-400" />
-                    <Input id="amount" type="number" className="pl-10" placeholder="Enter amount" />
+              <form onSubmit={handleSubmit} className="space-y-6">
+                {/* Business Information Section */}
+                <div className="space-y-4">
+                  <h3 className="text-lg font-semibold text-neutral-800 border-b pb-2">Business Information</h3>
+                  
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div className="space-y-2">
+                      <Label htmlFor="businessName">Business Name *</Label>
+                      <Input 
+                        id="businessName" 
+                        placeholder="Enter your business name"
+                        value={formData.businessName}
+                        onChange={(e) => handleInputChange('businessName', e.target.value)}
+                        required
+                      />
+                    </div>
+                    
+                    <div className="space-y-2">
+                      <Label htmlFor="businessStructure">Business Structure *</Label>
+                      <Select onValueChange={(value) => handleInputChange('businessStructure', value)} required>
+                        <SelectTrigger>
+                          <SelectValue placeholder="Select business structure" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="llc">LLC</SelectItem>
+                          <SelectItem value="corporation">Corporation</SelectItem>
+                          <SelectItem value="partnership">Partnership</SelectItem>
+                          <SelectItem value="sole-proprietorship">Sole Proprietorship</SelectItem>
+                          <SelectItem value="s-corp">S-Corporation</SelectItem>
+                          <SelectItem value="non-profit">Non-Profit</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div className="space-y-2">
+                      <Label htmlFor="yearsInOperation">Years in Operation *</Label>
+                      <Select onValueChange={(value) => handleInputChange('yearsInOperation', value)} required>
+                        <SelectTrigger>
+                          <SelectValue placeholder="Select years in operation" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="startup">Startup (0-1 year)</SelectItem>
+                          <SelectItem value="1-2">1-2 years</SelectItem>
+                          <SelectItem value="3-5">3-5 years</SelectItem>
+                          <SelectItem value="5-10">5-10 years</SelectItem>
+                          <SelectItem value="10+">10+ years</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </div>
+
+                    <div className="space-y-2">
+                      <Label htmlFor="industryType">Industry Type *</Label>
+                      <Select onValueChange={(value) => handleInputChange('industryType', value)} required>
+                        <SelectTrigger>
+                          <SelectValue placeholder="Select your industry" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="technology">Technology</SelectItem>
+                          <SelectItem value="retail">Retail</SelectItem>
+                          <SelectItem value="food-beverage">Food & Beverage</SelectItem>
+                          <SelectItem value="healthcare">Healthcare</SelectItem>
+                          <SelectItem value="professional-services">Professional Services</SelectItem>
+                          <SelectItem value="manufacturing">Manufacturing</SelectItem>
+                          <SelectItem value="real-estate">Real Estate</SelectItem>
+                          <SelectItem value="education">Education</SelectItem>
+                          <SelectItem value="other">Other</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div className="space-y-2">
+                      <Label htmlFor="numberOfEmployees">Number of Employees</Label>
+                      <Select onValueChange={(value) => handleInputChange('numberOfEmployees', value)}>
+                        <SelectTrigger>
+                          <SelectValue placeholder="Select number of employees" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="1">Just me</SelectItem>
+                          <SelectItem value="2-5">2-5 employees</SelectItem>
+                          <SelectItem value="6-10">6-10 employees</SelectItem>
+                          <SelectItem value="11-25">11-25 employees</SelectItem>
+                          <SelectItem value="26-50">26-50 employees</SelectItem>
+                          <SelectItem value="50+">50+ employees</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </div>
+
+                    <div className="space-y-2">
+                      <Label htmlFor="monthlyRevenue">Monthly Revenue</Label>
+                      <Select onValueChange={(value) => handleInputChange('monthlyRevenue', value)}>
+                        <SelectTrigger>
+                          <SelectValue placeholder="Select monthly revenue range" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="0-1k">$0 - $1,000</SelectItem>
+                          <SelectItem value="1k-5k">$1,000 - $5,000</SelectItem>
+                          <SelectItem value="5k-10k">$5,000 - $10,000</SelectItem>
+                          <SelectItem value="10k-25k">$10,000 - $25,000</SelectItem>
+                          <SelectItem value="25k-50k">$25,000 - $50,000</SelectItem>
+                          <SelectItem value="50k+">$50,000+</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </div>
                   </div>
                 </div>
-                <div className="space-y-2">
-                  <Label htmlFor="fundingUse">How will you use the funds for your business?</Label>
-                  <Textarea 
-                    id="fundingUse" 
-                    className="min-h-[120px]" 
-                    placeholder="Please describe in detail how you plan to use the funding for your business (e.g., inventory, marketing, equipment, staff, etc.)" 
-                  />
+
+                {/* Contact Information Section */}
+                <div className="space-y-4">
+                  <h3 className="text-lg font-semibold text-neutral-800 border-b pb-2">Contact Information</h3>
+                  
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div className="space-y-2">
+                      <Label htmlFor="email">Email Address *</Label>
+                      <Input 
+                        id="email" 
+                        type="email" 
+                        placeholder="Enter your email"
+                        value={formData.email}
+                        onChange={(e) => handleInputChange('email', e.target.value)}
+                        required
+                      />
+                    </div>
+                    
+                    <div className="space-y-2">
+                      <Label htmlFor="phone">Phone Number</Label>
+                      <Input 
+                        id="phone" 
+                        type="tel" 
+                        placeholder="Enter your phone number"
+                        value={formData.phone}
+                        onChange={(e) => handleInputChange('phone', e.target.value)}
+                      />
+                    </div>
+                  </div>
                 </div>
-                <div className="space-y-2">
-                  <Label htmlFor="description">Business Description</Label>
-                  <Textarea id="description" className="min-h-[100px]" placeholder="Tell us about your business and how you plan to use the funding" />
+
+                {/* Funding Information Section */}
+                <div className="space-y-4">
+                  <h3 className="text-lg font-semibold text-neutral-800 border-b pb-2">Funding Information</h3>
+                  
+                  <div className="space-y-2">
+                    <Label htmlFor="fundingAmount">Funding Amount Needed *</Label>
+                    <div className="relative">
+                      <Banknote className="absolute left-3 top-1/2 transform -translate-y-1/2 text-neutral-400" />
+                      <Input 
+                        id="fundingAmount" 
+                        type="number" 
+                        className="pl-10" 
+                        placeholder="Enter amount"
+                        value={formData.fundingAmount}
+                        onChange={(e) => handleInputChange('fundingAmount', e.target.value)}
+                        required
+                      />
+                    </div>
+                  </div>
+
+                  <div className="space-y-2">
+                    <Label htmlFor="fundingUse">How will you use the funds for your business? *</Label>
+                    <Textarea 
+                      id="fundingUse" 
+                      className="min-h-[120px]" 
+                      placeholder="Please describe in detail how you plan to use the funding for your business (e.g., inventory, marketing, equipment, staff, etc.)"
+                      value={formData.fundingUse}
+                      onChange={(e) => handleInputChange('fundingUse', e.target.value)}
+                      required
+                    />
+                  </div>
+
+                  <div className="space-y-2">
+                    <Label htmlFor="previousFunding">Previous Funding History</Label>
+                    <Select onValueChange={(value) => handleInputChange('previousFunding', value)}>
+                      <SelectTrigger>
+                        <SelectValue placeholder="Have you received funding before?" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="none">No previous funding</SelectItem>
+                        <SelectItem value="personal">Personal savings/bootstrap</SelectItem>
+                        <SelectItem value="friends-family">Friends & Family</SelectItem>
+                        <SelectItem value="bank-loan">Bank Loan</SelectItem>
+                        <SelectItem value="grant">Grant Funding</SelectItem>
+                        <SelectItem value="investor">Angel/VC Investor</SelectItem>
+                        <SelectItem value="other">Other</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
                 </div>
+
+                {/* Business Goals & Challenges Section */}
+                <div className="space-y-4">
+                  <h3 className="text-lg font-semibold text-neutral-800 border-b pb-2">Business Goals & Challenges</h3>
+                  
+                  <div className="space-y-2">
+                    <Label htmlFor="businessGoals">What are your primary business goals? *</Label>
+                    <Textarea 
+                      id="businessGoals" 
+                      className="min-h-[100px]" 
+                      placeholder="Describe your short-term and long-term business goals (e.g., expand operations, hire staff, launch new products, etc.)"
+                      value={formData.businessGoals}
+                      onChange={(e) => handleInputChange('businessGoals', e.target.value)}
+                      required
+                    />
+                  </div>
+
+                  <div className="space-y-2">
+                    <Label htmlFor="currentChallenges">Current Business Challenges</Label>
+                    <Textarea 
+                      id="currentChallenges" 
+                      className="min-h-[100px]" 
+                      placeholder="What challenges is your business currently facing? (e.g., cash flow, marketing, competition, etc.)"
+                      value={formData.currentChallenges}
+                      onChange={(e) => handleInputChange('currentChallenges', e.target.value)}
+                    />
+                  </div>
+
+                  <div className="space-y-2">
+                    <Label htmlFor="businessDescription">Business Description *</Label>
+                    <Textarea 
+                      id="businessDescription" 
+                      className="min-h-[120px]" 
+                      placeholder="Tell us about your business - what products/services do you offer, who are your customers, what makes you unique?"
+                      value={formData.businessDescription}
+                      onChange={(e) => handleInputChange('businessDescription', e.target.value)}
+                      required
+                    />
+                  </div>
+                </div>
+
                 <Button type="submit" className="w-full">
                   Submit Application
                 </Button>
