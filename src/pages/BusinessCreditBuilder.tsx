@@ -45,7 +45,7 @@ const creditBenefits = [
 const creditPrograms = [
   {
     name: "Boss Builder Net 30",
-    price: "$79",
+    price: "$199",
     type: "membership",
     description: "Net 30 program integrated with Boss Builder membership",
     features: [
@@ -62,7 +62,7 @@ const creditPrograms = [
   },
   {
     name: "Inner Circle Net 30",
-    price: "$249",
+    price: "$349",
     type: "membership",
     description: "Premium Net 30 program with Inner Circle membership",
     features: [
@@ -428,7 +428,7 @@ export default function BusinessCreditBuilder() {
                   <div>
                     <h5 className="font-semibold">Join Membership (Net 30)</h5>
                     <p className="text-sm text-neutral-600">
-                      Pay $79 (Boss Builder) or $249 (Inner Circle) in full within 30 days
+                      Pay $199 (Boss Builder) or $349 (Inner Circle) in full within 30 days
                     </p>
                   </div>
                 </div>
