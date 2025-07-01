@@ -72,8 +72,8 @@ const Pricing = () => {
     },
     {
       title: "Boss Builder",
-      price: "$118",
-      annualPrice: "$1,180",
+      price: "$199",
+      annualPrice: "$1,990",
       description: "For entrepreneurs actively scaling their business",
       features: [
         "Everything in Launch Squad",
@@ -87,8 +87,8 @@ const Pricing = () => {
     },
     {
       title: "Inner Circle",
-      price: "$249",
-      annualPrice: "$2,490",
+      price: "$349",
+      annualPrice: "$3,490",
       description: "For serious entrepreneurs ready for 1:1 mentorship",
       features: [
         "Everything in Boss Builder",
@@ -136,11 +136,11 @@ const Pricing = () => {
             </div>
             <div className="p-4">
               <h3 className="font-semibold mb-2">Boss Builder</h3>
-              <p>$1,180/year (2 months free)</p>
+              <p>$1,990/year (2 months free)</p>
             </div>
             <div className="p-4">
               <h3 className="font-semibold mb-2">Inner Circle</h3>
-              <p>$2,490/year (2 months free + a bonus VIP gift box)</p>
+              <p>$3,490/year (2 months free + a bonus VIP gift box)</p>
             </div>
           </div>
         </div>
