@@ -8,6 +8,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
 import { Banknote, BadgeDollarSign, FileSearch } from "lucide-react";
+import { supabase } from "@/integrations/supabase/client";
 
 // Sample grants data - replace with real data later
 const grants = [{
@@ -46,6 +47,7 @@ const grants = [{
 
 export default function FundingOptions() {
   const [activeTab, setActiveTab] = useState<'grants' | 'apply'>('grants');
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     businessName: '',
     email: '',
@@ -70,31 +72,72 @@ export default function FundingOptions() {
     setFormData(prev => ({ ...prev, [field]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Funding application submitted:', formData);
-    toast({
-      title: "Application Submitted Successfully!",
-      description: "We'll review your application and get back to you within 5 business days.",
-    });
-    // Reset form
-    setFormData({
-      businessName: '',
-      email: '',
-      phone: '',
-      businessStructure: '',
-      businessAge: '',
-      industryType: '',
-      monthlyRevenue: '',
-      fundingAmount: '',
-      fundingUse: '',
-      businessGoals: '',
-      currentChallenges: '',
-      previousFunding: '',
-      businessDescription: '',
-      yearsInOperation: '',
-      numberOfEmployees: ''
-    });
+    setIsSubmitting(true);
+    
+    try {
+      const { error } = await supabase
+        .from('funding_applications')
+        .insert({
+          business_name: formData.businessName,
+          email: formData.email,
+          phone: formData.phone,
+          business_structure: formData.businessStructure,
+          years_in_operation: formData.yearsInOperation,
+          industry_type: formData.industryType,
+          number_of_employees: formData.numberOfEmployees,
+          monthly_revenue: formData.monthlyRevenue,
+          funding_amount: formData.fundingAmount,
+          funding_use: formData.fundingUse,
+          previous_funding: formData.previousFunding,
+          business_goals: formData.businessGoals,
+          current_challenges: formData.currentChallenges,
+          business_description: formData.businessDescription
+        });
+
+      if (error) {
+        console.error('Error submitting application:', error);
+        toast({
+          title: "Error Submitting Application",
+          description: "There was a problem submitting your application. Please try again.",
+          variant: "destructive",
+        });
+      } else {
+        toast({
+          title: "Application Submitted Successfully!",
+          description: "We'll review your application and get back to you within 5 business days.",
+        });
+        
+        // Reset form
+        setFormData({
+          businessName: '',
+          email: '',
+          phone: '',
+          businessStructure: '',
+          businessAge: '',
+          industryType: '',
+          monthlyRevenue: '',
+          fundingAmount: '',
+          fundingUse: '',
+          businessGoals: '',
+          currentChallenges: '',
+          previousFunding: '',
+          businessDescription: '',
+          yearsInOperation: '',
+          numberOfEmployees: ''
+        });
+      }
+    } catch (error) {
+      console.error('Unexpected error:', error);
+      toast({
+        title: "Error Submitting Application",
+        description: "There was an unexpected error. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleApplyNow = () => {
@@ -450,8 +493,12 @@ export default function FundingOptions() {
                   </div>
                 </div>
 
-                <Button type="submit" className="w-full h-12 text-lg">
-                  Submit Application
+                <Button 
+                  type="submit" 
+                  className="w-full h-12 text-lg"
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? "Submitting..." : "Submit Application"}
                 </Button>
               </form>
             </CardContent>

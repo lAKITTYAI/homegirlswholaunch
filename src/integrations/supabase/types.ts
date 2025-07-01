@@ -218,6 +218,66 @@ export type Database = {
         }
         Relationships: []
       }
+      funding_applications: {
+        Row: {
+          business_description: string
+          business_goals: string
+          business_name: string
+          business_structure: string
+          created_at: string
+          current_challenges: string | null
+          email: string
+          funding_amount: string
+          funding_use: string
+          id: string
+          industry_type: string
+          monthly_revenue: string | null
+          number_of_employees: string | null
+          phone: string | null
+          previous_funding: string | null
+          status: string
+          years_in_operation: string
+        }
+        Insert: {
+          business_description: string
+          business_goals: string
+          business_name: string
+          business_structure: string
+          created_at?: string
+          current_challenges?: string | null
+          email: string
+          funding_amount: string
+          funding_use: string
+          id?: string
+          industry_type: string
+          monthly_revenue?: string | null
+          number_of_employees?: string | null
+          phone?: string | null
+          previous_funding?: string | null
+          status?: string
+          years_in_operation: string
+        }
+        Update: {
+          business_description?: string
+          business_goals?: string
+          business_name?: string
+          business_structure?: string
+          created_at?: string
+          current_challenges?: string | null
+          email?: string
+          funding_amount?: string
+          funding_use?: string
+          id?: string
+          industry_type?: string
+          monthly_revenue?: string | null
+          number_of_employees?: string | null
+          phone?: string | null
+          previous_funding?: string | null
+          status?: string
+          years_in_operation?: string
+        }
+        Relationships: []
+      }
       jumpstarter_hacks: {
         Row: {
           benefits: string[] | null
