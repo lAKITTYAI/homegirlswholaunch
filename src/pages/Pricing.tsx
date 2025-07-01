@@ -59,8 +59,8 @@ const Pricing = () => {
   const tiers = [
     {
       title: "Launch Squad",
-      price: "$29",
-      annualPrice: "$290",
+      price: "$39",
+      annualPrice: "$390",
       description: "For first-time entrepreneurs & freelancers starting out",
       features: [
         "Access to the HomeGirls Who Launch community",
@@ -132,7 +132,7 @@ const Pricing = () => {
           <div className="grid md:grid-cols-3 gap-4 max-w-4xl mx-auto">
             <div className="p-4">
               <h3 className="font-semibold mb-2">Launch Squad</h3>
-              <p>$290/year (2 months free)</p>
+              <p>$390/year (2 months free)</p>
             </div>
             <div className="p-4">
               <h3 className="font-semibold mb-2">Boss Builder</h3>
