@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardHeader, CardContent, CardTitle, CardDescription } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
 import { Banknote, BadgeDollarSign, FileSearch } from "lucide-react";
 
 // Sample grants data - replace with real data later
@@ -182,8 +183,16 @@ export default function FundingOptions() {
                   </div>
                 </div>
                 <div className="space-y-2">
+                  <Label htmlFor="fundingUse">How will you use the funds for your business?</Label>
+                  <Textarea 
+                    id="fundingUse" 
+                    className="min-h-[120px]" 
+                    placeholder="Please describe in detail how you plan to use the funding for your business (e.g., inventory, marketing, equipment, staff, etc.)" 
+                  />
+                </div>
+                <div className="space-y-2">
                   <Label htmlFor="description">Business Description</Label>
-                  <textarea id="description" className="w-full min-h-[100px] rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50" placeholder="Tell us about your business and how you plan to use the funding" />
+                  <Textarea id="description" className="min-h-[100px]" placeholder="Tell us about your business and how you plan to use the funding" />
                 </div>
                 <Button type="submit" className="w-full">
                   Submit Application
