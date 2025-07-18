@@ -156,6 +156,11 @@ export default function Resources() {
                   </CardHeader>
                   <CardContent className="flex-grow">
                     <p className="text-neutral-600">{resource.description}</p>
+                    <div className="mt-3 p-2 bg-green-50 border border-green-200 rounded-md">
+                      <p className="text-xs text-green-700 font-medium">
+                        ✓ Eligible for Net 30 payments
+                      </p>
+                    </div>
                   </CardContent>
                   <CardFooter>
                     <Button className="w-full bg-primary hover:bg-primary-dark">
