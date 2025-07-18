@@ -13,6 +13,7 @@ const Navigation = () => {
     { to: "/resources", label: "Resources" },
     { to: "/funding", label: "Funding Options" },
     { to: "/credit-builder", label: "Credit Builder" },
+    { to: "/savings-account", label: "Savings Account" },
     { to: "/community", label: "Community" },
     { to: "/about", label: "About HWL" },
     { to: "/magazine", label: "HWL Magazine" },
