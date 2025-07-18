@@ -1,7 +1,9 @@
 import { motion } from "framer-motion";
 import { Card, CardHeader, CardContent, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { CheckCircle, DollarSign, TrendingUp, Shield } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import { CheckCircle, DollarSign, TrendingUp, Shield, FileText } from "lucide-react";
 
 export default function BusinessSavingsAccount() {
   const plans = [
@@ -117,6 +119,113 @@ export default function BusinessSavingsAccount() {
             Each on-time payment is reported monthly, helping customers build history with 
             Dun & Bradstreet, Experian Business, and Equifax Business.
           </p>
+          
+          {/* Agreement Access */}
+          <div className="text-center mt-8">
+            <Dialog>
+              <DialogTrigger asChild>
+                <Button variant="outline" className="flex items-center gap-2">
+                  <FileText className="h-4 w-4" />
+                  View Program Agreement
+                </Button>
+              </DialogTrigger>
+              <DialogContent className="max-w-4xl max-h-[80vh] overflow-y-auto">
+                <DialogHeader>
+                  <DialogTitle>Homegirls Who Launch - Credit Builder Savings Agreement</DialogTitle>
+                </DialogHeader>
+                <div className="space-y-6 text-sm">
+                  <p>
+                    This Credit Builder Savings Agreement ("Agreement") is entered into between the undersigned
+                    customer ("Customer") and Homegirls Who Launch LLC ("HWL"), a registered business entity.
+                  </p>
+                  
+                  <div>
+                    <h3 className="font-semibold text-base mb-2">1. PROGRAM DESCRIPTION</h3>
+                    <p>
+                      Customer agrees to participate in the HWL Credit Builder Savings Program. This program allows the
+                      Customer to make monthly payments that are reported as Net 30 tradelines to major business credit
+                      bureaus while savings are securely held for disbursement at the end of the term.
+                    </p>
+                  </div>
+
+                  <div>
+                    <h3 className="font-semibold text-base mb-2">2. PLAN SELECTION</h3>
+                    <p>Customer agrees to one of the following plans:</p>
+                    <ul className="list-disc ml-6 mt-2">
+                      <li>Starter: $25/month for 6 months</li>
+                      <li>Builder: $50/month for 9 months</li>
+                      <li>Boss Up: $100/month for 12 months</li>
+                    </ul>
+                  </div>
+
+                  <div>
+                    <h3 className="font-semibold text-base mb-2">3. PAYMENT TERMS</h3>
+                    <p>
+                      Payments will be collected automatically via HWL's approved payment processor. All payments
+                      must be made on time to maintain tradeline reporting and eligibility for the savings disbursement.
+                    </p>
+                  </div>
+
+                  <div>
+                    <h3 className="font-semibold text-base mb-2">4. REPORTING</h3>
+                    <p>
+                      HWL will report monthly payment activity to one or more of the following commercial credit bureaus:
+                      Dun & Bradstreet, Experian Business, Equifax Business via eCredable and/or Nav.
+                    </p>
+                  </div>
+
+                  <div>
+                    <h3 className="font-semibold text-base mb-2">5. SAVINGS RELEASE</h3>
+                    <p>
+                      At the end of the term, the total savings amount will be released to the Customer, minus any
+                      administrative fees if applicable. Early termination will result in forfeiture of tradeline benefits and may reduce refund eligibility.
+                    </p>
+                  </div>
+
+                  <div>
+                    <h3 className="font-semibold text-base mb-2">6. LATE PAYMENTS</h3>
+                    <p>
+                      A grace period of 5 calendar days is allowed for each monthly payment. Late payments may delay
+                      or suspend credit reporting and savings release. Repeated missed payments may result in program
+                      cancellation.
+                    </p>
+                  </div>
+
+                  <div>
+                    <h3 className="font-semibold text-base mb-2">7. TERMINATION</h3>
+                    <p>
+                      HWL reserves the right to terminate this agreement for non-compliance, fraud, or chargeback
+                      abuse. Refunds will be assessed based on funds received and program standing at time of
+                      termination.
+                    </p>
+                  </div>
+
+                  <div>
+                    <h3 className="font-semibold text-base mb-2">8. ACKNOWLEDGEMENT</h3>
+                    <p>
+                      By signing below, the Customer agrees to the terms of this agreement and acknowledges that this
+                      program is not a loan or a credit line, but a voluntary credit builder and savings plan.
+                    </p>
+                  </div>
+
+                  <div className="border-t pt-4">
+                    <h3 className="font-semibold text-base mb-3">CUSTOMER INFORMATION:</h3>
+                    <div className="space-y-2 text-neutral-600">
+                      <p>Full Name: ___________________________________________</p>
+                      <p>Business Name: _______________________________________</p>
+                      <p>Business EIN: _________________________________________</p>
+                      <p>Email: _______________________________________________</p>
+                      <p>Phone: _______________________________________________</p>
+                      <p>Signature: ___________________________ Date: ____________</p>
+                    </div>
+                    <p className="mt-4 text-primary font-medium">
+                      Email completed agreement to: billing@homegirlswholaunch.com
+                    </p>
+                  </div>
+                </div>
+              </DialogContent>
+            </Dialog>
+          </div>
         </div>
 
         {/* How It Works */}
