@@ -5,101 +5,63 @@ import { Card, CardHeader, CardContent, CardTitle, CardDescription } from "@/com
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Badge } from "@/components/ui/badge";
-import { 
-  CreditCard, 
-  Building2, 
-  TrendingUp, 
-  Shield, 
-  Calendar,
-  CheckCircle,
-  Star,
-  DollarSign,
-  PiggyBank,
-  Users,
-  AlertCircle
-} from "lucide-react";
-
-const creditBenefits = [
-  {
-    icon: TrendingUp,
-    title: "Build Credit Fast",
-    description: "Establish business credit in as little as 30-45 days with our integrated programs"
-  },
-  {
-    icon: Shield,
-    title: "Dun & Bradstreet Reporting",
-    description: "All payments are reported directly to D&B to build your business credit profile"
-  },
-  {
-    icon: Building2,
-    title: "Separate Business Identity",
-    description: "Keep your personal and business credit separate for better financial health"
-  },
-  {
-    icon: PiggyBank,
-    title: "Multiple Building Methods",
-    description: "Choose from Net 30 programs or savings account options to fit your budget"
-  }
-];
-
-const creditPrograms = [
-  {
-    name: "Boss Builder Net 30",
-    price: "$199",
-    type: "membership",
-    description: "Net 30 program integrated with Boss Builder membership",
-    features: [
-      "Full Boss Builder membership benefits",
-      "Net 30 vendor account setup",
-      "Dun & Bradstreet reporting",
-      "Bi-Weekly Masterclasses",
-      "Personalized Business Audits",
-      "Credit monitoring dashboard",
-      "Business credit coaching"
-    ],
-    creditLimit: "$2,500 - $10,000",
-    popular: true
-  },
-  {
-    name: "Inner Circle Net 30",
-    price: "$349",
-    type: "membership",
-    description: "Premium Net 30 program with Inner Circle membership",
-    features: [
-      "Full Inner Circle membership benefits",
-      "Premium Net 30 vendor accounts",
-      "All 3 bureau reporting (D&B, Experian, Equifax)",
-      "1:1 Strategy Sessions (Monthly)",
-      "Exclusive Inner Circle Retreats",
-      "Dedicated account manager",
-      "Priority credit building support"
-    ],
-    creditLimit: "$10,000+"
-  },
-  {
-    name: "Credit Savings Builder",
-    price: "Starting at $10",
-    type: "savings",
-    description: "Monthly savings account program for gradual credit building",
-    features: [
-      "Choose $10, $15, or $30 monthly payments",
-      "Build to $500 or $1000 savings goal",
-      "Reported every 30-60 days",
-      "Money returned after completion",
-      "No membership required",
-      "Flexible payment schedule",
-      "Perfect for budget-conscious builders"
-    ],
-    creditLimit: "$500 - $1,000"
-  }
-];
-
-const savingsOptions = [
-  { monthly: 10, goal: 500, duration: "50 months", reporting: "Every 30 days" },
-  { monthly: 15, goal: 500, duration: "33 months", reporting: "Every 45 days" },
-  { monthly: 30, goal: 1000, duration: "33 months", reporting: "Every 60 days" }
-];
-
+import { CreditCard, Building2, TrendingUp, Shield, Calendar, CheckCircle, Star, DollarSign, PiggyBank, Users, AlertCircle } from "lucide-react";
+const creditBenefits = [{
+  icon: TrendingUp,
+  title: "Build Credit Fast",
+  description: "Establish business credit in as little as 30-45 days with our integrated programs"
+}, {
+  icon: Shield,
+  title: "Dun & Bradstreet Reporting",
+  description: "All payments are reported directly to D&B to build your business credit profile"
+}, {
+  icon: Building2,
+  title: "Separate Business Identity",
+  description: "Keep your personal and business credit separate for better financial health"
+}, {
+  icon: PiggyBank,
+  title: "Multiple Building Methods",
+  description: "Choose from Net 30 programs or savings account options to fit your budget"
+}];
+const creditPrograms = [{
+  name: "Boss Builder Net 30",
+  price: "$199",
+  type: "membership",
+  description: "Net 30 program integrated with Boss Builder membership",
+  features: ["Full Boss Builder membership benefits", "Net 30 vendor account setup", "Dun & Bradstreet reporting", "Bi-Weekly Masterclasses", "Personalized Business Audits", "Credit monitoring dashboard", "Business credit coaching"],
+  creditLimit: "$2,500 - $10,000",
+  popular: true
+}, {
+  name: "Inner Circle Net 30",
+  price: "$349",
+  type: "membership",
+  description: "Premium Net 30 program with Inner Circle membership",
+  features: ["Full Inner Circle membership benefits", "Premium Net 30 vendor accounts", "All 3 bureau reporting (D&B, Experian, Equifax)", "1:1 Strategy Sessions (Monthly)", "Exclusive Inner Circle Retreats", "Dedicated account manager", "Priority credit building support"],
+  creditLimit: "$10,000+"
+}, {
+  name: "Credit Savings Builder",
+  price: "Starting at $10",
+  type: "savings",
+  description: "Monthly savings account program for gradual credit building",
+  features: ["Choose $10, $15, or $30 monthly payments", "Build to $500 or $1000 savings goal", "Reported every 30-60 days", "Money returned after completion", "No membership required", "Flexible payment schedule", "Perfect for budget-conscious builders"],
+  creditLimit: "$500 - $1,000"
+}];
+const savingsOptions = [{
+  monthly: 10,
+  goal: 500,
+  duration: "50 months",
+  reporting: "Every 30 days"
+}, {
+  monthly: 15,
+  goal: 500,
+  duration: "33 months",
+  reporting: "Every 45 days"
+}, {
+  monthly: 30,
+  goal: 1000,
+  duration: "33 months",
+  reporting: "Every 60 days"
+}];
 export default function BusinessCreditBuilder() {
   const [selectedProgram, setSelectedProgram] = useState<string | null>(null);
   const [selectedSavingsOption, setSelectedSavingsOption] = useState<number | null>(null);
@@ -111,19 +73,22 @@ export default function BusinessCreditBuilder() {
     businessType: "",
     yearsInBusiness: ""
   });
-
   const handleInputChange = (field: string, value: string) => {
-    setFormData(prev => ({ ...prev, [field]: value }));
+    setFormData(prev => ({
+      ...prev,
+      [field]: value
+    }));
   };
-
-  return (
-    <div className="container mx-auto px-4 py-12">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        className="max-w-6xl mx-auto"
-      >
+  return <div className="container mx-auto px-4 py-12">
+      <motion.div initial={{
+      opacity: 0,
+      y: 20
+    }} animate={{
+      opacity: 1,
+      y: 0
+    }} transition={{
+      duration: 0.6
+    }} className="max-w-6xl mx-auto">
         {/* Header Section */}
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold text-neutral-900 mb-4">
@@ -156,13 +121,16 @@ export default function BusinessCreditBuilder() {
 
         {/* Benefits Section */}
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-          {creditBenefits.map((benefit, index) => (
-            <motion.div
-              key={benefit.title}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: index * 0.1 }}
-            >
+          {creditBenefits.map((benefit, index) => <motion.div key={benefit.title} initial={{
+          opacity: 0,
+          y: 20
+        }} animate={{
+          opacity: 1,
+          y: 0
+        }} transition={{
+          duration: 0.4,
+          delay: index * 0.1
+        }}>
               <Card className="text-center h-full">
                 <CardContent className="pt-6">
                   <div className="bg-primary/10 p-3 rounded-full w-fit mx-auto mb-4">
@@ -172,28 +140,26 @@ export default function BusinessCreditBuilder() {
                   <p className="text-sm text-neutral-600">{benefit.description}</p>
                 </CardContent>
               </Card>
-            </motion.div>
-          ))}
+            </motion.div>)}
         </div>
 
         {/* Credit Building Programs */}
         <div className="mb-12">
-          <h2 className="text-3xl font-bold text-center mb-8">Choose Your Credit Building Path</h2>
+          <h2 className="text-3xl font-bold text-center mb-8">You HWL membership payments get reported </h2>
           <div className="grid lg:grid-cols-3 gap-6 mb-8">
-            {creditPrograms.map((program) => (
-              <motion.div
-                key={program.name}
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.4 }}
-                className="relative"
-              >
+            {creditPrograms.map(program => <motion.div key={program.name} initial={{
+            opacity: 0,
+            scale: 0.95
+          }} animate={{
+            opacity: 1,
+            scale: 1
+          }} transition={{
+            duration: 0.4
+          }} className="relative">
                 <Card className={`h-full ${program.popular ? 'ring-2 ring-primary shadow-lg' : ''}`}>
-                  {program.popular && (
-                    <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
+                  {program.popular && <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
                       <Badge className="bg-primary text-white">Most Popular</Badge>
-                    </div>
-                  )}
+                    </div>}
                   <CardHeader className="text-center">
                     <div className="flex items-center justify-center gap-2 mb-2">
                       {program.type === 'membership' ? <Users className="w-5 h-5" /> : <PiggyBank className="w-5 h-5" />}
@@ -204,43 +170,35 @@ export default function BusinessCreditBuilder() {
                       {program.type === 'savings' ? '/month' : ''}
                     </div>
                     <CardDescription className="text-sm font-medium">
-                      {program.type === 'membership' 
-                        ? 'Net 30 Payment Terms' 
-                        : `Monthly Savings: ${program.creditLimit}`
-                      }
+                      {program.type === 'membership' ? 'Net 30 Payment Terms' : `Monthly Savings: ${program.creditLimit}`}
                     </CardDescription>
                     <p className="text-sm text-neutral-600 mt-2">{program.description}</p>
                   </CardHeader>
                   <CardContent>
                     <ul className="space-y-3 mb-6">
-                      {program.features.map((feature, index) => (
-                        <li key={index} className="flex items-start gap-2">
+                      {program.features.map((feature, index) => <li key={index} className="flex items-start gap-2">
                           <CheckCircle className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
                           <span className="text-sm">{feature}</span>
-                        </li>
-                      ))}
+                        </li>)}
                     </ul>
-                    <Button 
-                      className="w-full"
-                      variant={selectedProgram === program.name ? "default" : "outline"}
-                      onClick={() => setSelectedProgram(program.name)}
-                    >
+                    <Button className="w-full" variant={selectedProgram === program.name ? "default" : "outline"} onClick={() => setSelectedProgram(program.name)}>
                       {selectedProgram === program.name ? "Selected" : "Select Program"}
                     </Button>
                   </CardContent>
                 </Card>
-              </motion.div>
-            ))}
+              </motion.div>)}
           </div>
 
           {/* Savings Account Options */}
-          {selectedProgram === "Credit Savings Builder" && (
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className="mb-8"
-            >
+          {selectedProgram === "Credit Savings Builder" && <motion.div initial={{
+          opacity: 0,
+          y: 20
+        }} animate={{
+          opacity: 1,
+          y: 0
+        }} transition={{
+          duration: 0.5
+        }} className="mb-8">
               <Card className="max-w-4xl mx-auto">
                 <CardHeader className="text-center">
                   <CardTitle className="flex items-center justify-center gap-2">
@@ -253,14 +211,7 @@ export default function BusinessCreditBuilder() {
                 </CardHeader>
                 <CardContent>
                   <div className="grid md:grid-cols-3 gap-4">
-                    {savingsOptions.map((option, index) => (
-                      <Card 
-                        key={index}
-                        className={`cursor-pointer transition-all ${
-                          selectedSavingsOption === index ? 'ring-2 ring-primary bg-primary/5' : 'hover:shadow-md'
-                        }`}
-                        onClick={() => setSelectedSavingsOption(index)}
-                      >
+                    {savingsOptions.map((option, index) => <Card key={index} className={`cursor-pointer transition-all ${selectedSavingsOption === index ? 'ring-2 ring-primary bg-primary/5' : 'hover:shadow-md'}`} onClick={() => setSelectedSavingsOption(index)}>
                         <CardContent className="pt-6 text-center">
                           <div className="text-2xl font-bold text-primary mb-2">
                             ${option.monthly}/month
@@ -274,22 +225,23 @@ export default function BusinessCreditBuilder() {
                             </p>
                           </div>
                         </CardContent>
-                      </Card>
-                    ))}
+                      </Card>)}
                   </div>
                 </CardContent>
               </Card>
-            </motion.div>
-          )}
+            </motion.div>}
         </div>
 
         {/* Application Form */}
-        {selectedProgram && (
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-          >
+        {selectedProgram && <motion.div initial={{
+        opacity: 0,
+        y: 20
+      }} animate={{
+        opacity: 1,
+        y: 0
+      }} transition={{
+        duration: 0.5
+      }}>
             <Card className="max-w-2xl mx-auto">
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
@@ -297,10 +249,7 @@ export default function BusinessCreditBuilder() {
                   Credit Building Application - {selectedProgram}
                 </CardTitle>
                 <CardDescription>
-                  {selectedProgram === "Credit Savings Builder" 
-                    ? "Start your monthly savings plan to build business credit gradually"
-                    : "Get started with Net 30 terms and full membership benefits"
-                  }
+                  {selectedProgram === "Credit Savings Builder" ? "Start your monthly savings plan to build business credit gradually" : "Get started with Net 30 terms and full membership benefits"}
                 </CardDescription>
               </CardHeader>
               <CardContent>
@@ -308,64 +257,33 @@ export default function BusinessCreditBuilder() {
                   <div className="grid md:grid-cols-2 gap-4">
                     <div className="space-y-2">
                       <Label htmlFor="businessName">Business Name *</Label>
-                      <Input
-                        id="businessName"
-                        value={formData.businessName}
-                        onChange={(e) => handleInputChange("businessName", e.target.value)}
-                        placeholder="Enter your business name"
-                      />
+                      <Input id="businessName" value={formData.businessName} onChange={e => handleInputChange("businessName", e.target.value)} placeholder="Enter your business name" />
                     </div>
                     <div className="space-y-2">
                       <Label htmlFor="ein">EIN (Tax ID) *</Label>
-                      <Input
-                        id="ein"
-                        value={formData.ein}
-                        onChange={(e) => handleInputChange("ein", e.target.value)}
-                        placeholder="XX-XXXXXXX"
-                      />
+                      <Input id="ein" value={formData.ein} onChange={e => handleInputChange("ein", e.target.value)} placeholder="XX-XXXXXXX" />
                     </div>
                   </div>
 
                   <div className="grid md:grid-cols-2 gap-4">
                     <div className="space-y-2">
                       <Label htmlFor="email">Email Address *</Label>
-                      <Input
-                        id="email"
-                        type="email"
-                        value={formData.email}
-                        onChange={(e) => handleInputChange("email", e.target.value)}
-                        placeholder="Enter your email"
-                      />
+                      <Input id="email" type="email" value={formData.email} onChange={e => handleInputChange("email", e.target.value)} placeholder="Enter your email" />
                     </div>
                     <div className="space-y-2">
                       <Label htmlFor="phone">Phone Number *</Label>
-                      <Input
-                        id="phone"
-                        value={formData.phone}
-                        onChange={(e) => handleInputChange("phone", e.target.value)}
-                        placeholder="(XXX) XXX-XXXX"
-                      />
+                      <Input id="phone" value={formData.phone} onChange={e => handleInputChange("phone", e.target.value)} placeholder="(XXX) XXX-XXXX" />
                     </div>
                   </div>
 
                   <div className="grid md:grid-cols-2 gap-4">
                     <div className="space-y-2">
                       <Label htmlFor="businessType">Business Type *</Label>
-                      <Input
-                        id="businessType"
-                        value={formData.businessType}
-                        onChange={(e) => handleInputChange("businessType", e.target.value)}
-                        placeholder="LLC, Corporation, etc."
-                      />
+                      <Input id="businessType" value={formData.businessType} onChange={e => handleInputChange("businessType", e.target.value)} placeholder="LLC, Corporation, etc." />
                     </div>
                     <div className="space-y-2">
                       <Label htmlFor="yearsInBusiness">Years in Business</Label>
-                      <Input
-                        id="yearsInBusiness"
-                        value={formData.yearsInBusiness}
-                        onChange={(e) => handleInputChange("yearsInBusiness", e.target.value)}
-                        placeholder="0-1, 1-2, 2+, etc."
-                      />
+                      <Input id="yearsInBusiness" value={formData.yearsInBusiness} onChange={e => handleInputChange("yearsInBusiness", e.target.value)} placeholder="0-1, 1-2, 2+, etc." />
                     </div>
                   </div>
 
@@ -374,27 +292,20 @@ export default function BusinessCreditBuilder() {
                       <DollarSign className="w-4 h-4" />
                       Selected Program: {selectedProgram}
                     </h4>
-                    {selectedProgram === "Credit Savings Builder" && selectedSavingsOption !== null ? (
-                      <div className="text-sm text-neutral-600 space-y-1">
+                    {selectedProgram === "Credit Savings Builder" && selectedSavingsOption !== null ? <div className="text-sm text-neutral-600 space-y-1">
                         <p>Monthly Payment: ${savingsOptions[selectedSavingsOption].monthly}</p>
                         <p>Savings Goal: ${savingsOptions[selectedSavingsOption].goal}</p>
                         <p>Duration: {savingsOptions[selectedSavingsOption].duration}</p>
                         <p>Reporting: {savingsOptions[selectedSavingsOption].reporting}</p>
                         <p className="text-green-600 font-medium">Money returned after completion</p>
-                      </div>
-                    ) : (
-                      <div className="text-sm text-neutral-600">
+                      </div> : <div className="text-sm text-neutral-600">
                         <p>Program Cost: {creditPrograms.find(p => p.name === selectedProgram)?.price} (Net 30 Terms)</p>
                         <p>Pay in full within 30 days + full membership benefits</p>
-                      </div>
-                    )}
+                      </div>}
                   </div>
 
                   <Button type="submit" className="w-full">
-                    {selectedProgram === "Credit Savings Builder" 
-                      ? "Start Savings Plan & Build Credit"
-                      : "Join Membership & Start Building Credit"
-                    }
+                    {selectedProgram === "Credit Savings Builder" ? "Start Savings Plan & Build Credit" : "Join Membership & Start Building Credit"}
                   </Button>
 
                   <p className="text-xs text-center text-neutral-500">
@@ -404,8 +315,7 @@ export default function BusinessCreditBuilder() {
                 </form>
               </CardContent>
             </Card>
-          </motion.div>
-        )}
+          </motion.div>}
 
         {/* How It Works Section */}
         <div className="mt-12 bg-gradient-to-r from-primary/5 to-secondary/5 rounded-lg p-8">
@@ -517,6 +427,5 @@ export default function BusinessCreditBuilder() {
           </div>
         </div>
       </motion.div>
-    </div>
-  );
+    </div>;
 }
