@@ -58,7 +58,58 @@ serve(async (req) => {
     if (paymentType === "net30") {
       logStep("Processing Net 30 application");
       
-      // Create Supabase client with service role to bypass RLS
+      // For Launch Squad, collect $100 qualification fee via Stripe first
+      if (planName === "Launch Squad") {
+        logStep("Launch Squad Net 30 - creating qualification fee checkout");
+        
+        const stripe = new Stripe(stripeKey, { apiVersion: "2023-10-16" });
+        
+        // Check if customer exists
+        let customerId;
+        if (email) {
+          const customers = await stripe.customers.list({ email, limit: 1 });
+          if (customers.data.length > 0) {
+            customerId = customers.data[0].id;
+            logStep("Existing customer found", { customerId });
+          }
+        }
+        
+        const session = await stripe.checkout.sessions.create({
+          customer: customerId,
+          customer_email: customerId ? undefined : email || undefined,
+          line_items: [
+            {
+              price_data: {
+                currency: "usd",
+                product_data: { 
+                  name: `${planName} Net 30 Qualification Fee`,
+                  description: `One-time $100 fee to qualify for Net 30 terms on ${planName} membership`
+                },
+                unit_amount: 10000, // $100 in cents
+              },
+              quantity: 1,
+            },
+          ],
+          mode: "payment",
+          success_url: `${req.headers.get("origin")}/success?session_id={CHECKOUT_SESSION_ID}&net30_plan=${encodeURIComponent(planName)}&billing=${isAnnual ? 'annual' : 'monthly'}`,
+          cancel_url: `${req.headers.get("origin")}/pricing`,
+          metadata: {
+            type: "net30_qualification",
+            plan_name: planName,
+            billing_type: isAnnual ? "annual" : "monthly",
+            customer_email: email
+          }
+        });
+        
+        logStep("Launch Squad Net 30 qualification checkout created", { sessionId: session.id, url: session.url });
+        
+        return new Response(JSON.stringify({ url: session.url }), {
+          headers: { ...corsHeaders, "Content-Type": "application/json" },
+          status: 200,
+        });
+      }
+      
+      // For other plans, process Net 30 application directly
       const supabase = createClient(
         Deno.env.get("SUPABASE_URL") ?? "",
         Deno.env.get("SUPABASE_SERVICE_ROLE_KEY") ?? "",

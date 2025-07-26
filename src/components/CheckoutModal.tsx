@@ -157,7 +157,7 @@ const CheckoutModal = ({ isOpen, onClose, planName, monthlyPrice, annualPrice, f
                 <div className="flex items-center space-x-2">
                   <RadioGroupItem value="net30" id="net30" />
                   <Label htmlFor="net30" className="text-sm font-normal">
-                    Net 30 Terms - For established businesses with proper structure
+                    Net 30 Terms - {planName === "Launch Squad" ? "$100 qualification fee + " : ""}For established businesses
                   </Label>
                 </div>
               </RadioGroup>
@@ -165,7 +165,13 @@ const CheckoutModal = ({ isOpen, onClose, planName, monthlyPrice, annualPrice, f
                 <div className="mt-2 p-3 bg-blue-50 border border-blue-200 rounded-md">
                   <p className="text-xs text-blue-800">
                     <strong>Net 30 Requirements:</strong> Available for businesses with proper legal structure (LLC, Corporation), 
-                    established business bank account, and verifiable business operations. Application will be reviewed within 24 hours.
+                    established business bank account, and verifiable business operations. 
+                    {planName === "Launch Squad" && (
+                      <span className="block mt-1">
+                        <strong>Launch Squad Special:</strong> $100 one-time qualification fee to access Net 30 terms.
+                      </span>
+                    )}
+                    Application will be reviewed within 24 hours.
                   </p>
                 </div>
               )}
