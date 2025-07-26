@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardHeader, CardContent, CardTitle, CardDescription } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -31,6 +32,7 @@ const creditBenefits = [
 ];
 
 export default function BusinessCreditBuilder() {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     businessName: "",
     ein: "",
@@ -291,7 +293,11 @@ export default function BusinessCreditBuilder() {
                   <p className="text-sm text-neutral-600 mb-4">
                     Build credit with small monthly payments through our dedicated savings account program - no membership required.
                   </p>
-                  <Button variant="outline" className="w-full">
+                  <Button 
+                    variant="outline" 
+                    className="w-full"
+                    onClick={() => navigate('/business-savings-account')}
+                  >
                     Explore Savings Credit Builder →
                   </Button>
                 </CardContent>
