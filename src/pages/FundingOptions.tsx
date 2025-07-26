@@ -16,7 +16,7 @@ const grants = [{
   title: "Homegirls Who Launch 1st Business Grant",
   amount: "$25,000",
   deadline: "May 15, 2025",
-  description: "For innovative small businesses focused on technology and sustainability.",
+  description: "For new entrepreneurs launching their very first business.",
   link: "#",
   image: "/lovable-uploads/abeb93d9-d013-4590-bac7-4b09da2ccee8.png"
 }, {
