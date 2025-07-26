@@ -156,7 +156,12 @@ export default function Resources() {
                   </CardHeader>
                   <CardContent className="flex-grow">
                     <p className="text-neutral-600">{resource.description}</p>
-                    <div className="mt-3 p-2 bg-green-50 border border-green-200 rounded-md">
+                    <div className="mt-3 p-2 bg-blue-50 border border-blue-200 rounded-md">
+                      <p className="text-xs text-blue-700 font-medium">
+                        ✓ Free for HWL Boss Builder and Inner Circle members
+                      </p>
+                    </div>
+                    <div className="mt-2 p-2 bg-green-50 border border-green-200 rounded-md">
                       <p className="text-xs text-green-700 font-medium">
                         ✓ Eligible for Net 30 payments
                       </p>
