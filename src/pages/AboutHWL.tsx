@@ -1,43 +1,29 @@
-
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Mic, ArrowRight, X } from "lucide-react";
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-  DialogClose,
-} from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger, DialogClose } from "@/components/ui/dialog";
 import SpeakerApplicationForm from "@/components/SpeakerApplicationForm";
-
 const AboutHWL = () => {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
-
   const handleApplicationSubmit = () => {
     setIsDialogOpen(false);
   };
-
-  return (
-    <div className="container mx-auto px-4 py-8">
+  return <div className="container mx-auto px-4 py-8">
       <div className="max-w-4xl mx-auto">
         <h1 className="text-4xl font-bold text-center mb-8">About Homegirls Who Launch</h1>
         
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.7 }}
-          className="mb-12 rounded-2xl overflow-hidden shadow-xl"
-        >
-          <img
-            src="/lovable-uploads/d02fc1fd-22cb-4a5b-a8a7-dcac63d2fe3f.png"
-            alt="Homegirls Who Launch - Woman in purple suit with neon sign and supportive community"
-            className="w-full h-auto object-cover"
-          />
+        <motion.div initial={{
+        opacity: 0,
+        scale: 0.95
+      }} animate={{
+        opacity: 1,
+        scale: 1
+      }} transition={{
+        duration: 0.7
+      }} className="mb-12 rounded-2xl overflow-hidden shadow-xl">
+          <img src="/lovable-uploads/d02fc1fd-22cb-4a5b-a8a7-dcac63d2fe3f.png" alt="Homegirls Who Launch - Woman in purple suit with neon sign and supportive community" className="w-full h-auto object-cover" />
         </motion.div>
         
         <Card className="mb-8">
@@ -45,11 +31,7 @@ const AboutHWL = () => {
             <CardTitle>Our Mission</CardTitle>
           </CardHeader>
           <CardContent>
-            <p className="text-lg">
-              Our mission is to create a world where every woman feels equipped and empowered to launch and grow a successful business. 
-              We provide the tools, resources, and community support to help women confidently navigate the entrepreneurial journey. 
-              Starting a business can feel overwhelming, but with the right guidance and a powerful network behind you, your success is inevitable.
-            </p>
+            <p className="text-lg">Our mission is to create a world where every woman feels equipped and empowered to launch and grow a successful business. We provide the tools, funding, resources, and community support to help women confidently navigate the entrepreneurial journey. Starting a business can feel overwhelming, but with the right guidance and a powerful network behind you, your success is inevitable.</p>
           </CardContent>
         </Card>
 
@@ -140,13 +122,17 @@ const AboutHWL = () => {
         </Card>
 
         {/* Become A HWL Speaker Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="mb-12"
-        >
+        <motion.div initial={{
+        opacity: 0,
+        y: 20
+      }} whileInView={{
+        opacity: 1,
+        y: 0
+      }} viewport={{
+        once: true
+      }} transition={{
+        duration: 0.6
+      }} className="mb-12">
           <Card className="bg-gradient-to-r from-primary/10 to-secondary/10 border-primary/20">
             <CardContent className="p-8">
               <div className="text-center">
@@ -164,10 +150,7 @@ const AboutHWL = () => {
                 </p>
                 <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
                   <DialogTrigger asChild>
-                    <Button 
-                      className="bg-primary hover:bg-primary/90 text-white px-8 py-3 text-lg"
-                      size="lg"
-                    >
+                    <Button className="bg-primary hover:bg-primary/90 text-white px-8 py-3 text-lg" size="lg">
                       Apply Here
                       <ArrowRight className="w-5 h-5 ml-2" />
                     </Button>
@@ -192,21 +175,18 @@ const AboutHWL = () => {
           </Card>
         </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.7 }}
-          className="mb-12 rounded-2xl overflow-hidden shadow-xl"
-        >
-          <img
-            src="/lovable-uploads/9510ed68-4963-4ea8-9ec1-5d3e48abfe30.png"
-            alt="Madam L.A. Kitty Speaking at Homegirls Who Launch Event"
-            className="w-full h-auto object-cover"
-          />
+        <motion.div initial={{
+        opacity: 0,
+        scale: 0.95
+      }} animate={{
+        opacity: 1,
+        scale: 1
+      }} transition={{
+        duration: 0.7
+      }} className="mb-12 rounded-2xl overflow-hidden shadow-xl">
+          <img src="/lovable-uploads/9510ed68-4963-4ea8-9ec1-5d3e48abfe30.png" alt="Madam L.A. Kitty Speaking at Homegirls Who Launch Event" className="w-full h-auto object-cover" />
         </motion.div>
       </div>
-    </div>
-  );
+    </div>;
 };
-
 export default AboutHWL;
