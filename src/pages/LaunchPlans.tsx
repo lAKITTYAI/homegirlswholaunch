@@ -187,7 +187,7 @@ export default function LaunchPlans() {
       >
         <div className="text-center mb-12">
           <h1 className="text-3xl md:text-4xl font-bold text-neutral-900 mb-4">
-            Homegirls Who Launch Plans
+            Homegirls Who Launch Programs
           </h1>
           <p className="text-lg text-neutral-600 max-w-2xl mx-auto">
             Choose a template to start with, then customize it to fit your specific business needs.
