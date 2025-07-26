@@ -55,24 +55,11 @@ export default function BusinessSavingsAccount() {
   ];
 
   const features = [
-    "No credit check required for enrollment",
-    "No debt, interest, or hidden fees", 
-    "Build 9–18 months of verified payment history",
-    "Monthly reporting to major business credit bureaus",
-    "Secured savings with guaranteed return upon completion",
-    "Completion certificate for funding applications",
-    "Access to business credit monitoring tools",
-    "Eligible for Net 30 vendor account applications"
-  ];
-
-  const memberOnlyFeatures = [
-    "Exclusive access to HWL's curated vendor list (500+ suppliers)",
-    "Priority access to grant opportunities database",
-    "30% discount on all Credit Builder plans",
-    "Free business credit consultation sessions",
-    "Access to member-only funding workshops",
-    "Direct connection to HWL's lending partners",
-    "Advanced credit building strategies and resources"
+    "No credit check required",
+    "No debt or interest", 
+    "Build 9–18 months of payment history",
+    "Exclusive access to Homegirls vendor list",
+    "Eligible for Net 30 application approval"
   ];
 
   const requirements = [
@@ -362,45 +349,24 @@ export default function BusinessSavingsAccount() {
 
         {/* Features & Requirements Grid */}
         <div className="grid md:grid-cols-2 gap-8 mb-12">
-          <div className="space-y-6">
-            <Card>
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <DollarSign className="h-6 w-6 text-primary" />
-                  Program Features (All Customers)
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <ul className="space-y-3">
-                  {features.map((feature, index) => (
-                    <li key={index} className="flex items-start gap-2">
-                      <CheckCircle className="h-5 w-5 text-green-500 flex-shrink-0 mt-0.5" />
-                      <span className="text-neutral-700">{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-              </CardContent>
-            </Card>
-
-            <Card className="border-primary/50 bg-primary/5">
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2 text-primary">
-                  <DollarSign className="h-6 w-6 text-primary" />
-                  Member-Only Benefits
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <ul className="space-y-3">
-                  {memberOnlyFeatures.map((feature, index) => (
-                    <li key={index} className="flex items-start gap-2">
-                      <CheckCircle className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                      <span className="text-neutral-700">{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-              </CardContent>
-            </Card>
-          </div>
+          <Card>
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2">
+                <DollarSign className="h-6 w-6 text-primary" />
+                Features
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <ul className="space-y-3">
+                {features.map((feature, index) => (
+                  <li key={index} className="flex items-start gap-2">
+                    <CheckCircle className="h-5 w-5 text-green-500 flex-shrink-0 mt-0.5" />
+                    <span className="text-neutral-700">{feature}</span>
+                  </li>
+                ))}
+              </ul>
+            </CardContent>
+          </Card>
 
           <Card>
             <CardHeader>
