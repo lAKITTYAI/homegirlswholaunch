@@ -2,22 +2,39 @@
 import { Outlet, Link, useLocation } from "react-router-dom";
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+  navigationMenuTriggerStyle,
+} from "@/components/ui/navigation-menu";
 
 const Navigation = () => {
   const location = useLocation();
   
-  const links = [
-    { to: "/", label: "Home" },
-    { to: "/pricing", label: "Pricing" },
-    { to: "/launch-plans", label: "Launch Plans" },
-    { to: "/resources", label: "Resources" },
+  const services = [
     { to: "/funding", label: "Funding Options" },
     { to: "/credit-builder", label: "Credit Builder" },
     { to: "/savings-account", label: "Savings Account" },
-    { to: "/community", label: "Community" },
+  ];
+
+  const programs = [
+    { to: "/launch-plans", label: "Launch Plans" },
+    { to: "/resources", label: "Resources" },
+  ];
+
+  const company = [
     { to: "/about", label: "About HWL" },
+    { to: "/community", label: "Community" },
     { to: "/magazine", label: "HWL Magazine" },
   ];
+
+  const isActiveCategory = (categoryLinks: { to: string }[]) => {
+    return categoryLinks.some(link => location.pathname === link.to);
+  };
 
   return (
     <header className="bg-white border-b border-neutral-200 py-4 sticky top-0 z-50">
@@ -31,33 +48,94 @@ const Navigation = () => {
             />
           </Link>
         </div>
-        <nav className="flex items-center space-x-4 overflow-x-auto scrollbar-hide">
-          {links.map((link) => (
-            <Link
-              key={link.to}
-              to={link.to}
-              className={cn(
-                "relative px-3 py-2 text-sm font-medium rounded-md transition-all duration-300 ease-in-out",
-                location.pathname === link.to
-                  ? "text-primary font-semibold"
-                  : "text-neutral-600 hover:text-primary hover:bg-neutral-100"
-              )}
-            >
-              {link.label}
-              {location.pathname === link.to && (
-                <motion.div
-                  className="absolute bottom-0 left-0 right-0 h-0.5 bg-primary rounded-full"
-                  layoutId="navbar-indicator"
-                  transition={{ 
-                    type: "spring", 
-                    stiffness: 300, 
-                    damping: 30 
-                  }}
-                />
-              )}
-            </Link>
-          ))}
-        </nav>
+        
+        <NavigationMenu>
+          <NavigationMenuList className="gap-2">
+            <NavigationMenuItem>
+              <Link 
+                to="/" 
+                className={cn(
+                  navigationMenuTriggerStyle(),
+                  location.pathname === "/" ? "text-primary font-semibold bg-neutral-100" : ""
+                )}
+              >
+                Home
+              </Link>
+            </NavigationMenuItem>
+
+            <NavigationMenuItem>
+              <NavigationMenuTrigger className={isActiveCategory(services) ? "text-primary font-semibold" : ""}>
+                Services
+              </NavigationMenuTrigger>
+              <NavigationMenuContent>
+                <div className="grid w-[300px] gap-3 p-4 bg-white">
+                  {services.map((service) => (
+                    <NavigationMenuLink key={service.to} asChild>
+                      <Link
+                        to={service.to}
+                        className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                      >
+                        <div className="text-sm font-medium leading-none">{service.label}</div>
+                      </Link>
+                    </NavigationMenuLink>
+                  ))}
+                </div>
+              </NavigationMenuContent>
+            </NavigationMenuItem>
+
+            <NavigationMenuItem>
+              <NavigationMenuTrigger className={isActiveCategory(programs) ? "text-primary font-semibold" : ""}>
+                Programs
+              </NavigationMenuTrigger>
+              <NavigationMenuContent>
+                <div className="grid w-[300px] gap-3 p-4 bg-white">
+                  {programs.map((program) => (
+                    <NavigationMenuLink key={program.to} asChild>
+                      <Link
+                        to={program.to}
+                        className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                      >
+                        <div className="text-sm font-medium leading-none">{program.label}</div>
+                      </Link>
+                    </NavigationMenuLink>
+                  ))}
+                </div>
+              </NavigationMenuContent>
+            </NavigationMenuItem>
+
+            <NavigationMenuItem>
+              <NavigationMenuTrigger className={isActiveCategory(company) ? "text-primary font-semibold" : ""}>
+                Company
+              </NavigationMenuTrigger>
+              <NavigationMenuContent>
+                <div className="grid w-[300px] gap-3 p-4 bg-white">
+                  {company.map((item) => (
+                    <NavigationMenuLink key={item.to} asChild>
+                      <Link
+                        to={item.to}
+                        className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                      >
+                        <div className="text-sm font-medium leading-none">{item.label}</div>
+                      </Link>
+                    </NavigationMenuLink>
+                  ))}
+                </div>
+              </NavigationMenuContent>
+            </NavigationMenuItem>
+
+            <NavigationMenuItem>
+              <Link 
+                to="/pricing" 
+                className={cn(
+                  navigationMenuTriggerStyle(),
+                  location.pathname === "/pricing" ? "text-primary font-semibold bg-neutral-100" : ""
+                )}
+              >
+                Pricing
+              </Link>
+            </NavigationMenuItem>
+          </NavigationMenuList>
+        </NavigationMenu>
       </div>
     </header>
   );
