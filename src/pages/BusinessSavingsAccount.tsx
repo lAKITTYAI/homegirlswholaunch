@@ -55,11 +55,16 @@ export default function BusinessSavingsAccount() {
   ];
 
   const features = [
-    "No credit check required",
-    "No debt or interest", 
-    "Build 9–18 months of payment history",
-    "Exclusive access to Homegirls vendor list",
-    "Eligible for Net 30 application approval"
+    "No credit check required for enrollment",
+    "No debt, interest, or hidden fees", 
+    "Build 9–18 months of verified payment history",
+    "Monthly reporting to major business credit bureaus",
+    "Secured savings with guaranteed return upon completion",
+    "Completion certificate for funding applications",
+    "Access to business credit monitoring tools",
+    "Exclusive access to Homegirls vendor list (members only)",
+    "Priority access to grant opportunities database (members only)",
+    "Eligible for Net 30 vendor account applications"
   ];
 
   const requirements = [
