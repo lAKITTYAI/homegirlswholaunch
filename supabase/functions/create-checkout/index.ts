@@ -1,6 +1,7 @@
 
 import { serve } from "https://deno.land/std@0.190.0/http/server.ts";
 import Stripe from "https://esm.sh/stripe@14.21.0";
+import { createClient } from "https://esm.sh/@supabase/supabase-js@2.45.0";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -24,8 +25,8 @@ serve(async (req) => {
     if (!stripeKey) throw new Error("STRIPE_SECRET_KEY is not set");
     logStep("Stripe key verified");
 
-    const { planName, email, isAnnual } = await req.json();
-    logStep("Request data received", { planName, email, isAnnual });
+    const { planName, email, isAnnual, paymentType } = await req.json();
+    logStep("Request data received", { planName, email, isAnnual, paymentType });
 
     // Define pricing for each plan
     const pricingMap = {
@@ -51,7 +52,51 @@ serve(async (req) => {
     const amount = isAnnual ? planPricing.annual : planPricing.monthly;
     const interval = isAnnual ? "year" : "month";
     
-    logStep("Plan pricing determined", { amount, interval });
+    logStep("Plan pricing determined", { amount, interval, paymentType });
+
+    // Handle Net 30 applications
+    if (paymentType === "net30") {
+      logStep("Processing Net 30 application");
+      
+      // Create Supabase client with service role to bypass RLS
+      const supabase = createClient(
+        Deno.env.get("SUPABASE_URL") ?? "",
+        Deno.env.get("SUPABASE_SERVICE_ROLE_KEY") ?? "",
+        { auth: { persistSession: false } }
+      );
+
+      // Store Net 30 application
+      const { data: applicationData, error: applicationError } = await supabase
+        .from("net30_applications")
+        .insert({
+          email,
+          plan_name: planName,
+          billing_type: isAnnual ? "annual" : "monthly",
+          amount,
+          status: "pending"
+        })
+        .select()
+        .single();
+
+      if (applicationError) {
+        logStep("Error creating Net 30 application", { error: applicationError });
+        throw new Error(`Failed to create Net 30 application: ${applicationError.message}`);
+      }
+
+      logStep("Net 30 application created successfully", { applicationId: applicationData.id });
+      
+      return new Response(JSON.stringify({ 
+        success: true, 
+        message: "Net 30 application submitted successfully",
+        applicationId: applicationData.id 
+      }), {
+        headers: { ...corsHeaders, "Content-Type": "application/json" },
+        status: 200,
+      });
+    }
+
+    // Continue with regular Stripe checkout for immediate payments
+    logStep("Processing immediate payment via Stripe");
 
     const stripe = new Stripe(stripeKey, { apiVersion: "2023-10-16" });
 
