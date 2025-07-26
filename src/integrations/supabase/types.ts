@@ -197,6 +197,69 @@ export type Database = {
         }
         Relationships: []
       }
+      net30_applications: {
+        Row: {
+          amount: number
+          billing_type: string
+          business_address: string | null
+          business_name: string | null
+          business_phone: string | null
+          business_structure: string | null
+          created_at: string
+          email: string
+          id: string
+          monthly_revenue: string | null
+          notes: string | null
+          plan_name: string
+          reviewed_at: string | null
+          reviewed_by: string | null
+          status: string
+          tax_id: string | null
+          updated_at: string
+          years_in_operation: string | null
+        }
+        Insert: {
+          amount: number
+          billing_type: string
+          business_address?: string | null
+          business_name?: string | null
+          business_phone?: string | null
+          business_structure?: string | null
+          created_at?: string
+          email: string
+          id?: string
+          monthly_revenue?: string | null
+          notes?: string | null
+          plan_name: string
+          reviewed_at?: string | null
+          reviewed_by?: string | null
+          status?: string
+          tax_id?: string | null
+          updated_at?: string
+          years_in_operation?: string | null
+        }
+        Update: {
+          amount?: number
+          billing_type?: string
+          business_address?: string | null
+          business_name?: string | null
+          business_phone?: string | null
+          business_structure?: string | null
+          created_at?: string
+          email?: string
+          id?: string
+          monthly_revenue?: string | null
+          notes?: string | null
+          plan_name?: string
+          reviewed_at?: string | null
+          reviewed_by?: string | null
+          status?: string
+          tax_id?: string | null
+          updated_at?: string
+          years_in_operation?: string | null
+        }
+        Relationships: []
+      }
       tags: {
         Row: {
           created_at: string
