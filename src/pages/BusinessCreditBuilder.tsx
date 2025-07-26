@@ -33,6 +33,7 @@ const creditBenefits = [
 
 export default function BusinessCreditBuilder() {
   const navigate = useNavigate();
+  const [selectedPlan, setSelectedPlan] = useState<{name: string, price: string, type: string} | null>(null);
   const [formData, setFormData] = useState({
     businessName: "",
     ein: "",
@@ -41,6 +42,12 @@ export default function BusinessCreditBuilder() {
     businessType: "",
     yearsInBusiness: ""
   });
+
+  const handleSelectPlan = (planName: string, price: string, type: string) => {
+    setSelectedPlan({ name: planName, price, type });
+    // TODO: Integrate with payment processing or enrollment form
+    console.log(`Selected plan: ${planName} (${price}) - Type: ${type}`);
+  };
 
   const handleInputChange = (field: string, value: string) => {
     setFormData(prev => ({
@@ -132,9 +139,16 @@ export default function BusinessCreditBuilder() {
                       <span>1 Bureau Reporting Activated</span>
                     </div>
                   </div>
-                  <div className="text-sm text-neutral-600">
+                  <div className="text-sm text-neutral-600 mb-4">
                     Dual bureau reporting after 3 consistent payments
                   </div>
+                  <Button 
+                    variant="outline"
+                    className="w-full"
+                    onClick={() => handleSelectPlan("Boss Builder Membership", "$199", "Starter Track")}
+                  >
+                    Select Starter Track
+                  </Button>
                 </CardContent>
               </Card>
 
@@ -167,9 +181,15 @@ export default function BusinessCreditBuilder() {
                       <span>All 3 Bureaus Reporting</span>
                     </div>
                   </div>
-                  <div className="text-sm text-neutral-600">
+                  <div className="text-sm text-neutral-600 mb-4">
                     Faster credit building with premium benefits
                   </div>
+                  <Button 
+                    className="w-full"
+                    onClick={() => handleSelectPlan("Inner Circle Membership", "$349", "Builder Track")}
+                  >
+                    Select Builder Track
+                  </Button>
                 </CardContent>
               </Card>
 
@@ -202,9 +222,16 @@ export default function BusinessCreditBuilder() {
                       <span>Fast Track Credit Building</span>
                     </div>
                   </div>
-                  <div className="text-sm text-neutral-600">
+                  <div className="text-sm text-neutral-600 mb-4">
                     Start building credit immediately with full reporting
                   </div>
+                  <Button 
+                    variant="secondary"
+                    className="w-full"
+                    onClick={() => handleSelectPlan("Instant Credit Reporting", "$99 + Membership", "Accelerated Track")}
+                  >
+                    Select Accelerated Track
+                  </Button>
                 </CardContent>
               </Card>
             </div>
