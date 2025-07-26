@@ -63,9 +63,13 @@ export default function BusinessSavingsAccount() {
   ];
 
   const requirements = [
-    "Active business entity (LLC, S-Corp, or Corp)",
-    "EIN and business bank account",
-    "Valid business email and phone number"
+    "Active business entity with verifiable registration (LLC, S-Corp, or Corp)",
+    "Valid EIN (Employer Identification Number) from IRS",
+    "Business bank account in the legal business name",
+    "Verifiable business address (no P.O. boxes)",
+    "Active business email and phone number matching business records",
+    "Business must be operational for at least 30 days",
+    "Valid government-issued ID for business owner/authorized signatory"
   ];
 
   const steps = [
