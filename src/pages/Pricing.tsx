@@ -156,22 +156,33 @@ const Pricing = () => {
         </div>
 
         <div className="mt-16 text-center bg-secondary/30 rounded-lg p-8">
-          <h2 className="text-2xl font-bold mb-4">Annual Membership Benefits</h2>
+          <h2 className="text-2xl font-bold mb-4">Annual Membership Perks & Payment Options</h2>
           <p className="text-lg mb-6">
-            Save with our annual plans and get two months free, plus exclusive bonuses for our Inner Circle members.
+            Lock in your success with our annual plans - save two months, plus get exclusive business credit benefits and flexible payment terms.
           </p>
-          <div className="grid md:grid-cols-3 gap-4 max-w-4xl mx-auto">
-            <div className="p-4">
-              <h3 className="font-semibold mb-2">Launch Squad</h3>
-              <p>$390/year (2 months free)</p>
+          <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            <div className="p-6 bg-white rounded-lg shadow-sm">
+              <h3 className="font-semibold mb-3 text-lg">Launch Squad</h3>
+              <p className="text-2xl font-bold text-primary mb-2">$390/year</p>
+              <p className="text-sm text-green-600 font-medium mb-3">Save $78 (2 months free)</p>
+              <p className="text-sm text-muted-foreground">Split into 2 easy payments of $195</p>
             </div>
-            <div className="p-4">
-              <h3 className="font-semibold mb-2">Boss Builder</h3>
-              <p>$1,990/year (2 months free)</p>
+            <div className="p-6 bg-white rounded-lg shadow-sm">
+              <h3 className="font-semibold mb-3 text-lg">Boss Builder</h3>
+              <p className="text-2xl font-bold text-primary mb-2">$1,990/year</p>
+              <p className="text-sm text-green-600 font-medium mb-3">Save $398 (2 months free)</p>
+              <p className="text-sm text-muted-foreground">Split into 2 easy payments of $995</p>
             </div>
-            <div className="p-4">
-              <h3 className="font-semibold mb-2">Inner Circle</h3>
-              <p>$3,490/year (2 months free + a bonus VIP gift box)</p>
+            <div className="p-6 bg-white rounded-lg shadow-sm border-2 border-primary">
+              <h3 className="font-semibold mb-3 text-lg">Inner Circle</h3>
+              <p className="text-2xl font-bold text-primary mb-2">$3,490/year</p>
+              <p className="text-sm text-green-600 font-medium mb-1">Save $698 (2 months free)</p>
+              <p className="text-sm text-purple-600 font-medium mb-3">+ VIP gift box</p>
+              <p className="text-sm text-muted-foreground mb-3">Split into 2 easy payments of $1,745</p>
+              <div className="bg-gradient-to-r from-primary/10 to-purple-50 p-3 rounded-lg">
+                <p className="text-xs font-semibold text-primary">🏆 EXCLUSIVE BENEFIT</p>
+                <p className="text-xs text-muted-foreground mt-1">Automatic 3-bureau credit reporting for qualified businesses</p>
+              </div>
             </div>
           </div>
         </div>
