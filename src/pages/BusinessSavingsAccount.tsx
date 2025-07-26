@@ -129,9 +129,12 @@ export default function BusinessSavingsAccount() {
                   View Program Agreement
                 </Button>
               </DialogTrigger>
-              <DialogContent className="max-w-5xl max-h-[85vh] overflow-y-auto bg-white">
+              <DialogContent 
+                className="max-w-5xl max-h-[85vh] overflow-y-auto" 
+                style={{backgroundColor: '#ffffff', opacity: 1, zIndex: 9999}}
+              >
                 <DialogHeader>
-                  <DialogTitle className="text-xl text-center" style={{color: '#000'}}>Homegirls Who Launch - Credit Builder Savings Agreement</DialogTitle>
+                  <DialogTitle className="text-xl text-center text-black">Homegirls Who Launch - Credit Builder Savings Agreement</DialogTitle>
                 </DialogHeader>
                 <div className="space-y-8 text-base leading-relaxed bg-white p-4" style={{backgroundColor: '#ffffff !important'}}>
                   <p style={{color: '#000000 !important', backgroundColor: '#ffffff !important'}}>
