@@ -236,6 +236,14 @@ export default function LaunchPlans() {
                     <p className="text-neutral-700 text-base mb-4">
                       {template.description}
                     </p>
+                    {(template.price === "$149.00" || template.price === "$75.00") && (
+                      <div className="mb-4 bg-green-50 border border-green-200 rounded-lg p-3">
+                        <div className="flex items-center text-green-700 font-medium text-sm">
+                          <Check className="h-4 w-4 mr-2" />
+                          Eligible for net 30 payments
+                        </div>
+                      </div>
+                    )}
                     <ul className="grid md:grid-cols-3 gap-y-3 gap-x-6 text-sm mb-4">
                       {template.kitItems.map((item, i) => (
                         <li key={i} className="flex items-start gap-2">
