@@ -110,6 +110,11 @@ export default function BusinessSavingsAccount() {
                   </CardHeader>
                   <CardContent>
                     <div className="text-lg font-semibold text-neutral-800">{plan.total}</div>
+                    <div className="text-sm text-neutral-600 mt-2">
+                      {plan.name === "Starter Plan" && "Reports to 1 credit bureau"}
+                      {plan.name === "Builder Plan" && "Reports to 2 credit bureaus"}
+                      {plan.name === "Boss Up Plan" && "Reports to 3 credit bureaus"}
+                    </div>
                   </CardContent>
                 </Card>
               </motion.div>
