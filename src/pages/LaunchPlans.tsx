@@ -236,6 +236,12 @@ export default function LaunchPlans() {
                     <p className="text-neutral-700 text-base mb-4">
                       {template.description}
                     </p>
+                    <div className="mb-4 bg-blue-50 border border-blue-200 rounded-lg p-3">
+                      <div className="flex items-center text-blue-700 font-medium text-sm">
+                        <Check className="h-4 w-4 mr-2" />
+                        Free for Boss Builder and Inner Circle members
+                      </div>
+                    </div>
                     {(template.price === "$149.00" || template.price === "$75.00") && (
                       <div className="mb-4 bg-green-50 border border-green-200 rounded-lg p-3">
                         <div className="flex items-center text-green-700 font-medium text-sm">
@@ -296,6 +302,12 @@ export default function LaunchPlans() {
                     <p className="text-neutral-700 text-base mb-4">
                       {template.description}
                     </p>
+                    <div className="mb-4 bg-blue-50 border border-blue-200 rounded-lg p-3">
+                      <div className="flex items-center text-blue-700 font-medium text-sm">
+                        <Check className="h-4 w-4 mr-2" />
+                        Free for Boss Builder and Inner Circle members
+                      </div>
+                    </div>
                     <ul className="grid md:grid-cols-2 gap-y-3 gap-x-6 text-sm mb-4">
                       {template.benefits.map((benefit, i) => (
                         <li key={i} className="flex items-start gap-2">
@@ -350,6 +362,12 @@ export default function LaunchPlans() {
                   </CardHeader>
                   <CardContent className="flex-grow">
                     <p className="text-neutral-600 mb-4">{template.description}</p>
+                    <div className="mb-4 bg-blue-50 border border-blue-200 rounded-lg p-3">
+                      <div className="flex items-center text-blue-700 font-medium text-sm">
+                        <Check className="h-4 w-4 mr-2" />
+                        Free for Boss Builder and Inner Circle members
+                      </div>
+                    </div>
                     {template.steps && <ul className="space-y-2">
                       {template.steps.map((step, index) => (
                         <li key={index} className="flex items-start">
