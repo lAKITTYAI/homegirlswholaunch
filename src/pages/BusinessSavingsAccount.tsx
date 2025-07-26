@@ -6,7 +6,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from 
 import { CheckCircle, DollarSign, TrendingUp, Shield, FileText } from "lucide-react";
 
 export default function BusinessSavingsAccount() {
-  const plans = [
+  const memberPlans = [
     {
       name: "Starter Plan",
       price: "$25/month",
@@ -26,6 +26,30 @@ export default function BusinessSavingsAccount() {
       price: "$100/month", 
       duration: "18 months",
       total: "$1,800 total saved",
+      color: "bg-purple-50 border-purple-200 text-purple-800"
+    }
+  ];
+
+  const nonMemberPlans = [
+    {
+      name: "Starter Plan",
+      price: "$35/month",
+      duration: "9 months",
+      total: "$315 total saved",
+      color: "bg-green-50 border-green-200 text-green-800"
+    },
+    {
+      name: "Builder Plan", 
+      price: "$70/month",
+      duration: "12 months",
+      total: "$840 total saved",
+      color: "bg-blue-50 border-blue-200 text-blue-800"
+    },
+    {
+      name: "Boss Up Plan",
+      price: "$140/month", 
+      duration: "18 months",
+      total: "$2,520 total saved",
       color: "bg-purple-50 border-purple-200 text-purple-800"
     }
   ];
@@ -88,11 +112,27 @@ export default function BusinessSavingsAccount() {
           </CardContent>
         </Card>
 
-        {/* Plan Tiers */}
+        {/* Pricing Notice */}
+        <div className="mb-8">
+          <Card className="bg-primary/5 border-primary/20">
+            <CardContent className="pt-6">
+              <div className="text-center">
+                <h3 className="text-xl font-semibold text-primary mb-2">Special Member Pricing Available</h3>
+                <p className="text-neutral-700">
+                  HWL members save 30% on all Credit Builder Savings plans. 
+                  <span className="font-semibold"> Non-members pay standard rates below.</span>
+                </p>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+
+        {/* Non-Member Plan Tiers */}
         <div className="mb-12">
-          <h2 className="text-3xl font-bold text-center mb-8">Plan Tiers</h2>
+          <h2 className="text-3xl font-bold text-center mb-2">Non-Member Plan Tiers</h2>
+          <p className="text-center text-neutral-600 mb-8">Standard pricing for non-members</p>
           <div className="grid md:grid-cols-3 gap-6">
-            {plans.map((plan, index) => (
+            {nonMemberPlans.map((plan, index) => (
               <motion.div
                 key={plan.name}
                 initial={{ opacity: 0, y: 20 }}
@@ -120,6 +160,42 @@ export default function BusinessSavingsAccount() {
               </motion.div>
             ))}
           </div>
+
+          {/* Member Pricing */}
+          <div className="mt-12">
+            <h3 className="text-2xl font-bold text-center mb-2 text-primary">HWL Member Pricing (30% Savings)</h3>
+            <p className="text-center text-neutral-600 mb-8">Exclusive rates for HWL members</p>
+            <div className="grid md:grid-cols-3 gap-6">
+              {memberPlans.map((plan, index) => (
+                <motion.div
+                  key={`member-${plan.name}`}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: index * 0.1 }}
+                >
+                  <Card className="h-full text-center border-primary/50 bg-primary/5">
+                    <CardHeader>
+                      <Badge className="bg-primary text-white">{plan.name} - MEMBER</Badge>
+                      <div className="mt-4">
+                        <div className="text-3xl font-bold text-primary">{plan.price}</div>
+                        <div className="text-neutral-600">{plan.duration}</div>
+                      </div>
+                    </CardHeader>
+                    <CardContent>
+                      <div className="text-lg font-semibold text-neutral-800">{plan.total}</div>
+                      <div className="text-sm text-neutral-600 mt-2">
+                        {plan.name === "Starter Plan" && "Reports to 1 credit bureau"}
+                        {plan.name === "Builder Plan" && "Reports to 2 credit bureaus"}
+                        {plan.name === "Boss Up Plan" && "Reports to 3 credit bureaus"}
+                      </div>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+
           <p className="text-center text-neutral-600 mt-6">
             Each on-time payment is reported monthly, helping customers build history with 
             Dun & Bradstreet, Experian Business, and Equifax Business.
