@@ -7,6 +7,11 @@ export type Json =
   | Json[]
 
 export type Database = {
+  // Allows to automatically instanciate createClient with right options
+  // instead of createClient<Database, { PostgrestVersion: 'XX' }>(URL, KEY)
+  __InternalSupabase: {
+    PostgrestVersion: "12.2.3 (519615d)"
+  }
   public: {
     Tables: {
       blog_posts: {
@@ -38,56 +43,6 @@ export type Database = {
           type?: string
         }
         Relationships: []
-      }
-      board_elements: {
-        Row: {
-          board_id: string
-          content: Json
-          created_at: string
-          element_type: string
-          height: number
-          id: string
-          position_x: number
-          position_y: number
-          updated_at: string
-          width: number
-          z_index: number
-        }
-        Insert: {
-          board_id: string
-          content: Json
-          created_at?: string
-          element_type: string
-          height?: number
-          id?: string
-          position_x?: number
-          position_y?: number
-          updated_at?: string
-          width?: number
-          z_index?: number
-        }
-        Update: {
-          board_id?: string
-          content?: Json
-          created_at?: string
-          element_type?: string
-          height?: number
-          id?: string
-          position_x?: number
-          position_y?: number
-          updated_at?: string
-          width?: number
-          z_index?: number
-        }
-        Relationships: [
-          {
-            foreignKeyName: "board_elements_board_id_fkey"
-            columns: ["board_id"]
-            isOneToOne: false
-            referencedRelation: "vision_boards"
-            referencedColumns: ["id"]
-          },
-        ]
       }
       calendar_events: {
         Row: {
@@ -155,42 +110,6 @@ export type Database = {
           icon?: string | null
           id?: string
           name?: string
-        }
-        Relationships: []
-      }
-      custom_meal_plans: {
-        Row: {
-          calorie_range: string
-          created_at: string
-          description: string
-          diet_type: string
-          guidelines: string[] | null
-          id: string
-          meals: Json
-          name: string
-          target_goal: string
-        }
-        Insert: {
-          calorie_range: string
-          created_at?: string
-          description: string
-          diet_type: string
-          guidelines?: string[] | null
-          id?: string
-          meals: Json
-          name: string
-          target_goal: string
-        }
-        Update: {
-          calorie_range?: string
-          created_at?: string
-          description?: string
-          diet_type?: string
-          guidelines?: string[] | null
-          id?: string
-          meals?: Json
-          name?: string
-          target_goal?: string
         }
         Relationships: []
       }
@@ -278,63 +197,6 @@ export type Database = {
         }
         Relationships: []
       }
-      jumpstarter_hacks: {
-        Row: {
-          benefits: string[] | null
-          category: string
-          created_at: string
-          description: string
-          difficulty: string
-          duration: string | null
-          id: string
-          time_of_day: string | null
-          title: string
-        }
-        Insert: {
-          benefits?: string[] | null
-          category: string
-          created_at?: string
-          description: string
-          difficulty: string
-          duration?: string | null
-          id?: string
-          time_of_day?: string | null
-          title: string
-        }
-        Update: {
-          benefits?: string[] | null
-          category?: string
-          created_at?: string
-          description?: string
-          difficulty?: string
-          duration?: string | null
-          id?: string
-          time_of_day?: string | null
-          title?: string
-        }
-        Relationships: []
-      }
-      profiles: {
-        Row: {
-          avatar_url: string | null
-          id: string
-          updated_at: string | null
-          username: string | null
-        }
-        Insert: {
-          avatar_url?: string | null
-          id: string
-          updated_at?: string | null
-          username?: string | null
-        }
-        Update: {
-          avatar_url?: string | null
-          id?: string
-          updated_at?: string | null
-          username?: string | null
-        }
-        Relationships: []
-      }
       tags: {
         Row: {
           created_at: string
@@ -350,252 +212,6 @@ export type Database = {
           created_at?: string
           id?: string
           name?: string
-        }
-        Relationships: []
-      }
-      tools: {
-        Row: {
-          category: string
-          cost: string
-          created_at: string
-          difficulty: string
-          id: string
-          link: string
-          name: string
-          skill_level: string
-          use_case: string
-        }
-        Insert: {
-          category: string
-          cost: string
-          created_at?: string
-          difficulty: string
-          id?: string
-          link: string
-          name: string
-          skill_level: string
-          use_case: string
-        }
-        Update: {
-          category?: string
-          cost?: string
-          created_at?: string
-          difficulty?: string
-          id?: string
-          link?: string
-          name?: string
-          skill_level?: string
-          use_case?: string
-        }
-        Relationships: []
-      }
-      transformations: {
-        Row: {
-          created_at: string
-          goals: Json | null
-          id: string
-          original_image_path: string
-          status: string
-          transformation_type: string
-          transformed_image_path: string | null
-          user_id: string | null
-        }
-        Insert: {
-          created_at?: string
-          goals?: Json | null
-          id?: string
-          original_image_path: string
-          status?: string
-          transformation_type: string
-          transformed_image_path?: string | null
-          user_id?: string | null
-        }
-        Update: {
-          created_at?: string
-          goals?: Json | null
-          id?: string
-          original_image_path?: string
-          status?: string
-          transformation_type?: string
-          transformed_image_path?: string | null
-          user_id?: string | null
-        }
-        Relationships: []
-      }
-      user_fasting_logs: {
-        Row: {
-          duration: number
-          end_time: string | null
-          id: string
-          method: string
-          start_time: string
-          user_id: string | null
-        }
-        Insert: {
-          duration: number
-          end_time?: string | null
-          id?: string
-          method: string
-          start_time?: string
-          user_id?: string | null
-        }
-        Update: {
-          duration?: number
-          end_time?: string | null
-          id?: string
-          method?: string
-          start_time?: string
-          user_id?: string | null
-        }
-        Relationships: []
-      }
-      user_hack_logs: {
-        Row: {
-          hack_name: string
-          id: string
-          logged_at: string
-          user_id: string | null
-        }
-        Insert: {
-          hack_name: string
-          id?: string
-          logged_at?: string
-          user_id?: string | null
-        }
-        Update: {
-          hack_name?: string
-          id?: string
-          logged_at?: string
-          user_id?: string | null
-        }
-        Relationships: []
-      }
-      user_tasks: {
-        Row: {
-          completed: boolean
-          created_at: string
-          duration: number
-          id: string
-          scheduled_time: string
-          title: string
-          user_id: string
-        }
-        Insert: {
-          completed?: boolean
-          created_at?: string
-          duration: number
-          id: string
-          scheduled_time: string
-          title: string
-          user_id: string
-        }
-        Update: {
-          completed?: boolean
-          created_at?: string
-          duration?: number
-          id?: string
-          scheduled_time?: string
-          title?: string
-          user_id?: string
-        }
-        Relationships: []
-      }
-      vision_boards: {
-        Row: {
-          board_type: string
-          canvas_data: Json | null
-          created_at: string
-          description: string | null
-          id: string
-          title: string
-          updated_at: string
-          user_id: string
-        }
-        Insert: {
-          board_type?: string
-          canvas_data?: Json | null
-          created_at?: string
-          description?: string | null
-          id?: string
-          title?: string
-          updated_at?: string
-          user_id: string
-        }
-        Update: {
-          board_type?: string
-          canvas_data?: Json | null
-          created_at?: string
-          description?: string | null
-          id?: string
-          title?: string
-          updated_at?: string
-          user_id?: string
-        }
-        Relationships: []
-      }
-      weight_loss_hacks: {
-        Row: {
-          created_at: string
-          description: string
-          effect: string
-          how_to_use: string
-          id: string
-          name: string
-        }
-        Insert: {
-          created_at?: string
-          description: string
-          effect: string
-          how_to_use: string
-          id?: string
-          name: string
-        }
-        Update: {
-          created_at?: string
-          description?: string
-          effect?: string
-          how_to_use?: string
-          id?: string
-          name?: string
-        }
-        Relationships: []
-      }
-      workout_routines: {
-        Row: {
-          created_at: string
-          description: string
-          duration: string
-          equipment_needed: string[]
-          fitness_level: string
-          goal: string
-          guidelines: string[] | null
-          id: string
-          name: string
-          workout_days: Json
-        }
-        Insert: {
-          created_at?: string
-          description: string
-          duration: string
-          equipment_needed: string[]
-          fitness_level: string
-          goal: string
-          guidelines?: string[] | null
-          id?: string
-          name: string
-          workout_days: Json
-        }
-        Update: {
-          created_at?: string
-          description?: string
-          duration?: string
-          equipment_needed?: string[]
-          fitness_level?: string
-          goal?: string
-          guidelines?: string[] | null
-          id?: string
-          name?: string
-          workout_days?: Json
         }
         Relationships: []
       }
@@ -615,21 +231,25 @@ export type Database = {
   }
 }
 
-type DefaultSchema = Database[Extract<keyof Database, "public">]
+type DatabaseWithoutInternals = Omit<Database, "__InternalSupabase">
+
+type DefaultSchema = DatabaseWithoutInternals[Extract<keyof Database, "public">]
 
 export type Tables<
   DefaultSchemaTableNameOrOptions extends
     | keyof (DefaultSchema["Tables"] & DefaultSchema["Views"])
-    | { schema: keyof Database },
+    | { schema: keyof DatabaseWithoutInternals },
   TableName extends DefaultSchemaTableNameOrOptions extends {
-    schema: keyof Database
+    schema: keyof DatabaseWithoutInternals
   }
-    ? keyof (Database[DefaultSchemaTableNameOrOptions["schema"]]["Tables"] &
-        Database[DefaultSchemaTableNameOrOptions["schema"]]["Views"])
+    ? keyof (DatabaseWithoutInternals[DefaultSchemaTableNameOrOptions["schema"]]["Tables"] &
+        DatabaseWithoutInternals[DefaultSchemaTableNameOrOptions["schema"]]["Views"])
     : never = never,
-> = DefaultSchemaTableNameOrOptions extends { schema: keyof Database }
-  ? (Database[DefaultSchemaTableNameOrOptions["schema"]]["Tables"] &
-      Database[DefaultSchemaTableNameOrOptions["schema"]]["Views"])[TableName] extends {
+> = DefaultSchemaTableNameOrOptions extends {
+  schema: keyof DatabaseWithoutInternals
+}
+  ? (DatabaseWithoutInternals[DefaultSchemaTableNameOrOptions["schema"]]["Tables"] &
+      DatabaseWithoutInternals[DefaultSchemaTableNameOrOptions["schema"]]["Views"])[TableName] extends {
       Row: infer R
     }
     ? R
@@ -647,14 +267,16 @@ export type Tables<
 export type TablesInsert<
   DefaultSchemaTableNameOrOptions extends
     | keyof DefaultSchema["Tables"]
-    | { schema: keyof Database },
+    | { schema: keyof DatabaseWithoutInternals },
   TableName extends DefaultSchemaTableNameOrOptions extends {
-    schema: keyof Database
+    schema: keyof DatabaseWithoutInternals
   }
-    ? keyof Database[DefaultSchemaTableNameOrOptions["schema"]]["Tables"]
+    ? keyof DatabaseWithoutInternals[DefaultSchemaTableNameOrOptions["schema"]]["Tables"]
     : never = never,
-> = DefaultSchemaTableNameOrOptions extends { schema: keyof Database }
-  ? Database[DefaultSchemaTableNameOrOptions["schema"]]["Tables"][TableName] extends {
+> = DefaultSchemaTableNameOrOptions extends {
+  schema: keyof DatabaseWithoutInternals
+}
+  ? DatabaseWithoutInternals[DefaultSchemaTableNameOrOptions["schema"]]["Tables"][TableName] extends {
       Insert: infer I
     }
     ? I
@@ -670,14 +292,16 @@ export type TablesInsert<
 export type TablesUpdate<
   DefaultSchemaTableNameOrOptions extends
     | keyof DefaultSchema["Tables"]
-    | { schema: keyof Database },
+    | { schema: keyof DatabaseWithoutInternals },
   TableName extends DefaultSchemaTableNameOrOptions extends {
-    schema: keyof Database
+    schema: keyof DatabaseWithoutInternals
   }
-    ? keyof Database[DefaultSchemaTableNameOrOptions["schema"]]["Tables"]
+    ? keyof DatabaseWithoutInternals[DefaultSchemaTableNameOrOptions["schema"]]["Tables"]
     : never = never,
-> = DefaultSchemaTableNameOrOptions extends { schema: keyof Database }
-  ? Database[DefaultSchemaTableNameOrOptions["schema"]]["Tables"][TableName] extends {
+> = DefaultSchemaTableNameOrOptions extends {
+  schema: keyof DatabaseWithoutInternals
+}
+  ? DatabaseWithoutInternals[DefaultSchemaTableNameOrOptions["schema"]]["Tables"][TableName] extends {
       Update: infer U
     }
     ? U
@@ -693,14 +317,16 @@ export type TablesUpdate<
 export type Enums<
   DefaultSchemaEnumNameOrOptions extends
     | keyof DefaultSchema["Enums"]
-    | { schema: keyof Database },
+    | { schema: keyof DatabaseWithoutInternals },
   EnumName extends DefaultSchemaEnumNameOrOptions extends {
-    schema: keyof Database
+    schema: keyof DatabaseWithoutInternals
   }
-    ? keyof Database[DefaultSchemaEnumNameOrOptions["schema"]]["Enums"]
+    ? keyof DatabaseWithoutInternals[DefaultSchemaEnumNameOrOptions["schema"]]["Enums"]
     : never = never,
-> = DefaultSchemaEnumNameOrOptions extends { schema: keyof Database }
-  ? Database[DefaultSchemaEnumNameOrOptions["schema"]]["Enums"][EnumName]
+> = DefaultSchemaEnumNameOrOptions extends {
+  schema: keyof DatabaseWithoutInternals
+}
+  ? DatabaseWithoutInternals[DefaultSchemaEnumNameOrOptions["schema"]]["Enums"][EnumName]
   : DefaultSchemaEnumNameOrOptions extends keyof DefaultSchema["Enums"]
     ? DefaultSchema["Enums"][DefaultSchemaEnumNameOrOptions]
     : never
@@ -708,14 +334,16 @@ export type Enums<
 export type CompositeTypes<
   PublicCompositeTypeNameOrOptions extends
     | keyof DefaultSchema["CompositeTypes"]
-    | { schema: keyof Database },
+    | { schema: keyof DatabaseWithoutInternals },
   CompositeTypeName extends PublicCompositeTypeNameOrOptions extends {
-    schema: keyof Database
+    schema: keyof DatabaseWithoutInternals
   }
-    ? keyof Database[PublicCompositeTypeNameOrOptions["schema"]]["CompositeTypes"]
+    ? keyof DatabaseWithoutInternals[PublicCompositeTypeNameOrOptions["schema"]]["CompositeTypes"]
     : never = never,
-> = PublicCompositeTypeNameOrOptions extends { schema: keyof Database }
-  ? Database[PublicCompositeTypeNameOrOptions["schema"]]["CompositeTypes"][CompositeTypeName]
+> = PublicCompositeTypeNameOrOptions extends {
+  schema: keyof DatabaseWithoutInternals
+}
+  ? DatabaseWithoutInternals[PublicCompositeTypeNameOrOptions["schema"]]["CompositeTypes"][CompositeTypeName]
   : PublicCompositeTypeNameOrOptions extends keyof DefaultSchema["CompositeTypes"]
     ? DefaultSchema["CompositeTypes"][PublicCompositeTypeNameOrOptions]
     : never
