@@ -33,7 +33,7 @@ export default function BusinessSavingsAccount() {
   const features = [
     "No credit check required",
     "No debt or interest", 
-    "Build 6–12 months of payment history",
+    "Build 9–18 months of payment history",
     "Exclusive access to Homegirls vendor list",
     "Eligible for Net 30 application approval"
   ];
