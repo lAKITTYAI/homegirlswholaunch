@@ -171,11 +171,7 @@ const Pricing = () => {
               <h3 className="font-semibold mb-3 text-lg">Boss Builder</h3>
               <p className="text-2xl font-bold text-primary mb-2">$1,990/year</p>
               <p className="text-sm text-green-600 font-medium mb-3">Save $398 (2 months free)</p>
-              <p className="text-sm text-muted-foreground mb-3">Split into 2 easy payments of $995</p>
-              <div className="bg-gradient-to-r from-blue-50 to-primary/10 p-3 rounded-lg">
-                <p className="text-xs font-semibold text-blue-600">💼 BUSINESS BENEFIT</p>
-                <p className="text-xs text-muted-foreground mt-1">Automatic 2-bureau credit reporting for qualified businesses</p>
-              </div>
+              <p className="text-sm text-muted-foreground">Split into 2 easy payments of $995</p>
             </div>
             <div className="p-6 bg-white rounded-lg shadow-sm border-2 border-primary">
               <h3 className="font-semibold mb-3 text-lg">Inner Circle</h3>
