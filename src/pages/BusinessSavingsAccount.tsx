@@ -10,22 +10,22 @@ export default function BusinessSavingsAccount() {
     {
       name: "Starter Plan",
       price: "$25/month",
-      duration: "6 months",
-      total: "$150 total saved",
+      duration: "9 months",
+      total: "$225 total saved",
       color: "bg-green-50 border-green-200 text-green-800"
     },
     {
       name: "Builder Plan", 
       price: "$50/month",
-      duration: "9 months",
-      total: "$450 total saved",
+      duration: "12 months",
+      total: "$600 total saved",
       color: "bg-blue-50 border-blue-200 text-blue-800"
     },
     {
       name: "Boss Up Plan",
       price: "$100/month", 
-      duration: "12 months",
-      total: "$1,200 total saved",
+      duration: "18 months",
+      total: "$1,800 total saved",
       color: "bg-purple-50 border-purple-200 text-purple-800"
     }
   ];
@@ -155,9 +155,9 @@ export default function BusinessSavingsAccount() {
                     <h3 className="font-semibold text-lg mb-3 text-primary">2. PLAN SELECTION</h3>
                     <p style={{color: '#000000 !important', backgroundColor: '#ffffff !important'}}>Customer agrees to one of the following plans:</p>
                     <ul className="list-disc ml-6 mt-2" style={{color: '#000000 !important', backgroundColor: '#ffffff !important'}}>
-                      <li style={{color: '#000000 !important'}}>Starter: $25/month for 6 months</li>
-                      <li style={{color: '#000000 !important'}}>Builder: $50/month for 9 months</li>
-                      <li style={{color: '#000000 !important'}}>Boss Up: $100/month for 12 months</li>
+                      <li style={{color: '#000000 !important'}}>Starter: $25/month for 9 months</li>
+                      <li style={{color: '#000000 !important'}}>Builder: $50/month for 12 months</li>
+                      <li style={{color: '#000000 !important'}}>Boss Up: $100/month for 18 months</li>
                     </ul>
                   </div>
 
