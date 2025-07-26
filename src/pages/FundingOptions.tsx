@@ -15,7 +15,7 @@ const grants = [{
   id: 1,
   title: "Homegirls Who Launch 1st Business Grant",
   amount: "$25,000",
-  deadline: "May 15, 2025",
+  deadline: "September 18, 2025",
   description: "For new entrepreneurs launching their very first business.",
   link: "#",
   image: "/lovable-uploads/abeb93d9-d013-4590-bac7-4b09da2ccee8.png"
@@ -23,7 +23,7 @@ const grants = [{
   id: 2,
   title: "Women Entrepreneurs Fund",
   amount: "$15,000",
-  deadline: "June 1, 2025",
+  deadline: "September 18, 2025",
   description: "Supporting women-owned businesses in their early stages.",
   link: "#",
   image: "/lovable-uploads/745ce114-a155-458b-94c3-39ed6710c6d9.png"
@@ -31,7 +31,7 @@ const grants = [{
   id: 3,
   title: "Community Business Development Grant",
   amount: "$10,000",
-  deadline: "July 30, 2025",
+  deadline: "September 18, 2025",
   description: "For businesses that contribute to local community development.",
   link: "#",
   image: "/lovable-uploads/76c729f3-0e2d-48c2-8865-6d42e33807ee.png"
@@ -39,7 +39,7 @@ const grants = [{
   id: 4,
   title: "The Single Mom in Business Grant",
   amount: "$20,000",
-  deadline: "August 15, 2025",
+  deadline: "September 18, 2025",
   description: "Supporting single mothers who are starting or growing their own businesses while balancing family responsibilities.",
   link: "#",
   image: "/lovable-uploads/1b524a66-7144-4bc8-b40d-0ad7a6a3d9b1.png"
