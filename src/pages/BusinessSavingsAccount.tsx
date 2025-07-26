@@ -180,6 +180,13 @@ export default function BusinessSavingsAccount() {
                       HWL will report monthly payment activity to one or more of the following commercial credit bureaus:
                       Dun & Bradstreet, Experian Business, Equifax Business via eCredable and/or Nav.
                     </p>
+                    <p className="mt-3" style={{color: '#000000 !important', backgroundColor: '#ffffff !important'}}>
+                      <strong>Important:</strong> HWL is committed to supporting our customers' financial success. We understand 
+                      that unforeseen circumstances may arise that could impact your ability to make timely payments. Should you 
+                      experience financial hardship, we encourage you to contact us immediately to discuss payment arrangements. 
+                      HWL will never report negative payment information to credit bureaus and will work collaboratively with 
+                      customers to find mutually acceptable solutions during times of financial difficulty.
+                    </p>
                   </div>
 
                   <div>
