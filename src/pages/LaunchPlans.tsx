@@ -190,7 +190,7 @@ export default function LaunchPlans() {
             Homegirls Who Launch Programs
           </h1>
           <p className="text-lg text-neutral-600 max-w-2xl mx-auto">
-            Choose a template to start with, then customize it to fit your specific business needs.
+            Choose a launch program for your business, and start your journey to launching the business you dream about.
           </p>
         </div>
         
