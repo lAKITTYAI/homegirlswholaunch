@@ -146,9 +146,44 @@ export default function BusinessSavingsAccount() {
           </Card>
         </div>
 
+        {/* Member Pricing First */}
+        <div className="mb-12">
+          <h2 className="text-3xl font-bold text-center mb-2 text-primary">HWL Member Pricing (30% Savings)</h2>
+          <p className="text-center text-neutral-600 mb-8">Exclusive rates for HWL members</p>
+          <div className="grid md:grid-cols-3 gap-6">
+            {memberPlans.map((plan, index) => (
+              <motion.div
+                key={`member-${plan.name}`}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: index * 0.1 }}
+              >
+                <Card className="h-full text-center border-primary/50 bg-primary/5">
+                  <CardHeader>
+                    <Badge className="bg-primary text-white">{plan.name} - MEMBER</Badge>
+                    <div className="mt-4">
+                      <div className="text-3xl font-bold text-primary">{plan.price}</div>
+                      <div className="text-neutral-600">{plan.duration}</div>
+                    </div>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="text-lg font-semibold text-neutral-800">{plan.total}</div>
+                    <div className="text-sm text-neutral-600 mt-2">
+                      {plan.name === "Starter Plan" && "Reports to 1 credit bureau"}
+                      {plan.name === "Builder Plan" && "Reports to 2 credit bureaus"}
+                      {plan.name === "Boss Up Plan" && "Reports to 3 credit bureaus"}
+                    </div>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+
         {/* Non-Member Plan Tiers */}
         <div className="mb-12">
-          <h2 className="text-3xl font-bold text-center mb-2">Non-Member Plan Tiers</h2>
+          <h3 className="text-2xl font-bold text-center mb-2">Non-Member Plan Tiers</h3>
           <p className="text-center text-neutral-600 mb-8">Standard pricing for non-members</p>
           <div className="grid md:grid-cols-3 gap-6">
             {nonMemberPlans.map((plan, index) => (
@@ -180,162 +215,127 @@ export default function BusinessSavingsAccount() {
             ))}
           </div>
 
-          {/* Member Pricing */}
-          <div className="mt-12">
-            <h3 className="text-2xl font-bold text-center mb-2 text-primary">HWL Member Pricing (30% Savings)</h3>
-            <p className="text-center text-neutral-600 mb-8">Exclusive rates for HWL members</p>
-            <div className="grid md:grid-cols-3 gap-6">
-              {memberPlans.map((plan, index) => (
-                <motion.div
-                  key={`member-${plan.name}`}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: index * 0.1 }}
-                >
-                  <Card className="h-full text-center border-primary/50 bg-primary/5">
-                    <CardHeader>
-                      <Badge className="bg-primary text-white">{plan.name} - MEMBER</Badge>
-                      <div className="mt-4">
-                        <div className="text-3xl font-bold text-primary">{plan.price}</div>
-                        <div className="text-neutral-600">{plan.duration}</div>
-                      </div>
-                    </CardHeader>
-                    <CardContent>
-                      <div className="text-lg font-semibold text-neutral-800">{plan.total}</div>
-                      <div className="text-sm text-neutral-600 mt-2">
-                        {plan.name === "Starter Plan" && "Reports to 1 credit bureau"}
-                        {plan.name === "Builder Plan" && "Reports to 2 credit bureaus"}
-                        {plan.name === "Boss Up Plan" && "Reports to 3 credit bureaus"}
-                      </div>
-                    </CardContent>
-                  </Card>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-
           <p className="text-center text-neutral-600 mt-6">
             Each on-time payment is reported monthly, helping customers build history with 
             Dun & Bradstreet, Experian Business, and Equifax Business.
           </p>
-          
-          {/* Agreement Access */}
-          <div className="text-center mt-8">
-            <Dialog>
-              <DialogTrigger asChild>
-                <Button variant="outline" className="flex items-center gap-2">
-                  <FileText className="h-4 w-4" />
-                  View Program Agreement
-                </Button>
-              </DialogTrigger>
-              <DialogContent 
-                className="max-w-5xl max-h-[85vh] overflow-y-auto" 
-                style={{backgroundColor: '#ffffff', opacity: 1, zIndex: 9999}}
-              >
-                <DialogHeader>
-                  <DialogTitle className="text-xl text-center text-black">Homegirls Who Launch - Credit Builder Savings Agreement</DialogTitle>
-                </DialogHeader>
-                <div className="space-y-8 text-base leading-relaxed bg-white p-4" style={{backgroundColor: '#ffffff !important'}}>
+        </div>
+
+        {/* Agreement Access */}
+        <div className="text-center mb-12">
+          <Dialog>
+            <DialogTrigger asChild>
+              <Button variant="outline" className="flex items-center gap-2">
+                <FileText className="h-4 w-4" />
+                View Program Agreement
+              </Button>
+            </DialogTrigger>
+            <DialogContent 
+              className="max-w-5xl max-h-[85vh] overflow-y-auto" 
+              style={{backgroundColor: '#ffffff', opacity: 1, zIndex: 9999}}
+            >
+              <DialogHeader>
+                <DialogTitle className="text-xl text-center text-black">Homegirls Who Launch - Credit Builder Savings Agreement</DialogTitle>
+              </DialogHeader>
+              <div className="space-y-8 text-base leading-relaxed bg-white p-4" style={{backgroundColor: '#ffffff !important'}}>
+                <p style={{color: '#000000 !important', backgroundColor: '#ffffff !important'}}>
+                  This Credit Builder Savings Agreement ("Agreement") is entered into between the undersigned
+                  customer ("Customer") and Homegirls Who Launch LLC ("HWL"), a registered business entity.
+                </p>
+                
+                <div>
+                  <h3 className="font-semibold text-lg mb-3 text-primary">1. PROGRAM DESCRIPTION</h3>
                   <p style={{color: '#000000 !important', backgroundColor: '#ffffff !important'}}>
-                    This Credit Builder Savings Agreement ("Agreement") is entered into between the undersigned
-                    customer ("Customer") and Homegirls Who Launch LLC ("HWL"), a registered business entity.
+                    Customer agrees to participate in the HWL Credit Builder Savings Program. This program allows the
+                    Customer to make monthly payments that are reported as Net 30 tradelines to major business credit
+                    bureaus while savings are securely held for disbursement at the end of the term.
                   </p>
-                  
-                  <div>
-                    <h3 className="font-semibold text-lg mb-3 text-primary">1. PROGRAM DESCRIPTION</h3>
-                    <p style={{color: '#000000 !important', backgroundColor: '#ffffff !important'}}>
-                      Customer agrees to participate in the HWL Credit Builder Savings Program. This program allows the
-                      Customer to make monthly payments that are reported as Net 30 tradelines to major business credit
-                      bureaus while savings are securely held for disbursement at the end of the term.
-                    </p>
-                  </div>
-
-                  <div>
-                    <h3 className="font-semibold text-lg mb-3 text-primary">2. PLAN SELECTION</h3>
-                    <p style={{color: '#000000 !important', backgroundColor: '#ffffff !important'}}>Customer agrees to one of the following plans:</p>
-                    <ul className="list-disc ml-6 mt-2" style={{color: '#000000 !important', backgroundColor: '#ffffff !important'}}>
-                      <li style={{color: '#000000 !important'}}>Starter: $25/month for 9 months</li>
-                      <li style={{color: '#000000 !important'}}>Builder: $50/month for 12 months</li>
-                      <li style={{color: '#000000 !important'}}>Boss Up: $100/month for 18 months</li>
-                    </ul>
-                  </div>
-
-                  <div>
-                    <h3 className="font-semibold text-lg mb-3 text-primary">3. PAYMENT TERMS</h3>
-                    <p style={{color: '#000000 !important', backgroundColor: '#ffffff !important'}}>
-                      Payments will be collected automatically via HWL's approved payment processor. All payments
-                      must be made on time to maintain tradeline reporting and eligibility for the savings disbursement.
-                    </p>
-                  </div>
-
-                  <div>
-                    <h3 className="font-semibold text-lg mb-3 text-primary">4. REPORTING</h3>
-                    <p style={{color: '#000000 !important', backgroundColor: '#ffffff !important'}}>
-                      HWL will report monthly payment activity to one or more of the following commercial credit bureaus:
-                      Dun & Bradstreet, Experian Business, Equifax Business via eCredable and/or Nav.
-                    </p>
-                    <p className="mt-3" style={{color: '#000000 !important', backgroundColor: '#ffffff !important'}}>
-                      <strong>Important:</strong> HWL is committed to supporting our customers' financial success. We understand 
-                      that unforeseen circumstances may arise that could impact your ability to make timely payments. Should you 
-                      experience financial hardship, we encourage you to contact us immediately to discuss payment arrangements. 
-                      HWL will never report negative payment information to credit bureaus and will work collaboratively with 
-                      customers to find mutually acceptable solutions during times of financial difficulty.
-                    </p>
-                  </div>
-
-                  <div>
-                    <h3 className="font-semibold text-lg mb-3 text-primary">5. SAVINGS RELEASE</h3>
-                    <p style={{color: '#000000 !important', backgroundColor: '#ffffff !important'}}>
-                      At the end of the term, the total savings amount will be released to the Customer, minus any
-                      administrative fees if applicable. Early termination will result in forfeiture of tradeline benefits and may reduce refund eligibility.
-                    </p>
-                  </div>
-
-                  <div>
-                    <h3 className="font-semibold text-lg mb-3 text-primary">6. LATE PAYMENTS</h3>
-                    <p style={{color: '#000000 !important', backgroundColor: '#ffffff !important'}}>
-                      A grace period of 5 calendar days is allowed for each monthly payment. Late payments may delay
-                      or suspend credit reporting and savings release. Repeated missed payments may result in program
-                      cancellation.
-                    </p>
-                  </div>
-
-                  <div>
-                    <h3 className="font-semibold text-lg mb-3 text-primary">7. TERMINATION</h3>
-                    <p style={{color: '#000000 !important', backgroundColor: '#ffffff !important'}}>
-                      HWL reserves the right to terminate this agreement for non-compliance, fraud, or chargeback
-                      abuse. Refunds will be assessed based on funds received and program standing at time of
-                      termination.
-                    </p>
-                  </div>
-
-                  <div>
-                    <h3 className="font-semibold text-lg mb-3 text-primary">8. ACKNOWLEDGEMENT</h3>
-                    <p style={{color: '#000000 !important', backgroundColor: '#ffffff !important'}}>
-                      By signing below, the Customer agrees to the terms of this agreement and acknowledges that this
-                      program is not a loan or a credit line, but a voluntary credit builder and savings plan.
-                    </p>
-                  </div>
-
-                  <div className="border-t pt-6">
-                    <h3 className="font-semibold text-lg mb-4 text-primary">CUSTOMER INFORMATION:</h3>
-                    <div className="space-y-3" style={{color: '#000000 !important', backgroundColor: '#ffffff !important'}}>
-                      <p style={{color: '#000000 !important'}}>Full Name: ___________________________________________</p>
-                      <p style={{color: '#000000 !important'}}>Business Name: _______________________________________</p>
-                      <p style={{color: '#000000 !important'}}>Business EIN: _________________________________________</p>
-                      <p style={{color: '#000000 !important'}}>Email: _______________________________________________</p>
-                      <p style={{color: '#000000 !important'}}>Phone: _______________________________________________</p>
-                      <p style={{color: '#000000 !important'}}>Signature: ___________________________ Date: ____________</p>
-                    </div>
-                    <p className="mt-4 text-primary font-medium">
-                      Email completed agreement to: billing@homegirlswholaunch.com
-                    </p>
-                  </div>
                 </div>
-              </DialogContent>
-            </Dialog>
-          </div>
+
+                <div>
+                  <h3 className="font-semibold text-lg mb-3 text-primary">2. PLAN SELECTION</h3>
+                  <p style={{color: '#000000 !important', backgroundColor: '#ffffff !important'}}>Customer agrees to one of the following plans:</p>
+                  <ul className="list-disc ml-6 mt-2" style={{color: '#000000 !important', backgroundColor: '#ffffff !important'}}>
+                    <li style={{color: '#000000 !important'}}>Starter: $25/month for 9 months</li>
+                    <li style={{color: '#000000 !important'}}>Builder: $50/month for 12 months</li>
+                    <li style={{color: '#000000 !important'}}>Boss Up: $100/month for 18 months</li>
+                  </ul>
+                </div>
+
+                <div>
+                  <h3 className="font-semibold text-lg mb-3 text-primary">3. PAYMENT TERMS</h3>
+                  <p style={{color: '#000000 !important', backgroundColor: '#ffffff !important'}}>
+                    Payments will be collected automatically via HWL's approved payment processor. All payments
+                    must be made on time to maintain tradeline reporting and eligibility for the savings disbursement.
+                  </p>
+                </div>
+
+                <div>
+                  <h3 className="font-semibold text-lg mb-3 text-primary">4. REPORTING</h3>
+                  <p style={{color: '#000000 !important', backgroundColor: '#ffffff !important'}}>
+                    HWL will report monthly payment activity to one or more of the following commercial credit bureaus:
+                    Dun & Bradstreet, Experian Business, Equifax Business via eCredable and/or Nav.
+                  </p>
+                  <p className="mt-3" style={{color: '#000000 !important', backgroundColor: '#ffffff !important'}}>
+                    <strong>Important:</strong> HWL is committed to supporting our customers' financial success. We understand 
+                    that unforeseen circumstances may arise that could impact your ability to make timely payments. Should you 
+                    experience financial hardship, we encourage you to contact us immediately to discuss payment arrangements. 
+                    HWL will never report negative payment information to credit bureaus and will work collaboratively with 
+                    customers to find mutually acceptable solutions during times of financial difficulty.
+                  </p>
+                </div>
+
+                <div>
+                  <h3 className="font-semibold text-lg mb-3 text-primary">5. SAVINGS RELEASE</h3>
+                  <p style={{color: '#000000 !important', backgroundColor: '#ffffff !important'}}>
+                    At the end of the term, the total savings amount will be released to the Customer, minus any
+                    administrative fees if applicable. Early termination will result in forfeiture of tradeline benefits and may reduce refund eligibility.
+                  </p>
+                </div>
+
+                <div>
+                  <h3 className="font-semibold text-lg mb-3 text-primary">6. LATE PAYMENTS</h3>
+                  <p style={{color: '#000000 !important', backgroundColor: '#ffffff !important'}}>
+                    A grace period of 5 calendar days is allowed for each monthly payment. Late payments may delay
+                    or suspend credit reporting and savings release. Repeated missed payments may result in program
+                    cancellation.
+                  </p>
+                </div>
+
+                <div>
+                  <h3 className="font-semibold text-lg mb-3 text-primary">7. TERMINATION</h3>
+                  <p style={{color: '#000000 !important', backgroundColor: '#ffffff !important'}}>
+                    HWL reserves the right to terminate this agreement for non-compliance, fraud, or chargeback
+                    abuse. Refunds will be assessed based on funds received and program standing at time of
+                    termination.
+                  </p>
+                </div>
+
+                <div>
+                  <h3 className="font-semibold text-lg mb-3 text-primary">8. ACKNOWLEDGEMENT</h3>
+                  <p style={{color: '#000000 !important', backgroundColor: '#ffffff !important'}}>
+                    By signing below, the Customer agrees to the terms of this agreement and acknowledges that this
+                    program is not a loan or a credit line, but a voluntary credit builder and savings plan.
+                  </p>
+                </div>
+
+                <div className="border-t pt-6">
+                  <h3 className="font-semibold text-lg mb-4 text-primary">CUSTOMER INFORMATION:</h3>
+                  <div className="space-y-3" style={{color: '#000000 !important', backgroundColor: '#ffffff !important'}}>
+                    <p style={{color: '#000000 !important'}}>Full Name: ___________________________________________</p>
+                    <p style={{color: '#000000 !important'}}>Business Name: _______________________________________</p>
+                    <p style={{color: '#000000 !important'}}>Business EIN: _________________________________________</p>
+                    <p style={{color: '#000000 !important'}}>Email: _______________________________________________</p>
+                    <p style={{color: '#000000 !important'}}>Phone: _______________________________________________</p>
+                    <p style={{color: '#000000 !important'}}>Signature: ___________________________ Date: ____________</p>
+                  </div>
+                  <p className="mt-4 text-primary font-medium">
+                    Email completed agreement to: billing@homegirlswholaunch.com
+                  </p>
+                </div>
+              </div>
+            </DialogContent>
+          </Dialog>
         </div>
 
         {/* How It Works */}
