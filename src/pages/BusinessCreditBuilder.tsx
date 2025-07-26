@@ -143,7 +143,7 @@ export default function BusinessCreditBuilder() {
                     Dual bureau reporting after 3 consistent payments
                   </div>
                   <Button 
-                    className="w-full bg-pink-100 hover:bg-pink-200 text-pink-800 border border-pink-200"
+                    className="w-full bg-purple-100 hover:bg-purple-200 text-purple-800 border border-purple-200"
                     onClick={() => handleSelectPlan("Boss Builder Membership", "$199", "Starter Track")}
                   >
                     Select Starter Track
@@ -194,9 +194,9 @@ export default function BusinessCreditBuilder() {
 
               {/* Accelerated Track */}
               <Card className="relative overflow-hidden">
-                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-amber-500 to-orange-500"></div>
+                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-pink-300 to-pink-400"></div>
                 <CardHeader className="text-center pb-4">
-                  <Badge variant="outline" className="w-fit mx-auto mb-3 border-amber-500 text-amber-700">Accelerated</Badge>
+                  <Badge variant="outline" className="w-fit mx-auto mb-3 border-pink-400 text-pink-700">Accelerated</Badge>
                   <div className="text-2xl font-bold text-primary">$99 + Membership</div>
                   <CardTitle className="text-lg">Instant Credit Reporting</CardTitle>
                 </CardHeader>
