@@ -24,7 +24,7 @@ const grants = [{
   title: "Women Entrepreneurs Fund",
   amount: "$15,000",
   deadline: "September 18, 2025",
-  description: "Supporting women-owned businesses in their early stages.",
+  description: "Awarded quarterly by a collective of successful women entrepreneurs who have pooled their resources to support one new business owner every 90 days.",
   link: "#",
   image: "/lovable-uploads/745ce114-a155-458b-94c3-39ed6710c6d9.png"
 }, {
