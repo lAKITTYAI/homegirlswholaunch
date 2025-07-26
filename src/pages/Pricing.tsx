@@ -114,7 +114,7 @@ const Pricing = () => {
         "Everything in Boss Builder",
         "1:1 Strategy Session (Monthly)",
         "Exclusive Inner Circle Retreats",
-        "HWL Magazine Spotlight opportunities",
+        "Guaranteed HWL Magazine feature when business officially launches",
         "VIP Access to exclusive events"
       ]
     }
