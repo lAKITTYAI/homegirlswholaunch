@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { Check, Plus, Rocket, Calendar, Star } from "lucide-react";
 import { toast } from "sonner";
+import AmbassadorApplicationForm from "@/components/AmbassadorApplicationForm";
 
 // Kit visual list
 const kitItems = [
@@ -161,6 +162,7 @@ const launchPlanTemplates = [
 
 export default function LaunchPlans() {
   const [savedPlans, setSavedPlans] = useState<number[]>([]);
+  const [showAmbassadorForm, setShowAmbassadorForm] = useState(false);
 
   const savePlan = (id: number) => {
     if (savedPlans.includes(id)) {
@@ -171,6 +173,10 @@ export default function LaunchPlans() {
       toast.success("Plan added to your dashboard");
     }
   };
+
+  if (showAmbassadorForm) {
+    return <AmbassadorApplicationForm onBack={() => setShowAmbassadorForm(false)} />;
+  }
 
   return (
     <div className="container mx-auto px-4 py-12">
@@ -307,12 +313,6 @@ export default function LaunchPlans() {
                     <p className="text-neutral-700 text-base mb-4">
                       {template.description}
                     </p>
-                    <div className="mb-4 bg-blue-50 border border-blue-200 rounded-lg p-3">
-                      <div className="flex items-center text-blue-700 font-medium text-sm">
-                        <Check className="h-4 w-4 mr-2" />
-                        Free for Boss Builder and Inner Circle members
-                      </div>
-                    </div>
                     <ul className="grid md:grid-cols-2 gap-y-3 gap-x-6 text-sm mb-4">
                       {template.benefits.map((benefit, i) => (
                         <li key={i} className="flex items-start gap-2">
@@ -323,7 +323,10 @@ export default function LaunchPlans() {
                     </ul>
                   </CardContent>
                   <CardFooter className="flex flex-col gap-3 pt-0 items-center">
-                    <Button className="w-full bg-primary hover:bg-primary-dark text-lg font-bold py-3">
+                    <Button 
+                      className="w-full bg-primary hover:bg-primary-dark text-lg font-bold py-3"
+                      onClick={() => setShowAmbassadorForm(true)}
+                    >
                       Apply for Ambassador Position
                     </Button>
                     <span className="text-xs text-primary-dark opacity-70 tracking-wide">Work with us and earn 30% commission with no caps</span>
