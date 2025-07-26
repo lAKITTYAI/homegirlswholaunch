@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Card, CardContent } from "@/components/ui/card";
 import { Check, X } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
@@ -21,6 +22,7 @@ interface CheckoutModalProps {
 const CheckoutModal = ({ isOpen, onClose, planName, monthlyPrice, annualPrice, features }: CheckoutModalProps) => {
   const [email, setEmail] = useState("");
   const [billingType, setBillingType] = useState<"monthly" | "annual">("monthly");
+  const [paymentType, setPaymentType] = useState<"immediate" | "net30">("immediate");
   const [isLoading, setIsLoading] = useState(false);
 
   const currentPrice = billingType === "annual" ? annualPrice : monthlyPrice;
@@ -40,7 +42,8 @@ const CheckoutModal = ({ isOpen, onClose, planName, monthlyPrice, annualPrice, f
         body: {
           planName,
           email,
-          isAnnual: billingType === "annual"
+          isAnnual: billingType === "annual",
+          paymentType
         }
       });
 
@@ -54,7 +57,13 @@ const CheckoutModal = ({ isOpen, onClose, planName, monthlyPrice, annualPrice, f
 
       if (data?.url) {
         console.log("Redirecting to checkout:", data.url);
-        window.location.href = data.url;
+        if (paymentType === "net30") {
+          // For Net 30, show success message instead of redirecting to Stripe
+          alert("Net 30 application submitted successfully! You will receive an invoice within 24 hours.");
+          onClose();
+        } else {
+          window.location.href = data.url;
+        }
       } else {
         console.error("No checkout URL returned");
         alert("There was an error processing your request. Please try again.");
@@ -136,6 +145,32 @@ const CheckoutModal = ({ isOpen, onClose, planName, monthlyPrice, annualPrice, f
               </Select>
             </div>
 
+            <div>
+              <Label>Payment Terms</Label>
+              <RadioGroup value={paymentType} onValueChange={(value: "immediate" | "net30") => setPaymentType(value)} className="mt-2">
+                <div className="flex items-center space-x-2">
+                  <RadioGroupItem value="immediate" id="immediate" />
+                  <Label htmlFor="immediate" className="text-sm font-normal">
+                    Pay Now - Immediate access via credit card
+                  </Label>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <RadioGroupItem value="net30" id="net30" />
+                  <Label htmlFor="net30" className="text-sm font-normal">
+                    Net 30 Terms - For established businesses with proper structure
+                  </Label>
+                </div>
+              </RadioGroup>
+              {paymentType === "net30" && (
+                <div className="mt-2 p-3 bg-blue-50 border border-blue-200 rounded-md">
+                  <p className="text-xs text-blue-800">
+                    <strong>Net 30 Requirements:</strong> Available for businesses with proper legal structure (LLC, Corporation), 
+                    established business bank account, and verifiable business operations. Application will be reviewed within 24 hours.
+                  </p>
+                </div>
+              )}
+            </div>
+
             <div className="border-t pt-4">
               <div className="flex justify-between items-center mb-4">
                 <span className="font-medium">Total:</span>
@@ -147,11 +182,16 @@ const CheckoutModal = ({ isOpen, onClose, planName, monthlyPrice, annualPrice, f
                 disabled={isLoading || !email}
                 className="w-full"
               >
-                {isLoading ? "Processing..." : `Subscribe for ${priceDisplay}`}
+                {isLoading ? "Processing..." : 
+                 paymentType === "net30" ? `Apply for Net 30 - ${priceDisplay}` : 
+                 `Subscribe for ${priceDisplay}`}
               </Button>
               
               <p className="text-xs text-gray-500 mt-2 text-center">
-                You will be redirected to Stripe to complete your payment securely.
+                {paymentType === "net30" ? 
+                  "Your Net 30 application will be reviewed within 24 hours." :
+                  "You will be redirected to Stripe to complete your payment securely."
+                }
               </p>
             </div>
           </div>
