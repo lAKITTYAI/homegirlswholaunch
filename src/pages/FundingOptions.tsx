@@ -13,7 +13,7 @@ import { supabase } from "@/integrations/supabase/client";
 // Sample grants data - replace with real data later
 const grants = [{
   id: 1,
-  title: "HOMEGIRLS WHO LAUNCH 1ST BUSINESS GRANT",
+  title: "Homegirls Who Launch 1st Business Grant",
   amount: "$25,000",
   deadline: "May 15, 2025",
   description: "For innovative small businesses focused on technology and sustainability.",
