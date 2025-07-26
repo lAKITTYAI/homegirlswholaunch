@@ -263,10 +263,15 @@ export default function LaunchPlans() {
                     </ul>
                   </CardContent>
                   <CardFooter className="flex flex-col gap-3 pt-0 items-center">
-                    <Button className="bg-primary px-8 py-3 w-full text-lg font-bold hover:bg-primary-dark shadow-md">
-                      Purchase Now – {template.price}
-                    </Button>
-                    <span className="text-xs text-primary-dark opacity-70 tracking-wide">Includes all kit items shown above</span>
+                    <div className="w-full flex gap-2">
+                      <Button variant="outline" className="flex-1 border-primary text-primary hover:bg-primary/10">
+                        Choose as Member
+                      </Button>
+                      <Button className="flex-1 bg-primary hover:bg-primary-dark">
+                        Purchase – {template.price}
+                      </Button>
+                    </div>
+                    <span className="text-xs text-primary-dark opacity-70 tracking-wide">Free for members | Net 30 available for purchases</span>
                   </CardFooter>
                 </Card>
               </motion.div>
@@ -318,10 +323,15 @@ export default function LaunchPlans() {
                     </ul>
                   </CardContent>
                   <CardFooter className="flex flex-col gap-3 pt-0 items-center">
-                    <Button className="bg-primary px-8 py-3 w-full text-lg font-bold hover:bg-primary-dark shadow-md">
-                      Apply Today!
-                    </Button>
-                    <span className="text-xs text-primary-dark opacity-70 tracking-wide">Start earning with no commission caps</span>
+                    <div className="w-full flex gap-2">
+                      <Button variant="outline" className="flex-1 border-primary text-primary hover:bg-primary/10">
+                        Choose as Member
+                      </Button>
+                      <Button className="flex-1 bg-primary hover:bg-primary-dark">
+                        Apply for Non-Members
+                      </Button>
+                    </div>
+                    <span className="text-xs text-primary-dark opacity-70 tracking-wide">Free for members | Application required for non-members</span>
                   </CardFooter>
                 </Card>
               </motion.div>
@@ -393,25 +403,19 @@ export default function LaunchPlans() {
                       </div>
                     )}
                   </CardContent>
-                  <CardFooter className="flex justify-between">
-                    <Button 
-                      variant="outline" 
-                      className="border-primary text-primary hover:bg-primary/5"
-                      onClick={() => savePlan(template.id as number)}
-                    >
-                      {savedPlans.includes(template.id as number) ? (
-                        <>
-                          <Check size={16} className="mr-1" /> Saved
-                        </>
-                      ) : (
-                        <>
-                          <Plus size={16} className="mr-1" /> Save
-                        </>
-                      )}
-                    </Button>
-                    <Button className={`${template.featured ? 'bg-primary hover:bg-primary-dark' : 'bg-primary hover:bg-primary-dark'}`}>
-                      {template.featured ? 'Apply Now' : 'Customize'}
-                    </Button>
+                  <CardFooter className="flex flex-col gap-3 pt-0">
+                    <div className="w-full flex gap-2">
+                      <Button 
+                        variant="outline" 
+                        className="flex-1 border-primary text-primary hover:bg-primary/10"
+                      >
+                        Choose as Member
+                      </Button>
+                      <Button className="flex-1 bg-primary hover:bg-primary-dark">
+                        Purchase for Non-Members
+                      </Button>
+                    </div>
+                    <span className="text-xs text-primary-dark opacity-70 tracking-wide text-center">Free for Boss Builder, Inner Circle & Launch Squad members</span>
                   </CardFooter>
                 </Card>
               </motion.div>
