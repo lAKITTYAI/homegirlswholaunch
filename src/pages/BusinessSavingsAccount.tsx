@@ -69,11 +69,13 @@ export default function BusinessSavingsAccount() {
   ];
 
   const steps = [
-    "Choose your plan tier",
-    "Set up auto-payments", 
-    "We report your monthly payment as a Net 30 tradeline",
-    "You get access to your savings after completing the term",
-    "You receive a funding-ready completion certificate and next-step guide"
+    "Choose your plan tier (member or non-member pricing)",
+    "Complete enrollment with business verification (EIN, business bank account)", 
+    "Set up automatic monthly payments via our secure payment processor",
+    "We report your on-time payments as Net 30 tradelines to business credit bureaus",
+    "Continue making monthly payments for your selected term (9-18 months)",
+    "Receive your total savings back upon successful completion of the program",
+    "Get your completion certificate and access to next-step funding guidance"
   ];
 
   return (
