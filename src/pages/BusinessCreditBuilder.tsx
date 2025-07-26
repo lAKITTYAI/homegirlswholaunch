@@ -119,6 +119,138 @@ export default function BusinessCreditBuilder() {
           </div>
         </div>
 
+        {/* Progressive Credit Building Tiers - Highlighted Section */}
+        <div className="mb-12">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }} 
+            animate={{ opacity: 1, y: 0 }} 
+            transition={{ duration: 0.6 }}
+            className="bg-gradient-to-r from-primary/10 via-secondary/10 to-accent/10 rounded-2xl p-8 border-2 border-primary/20 shadow-lg"
+          >
+            <div className="text-center mb-8">
+              <h2 className="text-3xl font-bold text-neutral-900 mb-4">Progressive Credit Building Tiers</h2>
+              <p className="text-lg text-neutral-700 max-w-4xl mx-auto">
+                Your membership payments build credit progressively - the more you pay, the more bureaus report your success
+              </p>
+            </div>
+            
+            <div className="grid lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+              {/* Starter Track */}
+              <Card className="relative overflow-hidden">
+                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 to-blue-600"></div>
+                <CardHeader className="text-center pb-4">
+                  <Badge variant="outline" className="w-fit mx-auto mb-3">Starter Track</Badge>
+                  <div className="text-2xl font-bold text-primary">$199</div>
+                  <CardTitle className="text-lg">Boss Builder Membership</CardTitle>
+                </CardHeader>
+                <CardContent className="text-center">
+                  <div className="space-y-3 mb-6">
+                    <div className="flex items-center justify-center gap-2 text-sm">
+                      <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center">
+                        <span className="text-xs font-bold text-primary">1</span>
+                      </div>
+                      <span>Enrollment Payment</span>
+                    </div>
+                    <div className="flex items-center justify-center gap-2 text-sm">
+                      <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center">
+                        <span className="text-xs font-bold text-primary">2</span>
+                      </div>
+                      <span>Payment History Building</span>
+                    </div>
+                    <div className="flex items-center justify-center gap-2 text-sm font-semibold text-green-600">
+                      <div className="w-6 h-6 rounded-full bg-green-100 flex items-center justify-center">
+                        <span className="text-xs font-bold text-green-600">3</span>
+                      </div>
+                      <span>1 Bureau Reporting Activated</span>
+                    </div>
+                  </div>
+                  <div className="text-sm text-neutral-600">
+                    Dual bureau reporting after 3 consistent payments
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* Builder Track */}
+              <Card className="relative overflow-hidden ring-2 ring-primary/30">
+                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-secondary"></div>
+                <CardHeader className="text-center pb-4">
+                  <Badge className="w-fit mx-auto mb-3 bg-primary">Most Popular</Badge>
+                  <div className="text-2xl font-bold text-primary">$349</div>
+                  <CardTitle className="text-lg">Inner Circle Membership</CardTitle>
+                </CardHeader>
+                <CardContent className="text-center">
+                  <div className="space-y-3 mb-6">
+                    <div className="flex items-center justify-center gap-2 text-sm">
+                      <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center">
+                        <span className="text-xs font-bold text-primary">1</span>
+                      </div>
+                      <span>Premium Enrollment</span>
+                    </div>
+                    <div className="flex items-center justify-center gap-2 text-sm font-semibold text-green-600">
+                      <div className="w-6 h-6 rounded-full bg-green-100 flex items-center justify-center">
+                        <span className="text-xs font-bold text-green-600">2</span>
+                      </div>
+                      <span>2 Bureau Reporting Activated</span>
+                    </div>
+                    <div className="flex items-center justify-center gap-2 text-sm font-semibold text-green-600">
+                      <div className="w-6 h-6 rounded-full bg-green-100 flex items-center justify-center">
+                        <span className="text-xs font-bold text-green-600">3</span>
+                      </div>
+                      <span>All 3 Bureaus Reporting</span>
+                    </div>
+                  </div>
+                  <div className="text-sm text-neutral-600">
+                    Faster credit building with premium benefits
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* Accelerated Track */}
+              <Card className="relative overflow-hidden">
+                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-amber-500 to-orange-500"></div>
+                <CardHeader className="text-center pb-4">
+                  <Badge variant="outline" className="w-fit mx-auto mb-3 border-amber-500 text-amber-700">Accelerated</Badge>
+                  <div className="text-2xl font-bold text-primary">$99 + Membership</div>
+                  <CardTitle className="text-lg">Instant Credit Reporting</CardTitle>
+                </CardHeader>
+                <CardContent className="text-center">
+                  <div className="space-y-3 mb-6">
+                    <div className="flex items-center justify-center gap-2 text-sm font-semibold text-green-600">
+                      <div className="w-6 h-6 rounded-full bg-green-100 flex items-center justify-center">
+                        <CheckCircle className="w-3 h-3 text-green-600" />
+                      </div>
+                      <span>Immediate Setup</span>
+                    </div>
+                    <div className="flex items-center justify-center gap-2 text-sm font-semibold text-green-600">
+                      <div className="w-6 h-6 rounded-full bg-green-100 flex items-center justify-center">
+                        <CheckCircle className="w-3 h-3 text-green-600" />
+                      </div>
+                      <span>All 3 Bureaus Day 1</span>
+                    </div>
+                    <div className="flex items-center justify-center gap-2 text-sm font-semibold text-green-600">
+                      <div className="w-6 h-6 rounded-full bg-green-100 flex items-center justify-center">
+                        <CheckCircle className="w-3 h-3 text-green-600" />
+                      </div>
+                      <span>Fast Track Credit Building</span>
+                    </div>
+                  </div>
+                  <div className="text-sm text-neutral-600">
+                    Start building credit immediately with full reporting
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+
+            <div className="mt-8 text-center">
+              <p className="text-sm text-neutral-600 max-w-3xl mx-auto">
+                <strong>How it works:</strong> Your membership payments establish consistent payment history. 
+                As you reach payment milestones, we activate reporting to additional credit bureaus, 
+                building a stronger business credit profile with each tier.
+              </p>
+            </div>
+          </motion.div>
+        </div>
+
         {/* Benefits Section */}
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
           {creditBenefits.map((benefit, index) => <motion.div key={benefit.title} initial={{
