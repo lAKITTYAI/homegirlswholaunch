@@ -296,7 +296,7 @@ export default function BusinessCreditBuilder() {
                   <Button 
                     variant="outline" 
                     className="w-full"
-                    onClick={() => navigate('/business-savings-account')}
+                    onClick={() => navigate('/savings-account')}
                   >
                     Explore Savings Credit Builder →
                   </Button>
