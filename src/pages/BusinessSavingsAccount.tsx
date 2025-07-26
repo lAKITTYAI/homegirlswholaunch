@@ -4,8 +4,16 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { CheckCircle, DollarSign, TrendingUp, Shield, FileText } from "lucide-react";
+import { useState } from "react";
 
 export default function BusinessSavingsAccount() {
+  const [selectedPlan, setSelectedPlan] = useState<{name: string, price: string, isMember: boolean} | null>(null);
+
+  const handleSelectPlan = (planName: string, price: string, isMember: boolean) => {
+    setSelectedPlan({ name: planName, price, isMember });
+    // TODO: Integrate with payment processing or enrollment form
+    console.log(`Selected plan: ${planName} (${price}) - Member: ${isMember}`);
+  };
   const memberPlans = [
     {
       name: "Starter Plan",
@@ -161,11 +169,17 @@ export default function BusinessSavingsAccount() {
                   </CardHeader>
                   <CardContent>
                     <div className="text-lg font-semibold text-neutral-800">{plan.total}</div>
-                    <div className="text-sm text-neutral-600 mt-2">
+                    <div className="text-sm text-neutral-600 mt-2 mb-4">
                       {plan.name === "Starter Plan" && "Reports to 1 credit bureau"}
                       {plan.name === "Builder Plan" && "Reports to 2 credit bureaus"}
                       {plan.name === "Boss Up Plan" && "Reports to 3 credit bureaus"}
                     </div>
+                    <Button 
+                      className="w-full"
+                      onClick={() => handleSelectPlan(plan.name, plan.price, true)}
+                    >
+                      Select Member Plan
+                    </Button>
                   </CardContent>
                 </Card>
               </motion.div>
@@ -196,11 +210,18 @@ export default function BusinessSavingsAccount() {
                   </CardHeader>
                   <CardContent>
                     <div className="text-lg font-semibold text-neutral-800">{plan.total}</div>
-                    <div className="text-sm text-neutral-600 mt-2">
+                    <div className="text-sm text-neutral-600 mt-2 mb-4">
                       {plan.name === "Starter Plan" && "Reports to 1 credit bureau"}
                       {plan.name === "Builder Plan" && "Reports to 2 credit bureaus"}
                       {plan.name === "Boss Up Plan" && "Reports to 3 credit bureaus"}
                     </div>
+                    <Button 
+                      variant="outline"
+                      className="w-full"
+                      onClick={() => handleSelectPlan(plan.name, plan.price, false)}
+                    >
+                      Select Non-Member Plan
+                    </Button>
                   </CardContent>
                 </Card>
               </motion.div>
