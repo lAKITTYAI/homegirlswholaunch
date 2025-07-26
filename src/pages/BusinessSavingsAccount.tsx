@@ -129,18 +129,18 @@ export default function BusinessSavingsAccount() {
                   View Program Agreement
                 </Button>
               </DialogTrigger>
-              <DialogContent className="max-w-4xl max-h-[80vh] overflow-y-auto">
+              <DialogContent className="max-w-5xl max-h-[85vh] overflow-y-auto">
                 <DialogHeader>
-                  <DialogTitle>Homegirls Who Launch - Credit Builder Savings Agreement</DialogTitle>
+                  <DialogTitle className="text-xl text-center">Homegirls Who Launch - Credit Builder Savings Agreement</DialogTitle>
                 </DialogHeader>
-                <div className="space-y-6 text-sm">
+                <div className="space-y-8 text-base leading-relaxed">
                   <p>
                     This Credit Builder Savings Agreement ("Agreement") is entered into between the undersigned
                     customer ("Customer") and Homegirls Who Launch LLC ("HWL"), a registered business entity.
                   </p>
                   
                   <div>
-                    <h3 className="font-semibold text-base mb-2">1. PROGRAM DESCRIPTION</h3>
+                    <h3 className="font-semibold text-lg mb-3 text-primary">1. PROGRAM DESCRIPTION</h3>
                     <p>
                       Customer agrees to participate in the HWL Credit Builder Savings Program. This program allows the
                       Customer to make monthly payments that are reported as Net 30 tradelines to major business credit
@@ -149,7 +149,7 @@ export default function BusinessSavingsAccount() {
                   </div>
 
                   <div>
-                    <h3 className="font-semibold text-base mb-2">2. PLAN SELECTION</h3>
+                    <h3 className="font-semibold text-lg mb-3 text-primary">2. PLAN SELECTION</h3>
                     <p>Customer agrees to one of the following plans:</p>
                     <ul className="list-disc ml-6 mt-2">
                       <li>Starter: $25/month for 6 months</li>
@@ -159,7 +159,7 @@ export default function BusinessSavingsAccount() {
                   </div>
 
                   <div>
-                    <h3 className="font-semibold text-base mb-2">3. PAYMENT TERMS</h3>
+                    <h3 className="font-semibold text-lg mb-3 text-primary">3. PAYMENT TERMS</h3>
                     <p>
                       Payments will be collected automatically via HWL's approved payment processor. All payments
                       must be made on time to maintain tradeline reporting and eligibility for the savings disbursement.
@@ -167,7 +167,7 @@ export default function BusinessSavingsAccount() {
                   </div>
 
                   <div>
-                    <h3 className="font-semibold text-base mb-2">4. REPORTING</h3>
+                    <h3 className="font-semibold text-lg mb-3 text-primary">4. REPORTING</h3>
                     <p>
                       HWL will report monthly payment activity to one or more of the following commercial credit bureaus:
                       Dun & Bradstreet, Experian Business, Equifax Business via eCredable and/or Nav.
@@ -175,7 +175,7 @@ export default function BusinessSavingsAccount() {
                   </div>
 
                   <div>
-                    <h3 className="font-semibold text-base mb-2">5. SAVINGS RELEASE</h3>
+                    <h3 className="font-semibold text-lg mb-3 text-primary">5. SAVINGS RELEASE</h3>
                     <p>
                       At the end of the term, the total savings amount will be released to the Customer, minus any
                       administrative fees if applicable. Early termination will result in forfeiture of tradeline benefits and may reduce refund eligibility.
@@ -183,7 +183,7 @@ export default function BusinessSavingsAccount() {
                   </div>
 
                   <div>
-                    <h3 className="font-semibold text-base mb-2">6. LATE PAYMENTS</h3>
+                    <h3 className="font-semibold text-lg mb-3 text-primary">6. LATE PAYMENTS</h3>
                     <p>
                       A grace period of 5 calendar days is allowed for each monthly payment. Late payments may delay
                       or suspend credit reporting and savings release. Repeated missed payments may result in program
@@ -192,7 +192,7 @@ export default function BusinessSavingsAccount() {
                   </div>
 
                   <div>
-                    <h3 className="font-semibold text-base mb-2">7. TERMINATION</h3>
+                    <h3 className="font-semibold text-lg mb-3 text-primary">7. TERMINATION</h3>
                     <p>
                       HWL reserves the right to terminate this agreement for non-compliance, fraud, or chargeback
                       abuse. Refunds will be assessed based on funds received and program standing at time of
@@ -201,16 +201,16 @@ export default function BusinessSavingsAccount() {
                   </div>
 
                   <div>
-                    <h3 className="font-semibold text-base mb-2">8. ACKNOWLEDGEMENT</h3>
+                    <h3 className="font-semibold text-lg mb-3 text-primary">8. ACKNOWLEDGEMENT</h3>
                     <p>
                       By signing below, the Customer agrees to the terms of this agreement and acknowledges that this
                       program is not a loan or a credit line, but a voluntary credit builder and savings plan.
                     </p>
                   </div>
 
-                  <div className="border-t pt-4">
-                    <h3 className="font-semibold text-base mb-3">CUSTOMER INFORMATION:</h3>
-                    <div className="space-y-2 text-neutral-600">
+                  <div className="border-t pt-6">
+                    <h3 className="font-semibold text-lg mb-4 text-primary">CUSTOMER INFORMATION:</h3>
+                    <div className="space-y-3 text-neutral-600">
                       <p>Full Name: ___________________________________________</p>
                       <p>Business Name: _______________________________________</p>
                       <p>Business EIN: _________________________________________</p>
