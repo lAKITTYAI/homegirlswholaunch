@@ -202,15 +202,6 @@ const CheckoutModal = ({ isOpen, onClose, planName, monthlyPrice, annualPrice, f
             </div>
           </div>
         </div>
-
-        <Button
-          variant="ghost"
-          size="icon"
-          className="absolute right-4 top-4"
-          onClick={onClose}
-        >
-          <X className="h-4 w-4" />
-        </Button>
       </DialogContent>
     </Dialog>
   );
