@@ -44,7 +44,6 @@ const grants = [{
   link: "#",
   image: "/lovable-uploads/1b524a66-7144-4bc8-b40d-0ad7a6a3d9b1.png"
 }];
-
 export default function FundingOptions() {
   const [activeTab, setActiveTab] = useState<'grants' | 'apply'>('grants');
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -65,50 +64,50 @@ export default function FundingOptions() {
     yearsInOperation: '',
     numberOfEmployees: ''
   });
-  
-  const { toast } = useToast();
-
+  const {
+    toast
+  } = useToast();
   const handleInputChange = (field: string, value: string) => {
-    setFormData(prev => ({ ...prev, [field]: value }));
+    setFormData(prev => ({
+      ...prev,
+      [field]: value
+    }));
   };
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
     try {
-      const { error } = await supabase
-        .from('funding_applications')
-        .insert({
-          business_name: formData.businessName,
-          email: formData.email,
-          phone: formData.phone,
-          business_structure: formData.businessStructure,
-          years_in_operation: formData.yearsInOperation,
-          industry_type: formData.industryType,
-          number_of_employees: formData.numberOfEmployees,
-          monthly_revenue: formData.monthlyRevenue,
-          funding_amount: formData.fundingAmount,
-          funding_use: formData.fundingUse,
-          previous_funding: formData.previousFunding,
-          business_goals: formData.businessGoals,
-          current_challenges: formData.currentChallenges,
-          business_description: formData.businessDescription
-        });
-
+      const {
+        error
+      } = await supabase.from('funding_applications').insert({
+        business_name: formData.businessName,
+        email: formData.email,
+        phone: formData.phone,
+        business_structure: formData.businessStructure,
+        years_in_operation: formData.yearsInOperation,
+        industry_type: formData.industryType,
+        number_of_employees: formData.numberOfEmployees,
+        monthly_revenue: formData.monthlyRevenue,
+        funding_amount: formData.fundingAmount,
+        funding_use: formData.fundingUse,
+        previous_funding: formData.previousFunding,
+        business_goals: formData.businessGoals,
+        current_challenges: formData.currentChallenges,
+        business_description: formData.businessDescription
+      });
       if (error) {
         console.error('Error submitting application:', error);
         toast({
           title: "Error Submitting Application",
           description: "There was a problem submitting your application. Please try again.",
-          variant: "destructive",
+          variant: "destructive"
         });
       } else {
         toast({
           title: "Application Submitted Successfully!",
-          description: "We'll review your application and get back to you within 5 business days.",
+          description: "We'll review your application and get back to you within 5 business days."
         });
-        
+
         // Reset form
         setFormData({
           businessName: '',
@@ -133,28 +132,25 @@ export default function FundingOptions() {
       toast({
         title: "Error Submitting Application",
         description: "There was an unexpected error. Please try again.",
-        variant: "destructive",
+        variant: "destructive"
       });
     } finally {
       setIsSubmitting(false);
     }
   };
-
   const handleApplyNow = () => {
     setActiveTab('apply');
   };
-  
-  return (
-    <div className="container mx-auto px-4 py-12">
+  return <div className="container mx-auto px-4 py-12">
       <motion.div initial={{
-        opacity: 0,
-        y: 20
-      }} animate={{
-        opacity: 1,
-        y: 0
-      }} transition={{
-        duration: 0.6
-      }} className="max-w-6xl mx-auto">
+      opacity: 0,
+      y: 20
+    }} animate={{
+      opacity: 1,
+      y: 0
+    }} transition={{
+      duration: 0.6
+    }} className="max-w-6xl mx-auto">
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold text-neutral-900 mb-4">
             Funding Options
@@ -166,25 +162,18 @@ export default function FundingOptions() {
 
         <div className="flex flex-col items-center gap-8 mb-12">
           <div className="w-full max-w-2xl">
-            <motion.img 
-              src="/lovable-uploads/ab2b2116-36e6-4d43-83e5-d3289f08bf9a.png" 
-              alt="Women Entrepreneurs Fund - Apply for funding here" 
-              className="rounded-lg shadow-lg w-full object-cover" 
-              initial={{
-                opacity: 0,
-                scale: 0.95
-              }} 
-              animate={{
-                opacity: 1,
-                scale: 1
-              }} 
-              transition={{
-                duration: 0.5
-              }} 
-            />
+            <motion.img src="/lovable-uploads/ab2b2116-36e6-4d43-83e5-d3289f08bf9a.png" alt="Women Entrepreneurs Fund - Apply for funding here" className="rounded-lg shadow-lg w-full object-cover" initial={{
+            opacity: 0,
+            scale: 0.95
+          }} animate={{
+            opacity: 1,
+            scale: 1
+          }} transition={{
+            duration: 0.5
+          }} />
           </div>
           <div className="text-center">
-            <h2 className="text-3xl font-bold mb-4 text-neutral-800">Apply for funding here.</h2>
+            <h2 className="text-3xl font-bold mb-4 text-neutral-800">Apply for all grants here.</h2>
             <p className="text-neutral-600 mb-6">
               We understand that every entrepreneur's financial path is unique. Our funding options are designed to support you at every stage of your business.
             </p>
@@ -202,18 +191,16 @@ export default function FundingOptions() {
           </Button>
         </div>
 
-        {activeTab === 'grants' ? (
-          <div className="grid gap-6">
-            {grants.map((grant) => (
-              <motion.div key={grant.id} initial={{
-                opacity: 0,
-                y: 20
-              }} animate={{
-                opacity: 1,
-                y: 0
-              }} transition={{
-                duration: 0.4
-              }}>
+        {activeTab === 'grants' ? <div className="grid gap-6">
+            {grants.map(grant => <motion.div key={grant.id} initial={{
+          opacity: 0,
+          y: 20
+        }} animate={{
+          opacity: 1,
+          y: 0
+        }} transition={{
+          duration: 0.4
+        }}>
                 <Card>
                   <CardHeader>
                     <div className="flex justify-between items-start">
@@ -232,29 +219,23 @@ export default function FundingOptions() {
                     <p className="text-neutral-600 mb-4">{grant.description}</p>
                     
                     {/* Show image if available */}
-                    {grant.image && (
-                      <div className="mb-4">
-                        <motion.img 
-                          src={grant.image} 
-                          alt={`Image for ${grant.title}`} 
-                          className="w-full rounded-lg object-contain max-h-96 bg-gray-50"
-                          initial={{ opacity: 0 }}
-                          animate={{ opacity: 1 }}
-                          transition={{ duration: 0.5 }}
-                        />
-                      </div>
-                    )}
+                    {grant.image && <div className="mb-4">
+                        <motion.img src={grant.image} alt={`Image for ${grant.title}`} className="w-full rounded-lg object-contain max-h-96 bg-gray-50" initial={{
+                  opacity: 0
+                }} animate={{
+                  opacity: 1
+                }} transition={{
+                  duration: 0.5
+                }} />
+                      </div>}
                     
                     <p className="text-sm text-neutral-500">
                       Application Deadline: {grant.deadline}
                     </p>
                   </CardContent>
                 </Card>
-              </motion.div>
-            ))}
-          </div>
-        ) : (
-          <Card className="p-6">
+              </motion.div>)}
+          </div> : <Card className="p-6">
             <CardHeader>
               <CardTitle className="text-2xl mb-4">Apply for Funding</CardTitle>
               <CardDescription>
@@ -270,18 +251,12 @@ export default function FundingOptions() {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="space-y-3">
                       <Label htmlFor="businessName">Business Name *</Label>
-                      <Input 
-                        id="businessName" 
-                        placeholder="Enter your business name"
-                        value={formData.businessName}
-                        onChange={(e) => handleInputChange('businessName', e.target.value)}
-                        required
-                      />
+                      <Input id="businessName" placeholder="Enter your business name" value={formData.businessName} onChange={e => handleInputChange('businessName', e.target.value)} required />
                     </div>
                     
                     <div className="space-y-3">
                       <Label htmlFor="businessStructure">Business Structure *</Label>
-                      <Select onValueChange={(value) => handleInputChange('businessStructure', value)} required>
+                      <Select onValueChange={value => handleInputChange('businessStructure', value)} required>
                         <SelectTrigger className="h-12">
                           <SelectValue placeholder="Select business structure" />
                         </SelectTrigger>
@@ -300,7 +275,7 @@ export default function FundingOptions() {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="space-y-3">
                       <Label htmlFor="yearsInOperation">Years in Operation *</Label>
-                      <Select onValueChange={(value) => handleInputChange('yearsInOperation', value)} required>
+                      <Select onValueChange={value => handleInputChange('yearsInOperation', value)} required>
                         <SelectTrigger className="h-12">
                           <SelectValue placeholder="Select years in operation" />
                         </SelectTrigger>
@@ -316,7 +291,7 @@ export default function FundingOptions() {
 
                     <div className="space-y-3">
                       <Label htmlFor="industryType">Industry Type *</Label>
-                      <Select onValueChange={(value) => handleInputChange('industryType', value)} required>
+                      <Select onValueChange={value => handleInputChange('industryType', value)} required>
                         <SelectTrigger className="h-12">
                           <SelectValue placeholder="Select your industry" />
                         </SelectTrigger>
@@ -338,7 +313,7 @@ export default function FundingOptions() {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="space-y-3">
                       <Label htmlFor="numberOfEmployees">Number of Employees</Label>
-                      <Select onValueChange={(value) => handleInputChange('numberOfEmployees', value)}>
+                      <Select onValueChange={value => handleInputChange('numberOfEmployees', value)}>
                         <SelectTrigger className="h-12">
                           <SelectValue placeholder="Select number of employees" />
                         </SelectTrigger>
@@ -355,7 +330,7 @@ export default function FundingOptions() {
 
                     <div className="space-y-3">
                       <Label htmlFor="monthlyRevenue">Monthly Revenue</Label>
-                      <Select onValueChange={(value) => handleInputChange('monthlyRevenue', value)}>
+                      <Select onValueChange={value => handleInputChange('monthlyRevenue', value)}>
                         <SelectTrigger className="h-12">
                           <SelectValue placeholder="Select monthly revenue range" />
                         </SelectTrigger>
@@ -379,25 +354,12 @@ export default function FundingOptions() {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="space-y-3">
                       <Label htmlFor="email">Email Address *</Label>
-                      <Input 
-                        id="email" 
-                        type="email" 
-                        placeholder="Enter your email"
-                        value={formData.email}
-                        onChange={(e) => handleInputChange('email', e.target.value)}
-                        required
-                      />
+                      <Input id="email" type="email" placeholder="Enter your email" value={formData.email} onChange={e => handleInputChange('email', e.target.value)} required />
                     </div>
                     
                     <div className="space-y-3">
                       <Label htmlFor="phone">Phone Number</Label>
-                      <Input 
-                        id="phone" 
-                        type="tel" 
-                        placeholder="Enter your phone number"
-                        value={formData.phone}
-                        onChange={(e) => handleInputChange('phone', e.target.value)}
-                      />
+                      <Input id="phone" type="tel" placeholder="Enter your phone number" value={formData.phone} onChange={e => handleInputChange('phone', e.target.value)} />
                     </div>
                   </div>
                 </div>
@@ -410,33 +372,18 @@ export default function FundingOptions() {
                     <Label htmlFor="fundingAmount">Funding Amount Needed *</Label>
                     <div className="relative">
                       <Banknote className="absolute left-3 top-1/2 transform -translate-y-1/2 text-neutral-400" />
-                      <Input 
-                        id="fundingAmount" 
-                        type="number" 
-                        className="pl-10" 
-                        placeholder="Enter amount"
-                        value={formData.fundingAmount}
-                        onChange={(e) => handleInputChange('fundingAmount', e.target.value)}
-                        required
-                      />
+                      <Input id="fundingAmount" type="number" className="pl-10" placeholder="Enter amount" value={formData.fundingAmount} onChange={e => handleInputChange('fundingAmount', e.target.value)} required />
                     </div>
                   </div>
 
                   <div className="space-y-3">
                     <Label htmlFor="fundingUse">How will you use the funds for your business? *</Label>
-                    <Textarea 
-                      id="fundingUse" 
-                      className="min-h-[120px]" 
-                      placeholder="Please describe in detail how you plan to use the funding for your business (e.g., inventory, marketing, equipment, staff, etc.)"
-                      value={formData.fundingUse}
-                      onChange={(e) => handleInputChange('fundingUse', e.target.value)}
-                      required
-                    />
+                    <Textarea id="fundingUse" className="min-h-[120px]" placeholder="Please describe in detail how you plan to use the funding for your business (e.g., inventory, marketing, equipment, staff, etc.)" value={formData.fundingUse} onChange={e => handleInputChange('fundingUse', e.target.value)} required />
                   </div>
 
                   <div className="space-y-3">
                     <Label htmlFor="previousFunding">Previous Funding History</Label>
-                    <Select onValueChange={(value) => handleInputChange('previousFunding', value)}>
+                    <Select onValueChange={value => handleInputChange('previousFunding', value)}>
                       <SelectTrigger className="h-12">
                         <SelectValue placeholder="Have you received funding before?" />
                       </SelectTrigger>
@@ -459,52 +406,26 @@ export default function FundingOptions() {
                   
                   <div className="space-y-3">
                     <Label htmlFor="businessGoals">What are your primary business goals? *</Label>
-                    <Textarea 
-                      id="businessGoals" 
-                      className="min-h-[100px]" 
-                      placeholder="Describe your short-term and long-term business goals (e.g., expand operations, hire staff, launch new products, etc.)"
-                      value={formData.businessGoals}
-                      onChange={(e) => handleInputChange('businessGoals', e.target.value)}
-                      required
-                    />
+                    <Textarea id="businessGoals" className="min-h-[100px]" placeholder="Describe your short-term and long-term business goals (e.g., expand operations, hire staff, launch new products, etc.)" value={formData.businessGoals} onChange={e => handleInputChange('businessGoals', e.target.value)} required />
                   </div>
 
                   <div className="space-y-3">
                     <Label htmlFor="currentChallenges">Current Business Challenges</Label>
-                    <Textarea 
-                      id="currentChallenges" 
-                      className="min-h-[100px]" 
-                      placeholder="What challenges is your business currently facing? (e.g., cash flow, marketing, competition, etc.)"
-                      value={formData.currentChallenges}
-                      onChange={(e) => handleInputChange('currentChallenges', e.target.value)}
-                    />
+                    <Textarea id="currentChallenges" className="min-h-[100px]" placeholder="What challenges is your business currently facing? (e.g., cash flow, marketing, competition, etc.)" value={formData.currentChallenges} onChange={e => handleInputChange('currentChallenges', e.target.value)} />
                   </div>
 
                   <div className="space-y-3">
                     <Label htmlFor="businessDescription">Business Description *</Label>
-                    <Textarea 
-                      id="businessDescription" 
-                      className="min-h-[120px]" 
-                      placeholder="Tell us about your business - what products/services do you offer, who are your customers, what makes you unique?"
-                      value={formData.businessDescription}
-                      onChange={(e) => handleInputChange('businessDescription', e.target.value)}
-                      required
-                    />
+                    <Textarea id="businessDescription" className="min-h-[120px]" placeholder="Tell us about your business - what products/services do you offer, who are your customers, what makes you unique?" value={formData.businessDescription} onChange={e => handleInputChange('businessDescription', e.target.value)} required />
                   </div>
                 </div>
 
-                <Button 
-                  type="submit" 
-                  className="w-full h-12 text-lg"
-                  disabled={isSubmitting}
-                >
+                <Button type="submit" className="w-full h-12 text-lg" disabled={isSubmitting}>
                   {isSubmitting ? "Submitting..." : "Submit Application"}
                 </Button>
               </form>
             </CardContent>
-          </Card>
-        )}
+          </Card>}
       </motion.div>
-    </div>
-  );
+    </div>;
 }
