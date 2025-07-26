@@ -152,9 +152,7 @@ export default function FundingOptions() {
       duration: 0.6
     }} className="max-w-6xl mx-auto">
         <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold text-neutral-900 mb-4">
-            Funding Options
-          </h1>
+          <h1 className="text-4xl font-bold text-neutral-900 mb-4">Grant Options</h1>
           <p className="text-lg text-neutral-600 max-w-2xl mx-auto">
             Explore available grants and funding opportunities to help launch and grow your business.
           </p>
