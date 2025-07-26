@@ -153,7 +153,10 @@ export default function FundingOptions() {
     }} className="max-w-6xl mx-auto">
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold text-neutral-900 mb-4">Grant Options</h1>
-          <p className="text-lg text-neutral-600 max-w-2xl mx-auto">
+          <p className="text-lg text-neutral-600 max-w-2xl mx-auto mb-6">
+            HWL has partnered with leading grantors who are committed to funding new entrepreneurs. As an HWL member, you can apply for all our partnership grants through this platform. We're also expanding our funding options to include SBA loans, private lenders, and additional resources - coming soon.
+          </p>
+          <p className="text-base text-neutral-500 max-w-xl mx-auto">
             Explore available grants and funding opportunities to help launch and grow your business.
           </p>
         </div>
