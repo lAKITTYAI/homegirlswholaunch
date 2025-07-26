@@ -323,15 +323,10 @@ export default function LaunchPlans() {
                     </ul>
                   </CardContent>
                   <CardFooter className="flex flex-col gap-3 pt-0 items-center">
-                    <div className="w-full flex gap-2">
-                      <Button variant="outline" className="flex-1 border-primary text-primary hover:bg-primary/10">
-                        Choose as Member
-                      </Button>
-                      <Button className="flex-1 bg-primary hover:bg-primary-dark">
-                        Apply for Non-Members
-                      </Button>
-                    </div>
-                    <span className="text-xs text-primary-dark opacity-70 tracking-wide">Free for members | Application required for non-members</span>
+                    <Button className="w-full bg-primary hover:bg-primary-dark text-lg font-bold py-3">
+                      Apply for Ambassador Position
+                    </Button>
+                    <span className="text-xs text-primary-dark opacity-70 tracking-wide">Work with us and earn 30% commission with no caps</span>
                   </CardFooter>
                 </Card>
               </motion.div>
