@@ -38,7 +38,7 @@ const Navigation = () => {
 
   return (
     <header className="bg-white border-b border-neutral-200 py-4 sticky top-0 z-50">
-      <div className="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
+      <div className="container mx-auto px-4 flex flex-col md:flex-row items-center gap-8">
         <div className="flex items-center mb-4 md:mb-0">
           <Link to="/" className="flex items-center">
             <img 
@@ -49,14 +49,14 @@ const Navigation = () => {
           </Link>
         </div>
         
-        <NavigationMenu>
-          <NavigationMenuList className="gap-2">
+        <NavigationMenu className="flex-1">
+          <NavigationMenuList className="gap-1">
             <NavigationMenuItem>
               <Link 
                 to="/" 
                 className={cn(
-                  navigationMenuTriggerStyle(),
-                  location.pathname === "/" ? "text-primary font-semibold bg-neutral-100" : ""
+                  "inline-flex h-12 w-max items-center justify-center rounded-md bg-background px-6 py-3 text-base font-medium transition-colors hover:bg-primary/10 hover:text-primary focus:bg-primary/10 focus:text-primary focus:outline-none disabled:pointer-events-none disabled:opacity-50",
+                  location.pathname === "/" ? "text-primary font-semibold bg-primary/10" : "text-neutral-700"
                 )}
               >
                 Home
@@ -64,7 +64,7 @@ const Navigation = () => {
             </NavigationMenuItem>
 
             <NavigationMenuItem>
-              <NavigationMenuTrigger className={isActiveCategory(services) ? "text-primary font-semibold" : ""}>
+              <NavigationMenuTrigger className={cn("h-12 px-6 py-3 text-base font-medium text-neutral-700 hover:text-primary data-[state=open]:text-primary", isActiveCategory(services) ? "text-primary font-semibold bg-primary/10" : "")}>
                 Services
               </NavigationMenuTrigger>
               <NavigationMenuContent>
@@ -84,7 +84,7 @@ const Navigation = () => {
             </NavigationMenuItem>
 
             <NavigationMenuItem>
-              <NavigationMenuTrigger className={isActiveCategory(programs) ? "text-primary font-semibold" : ""}>
+              <NavigationMenuTrigger className={cn("h-12 px-6 py-3 text-base font-medium text-neutral-700 hover:text-primary data-[state=open]:text-primary", isActiveCategory(programs) ? "text-primary font-semibold bg-primary/10" : "")}>
                 Programs
               </NavigationMenuTrigger>
               <NavigationMenuContent>
@@ -104,7 +104,7 @@ const Navigation = () => {
             </NavigationMenuItem>
 
             <NavigationMenuItem>
-              <NavigationMenuTrigger className={isActiveCategory(company) ? "text-primary font-semibold" : ""}>
+              <NavigationMenuTrigger className={cn("h-12 px-6 py-3 text-base font-medium text-neutral-700 hover:text-primary data-[state=open]:text-primary", isActiveCategory(company) ? "text-primary font-semibold bg-primary/10" : "")}>
                 Company
               </NavigationMenuTrigger>
               <NavigationMenuContent>
@@ -127,8 +127,8 @@ const Navigation = () => {
               <Link 
                 to="/pricing" 
                 className={cn(
-                  navigationMenuTriggerStyle(),
-                  location.pathname === "/pricing" ? "text-primary font-semibold bg-neutral-100" : ""
+                  "inline-flex h-12 w-max items-center justify-center rounded-md bg-background px-6 py-3 text-base font-medium transition-colors hover:bg-primary/10 hover:text-primary focus:bg-primary/10 focus:text-primary focus:outline-none disabled:pointer-events-none disabled:opacity-50",
+                  location.pathname === "/pricing" ? "text-primary font-semibold bg-primary/10" : "text-neutral-700"
                 )}
               >
                 Pricing
