@@ -143,8 +143,7 @@ export default function BusinessCreditBuilder() {
                     Dual bureau reporting after 3 consistent payments
                   </div>
                   <Button 
-                    variant="outline"
-                    className="w-full"
+                    className="w-full bg-pink-100 hover:bg-pink-200 text-pink-800 border border-pink-200"
                     onClick={() => handleSelectPlan("Boss Builder Membership", "$199", "Starter Track")}
                   >
                     Select Starter Track
