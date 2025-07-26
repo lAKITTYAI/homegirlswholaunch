@@ -189,7 +189,7 @@ const Pricing = () => {
               <p className="text-sm text-muted-foreground mb-4">Split into 2 easy payments of $995</p>
               <Button 
                 variant="default" 
-                className="w-full"
+                className="w-full bg-purple-300 hover:bg-purple-400 text-purple-900"
                 onClick={() => {
                   setCheckoutModal({
                     isOpen: true,
