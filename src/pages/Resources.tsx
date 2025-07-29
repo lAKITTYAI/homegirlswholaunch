@@ -108,7 +108,7 @@ const resources = [
     category: "Guides",
     description: "Build and improve your business credit score with proven strategies and techniques.",
     downloadUrl: "#",
-    imageUrl: "lovable-uploads/88786662-9d6b-404c-ac1b-557e302c3948.png",
+    imageUrl: "/lovable-uploads/c53b4f07-7901-4fd3-9016-2b05bd828506.png",
     featured: true,
     price: "$34.99",
   },
