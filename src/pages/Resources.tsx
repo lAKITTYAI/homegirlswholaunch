@@ -78,7 +78,7 @@ const resources = [
     category: "Guides",
     description: "Build a powerful brand identity with this comprehensive branding strategy guide.",
     downloadUrl: "#",
-    imageUrl: "lovable-uploads/d51ba94c-7ed2-47ff-a662-f9479d1b7c29.png",
+    imageUrl: "/lovable-uploads/b9bb392e-f979-41ae-acc0-1a97f484fda2.png",
     featured: false,
     price: "$39.99",
   },
