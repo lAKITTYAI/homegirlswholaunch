@@ -94,11 +94,11 @@ const resources = [
   },
   {
     id: 10,
-    title: "Tax Guide for Entrepreneurs",
+    title: "The Ultimate Tax Prep Baddie Guide",
     category: "Guides",
     description: "Navigate business taxes with confidence using this comprehensive tax planning guide.",
     downloadUrl: "#",
-    imageUrl: "/lovable-uploads/73d8d55e-9899-4f86-9543-9873b9c9b841.png",
+    imageUrl: "/lovable-uploads/2f3673c4-e9f1-4718-86a5-4e8995c8b022.png",
     featured: false,
     price: "$44.99",
   },
