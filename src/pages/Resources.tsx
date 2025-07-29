@@ -88,7 +88,7 @@ const resources = [
     category: "Guides",
     description: "Master digital marketing strategies to grow your business online and reach more customers.",
     downloadUrl: "#",
-    imageUrl: "lovable-uploads/f69cd8b7-133e-409e-8d8d-01334ca7a6fe.png",
+    imageUrl: "/lovable-uploads/0724c3cc-3800-4022-95a2-45df2414c2a1.png",
     featured: true,
     price: "$59.99",
   },
