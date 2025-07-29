@@ -64,7 +64,7 @@ const resources = [
   },
   {
     id: 7,
-    title: "Grants Guide",
+    title: "Grant Guide",
     category: "Guides",
     description: "Complete guide to finding and applying for business grants and funding opportunities.",
     downloadUrl: "#",
