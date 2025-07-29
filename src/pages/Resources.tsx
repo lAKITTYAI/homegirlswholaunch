@@ -62,6 +62,56 @@ const resources = [
     imageUrl: "lovable-uploads/09080f44-2802-4b37-a59d-338e207b8570.png",
     featured: true,
   },
+  {
+    id: 7,
+    title: "Grants Guide",
+    category: "Guides",
+    description: "Complete guide to finding and applying for business grants and funding opportunities.",
+    downloadUrl: "#",
+    imageUrl: "lovable-uploads/c7ce2bf2-7c2d-4583-8804-83d2ba602e6a.png",
+    featured: true,
+    price: "$49.99",
+  },
+  {
+    id: 8,
+    title: "Branding Guide",
+    category: "Guides",
+    description: "Build a powerful brand identity with this comprehensive branding strategy guide.",
+    downloadUrl: "#",
+    imageUrl: "lovable-uploads/d51ba94c-7ed2-47ff-a662-f9479d1b7c29.png",
+    featured: false,
+    price: "$39.99",
+  },
+  {
+    id: 9,
+    title: "Digital Marketing Guide",
+    category: "Guides",
+    description: "Master digital marketing strategies to grow your business online and reach more customers.",
+    downloadUrl: "#",
+    imageUrl: "lovable-uploads/f69cd8b7-133e-409e-8d8d-01334ca7a6fe.png",
+    featured: true,
+    price: "$59.99",
+  },
+  {
+    id: 10,
+    title: "Tax Guide for Entrepreneurs",
+    category: "Guides",
+    description: "Navigate business taxes with confidence using this comprehensive tax planning guide.",
+    downloadUrl: "#",
+    imageUrl: "lovable-uploads/316cf67d-f73c-4fc8-b3b0-c054aa99fde2.png",
+    featured: false,
+    price: "$44.99",
+  },
+  {
+    id: 11,
+    title: "Credit Building Guide",
+    category: "Guides",
+    description: "Build and improve your business credit score with proven strategies and techniques.",
+    downloadUrl: "#",
+    imageUrl: "lovable-uploads/88786662-9d6b-404c-ac1b-557e302c3948.png",
+    featured: true,
+    price: "$34.99",
+  },
 ];
 
 // Categories for filtering (removed Opportunities since ambassador moved)
@@ -156,6 +206,11 @@ export default function Resources() {
                   </CardHeader>
                   <CardContent className="flex-grow">
                     <p className="text-neutral-600">{resource.description}</p>
+                    {resource.price && (
+                      <div className="mt-3 p-3 bg-primary/10 border border-primary/20 rounded-md">
+                        <p className="text-lg font-bold text-primary">{resource.price}</p>
+                      </div>
+                    )}
                     <div className="mt-3 p-2 bg-blue-50 border border-blue-200 rounded-md">
                       <p className="text-xs text-blue-700 font-medium">
                         ✓ Free for HWL Boss Builder and Inner Circle members
