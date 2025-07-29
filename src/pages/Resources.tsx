@@ -98,7 +98,7 @@ const resources = [
     category: "Guides",
     description: "Navigate business taxes with confidence using this comprehensive tax planning guide.",
     downloadUrl: "#",
-    imageUrl: "lovable-uploads/316cf67d-f73c-4fc8-b3b0-c054aa99fde2.png",
+    imageUrl: "/lovable-uploads/73d8d55e-9899-4f86-9543-9873b9c9b841.png",
     featured: false,
     price: "$44.99",
   },
