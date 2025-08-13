@@ -1,7 +1,8 @@
 
 import { motion } from "framer-motion";
-import { Lightbulb, Users, Heart } from "lucide-react";
+import { Lightbulb, Users, Heart, Calendar, Mic, Rocket, PartyPopper, UserCheck, Plus } from "lucide-react";
 import { Link } from "react-router-dom";
+import { Badge } from "@/components/ui/badge";
 
 const features = [
   {
@@ -19,6 +20,38 @@ const features = [
     title: "Sponsor a Launch",
     description: "Support female entrepreneurs through our HomeGirls Launch Fund.",
     link: "/donate"
+  },
+  {
+    icon: Calendar,
+    title: "Monthly Meetings",
+    description: "Join our local meetups in cities near you for networking and learning.",
+    badge: "Coming Soon",
+    badgeVariant: "outline" as const
+  },
+  {
+    icon: Mic,
+    title: "Guest Speaker Seminars",
+    description: "Learn from industry experts and successful entrepreneurs in exclusive seminars.",
+  },
+  {
+    icon: Rocket,
+    title: "Incubator Programs",
+    description: "Accelerate your business growth with our comprehensive incubator programs.",
+  },
+  {
+    icon: PartyPopper,
+    title: "VIP Launch Parties",
+    description: "Celebrate your business milestones with exclusive launch events and networking.",
+  },
+  {
+    icon: UserCheck,
+    title: "One-on-One Coaching",
+    description: "Get personalized coaching sessions tailored to your unique business needs.",
+  },
+  {
+    icon: Plus,
+    title: "And More",
+    description: "Discover additional resources, workshops, and opportunities to grow your business.",
   },
 ];
 
@@ -48,14 +81,21 @@ export const Features = () => {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.2 }}
-              className="relative p-8 rounded-2xl bg-neutral-50 hover:bg-white hover:shadow-lg transition-all duration-300"
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              className="relative p-8 rounded-2xl bg-neutral-50 hover:bg-white hover:shadow-lg transition-all duration-300 hover-scale"
             >
               <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2">
                 <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
                   <feature.icon className="w-6 h-6 text-primary" />
                 </div>
               </div>
+              {feature.badge && (
+                <div className="absolute top-4 right-4">
+                  <Badge variant={feature.badgeVariant || "default"} className="animate-fade-in">
+                    {feature.badge}
+                  </Badge>
+                </div>
+              )}
               <div className="mt-6 text-center">
                 <h3 className="text-xl font-semibold text-neutral-900 mb-3">
                   {feature.title}
@@ -64,7 +104,7 @@ export const Features = () => {
                 {feature.link && (
                   <Link 
                     to={feature.link} 
-                    className="mt-4 inline-block text-primary hover:underline font-medium"
+                    className="mt-4 inline-block text-primary hover:underline font-medium story-link"
                   >
                     Learn more
                   </Link>
