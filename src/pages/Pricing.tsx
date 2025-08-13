@@ -50,13 +50,13 @@ const PricingTier = ({
       </ul>
     </CardContent>
     <CardFooter>
-      <Button 
-        variant={highlighted ? "default" : "outline"} 
-        className="w-full"
-        onClick={onSubscribe}
-      >
-        {buttonText}
-      </Button>
+              <Button 
+                variant={highlighted ? "default" : "outline"} 
+                className="w-full"
+                onClick={onSubscribe}
+              >
+                Join Waitlist
+              </Button>
     </CardFooter>
   </Card>
 );
@@ -134,10 +134,18 @@ const Pricing = () => {
     <div className="container mx-auto px-4 py-12">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-12">
+          <Badge className="mb-4 bg-orange-500 hover:bg-orange-600">
+            Coming Soon - Pre-Launch Access
+          </Badge>
           <h1 className="text-4xl font-bold mb-4">Membership Plans</h1>
           <p className="text-xl text-neutral-600 max-w-3xl mx-auto">
-            Join our community of women entrepreneurs and get access to the resources, support, and mentorship you need to launch and grow your business.
+            Be among the first to join our community when we launch! Reserve your spot now and get exclusive founding member benefits.
           </p>
+          <div className="mt-6 p-4 bg-primary/5 rounded-lg border border-primary/20 max-w-2xl mx-auto">
+            <p className="text-sm text-primary font-medium">
+              🎉 Pre-Launch Special: First 100 members get 50% off their first year + exclusive founding member perks
+            </p>
+          </div>
         </div>
 
         <div className="grid md:grid-cols-3 gap-8">
