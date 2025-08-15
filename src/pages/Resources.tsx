@@ -112,6 +112,16 @@ const resources = [
     featured: true,
     price: "$34.99",
   },
+  {
+    id: 12,
+    title: "Media Training Guide",
+    category: "Guides",
+    description: "Master media interviews and public speaking as a celebrity entrepreneur.",
+    downloadUrl: "#",
+    imageUrl: "/lovable-uploads/8ad3019d-6767-46ce-b9bf-0aed21a36063.png",
+    featured: true,
+    price: "$97.00",
+  },
 ];
 
 // Categories for filtering (removed Opportunities since ambassador moved)
