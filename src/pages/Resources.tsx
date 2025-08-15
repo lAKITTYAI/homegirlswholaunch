@@ -24,7 +24,7 @@ const resources = [
     category: "Guides",
     description: "Learn how to create an effective marketing strategy for your new business.",
     downloadUrl: "#",
-    imageUrl: "lovable-uploads/a90ca758-37bd-46cf-b6d1-002bfeaf4138.png",
+    imageUrl: "/lovable-uploads/de4156f1-b221-4545-a5de-6a7c62ebf1b0.png",
     featured: false,
     price: "$29.99",
   },
