@@ -54,7 +54,7 @@ const resources = [
     category: "Checklists",
     description: "Ensure your business has all the necessary legal foundations with this checklist.",
     downloadUrl: "#",
-    imageUrl: "lovable-uploads/192787cb-ffb3-42b6-877e-42e8270d07a8.png",
+    imageUrl: "/lovable-uploads/76cf74bb-2610-4606-bb20-a1fcb710a633.png",
     featured: false,
     price: "$9.99",
   },
