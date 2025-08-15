@@ -64,7 +64,7 @@ const resources = [
     category: "Templates",
     description: "A professional pitch deck template to help you secure funding for your business.",
     downloadUrl: "#",
-    imageUrl: "lovable-uploads/09080f44-2802-4b37-a59d-338e207b8570.png",
+    imageUrl: "/lovable-uploads/6f091b61-d6f8-4c18-aadb-478d28b0bd9f.png",
     featured: true,
     price: "$18.00",
   },
