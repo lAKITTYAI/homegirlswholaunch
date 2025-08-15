@@ -201,11 +201,11 @@ export default function Resources() {
                 transition={{ duration: 0.4 }}
               >
                 <Card className="h-full flex flex-col hover:shadow-md transition-shadow">
-                  <div className="h-48 overflow-hidden relative">
+                  <div className="aspect-[4/3] bg-neutral-50 p-4 relative">
                     <img 
                       src={resource.imageUrl} 
                       alt={resource.title} 
-                      className="w-full h-full object-cover cursor-pointer"
+                      className="w-full h-full object-contain cursor-pointer"
                       onClick={() => setSelectedImage(resource.imageUrl)}
                     />
                     {resource.featured && (
