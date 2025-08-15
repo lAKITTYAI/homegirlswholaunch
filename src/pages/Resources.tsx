@@ -114,7 +114,7 @@ const resources = [
   },
   {
     id: 12,
-    title: "Media Training Guide",
+    title: "Media Training Guide For Celebrity Entrepreneurs",
     category: "Guides",
     description: "Master media interviews and public speaking as a celebrity entrepreneur.",
     downloadUrl: "#",
