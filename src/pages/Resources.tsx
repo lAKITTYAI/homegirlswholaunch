@@ -118,7 +118,7 @@ const resources = [
     category: "Guides",
     description: "Master media interviews and public speaking as a celebrity entrepreneur.",
     downloadUrl: "#",
-    imageUrl: "/lovable-uploads/8ad3019d-6767-46ce-b9bf-0aed21a36063.png",
+    imageUrl: "/lovable-uploads/f2cb4ae7-51e1-40b1-8ec1-a81bbdb19d61.png",
     featured: true,
     price: "$97.00",
   },
