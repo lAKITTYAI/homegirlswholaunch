@@ -16,6 +16,7 @@ const resources = [
     downloadUrl: "#",
     imageUrl: "lovable-uploads/8f0e71f6-6479-43bb-844f-5523598c7bcb.png",
     featured: true,
+    price: "$18.00",
   },
   {
     id: 2,
@@ -25,6 +26,7 @@ const resources = [
     downloadUrl: "#",
     imageUrl: "lovable-uploads/a90ca758-37bd-46cf-b6d1-002bfeaf4138.png",
     featured: false,
+    price: "$29.99",
   },
   {
     id: 3,
@@ -34,6 +36,7 @@ const resources = [
     downloadUrl: "#",
     imageUrl: "lovable-uploads/bb07af18-2beb-44e5-a9da-b290ab7c54de.png",
     featured: true,
+    price: "$18.00",
   },
   {
     id: 4,
@@ -43,6 +46,7 @@ const resources = [
     downloadUrl: "#",
     imageUrl: "lovable-uploads/920b9283-bf22-4903-b219-8ef192b946c5.png",
     featured: false,
+    price: "$29.99",
   },
   {
     id: 5,
@@ -52,6 +56,7 @@ const resources = [
     downloadUrl: "#",
     imageUrl: "lovable-uploads/192787cb-ffb3-42b6-877e-42e8270d07a8.png",
     featured: false,
+    price: "$9.99",
   },
   {
     id: 6,
@@ -61,6 +66,7 @@ const resources = [
     downloadUrl: "#",
     imageUrl: "lovable-uploads/09080f44-2802-4b37-a59d-338e207b8570.png",
     featured: true,
+    price: "$18.00",
   },
   {
     id: 7,
