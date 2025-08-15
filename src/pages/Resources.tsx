@@ -94,7 +94,7 @@ const resources = [
   },
   {
     id: 10,
-    title: "Business Tax",
+    title: "Business Tax Prep Guide",
     category: "Guides",
     description: "Navigate business taxes with confidence using this comprehensive tax planning guide.",
     downloadUrl: "#",
