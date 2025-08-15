@@ -44,7 +44,7 @@ const resources = [
     category: "Templates",
     description: "Plan your social media content strategy with this organized calendar template.",
     downloadUrl: "#",
-    imageUrl: "lovable-uploads/920b9283-bf22-4903-b219-8ef192b946c5.png",
+    imageUrl: "/lovable-uploads/87165aac-7f00-4ee1-89b6-f09014ddd012.png",
     featured: false,
     price: "$29.99",
   },
