@@ -94,7 +94,7 @@ const resources = [
   },
   {
     id: 10,
-    title: "The Ultimate Tax Prep Baddie Guide",
+    title: "Business Tax",
     category: "Guides",
     description: "Navigate business taxes with confidence using this comprehensive tax planning guide.",
     downloadUrl: "#",
