@@ -79,6 +79,7 @@ const AboutHWL = () => {
               <li><strong>Community & Support:</strong> An inclusive and empowering network of like-minded women who share insights, celebrate wins, and provide guidance through the highs and lows of entrepreneurship.</li>
               <li><strong>Mentorship & Coaching:</strong> Access to experienced women entrepreneurs who offer personalized mentorship and real-world advice to fuel your growth.</li>
               <li><strong>Business Credit Building:</strong> Net 30 payment terms and specialized savings accounts designed to establish and strengthen your business credit profile, helping you access funding and build financial credibility.</li>
+              <li><strong>Exclusive Funding Opportunities:</strong> Access to grants, direct lender connections, and funding resources available exclusively to HWL members, providing you with unique pathways to secure the capital needed to launch and scale your business.</li>
               <li><strong>Exclusive Events & Experiences:</strong> Luxurious speaking events featuring renowned guest speakers, celebratory gatherings honoring member wins and launches, and high-end networking experiences that elevate your business presence and foster meaningful connections within our success-driven community.</li>
               <li><strong>Inspiration & Motivation:</strong> Real stories from women who have successfully launched and scaled their businesses, proving that your goals are within reach.</li>
             </ul>
