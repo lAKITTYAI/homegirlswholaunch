@@ -28,7 +28,8 @@ const AvailableNow = () => {
       icon: BookOpen,
       title: "Media Training Guide",
       description: "Master media interviews and public speaking as a celebrity entrepreneur",
-      price: "$97",
+      price: "$80",
+      originalPrice: "$160",
       features: [
         "Interview Preparation Strategies",
         "Public Speaking Techniques",
