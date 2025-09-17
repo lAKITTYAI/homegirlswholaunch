@@ -22,7 +22,7 @@ const privileges = [
   {
     icon: Sparkles,
     title: "Mentorship Matching",
-    description: "Get paired with successful entrepreneurs in your industry.",
+    description: "Get paired with successful entrepreneurs in your industry. Get to learn from the best of the best in your field through personalized guidance and industry-specific expertise.",
     bgColor: "bg-primary/10",
     iconBg: "bg-primary/20",
     iconColor: "text-primary"
