@@ -65,9 +65,9 @@ const AppointmentBooking = () => {
           Schedule Free Consultation
         </Button>
       </DialogTrigger>
-      <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
+      <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto bg-white text-black">
         <DialogHeader>
-          <DialogTitle className="text-2xl font-bold text-center">
+          <DialogTitle className="text-2xl font-bold text-center text-black">
             Schedule Your Free Consultation
           </DialogTitle>
           <p className="text-center text-neutral-600 mt-2">
@@ -77,20 +77,20 @@ const AppointmentBooking = () => {
         
         <div className="grid md:grid-cols-2 gap-6 mt-6">
           {/* Calendar Section */}
-          <Card>
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2">
-                <CalendarIcon className="w-5 h-5" />
+          <Card className="bg-white border border-gray-200">
+            <CardHeader className="bg-white">
+              <CardTitle className="flex items-center gap-2 text-black">
+                <CalendarIcon className="w-5 h-5 text-primary" />
                 Select Date
               </CardTitle>
             </CardHeader>
-            <CardContent>
+            <CardContent className="bg-white">
               <Calendar
                 mode="single"
                 selected={selectedDate}
                 onSelect={setSelectedDate}
                 disabled={isDateDisabled}
-                className="rounded-md border w-full"
+                className="rounded-md border w-full bg-white"
               />
               <p className="text-sm text-neutral-500 mt-2">
                 * Consultations are available Monday-Friday
@@ -99,14 +99,14 @@ const AppointmentBooking = () => {
           </Card>
 
           {/* Time & Form Section */}
-          <Card>
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2">
-                <Clock className="w-5 h-5" />
+          <Card className="bg-white border border-gray-200">
+            <CardHeader className="bg-white">
+              <CardTitle className="flex items-center gap-2 text-black">
+                <Clock className="w-5 h-5 text-primary" />
                 Select Time & Details
               </CardTitle>
             </CardHeader>
-            <CardContent>
+            <CardContent className="bg-white">
               <form onSubmit={handleSubmit} className="space-y-4">
                 {selectedDate && (
                   <motion.div
@@ -114,14 +114,14 @@ const AppointmentBooking = () => {
                     animate={{ opacity: 1, y: 0 }}
                     className="space-y-2"
                   >
-                    <Label htmlFor="time">Available Times (EST)</Label>
+                    <Label htmlFor="time" className="text-black font-medium">Available Times (EST)</Label>
                     <Select value={selectedTime} onValueChange={setSelectedTime}>
-                      <SelectTrigger>
+                      <SelectTrigger className="bg-white border-gray-300 text-black">
                         <SelectValue placeholder="Select a time slot" />
                       </SelectTrigger>
-                      <SelectContent>
+                      <SelectContent className="bg-white border border-gray-300 z-50">
                         {timeSlots.map((time) => (
-                          <SelectItem key={time} value={time}>
+                          <SelectItem key={time} value={time} className="text-black hover:bg-gray-100">
                             {time} - {time.split(':')[0] === '12' ? '12' : 
                              (parseInt(time.split(':')[0]) > 12 ? 
                               parseInt(time.split(':')[0]) - 12 : 
@@ -135,18 +135,19 @@ const AppointmentBooking = () => {
                 )}
 
                 <div className="space-y-2">
-                  <Label htmlFor="name">Full Name *</Label>
+                  <Label htmlFor="name" className="text-black font-medium">Full Name *</Label>
                   <Input
                     id="name"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                     placeholder="Your full name"
                     required
+                    className="bg-white border-gray-300 text-black"
                   />
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="email">Email Address *</Label>
+                  <Label htmlFor="email" className="text-black font-medium">Email Address *</Label>
                   <Input
                     id="email"
                     type="email"
@@ -154,11 +155,12 @@ const AppointmentBooking = () => {
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="your@email.com"
                     required
+                    className="bg-white border-gray-300 text-black"
                   />
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="phone">Phone Number *</Label>
+                  <Label htmlFor="phone" className="text-black font-medium">Phone Number *</Label>
                   <Input
                     id="phone"
                     type="tel"
@@ -166,17 +168,19 @@ const AppointmentBooking = () => {
                     onChange={(e) => setPhone(e.target.value)}
                     placeholder="(555) 123-4567"
                     required
+                    className="bg-white border-gray-300 text-black"
                   />
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="message">What would you like to discuss? (Optional)</Label>
+                  <Label htmlFor="message" className="text-black font-medium">What would you like to discuss? (Optional)</Label>
                   <Textarea
                     id="message"
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
                     placeholder="Tell us about your business goals..."
                     rows={3}
+                    className="bg-white border-gray-300 text-black"
                   />
                 </div>
 
@@ -186,11 +190,11 @@ const AppointmentBooking = () => {
                     animate={{ opacity: 1, y: 0 }}
                     className="bg-primary/5 p-4 rounded-lg border border-primary/20"
                   >
-                    <h4 className="font-semibold flex items-center gap-2 mb-2">
-                      <Phone className="w-4 h-4" />
+                    <h4 className="font-semibold flex items-center gap-2 mb-2 text-black">
+                      <Phone className="w-4 h-4 text-primary" />
                       Consultation Summary
                     </h4>
-                    <p className="text-sm">
+                    <p className="text-sm text-black">
                       <strong>Date:</strong> {selectedDate.toLocaleDateString('en-US', { 
                         weekday: 'long', 
                         year: 'numeric', 
@@ -198,10 +202,10 @@ const AppointmentBooking = () => {
                         day: 'numeric' 
                       })}
                     </p>
-                    <p className="text-sm">
+                    <p className="text-sm text-black">
                       <strong>Time:</strong> {selectedTime} EST
                     </p>
-                    <p className="text-sm">
+                    <p className="text-sm text-black">
                       <strong>Duration:</strong> 30 minutes
                     </p>
                     <p className="text-sm text-neutral-600 mt-2">
