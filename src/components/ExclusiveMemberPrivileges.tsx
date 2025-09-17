@@ -5,8 +5,8 @@ const privileges = [
   // Purple - Community & Connection (4 items)
   {
     icon: Users2,
-    title: "VIP Member Network",
-    description: "Connect with an exclusive community of ambitious female entrepreneurs.",
+    title: "Live Community Feed",
+    description: "Recent member wins (new contracts, launches, etc.), upcoming events preview, real-time community activity, and member business launches.",
     bgColor: "bg-primary/10",
     iconBg: "bg-primary/20",
     iconColor: "text-primary"
