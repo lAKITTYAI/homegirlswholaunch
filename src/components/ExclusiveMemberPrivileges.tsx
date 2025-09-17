@@ -88,7 +88,7 @@ const privileges = [
   {
     icon: Crown,
     title: "VIP Launch Support",
-    description: "Red-carpet treatment for launches with PR and promotional coverage.",
+    description: "Receive the ultimate red-carpet launch experience with dedicated PR support, social media amplification across HWL's platforms, press release distribution to major outlets, exclusive launch event planning assistance, and personalized marketing strategy consultation to ensure your business debut makes maximum impact.",
     bgColor: "bg-pink-50",
     iconBg: "bg-pink-200",
     iconColor: "text-pink-700"
