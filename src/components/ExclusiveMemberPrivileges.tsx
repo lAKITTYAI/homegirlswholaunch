@@ -80,7 +80,7 @@ const privileges = [
   {
     icon: Camera,
     title: "Member Spotlights",
-    description: "Get featured in press & media + your success story across social media",
+    description: "Get featured in press & media plus your success story across social media. Spotlight winners receive a dedicated page in HWL Magazine and an exclusive feature spot on our HWL podcast to share their entrepreneurial journey with our community.",
     bgColor: "bg-pink-50",
     iconBg: "bg-pink-200",
     iconColor: "text-pink-700"
