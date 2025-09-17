@@ -109,11 +109,11 @@ const AvailableNow = () => {
                         </span>
                       )}
                     </div>
-                    {product.originalPrice && (
-                      <p className="text-sm text-green-600 font-medium mt-1">
-                        Save {parseInt(product.originalPrice.replace('$', '')) - parseInt(product.price.replace('$', ''))}% Pre-Launch Price
-                      </p>
-                    )}
+                     {product.originalPrice && (
+                       <p className="text-sm text-green-600 font-medium mt-1">
+                         Save {Math.round(((parseInt(product.originalPrice.replace('$', '')) - parseInt(product.price.replace('$', ''))) / parseInt(product.originalPrice.replace('$', ''))) * 100)}% Pre-Launch Price
+                       </p>
+                     )}
                   </div>
                   
                   <ul className="space-y-2 mb-6 flex-grow">
