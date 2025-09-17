@@ -62,8 +62,8 @@ const privileges = [
   },
   {
     icon: Gift,
-    title: "Partner Discounts",
-    description: "Exclusive member rates on business services and software.",
+    title: "Industry Partnerships",
+    description: "Major brand collaboration logos, corporate sponsor showcases, exclusive partner benefits, and professional service discounts.",
     bgColor: "bg-yellow-50",
     iconBg: "bg-yellow-200",
     iconColor: "text-yellow-700"
