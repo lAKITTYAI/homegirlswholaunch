@@ -72,7 +72,7 @@ const privileges = [
   {
     icon: Star,
     title: "Celebrity Entrepreneur Events",
-    description: "VIP access to exclusive events with high-profile entrepreneurs.",
+    description: "VIP access to exclusive events with high-profile entrepreneurs. Network with industry titans in intimate settings and gain insider knowledge from successful business leaders. Enjoy premium experiences including backstage access, private meet-and-greets, and front-row seating at signature HWL events.",
     bgColor: "bg-pink-50",
     iconBg: "bg-pink-200",
     iconColor: "text-pink-700"
