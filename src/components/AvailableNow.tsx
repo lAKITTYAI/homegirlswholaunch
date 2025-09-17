@@ -4,6 +4,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import { CreditCard, PiggyBank, BookOpen, Download, Check } from "lucide-react";
 import { Link } from "react-router-dom";
+import AppointmentBooking from "@/components/AppointmentBooking";
 
 const AvailableNow = () => {
   const availableProducts = [
@@ -170,9 +171,7 @@ const AvailableNow = () => {
           <p className="text-neutral-600 mb-4">
             Get personalized recommendations on which resources are right for your business stage.
           </p>
-          <Button variant="outline" className="border-primary text-primary hover:bg-primary hover:text-white">
-            Schedule Free Consultation
-          </Button>
+          <AppointmentBooking />
         </motion.div>
       </div>
     </section>
