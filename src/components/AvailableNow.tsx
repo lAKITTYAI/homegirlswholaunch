@@ -124,41 +124,41 @@ const AvailableNow = () => {
                     ))}
                   </ul>
                   
-                  <div className="space-y-2">
-                    {product.link ? (
-                      <Button asChild className="w-full">
-                        <Link to={product.link}>
-                          Get Started Now
-                        </Link>
-                      </Button>
-                    ) : (
-                      <Button className="w-full">
-                        <Download className="w-4 h-4 mr-2" />
-                        Download Now
-                      </Button>
-                    )}
-                    <p className="text-xs text-neutral-500 text-center">
-                      Instant access • 30-day money-back guarantee
-                    </p>
-                  </div>
+                   <div className="space-y-2">
+                     {product.link ? (
+                       <Button asChild className="w-full">
+                         <Link to={product.link}>
+                           Get Started Now
+                         </Link>
+                       </Button>
+                     ) : (
+                       <Button className="w-full">
+                         <Download className="w-4 h-4 mr-2" />
+                         Download Now
+                       </Button>
+                     )}
+                     <p className="text-xs text-neutral-500 text-center">
+                       Instant access • 30-day money-back guarantee
+                     </p>
+                     
+                     {/* Show "View All Digital Products" button only on the last card */}
+                     {index === availableProducts.length - 1 && (
+                       <Button 
+                         asChild 
+                         size="lg" 
+                         className="w-full mt-4 bg-primary hover:bg-primary/90 text-white font-semibold py-3"
+                       >
+                         <Link to="/resources">
+                           View All Digital Products
+                         </Link>
+                       </Button>
+                     )}
+                   </div>
                 </CardContent>
               </Card>
             </motion.div>
           ))}
         </div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center"
-        >
-          <Button asChild variant="outline" size="lg" className="border-primary text-primary hover:bg-primary hover:text-white">
-            <Link to="/resources">
-              View All Resources
-            </Link>
-          </Button>
-        </motion.div>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
