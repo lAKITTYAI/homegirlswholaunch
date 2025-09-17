@@ -13,8 +13,8 @@ const privileges = [
   },
   {
     icon: Globe,
-    title: "Local Chapter Access",
-    description: "Join monthly meetups and networking events in cities nationwide.",
+    title: "Become a local HWL Speaker",
+    description: "Join monthly HWL meetings in your city or advance to become an official HWL speaker. Lead your own monthly chapter meetings in your area with full HWL guidance and support, building your leadership platform while growing the entrepreneurial community.",
     bgColor: "bg-primary/10",
     iconBg: "bg-primary/20", 
     iconColor: "text-primary"
