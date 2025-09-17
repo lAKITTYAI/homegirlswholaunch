@@ -96,7 +96,7 @@ const privileges = [
   {
     icon: Trophy,
     title: "Achievement Recognition",
-    description: "Members receive special milestone awards & are also invited to attend the HWL Business Royalty award show a luxury black tie event for HWL members to be celebrated for their success.",
+    description: "Receive prestigious milestone awards recognizing your entrepreneurial journey, plus exclusive invitations to the HWL Business Royalty Awards - an elegant black-tie gala where exceptional members are honored for their outstanding business achievements.",
     bgColor: "bg-pink-50",
     iconBg: "bg-pink-200",
     iconColor: "text-pink-700"
