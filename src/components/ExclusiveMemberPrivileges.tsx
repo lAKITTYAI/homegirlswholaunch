@@ -55,7 +55,7 @@ const privileges = [
   {
     icon: Zap,
     title: "Fast-Track Programs",
-    description: "Skip waitlists and get priority enrollment in accelerator programs.",
+    description: "First access to grant funds & funding partners with a 78% approval rate. Over $2.3M+ in funding secured for HWL members through our exclusive network of lenders, investors & banks.",
     bgColor: "bg-yellow-50",
     iconBg: "bg-yellow-200",
     iconColor: "text-yellow-700"
