@@ -74,6 +74,23 @@ const AvailableNow = () => {
           </p>
         </motion.div>
 
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mb-8"
+        >
+          <div className="bg-primary/10 border border-primary/30 rounded-lg p-4 mb-6 max-w-4xl mx-auto">
+            <h3 className="font-semibold text-primary mb-2">💳 Net-30 Payment Terms Available</h3>
+            <p className="text-sm text-neutral-700">
+              Qualified businesses can pay within 30 days on orders $100+. 
+              <span className="text-primary font-medium cursor-pointer hover:underline ml-1">
+                Apply for Net-30 terms →
+              </span>
+            </p>
+          </div>
+        </motion.div>
+
         <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto mb-8">
           {availableProducts.map((product, index) => (
             <motion.div

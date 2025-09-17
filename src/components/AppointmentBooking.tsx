@@ -73,6 +73,11 @@ const AppointmentBooking = () => {
           <p className="text-center text-neutral-600 mt-2">
             Book a 30-minute phone consultation to discuss your business goals
           </p>
+          <div className="bg-primary/10 border border-primary/30 rounded-lg p-3 mt-4">
+            <p className="text-sm text-center text-neutral-700">
+              <strong className="text-primary">💳 Net-30 Terms Available:</strong> Qualified businesses can pay within 30 days on orders $100+
+            </p>
+          </div>
         </DialogHeader>
         
         <div className="grid md:grid-cols-2 gap-6 mt-6">
