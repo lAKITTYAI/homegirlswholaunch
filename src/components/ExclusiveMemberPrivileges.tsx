@@ -114,12 +114,14 @@ const ExclusiveMemberPrivileges = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 mb-4">
-            Exclusive Member Privileges
-          </h2>
-          <p className="text-lg text-neutral-600 max-w-3xl mx-auto">
-            When you join HWL, you gain access to an exclusive world of opportunities, recognition, and premium benefits designed for ambitious female entrepreneurs.
-          </p>
+          <div className="bg-primary/5 border border-primary/20 rounded-2xl p-8 max-w-4xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 mb-4">
+              Exclusive Member Privileges
+            </h2>
+            <p className="text-lg text-neutral-600 max-w-3xl mx-auto">
+              When you join HWL, you gain access to an exclusive world of opportunities, recognition, and premium benefits designed for ambitious female entrepreneurs.
+            </p>
+          </div>
         </motion.div>
 
         <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
