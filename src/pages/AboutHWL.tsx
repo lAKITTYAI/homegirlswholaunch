@@ -65,6 +65,7 @@ const AboutHWL = () => {
               <li><strong>Women-Led Startups:</strong> We champion innovation and provide strategies to help women-led companies scale and thrive.</li>
               <li><strong>Small Business Owners:</strong> Whether you run a boutique or a service-based business, we offer the tools and insights to help you grow.</li>
               <li><strong>Freelancers Transitioning to Entrepreneurship:</strong> We help freelancers transform their skills into profitable, scalable businesses with confidence.</li>
+              <li><strong>Aspiring Women Entrepreneurs:</strong> We empower women with entrepreneurial dreams and unwavering drive to transform their vision into reality, providing the foundation and roadmap needed to confidently take the leap into business ownership.</li>
             </ul>
           </CardContent>
         </Card>
