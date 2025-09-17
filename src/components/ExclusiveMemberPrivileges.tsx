@@ -63,7 +63,7 @@ const privileges = [
   {
     icon: Gift,
     title: "Industry Partnerships",
-    description: "Major brand collaboration logos, corporate sponsor showcases, exclusive partner benefits, and professional service discounts.",
+    description: "Access exclusive discounts and deals from HWL's corporate partners including business software, marketing services, legal consultations, and professional development tools. Get preferential rates on essential business services and potential collaboration opportunities with established brands in your industry.",
     bgColor: "bg-yellow-50",
     iconBg: "bg-yellow-200",
     iconColor: "text-yellow-700"
