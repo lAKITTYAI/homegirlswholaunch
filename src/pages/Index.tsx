@@ -5,6 +5,7 @@ import { AboutSection } from "@/components/AboutSection";
 import { PodcastSection } from "@/components/PodcastSection";
 import PreLaunchBanner from "@/components/PreLaunchBanner";
 import AvailableNow from "@/components/AvailableNow";
+import ExclusiveMemberPrivileges from "@/components/ExclusiveMemberPrivileges";
 
 const Index = () => {
   return (
@@ -14,6 +15,7 @@ const Index = () => {
       <AvailableNow />
       <AboutSection />
       <Features />
+      <ExclusiveMemberPrivileges />
       <PodcastSection />
     </main>
   );

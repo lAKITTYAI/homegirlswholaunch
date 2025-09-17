@@ -34,6 +34,16 @@ export default {
           light: "#8B5CF6",
           dark: "#553C9A",
         },
+        gold: {
+          DEFAULT: "#FFD700",
+          light: "#FFF4CC",
+          dark: "#B8860B",
+        },
+        pink: {
+          DEFAULT: "#FFB6C1",
+          light: "#FFE4E8", 
+          dark: "#FF69B4",
+        },
         neutral: {
           50: "#F8F9FA",
           100: "#F1F3F5",
