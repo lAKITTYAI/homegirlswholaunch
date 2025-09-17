@@ -14,10 +14,10 @@ const AvailableNow = () => {
       price: "$97",
       originalPrice: "$147",
       features: [
-        "3-Bureau Credit Monitoring",
+        "3-Bureau Credit Reporting",
         "Credit Building Strategies",
         "Funding Application Templates",
-        "Net-30 Vendor List",
+        "Net-30 Program + Vendor Directory",
         "Credit Building Savings Account"
       ],
       link: "/business-credit-builder",
@@ -26,17 +26,28 @@ const AvailableNow = () => {
     },
     {
       icon: BookOpen,
-      title: "Digital Launch Guides Bundle",
-      description: "Essential guides to kickstart your entrepreneurial journey",
-      price: "$27",
-      originalPrice: "$47",
+      title: "Media Training Guide",
+      description: "Master media interviews and public speaking as a celebrity entrepreneur",
+      price: "$97",
       features: [
-        "Business Plan Template",
-        "Marketing Strategy Guide",
-        "Legal Checklist",
-        "Branding Essentials"
+        "Interview Preparation Strategies",
+        "Public Speaking Techniques",
+        "Media Kit Templates",
+        "Crisis Communication Plans"
       ],
-      badge: "Digital Download"
+      badge: "High Value"
+    },
+    {
+      icon: BookOpen,
+      title: "Digital Marketing Guide", 
+      description: "Master digital marketing strategies to grow your business online",
+      price: "$59.99",
+      features: [
+        "Social Media Strategy",
+        "Content Marketing Plans",
+        "SEO Optimization Tips",
+        "Email Marketing Templates"
+      ]
     }
   ];
 
@@ -60,7 +71,7 @@ const AvailableNow = () => {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto mb-8">
           {availableProducts.map((product, index) => (
             <motion.div
               key={index}
@@ -134,6 +145,19 @@ const AvailableNow = () => {
             </motion.div>
           ))}
         </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center"
+        >
+          <Button asChild variant="outline" size="lg" className="border-primary text-primary hover:bg-primary hover:text-white">
+            <Link to="/resources">
+              View All Resources
+            </Link>
+          </Button>
+        </motion.div>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
