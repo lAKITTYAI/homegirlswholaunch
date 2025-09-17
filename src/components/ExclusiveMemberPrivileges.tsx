@@ -6,7 +6,7 @@ const privileges = [
   {
     icon: Users2,
     title: "Live Community Feed",
-    description: "Recent member wins (new contracts, launches, etc.), upcoming events preview, real-time community activity, and member business launches.",
+    description: "Access your personalized social media-style dashboard featuring real-time updates from fellow members - celebrate business wins, new contracts, and product launches. Stay connected with upcoming HWL events, member announcements, and community milestones all in one centralized newsfeed.",
     bgColor: "bg-primary/10",
     iconBg: "bg-primary/20",
     iconColor: "text-primary"
