@@ -30,7 +30,7 @@ const privileges = [
   {
     icon: BookOpen,
     title: "HWL Magazine Features",
-    description: "Opportunity to be featured on the cover and get a full spread.",
+    description: "Opportunity to be featured on the cover and get a full spread in HWL Magazine - the premier female business publication showcasing authentic success stories and innovative business strategies. Our magazine reaches thousands of readers monthly and is recognized as the leading platform for real female entrepreneurship stories, providing unparalleled exposure for your business and personal brand.",
     bgColor: "bg-primary/10",
     iconBg: "bg-primary/20",
     iconColor: "text-primary"
