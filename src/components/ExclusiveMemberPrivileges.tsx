@@ -38,8 +38,8 @@ const privileges = [
   // Gold - Business & Funding (4 items)
   {
     icon: DollarSign,
-    title: "Exclusive Funding Access",
-    description: "Priority access to grants and funding opportunities for members only.",
+    title: "Exclusive HWL Grant Access",
+    description: "Access to HWL's exclusive monthly grant giveaway program for members only. HWL founders and community members contribute to a monthly grant fund, with a new member selected each month to receive funding support for their business ventures.",
     bgColor: "bg-yellow-50",
     iconBg: "bg-yellow-200",
     iconColor: "text-yellow-700"
