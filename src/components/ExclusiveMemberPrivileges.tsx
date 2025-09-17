@@ -47,7 +47,7 @@ const privileges = [
   {
     icon: CreditCard,
     title: "Business Credit Building",
-    description: "Net-30 payment terms and specialized credit building accounts.",
+    description: "Net-30 payment program and specialized credit building accounts to establish your business credit profile. Members can open an exclusive HWL savings account that reports monthly to all major credit bureaus, helping build your business credit history. Access credit monitoring tools and receive personalized guidance on optimizing your business credit score.",
     bgColor: "bg-yellow-50",
     iconBg: "bg-yellow-200",
     iconColor: "text-yellow-700"
