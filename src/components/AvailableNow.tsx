@@ -17,26 +17,12 @@ const AvailableNow = () => {
         "3-Bureau Credit Monitoring",
         "Credit Building Strategies",
         "Funding Application Templates",
-        "Net-30 Vendor List"
+        "Net-30 Vendor List",
+        "Credit Building Savings Account"
       ],
       link: "/business-credit-builder",
       badge: "Most Popular",
       badgeColor: "bg-green-500"
-    },
-    {
-      icon: PiggyBank,
-      title: "Business Savings Account Setup",
-      description: "Get your business banking foundation right from the start",
-      price: "$47",
-      originalPrice: "$97",
-      features: [
-        "Bank Comparison Guide",
-        "Account Setup Checklist",
-        "Tax Planning Templates",
-        "Financial Planning Worksheets"
-      ],
-      link: "/business-savings-account",
-      badge: "Limited Time"
     },
     {
       icon: BookOpen,
