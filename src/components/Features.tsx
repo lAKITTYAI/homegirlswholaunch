@@ -52,6 +52,7 @@ const features = [
     icon: Plus,
     title: "And More",
     description: "Discover additional resources, workshops, and opportunities to grow your business.",
+    link: "/about"
   },
 ];
 
