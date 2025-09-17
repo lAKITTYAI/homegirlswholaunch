@@ -43,7 +43,8 @@ const AvailableNow = () => {
       icon: BookOpen,
       title: "Digital Marketing Guide", 
       description: "Master digital marketing strategies to grow your business online",
-      price: "$59.99",
+      price: "$40",
+      originalPrice: "$80",
       features: [
         "Social Media Strategy",
         "Content Marketing Plans",
