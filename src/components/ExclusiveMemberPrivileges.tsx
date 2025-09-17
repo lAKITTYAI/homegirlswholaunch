@@ -80,7 +80,7 @@ const privileges = [
   {
     icon: Camera,
     title: "Member Spotlights",
-    description: "Get featured across social media and marketing as a success story.",
+    description: "Get featured in press & media + your success story across social media",
     bgColor: "bg-pink-50",
     iconBg: "bg-pink-200",
     iconColor: "text-pink-700"
