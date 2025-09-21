@@ -72,11 +72,11 @@ const resources = [
     id: 7,
     title: "Grant Guide",
     category: "Guides",
-    description: "Complete guide to finding and applying for business grants and funding opportunities.",
+    description: "Complete guide to finding and applying for business grants and funding opportunities. Grant list included.",
     downloadUrl: "#",
     imageUrl: "/lovable-uploads/7491bc30-3824-497c-912d-05477db998a0.png",
     featured: true,
-    price: "$49.99",
+    price: "$29.99",
   },
   {
     id: 8,
