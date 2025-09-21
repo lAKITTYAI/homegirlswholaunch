@@ -103,20 +103,18 @@ const AvailableNow = () => {
               className="flex"
             >
               <Card className="w-full flex flex-col hover:shadow-lg transition-all duration-300 border-2 hover:border-primary/20">
-                <CardHeader className="text-center h-48 flex flex-col justify-between">
+                <CardHeader className="text-center">
                   <div className="relative">
-                    <div className="h-6 mb-2">
-                      {product.badge && (
-                        <Badge className={`${product.badgeColor || 'bg-primary'}`}>
-                          {product.badge}
-                        </Badge>
-                      )}
-                    </div>
+                    {product.badge && (
+                      <Badge className={`absolute -top-2 -right-2 ${product.badgeColor || 'bg-primary'}`}>
+                        {product.badge}
+                      </Badge>
+                    )}
                     <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-primary/10 flex items-center justify-center">
                       <product.icon className="w-8 h-8 text-primary" />
                     </div>
                   </div>
-                  <div>
+                  <div className="min-h-[72px] flex flex-col justify-center">
                     <CardTitle className="text-xl mb-2">{product.title}</CardTitle>
                     <CardDescription className="text-base">
                       {product.description}
@@ -125,7 +123,7 @@ const AvailableNow = () => {
                 </CardHeader>
                 <CardContent className="flex-grow flex flex-col justify-between">
                   <div>
-                    <div className={`text-center mb-6 ${product.title !== "Business Credit Builder Guide" ? 'min-h-[96px]' : ''}`}>
+                    <div className="text-center mb-6 min-h-[96px]">
                       <div className="flex items-center justify-center gap-2 mb-2">
                         <span className="text-3xl font-bold text-primary">{product.price}</span>
                         {product.originalPrice && (
@@ -143,7 +141,7 @@ const AvailableNow = () => {
                       </div>
                     </div>
                     
-                    <ul className={`space-y-2 mb-6 ${product.title !== "Business Credit Builder Guide" ? 'min-h-[176px]' : ''}`}>
+                    <ul className="space-y-2 mb-6 min-h-[176px]">
                       {product.features.map((feature, featureIndex) => (
                         <li key={featureIndex} className="flex items-center text-sm">
                           <Check className="h-4 w-4 text-green-500 mr-2 flex-shrink-0" />
