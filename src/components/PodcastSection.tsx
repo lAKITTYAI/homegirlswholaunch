@@ -1,6 +1,8 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { Play, Youtube, Mic } from "lucide-react";
+import { Play, Youtube, Mic, UserPlus } from "lucide-react";
+import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
+import { PodcastGuestForm } from "@/components/PodcastGuestForm";
 export const PodcastSection = () => {
   return <section className="py-16 px-4 bg-gradient-to-br from-primary/5 to-secondary/5">
       <div className="container mx-auto max-w-6xl">
@@ -55,6 +57,17 @@ export const PodcastSection = () => {
                   <Youtube className="w-4 h-4" />
                   Watch on YouTube
                 </Button>
+                <Dialog>
+                  <DialogTrigger asChild>
+                    <Button variant="secondary" className="gap-2">
+                      <UserPlus className="w-4 h-4" />
+                      Be a Guest
+                    </Button>
+                  </DialogTrigger>
+                  <DialogContent className="max-w-2xl">
+                    <PodcastGuestForm />
+                  </DialogContent>
+                </Dialog>
               </div>
             </div>
             
