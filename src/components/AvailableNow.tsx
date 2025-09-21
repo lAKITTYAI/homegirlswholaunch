@@ -34,7 +34,8 @@ const AvailableNow = () => {
         "Interview Preparation Strategies",
         "Public Speaking Techniques",
         "Media Kit Templates",
-        "Crisis Communication Plans"
+        "Crisis Communication Plans",
+        "Personal Branding Strategies"
       ],
       badge: "High Value"
     },
@@ -48,7 +49,8 @@ const AvailableNow = () => {
         "Social Media Strategy",
         "Content Marketing Plans",
         "SEO Optimization Tips",
-        "Email Marketing Templates"
+        "Email Marketing Templates",
+        "Analytics & Performance Tracking"
       ]
     }
   ];
