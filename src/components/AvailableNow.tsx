@@ -150,7 +150,7 @@ const AvailableNow = () => {
                      <p className="text-xs text-neutral-500 text-center">
                        {product.title === "Business Credit Builder Guide" 
                          ? "Instant access • Foundation builder • 30-day guarantee"
-                         : "Instant digital download • 30-day guarantee"
+                         : "Instant digital download"
                        }
                      </p>
                      
