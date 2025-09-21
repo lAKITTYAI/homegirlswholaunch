@@ -109,7 +109,7 @@ export default function BusinessCreditBuilder() {
               </p>
             </div>
             
-            <div className="grid lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            <div className="grid lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
               {/* Starter Track */}
               <Card className="relative overflow-hidden">
                 <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 to-blue-600"></div>
@@ -233,13 +233,56 @@ export default function BusinessCreditBuilder() {
                   </Button>
                 </CardContent>
               </Card>
+
+              {/* Credit Reporting Only */}
+              <Card className="relative overflow-hidden">
+                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-green-500 to-green-600"></div>
+                <CardHeader className="text-center pb-4">
+                  <Badge variant="outline" className="w-fit mx-auto mb-3 border-green-500 text-green-700">Reporting Only</Badge>
+                  <div className="text-2xl font-bold text-primary">$49/month</div>
+                  <CardTitle className="text-lg">Credit Reporting Service</CardTitle>
+                </CardHeader>
+                <CardContent className="text-center">
+                  <div className="space-y-3 mb-6">
+                    <div className="flex items-center justify-center gap-2 text-sm font-semibold text-green-600">
+                      <div className="w-6 h-6 rounded-full bg-green-100 flex items-center justify-center">
+                        <CheckCircle className="w-3 h-3 text-green-600" />
+                      </div>
+                      <span>Monthly Bureau Reporting</span>
+                    </div>
+                    <div className="flex items-center justify-center gap-2 text-sm font-semibold text-green-600">
+                      <div className="w-6 h-6 rounded-full bg-green-100 flex items-center justify-center">
+                        <CheckCircle className="w-3 h-3 text-green-600" />
+                      </div>
+                      <span>D&B & Experian Business</span>
+                    </div>
+                    <div className="flex items-center justify-center gap-2 text-sm">
+                      <div className="w-6 h-6 rounded-full bg-neutral-100 flex items-center justify-center">
+                        <span className="text-xs font-bold text-neutral-500">✕</span>
+                      </div>
+                      <span className="text-neutral-500">No Membership Benefits</span>
+                    </div>
+                  </div>
+                  <div className="text-sm text-neutral-600 mb-4">
+                    Perfect for established businesses wanting credit reporting only
+                  </div>
+                  <Button 
+                    variant="outline"
+                    className="w-full border-green-500 text-green-700 hover:bg-green-50"
+                    onClick={() => handleSelectPlan("Credit Reporting Service", "$49/month", "Reporting Only")}
+                  >
+                    Select Reporting Only
+                  </Button>
+                </CardContent>
+              </Card>
             </div>
 
             <div className="mt-8 text-center">
-              <p className="text-sm text-neutral-600 max-w-3xl mx-auto">
+              <p className="text-sm text-neutral-600 max-w-4xl mx-auto">
                 <strong>How it works:</strong> Your membership payments establish consistent payment history. 
                 As you reach payment milestones, we activate reporting to additional credit bureaus, 
-                building a stronger business credit profile with each tier.
+                building a stronger business credit profile with each tier. Or choose our standalone reporting service 
+                for monthly bureau reporting without membership benefits - perfect for businesses that just need credit building.
               </p>
             </div>
           </motion.div>
