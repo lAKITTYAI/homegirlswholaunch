@@ -103,25 +103,29 @@ const AvailableNow = () => {
               className="flex"
             >
               <Card className="w-full flex flex-col hover:shadow-lg transition-all duration-300 border-2 hover:border-primary/20">
-                <CardHeader className="text-center">
+                <CardHeader className="text-center h-48 flex flex-col justify-between">
                   <div className="relative">
-                    {product.badge && (
-                      <Badge className={`absolute -top-2 -right-2 ${product.badgeColor || 'bg-primary'}`}>
-                        {product.badge}
-                      </Badge>
-                    )}
+                    <div className="h-6 mb-2">
+                      {product.badge && (
+                        <Badge className={`${product.badgeColor || 'bg-primary'}`}>
+                          {product.badge}
+                        </Badge>
+                      )}
+                    </div>
                     <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-primary/10 flex items-center justify-center">
                       <product.icon className="w-8 h-8 text-primary" />
                     </div>
                   </div>
-                  <CardTitle className="text-xl">{product.title}</CardTitle>
-                  <CardDescription className="text-base">
-                    {product.description}
-                  </CardDescription>
+                  <div>
+                    <CardTitle className="text-xl mb-2">{product.title}</CardTitle>
+                    <CardDescription className="text-base">
+                      {product.description}
+                    </CardDescription>
+                  </div>
                 </CardHeader>
                 <CardContent className="flex-grow flex flex-col justify-between">
                   <div>
-                    <div className="text-center mb-6">
+                    <div className="text-center mb-6 h-20 flex flex-col justify-center">
                       <div className="flex items-center justify-center gap-2">
                         <span className="text-3xl font-bold text-primary">{product.price}</span>
                         {product.originalPrice && (
@@ -130,11 +134,15 @@ const AvailableNow = () => {
                           </span>
                         )}
                       </div>
-                       {product.originalPrice && (
-                         <p className="text-sm text-green-600 font-medium mt-1">
-                           Save {Math.round(((parseInt(product.originalPrice.replace('$', '')) - parseInt(product.price.replace('$', ''))) / parseInt(product.originalPrice.replace('$', ''))) * 100)}% - Waitlist Member Price
-                         </p>
-                       )}
+                      <div className="h-6 flex items-center justify-center">
+                        {product.originalPrice ? (
+                          <p className="text-sm text-green-600 font-medium">
+                            Save {Math.round(((parseInt(product.originalPrice.replace('$', '')) - parseInt(product.price.replace('$', ''))) / parseInt(product.originalPrice.replace('$', ''))) * 100)}% - Waitlist Member Price
+                          </p>
+                        ) : (
+                          <div className="h-5"></div>
+                        )}
+                      </div>
                     </div>
                     
                     <ul className="space-y-2 mb-6">
