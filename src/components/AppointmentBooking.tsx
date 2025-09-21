@@ -58,6 +58,15 @@ const AppointmentBooking = () => {
     return date < today || date < availableDate || dayOfWeek === 0 || dayOfWeek === 6;
   };
 
+  const isDateBooked = (date: Date) => {
+    // Mark dates before November 17, 2025 as booked (excluding weekends which are just disabled)
+    const availableDate = new Date(2025, 10, 17);
+    const dayOfWeek = date.getDay();
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    return date >= today && date < availableDate && dayOfWeek !== 0 && dayOfWeek !== 6;
+  };
+
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogTrigger asChild>
@@ -96,8 +105,29 @@ const AppointmentBooking = () => {
                 selected={selectedDate}
                 onSelect={setSelectedDate}
                 disabled={isDateDisabled}
+                modifiers={{
+                  booked: isDateBooked,
+                }}
+                modifiersStyles={{
+                  booked: {
+                    backgroundColor: '#fee2e2',
+                    color: '#dc2626',
+                    fontWeight: 'bold',
+                    position: 'relative'
+                  }
+                }}
                 className="rounded-md border w-full bg-white"
               />
+              <div className="mt-3 space-y-1">
+                <div className="flex items-center gap-2 text-xs">
+                  <div className="w-3 h-3 bg-red-100 border border-red-300 rounded"></div>
+                  <span className="text-neutral-600">Fully Booked</span>
+                </div>
+                <div className="flex items-center gap-2 text-xs">
+                  <div className="w-3 h-3 bg-gray-100 border border-gray-300 rounded"></div>
+                  <span className="text-neutral-600">Weekends/Unavailable</span>
+                </div>
+              </div>
               <p className="text-sm text-neutral-500 mt-2">
                 * Consultations available Monday-Friday starting November 17, 2025
               </p>
