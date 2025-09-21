@@ -148,7 +148,10 @@ const AvailableNow = () => {
                        Download Now
                      </Button>
                      <p className="text-xs text-neutral-500 text-center">
-                       Instant access • Foundation builder • 30-day guarantee
+                       {product.title === "Business Credit Builder Guide" 
+                         ? "Instant access • Foundation builder • 30-day guarantee"
+                         : "Instant digital download • 30-day guarantee"
+                       }
                      </p>
                      
                      {/* Show additional options for Business Credit Builder Guide */}
