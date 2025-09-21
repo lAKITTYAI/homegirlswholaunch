@@ -50,11 +50,12 @@ const AppointmentBooking = () => {
   };
 
   const isDateDisabled = (date: Date) => {
-    // Disable weekends and past dates
+    // Disable weekends, past dates, and dates before November 17, 2025
     const today = new Date();
     today.setHours(0, 0, 0, 0);
+    const availableDate = new Date(2025, 10, 17); // November 17, 2025 (month is 0-indexed)
     const dayOfWeek = date.getDay();
-    return date < today || dayOfWeek === 0 || dayOfWeek === 6;
+    return date < today || date < availableDate || dayOfWeek === 0 || dayOfWeek === 6;
   };
 
   return (
@@ -98,7 +99,7 @@ const AppointmentBooking = () => {
                 className="rounded-md border w-full bg-white"
               />
               <p className="text-sm text-neutral-500 mt-2">
-                * Consultations are available Monday-Friday
+                * Consultations available Monday-Friday starting November 17, 2025
               </p>
             </CardContent>
           </Card>
