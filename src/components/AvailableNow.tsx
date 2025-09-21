@@ -164,7 +164,7 @@ const AvailableNow = () => {
                   </div>
                   
                    <div className={`mt-auto space-y-3 ${product.title === "Media Training Guide" ? "-mt-2" : product.title === "Digital Marketing Guide" ? "mt-1" : ""}`}>
-                     <Button className="w-full -mt-1">
+                     <Button className="w-full -mt-2">
                        <Download className="w-4 h-4 mr-2" />
                        Download Now
                      </Button>
