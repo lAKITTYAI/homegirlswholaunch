@@ -16,7 +16,7 @@ const resources = [
     downloadUrl: "#",
     imageUrl: "/lovable-uploads/84308ea9-eb06-4de6-9066-42472783373f.png",
     featured: true,
-    price: "$18.00",
+    price: "$9.99",
   },
   {
     id: 2,
@@ -36,7 +36,7 @@ const resources = [
     downloadUrl: "#",
     imageUrl: "/lovable-uploads/df74c050-72ab-4ca8-bf0f-7611c6a80140.png",
     featured: true,
-    price: "$18.00",
+    price: "$9.99",
   },
   {
     id: 4,
@@ -66,7 +66,7 @@ const resources = [
     downloadUrl: "#",
     imageUrl: "/lovable-uploads/7f734f75-5996-411c-bcdd-d48aa59f4de2.png",
     featured: true,
-    price: "$18.00",
+    price: "$9.99",
   },
   {
     id: 7,
