@@ -125,7 +125,7 @@ const AvailableNow = () => {
                 </CardHeader>
                 <CardContent className="flex-grow flex flex-col justify-between">
                   <div>
-                    <div className="text-center mb-6 min-h-[96px]">
+                    <div className={`text-center mb-6 ${product.title !== "Business Credit Builder Guide" ? 'min-h-[96px]' : ''}`}>
                       <div className="flex items-center justify-center gap-2 mb-2">
                         <span className="text-3xl font-bold text-primary">{product.price}</span>
                         {product.originalPrice && (
@@ -143,7 +143,7 @@ const AvailableNow = () => {
                       </div>
                     </div>
                     
-                    <ul className="space-y-2 mb-6 min-h-[176px]">
+                    <ul className={`space-y-2 mb-6 ${product.title !== "Business Credit Builder Guide" ? 'min-h-[176px]' : ''}`}>
                       {product.features.map((feature, featureIndex) => (
                         <li key={featureIndex} className="flex items-center text-sm">
                           <Check className="h-4 w-4 text-green-500 mr-2 flex-shrink-0" />
