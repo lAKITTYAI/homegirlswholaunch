@@ -4,6 +4,7 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Badge } from "@/components/ui/badge";
 import { Check } from "lucide-react";
 import CheckoutModal from "@/components/CheckoutModal";
+import WaitlistModal from "@/components/WaitlistModal";
 
 const PricingTier = ({ 
   title, 
@@ -13,7 +14,8 @@ const PricingTier = ({
   buttonText = "Get Started", 
   highlighted = false,
   annualPrice,
-  onSubscribe
+  onSubscribe,
+  onJoinWaitlist
 }: { 
   title: string;
   price: string;
@@ -23,6 +25,7 @@ const PricingTier = ({
   highlighted?: boolean;
   annualPrice?: string;
   onSubscribe: () => void;
+  onJoinWaitlist: () => void;
 }) => (
   <Card className={`flex flex-col h-full ${highlighted ? 'border-primary shadow-lg' : ''}`}>
     <CardHeader>
@@ -49,14 +52,21 @@ const PricingTier = ({
         ))}
       </ul>
     </CardContent>
-    <CardFooter>
-              <Button 
-                variant={highlighted ? "default" : "outline"} 
-                className="w-full"
-                onClick={onSubscribe}
-              >
-                Join Waitlist
-              </Button>
+    <CardFooter className="flex flex-col gap-3">
+      <Button 
+        variant={highlighted ? "default" : "outline"} 
+        className="w-full"
+        onClick={onSubscribe}
+      >
+        Choose This Plan
+      </Button>
+      <Button 
+        variant="ghost" 
+        className="w-full border border-input"
+        onClick={onJoinWaitlist}
+      >
+        Join the Waitlist
+      </Button>
     </CardFooter>
   </Card>
 );
@@ -74,6 +84,14 @@ const Pricing = () => {
     monthlyPrice: '',
     annualPrice: '',
     features: []
+  });
+
+  const [waitlistModal, setWaitlistModal] = useState<{
+    isOpen: boolean;
+    planName: string;
+  }>({
+    isOpen: false,
+    planName: ''
   });
 
   const tiers = [
@@ -130,6 +148,13 @@ const Pricing = () => {
     });
   };
 
+  const handleJoinWaitlist = (tier: typeof tiers[0]) => {
+    setWaitlistModal({
+      isOpen: true,
+      planName: tier.title
+    });
+  };
+
   return (
     <div className="container mx-auto px-4 py-12">
       <div className="max-w-6xl mx-auto">
@@ -159,6 +184,7 @@ const Pricing = () => {
               features={tier.features}
               highlighted={tier.highlighted}
               onSubscribe={() => handleSubscribe(tier)}
+              onJoinWaitlist={() => handleJoinWaitlist(tier)}
             />
           ))}
         </div>
@@ -248,6 +274,12 @@ const Pricing = () => {
         monthlyPrice={checkoutModal.monthlyPrice}
         annualPrice={checkoutModal.annualPrice}
         features={checkoutModal.features}
+      />
+      
+      <WaitlistModal
+        isOpen={waitlistModal.isOpen}
+        onClose={() => setWaitlistModal({ ...waitlistModal, isOpen: false })}
+        planName={waitlistModal.planName}
       />
     </div>
   );
