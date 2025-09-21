@@ -10,18 +10,17 @@ const AvailableNow = () => {
   const availableProducts = [
     {
       icon: CreditCard,
-      title: "Business Credit Builder",
-      description: "Build your business credit score and access funding opportunities",
-      price: "$97",
-      originalPrice: "$147",
+      title: "Business Credit Builder Guide",
+      description: "Complete step-by-step guide to build a strong business credit score",
+      price: "$47",
+      originalPrice: "$97",
       features: [
-        "3-Bureau Credit Reporting",
-        "Credit Building Strategies",
+        "Step-by-Step Credit Building Process",
+        "Credit Building Strategies & Timeline",
         "Funding Application Templates",
-        "Net-30 Program + Vendor Directory",
-        "Credit Building Savings Account"
+        "Vendor Directory for Net-30 Accounts",
+        "Credit Monitoring & Tracking Tools"
       ],
-      link: "/business-credit-builder",
       badge: "Most Popular",
       badgeColor: "bg-green-500"
     },
@@ -144,21 +143,32 @@ const AvailableNow = () => {
                   </ul>
                   
                    <div className="space-y-2">
-                     {product.link ? (
-                       <Button asChild className="w-full">
-                         <Link to={product.link}>
-                           Get Started Now
-                         </Link>
-                       </Button>
-                     ) : (
-                       <Button className="w-full">
-                         <Download className="w-4 h-4 mr-2" />
-                         Download Now
-                       </Button>
+                     <Button className="w-full">
+                       <Download className="w-4 h-4 mr-2" />
+                       Download Now
+                     </Button>
+                     <p className="text-xs text-neutral-500 text-center">
+                       Instant access • Foundation builder • 30-day guarantee
+                     </p>
+                     
+                     {/* Show additional options for Business Credit Builder Guide */}
+                     {product.title === "Business Credit Builder Guide" && (
+                       <div className="mt-4 p-3 bg-neutral-50 rounded-lg border">
+                         <p className="text-xs text-neutral-600 mb-3 text-center">Ready to start building immediately?</p>
+                         <div className="flex gap-2">
+                           <Button asChild variant="outline" size="sm" className="flex-1 text-xs">
+                             <Link to="/savings-account">
+                               Savings Account
+                             </Link>
+                           </Button>
+                           <Button asChild variant="outline" size="sm" className="flex-1 text-xs">
+                             <Link to="/business-credit-builder">
+                               Credit Program
+                             </Link>
+                           </Button>
+                         </div>
+                       </div>
                      )}
-                      <p className="text-xs text-neutral-500 text-center">
-                        Instant access • Foundation builder • 30-day guarantee
-                      </p>
                      
                      {/* Show "View All Digital Products" button only on the last card */}
                      {index === availableProducts.length - 1 && (
