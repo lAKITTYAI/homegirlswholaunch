@@ -115,7 +115,19 @@ const AvailableNow = () => {
                     </div>
                   </div>
                   <div className="min-h-[72px] flex flex-col justify-center">
-                    <CardTitle className="text-xl mb-2">{product.title}</CardTitle>
+                    <CardTitle className="text-xl mb-2">
+                      {product.title === "Media Training Guide" ? (
+                        <>
+                          Media Training <span className="block">Guide</span>
+                        </>
+                      ) : product.title === "Digital Marketing Guide" ? (
+                        <>
+                          Digital Marketing <span className="block">Guide</span>
+                        </>
+                      ) : (
+                        product.title
+                      )}
+                    </CardTitle>
                     <CardDescription className="text-base">
                       {product.description}
                     </CardDescription>
