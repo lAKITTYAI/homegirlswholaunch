@@ -125,8 +125,8 @@ const AvailableNow = () => {
                 </CardHeader>
                 <CardContent className="flex-grow flex flex-col justify-between">
                   <div>
-                    <div className="text-center mb-6 h-20 flex flex-col justify-center">
-                      <div className="flex items-center justify-center gap-2">
+                    <div className="text-center mb-6">
+                      <div className="flex items-center justify-center gap-2 mb-2">
                         <span className="text-3xl font-bold text-primary">{product.price}</span>
                         {product.originalPrice && (
                           <span className="text-lg text-neutral-400 line-through">
@@ -134,13 +134,11 @@ const AvailableNow = () => {
                           </span>
                         )}
                       </div>
-                      <div className="h-6 flex items-center justify-center">
-                        {product.originalPrice ? (
+                      <div className="min-h-[1.5rem]">
+                        {product.originalPrice && (
                           <p className="text-sm text-green-600 font-medium">
                             Save {Math.round(((parseInt(product.originalPrice.replace('$', '')) - parseInt(product.price.replace('$', ''))) / parseInt(product.originalPrice.replace('$', ''))) * 100)}% - Waitlist Member Price
                           </p>
-                        ) : (
-                          <div className="h-5"></div>
                         )}
                       </div>
                     </div>
