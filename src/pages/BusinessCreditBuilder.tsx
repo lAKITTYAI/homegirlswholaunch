@@ -291,6 +291,7 @@ export default function BusinessCreditBuilder() {
             <div className="mt-8 text-center">
               <p className="text-sm text-neutral-600 max-w-4xl mx-auto">
                 <strong>Standalone Credit Reporting Service:</strong> This option is not a savings account or membership - it's a standalone option just to build credit only. 
+                You can also use this option to build personal credit as well. You do not have to be a member for this option.
                 This money is not returned and you can choose how long you want to continue to pay to be reported. 
                 We recommend paying for at least 90 days for optimal credit building results.
               </p>
