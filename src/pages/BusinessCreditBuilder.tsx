@@ -94,6 +94,17 @@ export default function BusinessCreditBuilder() {
           </div>
         </div>
 
+        {/* How It Works Section */}
+        <div className="mb-8 text-center">
+          <h2 className="text-2xl font-bold text-neutral-900 mb-4">How It Works</h2>
+          <p className="text-sm text-neutral-600 max-w-4xl mx-auto">
+            <strong>Membership Credit Building:</strong> Your membership payments establish consistent payment history. 
+            As you reach payment milestones, we activate reporting to additional credit bureaus, 
+            building a stronger business credit profile with each tier. Or choose our standalone reporting service 
+            for monthly bureau reporting without membership benefits - perfect for businesses that just need credit building.
+          </p>
+        </div>
+
         {/* Progressive Credit Building Tiers - Highlighted Section */}
         <div className="mb-12">
           <motion.div 
@@ -279,10 +290,9 @@ export default function BusinessCreditBuilder() {
 
             <div className="mt-8 text-center">
               <p className="text-sm text-neutral-600 max-w-4xl mx-auto">
-                <strong>How it works:</strong> Your membership payments establish consistent payment history. 
-                As you reach payment milestones, we activate reporting to additional credit bureaus, 
-                building a stronger business credit profile with each tier. Or choose our standalone reporting service 
-                for monthly bureau reporting without membership benefits - perfect for businesses that just need credit building.
+                <strong>Standalone Credit Reporting Service:</strong> This option is not a savings account or membership - it's a standalone option just to build credit only. 
+                This money is not returned and you can choose how long you want to continue to pay to be reported. 
+                We recommend paying for at least 90 days for optimal credit building results.
               </p>
             </div>
           </motion.div>
