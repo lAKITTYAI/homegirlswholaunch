@@ -1,36 +1,22 @@
-import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Play, Youtube, Mic, UserPlus } from "lucide-react";
-import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
-import { PodcastGuestForm } from "@/components/PodcastGuestForm";
+
 export const PodcastSection = () => {
-  return <section className="py-16 px-4 bg-gradient-to-br from-primary/5 to-secondary/5">
+  console.log("PodcastSection is rendering - simplified version");
+  
+  return (
+    <section className="py-16 px-4 bg-gradient-to-br from-primary/5 to-secondary/5">
       <div className="container mx-auto max-w-6xl">
-        <motion.div initial={{
-        opacity: 0,
-        y: 20
-      }} animate={{
-        opacity: 1,
-        y: 0
-      }} transition={{
-        duration: 0.6
-      }} className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 mb-4">"My goal is to show my Homegirls how to turn A new business, old business, slow business, or idea  into a successful business that will create wealth that last generations" -Madam L.A Kitty</h2>
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 mb-4">
+            "My goal is to show my Homegirls how to turn A new business, old business, slow business, or idea into a successful business that will create wealth that last generations" -Madam L.A Kitty
+          </h2>
           <p className="text-lg text-neutral-600 max-w-2xl mx-auto">
             Join our community and access exclusive content through our podcast and YouTube channel
           </p>
-        </motion.div>
+        </div>
 
-        <motion.div initial={{
-        opacity: 0,
-        scale: 0.95
-      }} animate={{
-        opacity: 1,
-        scale: 1
-      }} transition={{
-        duration: 0.6,
-        delay: 0.2
-      }} className="bg-white rounded-2xl shadow-xl overflow-hidden">
+        <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div className="p-8 md:p-12">
               <div className="flex items-center gap-3 mb-6">
@@ -57,34 +43,23 @@ export const PodcastSection = () => {
                   <Youtube className="w-4 h-4" />
                   Watch on YouTube
                 </Button>
-                <Dialog>
-                  <DialogTrigger asChild>
-                    <Button variant="secondary" className="gap-2">
-                      <UserPlus className="w-4 h-4" />
-                      Be a Guest
-                    </Button>
-                  </DialogTrigger>
-                  <DialogContent className="max-w-2xl">
-                    <PodcastGuestForm />
-                  </DialogContent>
-                </Dialog>
+                <Button variant="secondary" className="gap-2">
+                  <UserPlus className="w-4 h-4" />
+                  Be a Guest
+                </Button>
               </div>
             </div>
             
             <div className="relative">
-              <motion.img src="/lovable-uploads/316cf67d-f73c-4fc8-b3b0-c054aa99fde2.png" alt="Homegirls Who Launch Podcast recording session with host getting makeup done" className="w-full h-full object-cover" initial={{
-              opacity: 0,
-              x: 20
-            }} animate={{
-              opacity: 1,
-              x: 0
-            }} transition={{
-              duration: 0.6,
-              delay: 0.4
-            }} />
+              <img 
+                src="/lovable-uploads/316cf67d-f73c-4fc8-b3b0-c054aa99fde2.png" 
+                alt="Homegirls Who Launch Podcast recording session with host getting makeup done" 
+                className="w-full h-full object-cover" 
+              />
             </div>
           </div>
-        </motion.div>
+        </div>
       </div>
-    </section>;
+    </section>
+  );
 };
