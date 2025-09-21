@@ -50,10 +50,10 @@ const WaitlistModal = ({ isOpen, onClose, planName }: WaitlistModalProps) => {
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="sm:max-w-md">
+      <DialogContent className="sm:max-w-md bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 shadow-lg">
         <DialogHeader>
-          <DialogTitle>Join {planName} Waitlist</DialogTitle>
-          <DialogDescription>
+          <DialogTitle className="text-gray-900 dark:text-white">Join {planName} Waitlist</DialogTitle>
+          <DialogDescription className="text-gray-600 dark:text-gray-300">
             Be the first to know when {planName} becomes available. We'll notify you as soon as we launch!
           </DialogDescription>
         </DialogHeader>
