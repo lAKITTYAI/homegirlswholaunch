@@ -100,8 +100,9 @@ const AvailableNow = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
+              className="flex"
             >
-              <Card className="h-full hover:shadow-lg transition-all duration-300 border-2 hover:border-primary/20">
+              <Card className="w-full flex flex-col hover:shadow-lg transition-all duration-300 border-2 hover:border-primary/20">
                 <CardHeader className="text-center">
                   <div className="relative">
                     {product.badge && (
@@ -118,33 +119,35 @@ const AvailableNow = () => {
                     {product.description}
                   </CardDescription>
                 </CardHeader>
-                <CardContent className="flex-grow flex flex-col">
-                  <div className="text-center mb-6">
-                    <div className="flex items-center justify-center gap-2">
-                      <span className="text-3xl font-bold text-primary">{product.price}</span>
-                      {product.originalPrice && (
-                        <span className="text-lg text-neutral-400 line-through">
-                          {product.originalPrice}
-                        </span>
-                      )}
+                <CardContent className="flex-grow flex flex-col justify-between">
+                  <div>
+                    <div className="text-center mb-6">
+                      <div className="flex items-center justify-center gap-2">
+                        <span className="text-3xl font-bold text-primary">{product.price}</span>
+                        {product.originalPrice && (
+                          <span className="text-lg text-neutral-400 line-through">
+                            {product.originalPrice}
+                          </span>
+                        )}
+                      </div>
+                       {product.originalPrice && (
+                         <p className="text-sm text-green-600 font-medium mt-1">
+                           Save {Math.round(((parseInt(product.originalPrice.replace('$', '')) - parseInt(product.price.replace('$', ''))) / parseInt(product.originalPrice.replace('$', ''))) * 100)}% - Waitlist Member Price
+                         </p>
+                       )}
                     </div>
-                     {product.originalPrice && (
-                       <p className="text-sm text-green-600 font-medium mt-1">
-                         Save {Math.round(((parseInt(product.originalPrice.replace('$', '')) - parseInt(product.price.replace('$', ''))) / parseInt(product.originalPrice.replace('$', ''))) * 100)}% - Waitlist Member Price
-                       </p>
-                     )}
+                    
+                    <ul className="space-y-2 mb-6">
+                      {product.features.map((feature, featureIndex) => (
+                        <li key={featureIndex} className="flex items-center text-sm">
+                          <Check className="h-4 w-4 text-green-500 mr-2 flex-shrink-0" />
+                          <span>{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
                   
-                  <ul className="space-y-2 mb-6 flex-grow">
-                    {product.features.map((feature, featureIndex) => (
-                      <li key={featureIndex} className="flex items-center text-sm">
-                        <Check className="h-4 w-4 text-green-500 mr-2 flex-shrink-0" />
-                        <span>{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                  
-                   <div className="space-y-3">
+                   <div className="mt-auto space-y-3">
                      <Button className="w-full">
                        <Download className="w-4 h-4 mr-2" />
                        Download Now
@@ -192,7 +195,7 @@ const AvailableNow = () => {
                          </Link>
                        </Button>
                      )}
-                   </div>
+                    </div>
                 </CardContent>
               </Card>
             </motion.div>
