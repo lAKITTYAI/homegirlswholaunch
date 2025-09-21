@@ -126,7 +126,7 @@ const resources = [
     downloadUrl: "#",
     imageUrl: "/lovable-uploads/15f29d9d-f951-4548-9ac0-37bd2c78eda4.png",
     featured: true,
-    price: "$97.00",
+    price: "$80.00",
   },
 ];
 
