@@ -20,13 +20,13 @@ const resources = [
   },
   {
     id: 2,
-    title: "Marketing Strategy Guide",
+    title: "Simple Marketing Strategy Guide",
     category: "Guides",
     description: "Learn how to create an effective marketing strategy for your new business.",
     downloadUrl: "#",
     imageUrl: "/lovable-uploads/de4156f1-b221-4545-a5de-6a7c62ebf1b0.png",
     featured: false,
-    price: "$29.99",
+    price: "$24.00",
   },
   {
     id: 3,
