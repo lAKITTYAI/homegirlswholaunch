@@ -1,5 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Play, Youtube, Mic, UserPlus } from "lucide-react";
+import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
+import { PodcastGuestForm } from "@/components/PodcastGuestForm";
 
 export const PodcastSection = () => {
   console.log("PodcastSection is rendering - simplified version");
@@ -46,10 +48,17 @@ export const PodcastSection = () => {
                   </Button>
                 </div>
                 <div>
-                  <Button variant="secondary" className="gap-2 w-full sm:w-auto">
-                    <UserPlus className="w-4 h-4" />
-                    Be a Guest
-                  </Button>
+                  <Dialog>
+                    <DialogTrigger asChild>
+                      <Button variant="secondary" className="gap-2 w-full sm:w-auto">
+                        <UserPlus className="w-4 h-4" />
+                        Be a Guest
+                      </Button>
+                    </DialogTrigger>
+                    <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
+                      <PodcastGuestForm />
+                    </DialogContent>
+                  </Dialog>
                 </div>
               </div>
             </div>
