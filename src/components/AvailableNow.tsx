@@ -64,13 +64,13 @@ const AvailableNow = () => {
           className="text-center mb-12"
         >
           <Badge className="mb-4 bg-green-500 hover:bg-green-600">
-            Available Now
+            Early Access for Waitlist Members
           </Badge>
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Start Your Journey Today
+            Start Building Your Foundation
           </h2>
           <p className="text-lg text-neutral-600 max-w-2xl mx-auto">
-            While we prepare our full program, get started with these essential resources that successful entrepreneurs use to build their foundation.
+            Thank you for joining our waitlist! Get early access to these essential foundation-building resources while we prepare your comprehensive program launch.
           </p>
         </motion.div>
 
@@ -81,11 +81,11 @@ const AvailableNow = () => {
           className="text-center mb-8"
         >
           <div className="bg-primary/10 border border-primary/30 rounded-lg p-4 mb-6 max-w-4xl mx-auto">
-            <h3 className="font-semibold text-primary mb-2">💳 Net-30 Payment Terms Available</h3>
+            <h3 className="font-semibold text-primary mb-2">🎯 Waitlist Member Exclusive Pricing</h3>
             <p className="text-sm text-neutral-700">
-              Qualified businesses can pay within 30 days on orders $100+. 
-              <span className="text-primary font-medium cursor-pointer hover:underline ml-1">
-                Apply for Net-30 terms →
+              Special pre-launch pricing for our waitlist members. Start building your foundation while we prepare your comprehensive program.
+              <span className="text-primary font-medium ml-1">
+                Limited time offer!
               </span>
             </p>
           </div>
@@ -129,7 +129,7 @@ const AvailableNow = () => {
                     </div>
                      {product.originalPrice && (
                        <p className="text-sm text-green-600 font-medium mt-1">
-                         Save {Math.round(((parseInt(product.originalPrice.replace('$', '')) - parseInt(product.price.replace('$', ''))) / parseInt(product.originalPrice.replace('$', ''))) * 100)}% Pre-Launch Price
+                         Save {Math.round(((parseInt(product.originalPrice.replace('$', '')) - parseInt(product.price.replace('$', ''))) / parseInt(product.originalPrice.replace('$', ''))) * 100)}% - Waitlist Member Price
                        </p>
                      )}
                   </div>
@@ -156,9 +156,9 @@ const AvailableNow = () => {
                          Download Now
                        </Button>
                      )}
-                     <p className="text-xs text-neutral-500 text-center">
-                       Instant access • 30-day money-back guarantee
-                     </p>
+                      <p className="text-xs text-neutral-500 text-center">
+                        Instant access • Foundation builder • 30-day guarantee
+                      </p>
                      
                      {/* Show "View All Digital Products" button only on the last card */}
                      {index === availableProducts.length - 1 && (
@@ -185,9 +185,9 @@ const AvailableNow = () => {
           viewport={{ once: true }}
           className="text-center mt-12 p-6 bg-primary/5 rounded-2xl border border-primary/20"
         >
-          <h3 className="text-xl font-semibold mb-2">Questions about our current offerings?</h3>
+          <h3 className="text-xl font-semibold mb-2">Ready to build your foundation?</h3>
           <p className="text-neutral-600 mb-4">
-            Get personalized recommendations on which resources are right for your business stage.
+            Get personalized recommendations on which foundation resources are perfect for your current business stage.
           </p>
           <AppointmentBooking />
         </motion.div>
