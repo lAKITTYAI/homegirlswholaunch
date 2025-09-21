@@ -55,7 +55,7 @@ export const Hero = () => {
               <Link to="/launch-plans">Explore Launch Plans</Link>
             </Button>
             <Button variant="outline" className="border-primary text-primary hover:bg-primary/5" asChild>
-              <Link to="/resources">Browse Resources</Link>
+              <Link to="/resources">Browse Digital Resources</Link>
             </Button>
             <Button variant="outline" className="border-primary text-primary hover:bg-primary/5" asChild>
               <Link to="/community">Join Community</Link>

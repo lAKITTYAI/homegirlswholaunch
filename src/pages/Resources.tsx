@@ -156,7 +156,7 @@ export default function Resources() {
       >
         <div className="text-center mb-12">
           <h1 className="text-3xl md:text-4xl font-bold text-neutral-900 mb-4">
-            Resource Library
+            Digital Resources Library
           </h1>
           <p className="text-lg text-neutral-600 max-w-2xl mx-auto">
             Access tools, templates, and guides to help you successfully launch and grow your business.
@@ -230,11 +230,6 @@ export default function Resources() {
                     <div className="mt-3 p-2 bg-blue-50 border border-blue-200 rounded-md">
                       <p className="text-xs text-blue-700 font-medium">
                         ✓ Free for HWL Boss Builder and Inner Circle members
-                      </p>
-                    </div>
-                    <div className="mt-2 p-2 bg-green-50 border border-green-200 rounded-md">
-                      <p className="text-xs text-green-700 font-medium">
-                        ✓ Eligible for Net 30 payments
                       </p>
                     </div>
                   </CardContent>

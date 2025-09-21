@@ -23,7 +23,7 @@ const Navigation = () => {
 
   const programs = [
     { to: "/launch-plans", label: "Launch Plans" },
-    { to: "/resources", label: "Resources" },
+    { to: "/resources", label: "Digital Resources" },
   ];
 
   const company = [

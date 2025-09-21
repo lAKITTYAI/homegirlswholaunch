@@ -71,7 +71,7 @@ const AvailableNow = () => {
             Start Building Your Foundation
           </h2>
           <p className="text-lg text-neutral-600 max-w-2xl mx-auto">
-            Thank you for joining our waitlist! Get early access to these essential foundation-building resources while we prepare your comprehensive program launch.
+            Thank you for joining our waitlist! Get early access to these essential foundation-building digital resources while we prepare your comprehensive program launch.
           </p>
         </motion.div>
 
@@ -221,7 +221,7 @@ const AvailableNow = () => {
         >
           <h3 className="text-xl font-semibold mb-2">Ready to build your foundation?</h3>
           <p className="text-neutral-600 mb-4">
-            Get personalized recommendations on which foundation resources are perfect for your current business stage.
+            Get personalized recommendations on which foundation digital resources are perfect for your current business stage.
           </p>
           <AppointmentBooking />
         </motion.div>

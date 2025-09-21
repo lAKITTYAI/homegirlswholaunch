@@ -60,7 +60,7 @@ const PreLaunchBanner = () => {
               </div>
               <div className="p-3 bg-primary/5 rounded-lg">
                 <span className="font-medium">Lifetime Access</span>
-                <p className="text-neutral-600 mt-1">To select founding member resources</p>
+                <p className="text-neutral-600 mt-1">To select founding member digital resources</p>
               </div>
             </div>
           </div>
