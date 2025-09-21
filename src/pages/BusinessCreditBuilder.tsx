@@ -2,58 +2,24 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Card, CardHeader, CardContent, CardTitle, CardDescription } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
+import { Card, CardHeader, CardContent, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { CreditCard, Building2, TrendingUp, Shield, Calendar, CheckCircle, Star, DollarSign, PiggyBank, Users, AlertCircle } from "lucide-react";
+import { Calendar, CheckCircle, PiggyBank, Users, AlertCircle } from "lucide-react";
+import CreditBenefits from "@/components/credit-builder/CreditBenefits";
+import PricingTiers from "@/components/credit-builder/PricingTiers";
+import FAQ from "@/components/credit-builder/FAQ";
+import SecurityAssurance from "@/components/credit-builder/SecurityAssurance";
+import ResultsTimeline from "@/components/credit-builder/ResultsTimeline";
 
-const creditBenefits = [
-  {
-    icon: TrendingUp,
-    title: "Build Credit Fast",
-    description: "Establish business credit in as little as 30-45 days with our integrated programs"
-  },
-  {
-    icon: Shield,
-    title: "Dun & Bradstreet Reporting",
-    description: "All payments are reported directly to D&B to build your business credit profile"
-  },
-  {
-    icon: Building2,
-    title: "Separate Business Identity",
-    description: "Keep your personal and business credit separate for better financial health"
-  },
-  {
-    icon: PiggyBank,
-    title: "Multiple Building Methods",
-    description: "Choose from Net 30 programs or savings account options to fit your budget"
-  }
-];
 
 export default function BusinessCreditBuilder() {
   const navigate = useNavigate();
   const [selectedPlan, setSelectedPlan] = useState<{name: string, price: string, type: string} | null>(null);
-  const [formData, setFormData] = useState({
-    businessName: "",
-    ein: "",
-    email: "",
-    phone: "",
-    businessType: "",
-    yearsInBusiness: ""
-  });
 
   const handleSelectPlan = (planName: string, price: string, type: string) => {
     setSelectedPlan({ name: planName, price, type });
     // TODO: Integrate with payment processing or enrollment form
     console.log(`Selected plan: ${planName} (${price}) - Type: ${type}`);
-  };
-
-  const handleInputChange = (field: string, value: string) => {
-    setFormData(prev => ({
-      ...prev,
-      [field]: value
-    }));
   };
 
   return (
@@ -105,221 +71,9 @@ export default function BusinessCreditBuilder() {
           </p>
         </div>
 
-        {/* Progressive Credit Building Tiers - Highlighted Section */}
-        <div className="mb-12">
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }} 
-            animate={{ opacity: 1, y: 0 }} 
-            transition={{ duration: 0.6 }}
-            className="bg-gradient-to-r from-primary/10 via-secondary/10 to-accent/10 rounded-2xl p-8 border-2 border-primary/20 shadow-lg"
-          >
-            <div className="text-center mb-8">
-              <h2 className="text-3xl font-bold text-neutral-900 mb-4">Progressive Credit Building Tiers</h2>
-              <p className="text-lg text-neutral-700 max-w-4xl mx-auto">
-                Your membership payments build credit progressively - the more you pay, the more bureaus report your success
-              </p>
-            </div>
-            
-            <div className="grid lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
-              {/* Starter Track */}
-              <Card className="relative overflow-hidden">
-                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 to-blue-600"></div>
-                <CardHeader className="text-center pb-4">
-                  <Badge variant="outline" className="w-fit mx-auto mb-3">Starter Track</Badge>
-                  <div className="text-2xl font-bold text-primary">$199</div>
-                  <CardTitle className="text-lg">Boss Builder Membership</CardTitle>
-                </CardHeader>
-                <CardContent className="text-center">
-                  <div className="space-y-3 mb-6">
-                    <div className="flex items-center justify-center gap-2 text-sm">
-                      <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center">
-                        <span className="text-xs font-bold text-primary">1</span>
-                      </div>
-                      <span>Enrollment Payment</span>
-                    </div>
-                    <div className="flex items-center justify-center gap-2 text-sm">
-                      <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center">
-                        <span className="text-xs font-bold text-primary">2</span>
-                      </div>
-                      <span>Payment History Building</span>
-                    </div>
-                    <div className="flex items-center justify-center gap-2 text-sm font-semibold text-green-600">
-                      <div className="w-6 h-6 rounded-full bg-green-100 flex items-center justify-center">
-                        <span className="text-xs font-bold text-green-600">3</span>
-                      </div>
-                      <span>1 Bureau Reporting Activated</span>
-                    </div>
-                  </div>
-                  <div className="text-sm text-neutral-600 mb-4">
-                    Dual bureau reporting after 3 consistent payments
-                  </div>
-                  <Button 
-                    className="w-full bg-purple-100 hover:bg-purple-200 text-purple-800 border border-purple-200"
-                    onClick={() => handleSelectPlan("Boss Builder Membership", "$199", "Starter Track")}
-                  >
-                    Select Starter Track
-                  </Button>
-                </CardContent>
-              </Card>
+        <PricingTiers onSelectPlan={handleSelectPlan} />
 
-              {/* Builder Track */}
-              <Card className="relative overflow-hidden ring-2 ring-primary/30">
-                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-secondary"></div>
-                <CardHeader className="text-center pb-4">
-                  <Badge className="w-fit mx-auto mb-3 bg-primary">Most Popular</Badge>
-                  <div className="text-2xl font-bold text-primary">$349</div>
-                  <CardTitle className="text-lg">Inner Circle Membership</CardTitle>
-                </CardHeader>
-                <CardContent className="text-center">
-                  <div className="space-y-3 mb-6">
-                    <div className="flex items-center justify-center gap-2 text-sm">
-                      <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center">
-                        <span className="text-xs font-bold text-primary">1</span>
-                      </div>
-                      <span>Premium Enrollment</span>
-                    </div>
-                    <div className="flex items-center justify-center gap-2 text-sm font-semibold text-green-600">
-                      <div className="w-6 h-6 rounded-full bg-green-100 flex items-center justify-center">
-                        <span className="text-xs font-bold text-green-600">2</span>
-                      </div>
-                      <span>2 Bureau Reporting Activated</span>
-                    </div>
-                    <div className="flex items-center justify-center gap-2 text-sm font-semibold text-green-600">
-                      <div className="w-6 h-6 rounded-full bg-green-100 flex items-center justify-center">
-                        <span className="text-xs font-bold text-green-600">3</span>
-                      </div>
-                      <span>All 3 Bureaus Reporting</span>
-                    </div>
-                  </div>
-                  <div className="text-sm text-neutral-600 mb-4">
-                    Faster credit building with premium benefits
-                  </div>
-                  <Button 
-                    className="w-full"
-                    onClick={() => handleSelectPlan("Inner Circle Membership", "$349", "Builder Track")}
-                  >
-                    Select Builder Track
-                  </Button>
-                </CardContent>
-              </Card>
-
-              {/* Accelerated Track */}
-              <Card className="relative overflow-hidden">
-                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-pink-300 to-pink-400"></div>
-                <CardHeader className="text-center pb-4">
-                  <Badge variant="outline" className="w-fit mx-auto mb-3 border-pink-400 text-pink-700">Accelerated</Badge>
-                  <div className="text-2xl font-bold text-primary">$99 + Membership</div>
-                  <CardTitle className="text-lg">Instant Credit Reporting</CardTitle>
-                </CardHeader>
-                <CardContent className="text-center">
-                  <div className="space-y-3 mb-6">
-                    <div className="flex items-center justify-center gap-2 text-sm font-semibold text-green-600">
-                      <div className="w-6 h-6 rounded-full bg-green-100 flex items-center justify-center">
-                        <CheckCircle className="w-3 h-3 text-green-600" />
-                      </div>
-                      <span>Immediate Setup</span>
-                    </div>
-                    <div className="flex items-center justify-center gap-2 text-sm font-semibold text-green-600">
-                      <div className="w-6 h-6 rounded-full bg-green-100 flex items-center justify-center">
-                        <CheckCircle className="w-3 h-3 text-green-600" />
-                      </div>
-                      <span>All 3 Bureaus Day 1</span>
-                    </div>
-                    <div className="flex items-center justify-center gap-2 text-sm font-semibold text-green-600">
-                      <div className="w-6 h-6 rounded-full bg-green-100 flex items-center justify-center">
-                        <CheckCircle className="w-3 h-3 text-green-600" />
-                      </div>
-                      <span>Fast Track Credit Building</span>
-                    </div>
-                  </div>
-                  <div className="text-sm text-neutral-600 mb-4">
-                    Start building credit immediately with full reporting
-                  </div>
-                  <Button 
-                    variant="secondary"
-                    className="w-full"
-                    onClick={() => handleSelectPlan("Instant Credit Reporting", "$99 + Membership", "Accelerated Track")}
-                  >
-                    Select Accelerated Track
-                  </Button>
-                </CardContent>
-              </Card>
-
-              {/* Credit Reporting Only */}
-              <Card className="relative overflow-hidden">
-                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-green-500 to-green-600"></div>
-                <CardHeader className="text-center pb-4">
-                  <Badge variant="outline" className="w-fit mx-auto mb-3 border-green-500 text-green-700">Reporting Only</Badge>
-                  <div className="text-2xl font-bold text-primary">$49/month</div>
-                  <CardTitle className="text-lg">Credit Reporting Service</CardTitle>
-                </CardHeader>
-                <CardContent className="text-center">
-                  <div className="space-y-3 mb-6">
-                    <div className="flex items-center justify-center gap-2 text-sm font-semibold text-green-600">
-                      <div className="w-6 h-6 rounded-full bg-green-100 flex items-center justify-center">
-                        <CheckCircle className="w-3 h-3 text-green-600" />
-                      </div>
-                      <span>Monthly Bureau Reporting</span>
-                    </div>
-                    <div className="flex items-center justify-center gap-2 text-sm font-semibold text-green-600">
-                      <div className="w-6 h-6 rounded-full bg-green-100 flex items-center justify-center">
-                        <CheckCircle className="w-3 h-3 text-green-600" />
-                      </div>
-                      <span>D&B & Experian Business</span>
-                    </div>
-                    <div className="flex items-center justify-center gap-2 text-sm">
-                      <div className="w-6 h-6 rounded-full bg-neutral-100 flex items-center justify-center">
-                        <span className="text-xs font-bold text-neutral-500">✕</span>
-                      </div>
-                      <span className="text-neutral-500">No Membership Benefits</span>
-                    </div>
-                  </div>
-                  <div className="text-sm text-neutral-600 mb-4">
-                    Perfect for established businesses wanting credit reporting only
-                  </div>
-                  <Button 
-                    variant="outline"
-                    className="w-full border-green-500 text-green-700 hover:bg-green-50"
-                    onClick={() => handleSelectPlan("Credit Reporting Service", "$49/month", "Reporting Only")}
-                  >
-                    Select Reporting Only
-                  </Button>
-                </CardContent>
-              </Card>
-            </div>
-
-            <div className="mt-8 text-center">
-              <p className="text-sm text-neutral-600 max-w-4xl mx-auto">
-                <strong>Standalone Credit Reporting Service:</strong> This option is not a savings account or membership - it's a standalone option just to build credit only. 
-                You can also use this option to build personal credit as well (personal credit payments start at $25). You do not have to be a member for this option.
-                This money is not returned and you can choose how long you want to continue to pay to be reported. 
-                We recommend paying for at least 90 days for optimal credit building results.
-              </p>
-            </div>
-          </motion.div>
-        </div>
-
-        {/* Benefits Section */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-          {creditBenefits.map((benefit, index) => (
-            <motion.div
-              key={benefit.title}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: index * 0.1 }}
-            >
-              <Card className="text-center h-full">
-                <CardContent className="pt-6">
-                  <div className="bg-primary/10 p-3 rounded-full w-fit mx-auto mb-4">
-                    <benefit.icon className="w-6 h-6 text-primary" />
-                  </div>
-                  <h3 className="font-semibold mb-2">{benefit.title}</h3>
-                  <p className="text-sm text-neutral-600">{benefit.description}</p>
-                </CardContent>
-              </Card>
-            </motion.div>
-          ))}
-        </div>
+        <CreditBenefits />
 
         {/* How Membership Credit Building Works */}
         <div className="mt-12 bg-gradient-to-r from-primary/5 to-secondary/5 rounded-lg p-8">
@@ -385,6 +139,12 @@ export default function BusinessCreditBuilder() {
             </div>
           </div>
         </div>
+
+        <ResultsTimeline />
+
+        <SecurityAssurance />
+
+        <FAQ />
 
         {/* Business Verification Memo */}
         <div className="mt-8 pt-6 border-t border-neutral-200">
