@@ -164,7 +164,7 @@ const AvailableNow = () => {
                   </div>
                   
                    <div className="mt-auto space-y-3">
-                     <Button className={`w-full ${product.title === "Media Training Guide" ? "-mt-1" : product.title === "Digital Marketing Guide" ? "mt-6" : ""}`}>
+                     <Button className="w-full">
                        <Download className="w-4 h-4 mr-2" />
                        Download Now
                      </Button>
@@ -175,7 +175,8 @@ const AvailableNow = () => {
                        }
                      </p>
                      
-                     {/* Show additional options for Business Credit Builder Guide */}
+                      <div className="h-[148px]">
+                      {/* Show additional options for Business Credit Builder Guide */}
                      {product.title === "Business Credit Builder Guide" && (
                        <div className="mt-3 border-t pt-3">
                          <p className="text-xs text-neutral-600 mb-2 text-center font-medium">Start Building Now:</p>
@@ -194,10 +195,6 @@ const AvailableNow = () => {
                        </div>
                      )}
                      
-                     {/* Add spacing for other cards to match height */}
-                     {product.title !== "Business Credit Builder Guide" && (
-                       <div className="h-[52px]"></div>
-                     )}
                      
                      {/* Show "View All Digital Products" button only on the last card */}
                      {index === availableProducts.length - 1 && (
@@ -211,7 +208,8 @@ const AvailableNow = () => {
                          </Link>
                        </Button>
                      )}
-                    </div>
+                      </div>
+                     </div>
                 </CardContent>
               </Card>
             </motion.div>
