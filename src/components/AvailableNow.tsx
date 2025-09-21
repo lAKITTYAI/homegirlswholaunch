@@ -163,8 +163,8 @@ const AvailableNow = () => {
                     </ul>
                   </div>
                   
-                   <div className={`mt-auto space-y-3 ${product.title === "Business Credit Builder Guide" ? "pt-3" : ""}`}>
-                     <Button className="w-full">
+                   <div className="mt-auto space-y-3">
+                     <Button className={`w-full ${product.title === "Business Credit Builder Guide" ? "transform translate-y-1" : ""}`}>
                        <Download className="w-4 h-4 mr-2" />
                        Download Now
                      </Button>
