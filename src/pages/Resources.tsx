@@ -224,7 +224,7 @@ export default function Resources() {
                     <p className="text-neutral-600">{resource.description}</p>
                     {resource.price && (
                       <div className="mt-3 p-3 bg-primary/10 border border-primary/20 rounded-md">
-                        <p className="text-lg font-bold text-primary">{resource.price}</p>
+                        <p className="text-lg font-bold text-primary">{resource.price} <span className="text-sm font-normal">for non-members</span></p>
                       </div>
                     )}
                     <div className="mt-3 p-2 bg-blue-50 border border-blue-200 rounded-md">
