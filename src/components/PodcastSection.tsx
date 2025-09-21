@@ -34,19 +34,23 @@ export const PodcastSection = () => {
                 their dreams into thriving businesses.
               </p>
               
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Button className="gap-2 bg-primary hover:bg-primary/90">
-                  <Play className="w-4 h-4" />
-                  Listen to Podcast
-                </Button>
-                <Button variant="outline" className="gap-2 border-primary text-primary hover:bg-primary/5">
-                  <Youtube className="w-4 h-4" />
-                  Watch on YouTube
-                </Button>
-                <Button variant="secondary" className="gap-2">
-                  <UserPlus className="w-4 h-4" />
-                  Be a Guest
-                </Button>
+              <div className="space-y-4">
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <Button className="gap-2 bg-primary hover:bg-primary/90">
+                    <Play className="w-4 h-4" />
+                    Listen to Podcast
+                  </Button>
+                  <Button variant="outline" className="gap-2 border-primary text-primary hover:bg-primary/5">
+                    <Youtube className="w-4 h-4" />
+                    Watch on YouTube
+                  </Button>
+                </div>
+                <div>
+                  <Button variant="secondary" className="gap-2 w-full sm:w-auto">
+                    <UserPlus className="w-4 h-4" />
+                    Be a Guest
+                  </Button>
+                </div>
               </div>
             </div>
             
