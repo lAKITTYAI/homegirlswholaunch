@@ -164,7 +164,7 @@ const AvailableNow = () => {
                   </div>
                   
                    <div className={`mt-auto space-y-3 ${product.title === "Business Credit Builder Guide" ? "pt-3" : ""}`}>
-                     <Button className={`w-full ${product.title === "Business Credit Builder Guide" ? "mt-2" : ""}`}>
+                     <Button className="w-full">
                        <Download className="w-4 h-4 mr-2" />
                        Download Now
                      </Button>
@@ -175,40 +175,37 @@ const AvailableNow = () => {
                        }
                      </p>
                      
-                      <div className="h-[148px]">
                       {/* Show additional options for Business Credit Builder Guide */}
-                     {product.title === "Business Credit Builder Guide" && (
-                       <div className="mt-3 border-t pt-3">
-                         <p className="text-xs text-neutral-600 mb-2 text-center font-medium">Start Building Now:</p>
-                         <div className="grid grid-cols-2 gap-2">
-                           <Button asChild variant="outline" size="sm" className="text-xs h-8">
-                             <Link to="/savings-account">
-                               Savings
-                             </Link>
-                           </Button>
-                           <Button asChild variant="outline" size="sm" className="text-xs h-8">
-                             <Link to="/business-credit-builder">
-                               Credit
-                             </Link>
-                           </Button>
-                         </div>
-                       </div>
-                     )}
-                     
-                     
-                     {/* Show "View All Digital Products" button only on the last card */}
-                     {index === availableProducts.length - 1 && (
-                       <Button 
-                         asChild 
-                         size="lg" 
-                         className="w-full mt-4 bg-primary hover:bg-primary/90 text-white font-semibold py-3"
-                       >
-                         <Link to="/resources">
-                           View All Digital Products
-                         </Link>
-                       </Button>
-                     )}
-                      </div>
+                      {product.title === "Business Credit Builder Guide" && (
+                        <div className="mt-3 border-t pt-3">
+                          <p className="text-xs text-neutral-600 mb-2 text-center font-medium">Start Building Now:</p>
+                          <div className="grid grid-cols-2 gap-2">
+                            <Button asChild variant="outline" size="sm" className="text-xs h-8">
+                              <Link to="/savings-account">
+                                Savings
+                              </Link>
+                            </Button>
+                            <Button asChild variant="outline" size="sm" className="text-xs h-8">
+                              <Link to="/business-credit-builder">
+                                Credit
+                              </Link>
+                            </Button>
+                          </div>
+                        </div>
+                      )}
+                      
+                      {/* Show "View All Digital Products" button only on the last card */}
+                      {index === availableProducts.length - 1 && (
+                        <Button 
+                          asChild 
+                          size="lg" 
+                          className="w-full mt-4 bg-primary hover:bg-primary/90 text-white font-semibold py-3"
+                        >
+                          <Link to="/resources">
+                            View All Digital Products
+                          </Link>
+                        </Button>
+                      )}
                      </div>
                 </CardContent>
               </Card>
