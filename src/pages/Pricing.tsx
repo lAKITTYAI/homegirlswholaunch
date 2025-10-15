@@ -36,11 +36,13 @@ const PricingTier = ({
     <CardContent className="flex-grow">
       <div className="mb-4">
         <span className="text-4xl font-bold">{price}</span>
-        <span className="text-neutral-500">/month</span>
         {annualPrice && (
-          <div className="text-sm text-neutral-500 mt-1">
-            {annualPrice}/year (2 months free)
-          </div>
+          <>
+            <span className="text-neutral-500">/month</span>
+            <div className="text-sm text-neutral-500 mt-1">
+              {annualPrice}/year (2 months free)
+            </div>
+          </>
         )}
       </div>
       <ul className="space-y-2">
@@ -96,45 +98,37 @@ const Pricing = () => {
 
   const tiers = [
     {
-      title: "Launch Squad",
-      price: "$39",
-      annualPrice: "$390",
-      description: "For first-time entrepreneurs & freelancers starting out",
+      title: "Network Membership",
+      price: "$49",
+      annualPrice: "$497",
+      description: "Access the HWL network and resources",
       features: [
-        "Access to the HomeGirls Who Launch community",
-        "Monthly Launch Playbooks",
-        "Office Hours – Monthly group Q&A sessions",
+        "Access to private community",
+        "All local chapter events",
+        "Monthly workshops & speaker sessions",
+        "24/7 Resource Vault access",
+        "Grant list included",
         "Member-exclusive newsletters",
-        "Free Grant List"
+        "Networking in major cities"
       ]
     },
     {
-      title: "Boss Builder",
-      price: "$199",
-      annualPrice: "$1,990",
-      description: "For entrepreneurs actively scaling their business",
+      title: "Premium Accelerator",
+      price: "$2,000 - $3,000",
+      annualPrice: "",
+      description: "Complete 3-6 month idea-to-launch program",
       features: [
-        "Everything in Launch Squad",
-        "Bi-Weekly Masterclasses",
-        "Personalized Business Audits",
-        "Access to Resource Vault",
-        "Priority Coaching",
-        "HWL Magazine Spotlight opportunities"
+        "Everything in Network Membership",
+        "3-6 month structured accelerator program",
+        "Cohort-based learning (20-50 women)",
+        "Weekly group coaching calls",
+        "Pre-recorded training modules",
+        "Templates, worksheets & checklists",
+        "Built-in business plan templates",
+        "Peer support & accountability",
+        "VIP event access"
       ],
       highlighted: true
-    },
-    {
-      title: "Inner Circle",
-      price: "$349",
-      annualPrice: "$3,490",
-      description: "For serious entrepreneurs ready for 1:1 mentorship",
-      features: [
-        "Everything in Boss Builder",
-        "1:1 Strategy Session (Monthly)",
-        "Exclusive Inner Circle Retreats",
-        "Guaranteed HWL Magazine feature when business officially launches",
-        "VIP Access to exclusive events"
-      ]
     }
   ];
 
@@ -173,7 +167,7 @@ const Pricing = () => {
           </div>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           {tiers.map((tier, index) => (
             <PricingTier
               key={index}
