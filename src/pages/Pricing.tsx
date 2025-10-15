@@ -126,7 +126,8 @@ const Pricing = () => {
         "Templates, worksheets & checklists",
         "Built-in business plan templates",
         "Peer support & accountability",
-        "VIP event access"
+        "VIP event access",
+        "Magazine feature opportunities & cover eligibility"
       ],
       highlighted: true
     }
