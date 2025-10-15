@@ -10,6 +10,11 @@ const HWLMagazine = () => {
   return <div className="container mx-auto px-4 py-8">
       <div className="max-w-5xl mx-auto">
         <h1 className="text-4xl font-bold text-center mb-8">HWL Magazine</h1>
+        <div className="mb-8 p-4 bg-primary/5 rounded-lg border border-primary/20 text-center">
+          <p className="text-sm text-primary font-medium">
+            ✨ Want to be featured? Premium Accelerator members are eligible for magazine features and cover opportunities!
+          </p>
+        </div>
         
         <div className="flex flex-col lg:flex-row gap-8 mb-12">
           <div className="lg:w-1/2">
