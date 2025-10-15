@@ -68,22 +68,6 @@ const launchPlanTemplates = [
       "Certificate of completion"
     ]
   },
-  {
-    id: "ambassador",
-    title: "Become a HWL Ambassador",
-    description: "Join our ambassador program to empower women, make money, and build your brand while representing HWL with 30% commission and no cap.",
-    ambassador: true,
-    featured: true,
-    coverImage: "/lovable-uploads/13b7dca7-8944-4d2c-bdd4-dfa4f7b94e33.png",
-    benefits: [
-      "30% commission on all referrals",
-      "No commission caps or limits",
-      "Exclusive ambassador resources",
-      "Personal branding support",
-      "Community recognition",
-      "Early access to new programs"
-    ]
-  },
 
   // original plans, keep IDs as numbers for all other plans
   {
@@ -178,6 +162,22 @@ const launchPlanTemplates = [
         description: "Complete checklist to ensure brand consistency everywhere.",
       },
     ],
+  },
+  {
+    id: "ambassador",
+    title: "Become a HWL Ambassador",
+    description: "Join our ambassador program to empower women, make money, and build your brand while representing HWL with 30% commission and no cap.",
+    ambassador: true,
+    featured: true,
+    coverImage: "/lovable-uploads/13b7dca7-8944-4d2c-bdd4-dfa4f7b94e33.png",
+    benefits: [
+      "30% commission on all referrals",
+      "No commission caps or limits",
+      "Exclusive ambassador resources",
+      "Personal branding support",
+      "Community recognition",
+      "Early access to new programs"
+    ]
   },
 ];
 
