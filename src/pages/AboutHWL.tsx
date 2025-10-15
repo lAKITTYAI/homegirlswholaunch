@@ -31,7 +31,7 @@ const AboutHWL = () => {
             <CardTitle>Our Mission</CardTitle>
           </CardHeader>
           <CardContent>
-            <p className="text-lg">Our mission is to create a world where every woman feels equipped and empowered to launch and grow a successful business. We provide the tools, funding, resources, and community support to help women confidently navigate the entrepreneurial journey. Starting a business can feel overwhelming, but with the right guidance and a powerful network behind you, your success is inevitable.</p>
+            <p className="text-lg">Our mission is to create a world where every woman feels equipped and empowered to launch and grow a successful business—surrounded by a sisterhood of support. We believe entrepreneurship shouldn't be a solo journey. Through local chapter meetings, structured cohort programs, digital resources, and a nationwide network, we provide the community-first foundation women need to confidently build and scale their businesses. Starting a business can feel overwhelming, but with the right guidance and a powerful network behind you, your success is inevitable.</p>
           </CardContent>
         </Card>
 
@@ -72,20 +72,36 @@ const AboutHWL = () => {
 
         <Card className="mb-8">
           <CardHeader>
+            <CardTitle>Our Hybrid Model</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <p className="mb-4">We meet you where you are with flexible options that fit your learning style, schedule, and goals:</p>
+            <ul className="list-disc pl-6 space-y-3 mb-4">
+              <li><strong>Local Chapter Meetings:</strong> Join monthly face-to-face meetups in your city to build genuine relationships, network with local entrepreneurs, and attend speaker seminars. Connect with your community and grow together.</li>
+              <li><strong>3-6 Month Cohort Accelerator:</strong> Our intensive structured program includes weekly group coaching calls, dedicated accountability partners, milestone tracking, and expert mentorship. Perfect for entrepreneurs ready to launch or scale with focused support.</li>
+              <li><strong>Digital Resources Library:</strong> Access our comprehensive collection of downloadable guides, templates, and courses at your own pace. Learn on your schedule with resources you can return to again and again.</li>
+              <li><strong>Ambassador Program:</strong> Lead your own local HWL chapter, host monthly meetings, and build your leadership platform while earning income and growing the entrepreneurial community in your area.</li>
+            </ul>
+            <p className="text-sm text-neutral-600 italic">Mix and match what works for you—attend local meetings while working through digital resources, or join the cohort accelerator for intensive growth. The choice is yours.</p>
+          </CardContent>
+        </Card>
+
+        <Card className="mb-8">
+          <CardHeader>
             <CardTitle>What We Offer</CardTitle>
           </CardHeader>
           <CardContent>
             <ul className="list-disc pl-6 space-y-2">
+              <li><strong>Community First:</strong> Local chapter meetings and peer accountability groups where you build real friendships with women who understand your journey and celebrate your wins.</li>
               <li><strong>Practical Resources:</strong> Actionable guides, business templates, and expert-led workshops that help you make informed decisions and take bold steps forward.</li>
-              <li><strong>Community & Support:</strong> An inclusive and empowering network of like-minded women who share insights, celebrate wins, and provide guidance through the highs and lows of entrepreneurship.</li>
               <li><strong>Mentorship & Coaching:</strong> Access to experienced women entrepreneurs who offer personalized mentorship and real-world advice to fuel your growth.</li>
               <li><strong>Business Credit Building:</strong> Net 30 payment terms and specialized savings accounts designed to establish and strengthen your business credit profile, helping you access funding and build financial credibility.</li>
               <li><strong>Exclusive Funding Opportunities:</strong> Access to grants, direct lender connections, and funding resources available exclusively to HWL members, providing you with unique pathways to secure the capital needed to launch and scale your business.</li>
               <li><strong>Business Formation & Legal Support:</strong> Legal templates, business structure guidance, contract resources, and regulatory compliance tools that help you navigate the complex legal aspects of starting and running your business with confidence.</li>
               <li><strong>Marketing & Branding Mastery:</strong> Strategic marketing guidance, social media templates, branding workshops, and digital marketing resources to help you build a powerful brand presence and attract your ideal customers.</li>
               <li><strong>Structured Learning Programs:</strong> Step-by-step courses, certification programs, and masterclasses that provide organized educational pathways to take you from startup concept to successful scale-up.</li>
-              <li><strong>Accountability & Mastermind Groups:</strong> Organized small-group partnerships and structured accountability systems that keep you focused, motivated, and consistently progressing toward your entrepreneurial goals.</li>
-              <li><strong>Exclusive Events & Experiences:</strong> Luxurious speaking events featuring renowned guest speakers, celebratory gatherings honoring member wins and launches, and high-end networking experiences that elevate your business presence and foster meaningful connections within our success-driven community.</li>
+              <li><strong>Media & Recognition:</strong> Opportunities to be featured in HWL Magazine, on our podcast, and across our social platforms. Gain visibility and credibility in the entrepreneurial community.</li>
+              <li><strong>Exclusive Events & Experiences:</strong> VIP launch parties, celebrity entrepreneur events, speaker seminars, and high-end networking experiences that elevate your business presence and foster meaningful connections.</li>
               <li><strong>Inspiration & Motivation:</strong> Real stories from women who have successfully launched and scaled their businesses, proving that your goals are within reach.</li>
             </ul>
           </CardContent>
@@ -150,11 +166,11 @@ const AboutHWL = () => {
                   </div>
                 </div>
                 <h3 className="text-2xl font-bold text-neutral-900 mb-4">
-                  Become A HWL Speaker?
+                  Become A HWL Chapter Speaker or Ambassador
                 </h3>
                 <p className="text-lg text-neutral-600 mb-6 max-w-2xl mx-auto">
-                  Want to learn how to join the HWL movement that is helping women entrepreneurs 
-                  all over the world launch successful businesses?
+                  Lead monthly HWL chapter meetings in your city, speak at events, or become an official HWL Ambassador. 
+                  Help empower women entrepreneurs while building your leadership platform and earning income.
                 </p>
                 <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
                   <DialogTrigger asChild>
