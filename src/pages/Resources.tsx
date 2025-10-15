@@ -1,151 +1,71 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { supabase } from "@/integrations/supabase/client";
 import { Card, CardHeader, CardContent, CardFooter, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { Search } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
+import { toast } from "sonner";
 
-// Sample resource data (removed ambassador item as it's moved to Launch Plans)
-const resources = [
-  {
-    id: 1,
-    title: "Business Plan Template",
-    category: "Templates",
-    description: "A comprehensive business plan template to help you outline your business strategy.",
-    downloadUrl: "#",
-    imageUrl: "/lovable-uploads/84308ea9-eb06-4de6-9066-42472783373f.png",
-    featured: true,
-    price: "$9.99",
-  },
-  {
-    id: 2,
-    title: "Simple Marketing Strategy Guide",
-    category: "Guides",
-    description: "Learn how to create an effective marketing strategy for your new business.",
-    downloadUrl: "#",
-    imageUrl: "/lovable-uploads/de4156f1-b221-4545-a5de-6a7c62ebf1b0.png",
-    featured: false,
-    price: "$18.00",
-  },
-  {
-    id: 3,
-    title: "Financial Projections Spreadsheet",
-    category: "Templates",
-    description: "Track your financial projections with this easy-to-use spreadsheet template.",
-    downloadUrl: "#",
-    imageUrl: "/lovable-uploads/df74c050-72ab-4ca8-bf0f-7611c6a80140.png",
-    featured: true,
-    price: "$9.99",
-  },
-  {
-    id: 4,
-    title: "Social Media Content Calendar",
-    category: "Templates",
-    description: "Plan your social media content strategy with this organized calendar template.",
-    downloadUrl: "#",
-    imageUrl: "/lovable-uploads/87165aac-7f00-4ee1-89b6-f09014ddd012.png",
-    featured: false,
-    price: "$9.99",
-  },
-  {
-    id: 5,
-    title: "Legal Checklist for Startups",
-    category: "Checklists",
-    description: "Ensure your business has all the necessary legal foundations with this checklist.",
-    downloadUrl: "#",
-    imageUrl: "/lovable-uploads/a9699e21-9904-4794-9554-eaff3efc955a.png",
-    featured: false,
-    price: "$9.99",
-  },
-  {
-    id: 6,
-    title: "Pitch Deck Template",
-    category: "Templates",
-    description: "A professional pitch deck template to help you secure funding for your business.",
-    downloadUrl: "#",
-    imageUrl: "/lovable-uploads/7f734f75-5996-411c-bcdd-d48aa59f4de2.png",
-    featured: true,
-    price: "$9.99",
-  },
-  {
-    id: 7,
-    title: "Grant Guide",
-    category: "Guides",
-    description: "Complete guide to finding and applying for business grants and funding opportunities. Grant list included.",
-    downloadUrl: "#",
-    imageUrl: "/lovable-uploads/7491bc30-3824-497c-912d-05477db998a0.png",
-    featured: true,
-    price: "$29.99",
-  },
-  {
-    id: 8,
-    title: "Branding Guide",
-    category: "Guides",
-    description: "Build a powerful brand identity with this comprehensive branding strategy guide.",
-    downloadUrl: "#",
-    imageUrl: "/lovable-uploads/b9bb392e-f979-41ae-acc0-1a97f484fda2.png",
-    featured: false,
-    price: "$39.99",
-  },
-  {
-    id: 9,
-    title: "Digital Marketing Guide",
-    category: "Guides",
-    description: "Master digital marketing strategies to grow your business online and reach more customers.",
-    downloadUrl: "#",
-    imageUrl: "/lovable-uploads/0724c3cc-3800-4022-95a2-45df2414c2a1.png",
-    featured: true,
-    price: "$39.99",
-  },
-  {
-    id: 10,
-    title: "Business Tax Prep Guide",
-    category: "Guides",
-    description: "Navigate business taxes with confidence using this comprehensive tax planning guide.",
-    downloadUrl: "#",
-    imageUrl: "/lovable-uploads/2f3673c4-e9f1-4718-86a5-4e8995c8b022.png",
-    featured: false,
-    price: "$44.99",
-  },
-  {
-    id: 11,
-    title: "Credit Building Guide",
-    category: "Guides",
-    description: "Build and improve your business credit score with proven strategies and techniques.",
-    downloadUrl: "#",
-    imageUrl: "/lovable-uploads/c53b4f07-7901-4fd3-9016-2b05bd828506.png",
-    featured: true,
-    price: "$46.99",
-  },
-  {
-    id: 12,
-    title: "Media Training Guide For Celebrity Entrepreneurs",
-    category: "Guides",
-    description: "Master media interviews and public speaking as a celebrity entrepreneur.",
-    downloadUrl: "#",
-    imageUrl: "/lovable-uploads/15f29d9d-f951-4548-9ac0-37bd2c78eda4.png",
-    featured: true,
-    price: "$79.99",
-  },
-];
+interface Product {
+  id: string;
+  title: string;
+  description: string;
+  price: number;
+  category: string;
+  image_url: string | null;
+  download_url: string | null;
+  featured: boolean;
+}
 
-// Categories for filtering (removed Opportunities since ambassador moved)
-const categories = ["All", "Templates", "Guides", "Checklists"];
+const categories = ["All", "Templates", "Guides", "Checklists", "Courses", "Workbooks", "Toolkits", "Branding", "Marketing", "Other"];
 
 export default function Resources() {
   const [searchQuery, setSearchQuery] = useState("");
   const [activeCategory, setActiveCategory] = useState("All");
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const [products, setProducts] = useState<Product[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetchProducts();
+  }, []);
+
+  const fetchProducts = async () => {
+    try {
+      const { data, error } = await supabase
+        .from("products")
+        .select("*")
+        .order("featured", { ascending: false })
+        .order("created_at", { ascending: false });
+
+      if (error) throw error;
+      setProducts(data || []);
+    } catch (error) {
+      toast.error("Failed to load resources");
+      console.error(error);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   // Filter resources based on search query and active category
-  const filteredResources = resources.filter(resource => {
-    const matchesSearch = resource.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
-                          resource.description.toLowerCase().includes(searchQuery.toLowerCase());
-    const matchesCategory = activeCategory === "All" || resource.category === activeCategory;
+  const filteredResources = products.filter(product => {
+    const matchesSearch = product.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
+                          product.description.toLowerCase().includes(searchQuery.toLowerCase());
+    const matchesCategory = activeCategory === "All" || product.category === activeCategory;
     
     return matchesSearch && matchesCategory;
   });
+
+  if (loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <p className="text-lg">Loading resources...</p>
+      </div>
+    );
+  }
 
   return (
     <div className="container mx-auto px-4 py-12">
@@ -192,50 +112,55 @@ export default function Resources() {
         
         {filteredResources.length > 0 ? (
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredResources.map((resource) => (
+            {filteredResources.map((product) => (
               <motion.div
-                key={resource.id}
+                key={product.id}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4 }}
               >
                 <Card className="h-full flex flex-col hover:shadow-md transition-shadow">
-                  <div className="aspect-[4/3] bg-neutral-50 p-4 relative">
-                    <img 
-                      src={resource.imageUrl} 
-                      alt={resource.title} 
-                      className="w-full h-full object-contain cursor-pointer"
-                      onClick={() => setSelectedImage(resource.imageUrl)}
-                    />
-                    {resource.featured && (
-                      <span className="absolute top-2 right-2 bg-primary text-white text-xs px-2 py-1 rounded-full">
-                        Featured
-                      </span>
-                    )}
-                  </div>
+                  {product.image_url && (
+                    <div className="aspect-[4/3] bg-neutral-50 p-4 relative">
+                      <img 
+                        src={product.image_url} 
+                        alt={product.title} 
+                        className="w-full h-full object-contain cursor-pointer"
+                        onClick={() => setSelectedImage(product.image_url!)}
+                      />
+                      {product.featured && (
+                        <span className="absolute top-2 right-2 bg-primary text-white text-xs px-2 py-1 rounded-full">
+                          Featured
+                        </span>
+                      )}
+                    </div>
+                  )}
                   <CardHeader>
                     <span className="text-xs text-primary-dark font-medium uppercase tracking-wide mb-1">
-                      {resource.category}
+                      {product.category}
                     </span>
-                    <CardTitle className="text-xl">{resource.title}</CardTitle>
+                    <CardTitle className="text-xl">{product.title}</CardTitle>
                   </CardHeader>
                   <CardContent className="flex-grow">
-                    <p className="text-neutral-600">{resource.description}</p>
-                    {resource.price && (
+                    <p className="text-neutral-600">{product.description}</p>
+                    {product.price > 0 && (
                       <div className="mt-3 p-3 bg-primary/10 border border-primary/20 rounded-md">
-                        <p className="text-lg font-bold text-primary">{resource.price} <span className="text-sm font-normal">for non-members</span></p>
+                        <p className="text-lg font-bold text-primary">${product.price} <span className="text-sm font-normal">for non-members</span></p>
                       </div>
                     )}
                     <div className="mt-3 p-2 bg-blue-50 border border-blue-200 rounded-md">
                       <p className="text-xs text-blue-700 font-medium">
-                        ✓ Free for HWL Boss Builder and Inner Circle members
+                        ✓ Free for HWL Network and Premium Accelerator members
                       </p>
                     </div>
                   </CardContent>
                   <CardFooter>
-                    <Button className="w-full bg-primary hover:bg-primary-dark">
-                      Download Resource
+                    <Button 
+                      className="w-full bg-primary hover:bg-primary-dark"
+                      onClick={() => product.download_url && window.open(product.download_url, '_blank')}
+                    >
+                      {product.download_url ? "Download Resource" : "Coming Soon"}
                     </Button>
                   </CardFooter>
                 </Card>

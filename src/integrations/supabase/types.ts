@@ -7,7 +7,7 @@ export type Json =
   | Json[]
 
 export type Database = {
-  // Allows to automatically instanciate createClient with right options
+  // Allows to automatically instantiate createClient with right options
   // instead of createClient<Database, { PostgrestVersion: 'XX' }>(URL, KEY)
   __InternalSupabase: {
     PostgrestVersion: "12.2.3 (519615d)"
@@ -260,6 +260,45 @@ export type Database = {
         }
         Relationships: []
       }
+      products: {
+        Row: {
+          category: string
+          created_at: string | null
+          description: string
+          download_url: string | null
+          featured: boolean | null
+          id: string
+          image_url: string | null
+          price: number
+          title: string
+          updated_at: string | null
+        }
+        Insert: {
+          category: string
+          created_at?: string | null
+          description: string
+          download_url?: string | null
+          featured?: boolean | null
+          id?: string
+          image_url?: string | null
+          price?: number
+          title: string
+          updated_at?: string | null
+        }
+        Update: {
+          category?: string
+          created_at?: string | null
+          description?: string
+          download_url?: string | null
+          featured?: boolean | null
+          id?: string
+          image_url?: string | null
+          price?: number
+          title?: string
+          updated_at?: string | null
+        }
+        Relationships: []
+      }
       tags: {
         Row: {
           created_at: string
@@ -277,6 +316,205 @@ export type Database = {
           name?: string
         }
         Relationships: []
+      }
+      user_meal_plans: {
+        Row: {
+          allergies: string[] | null
+          cooking_time_max: number | null
+          daily_calories: number
+          diet_type: string
+          generated_at: string | null
+          id: string
+          is_active: boolean | null
+          meals_per_day: number
+          plan_data: Json
+          preferences_notes: string | null
+          user_id: string
+        }
+        Insert: {
+          allergies?: string[] | null
+          cooking_time_max?: number | null
+          daily_calories: number
+          diet_type: string
+          generated_at?: string | null
+          id?: string
+          is_active?: boolean | null
+          meals_per_day: number
+          plan_data: Json
+          preferences_notes?: string | null
+          user_id: string
+        }
+        Update: {
+          allergies?: string[] | null
+          cooking_time_max?: number | null
+          daily_calories?: number
+          diet_type?: string
+          generated_at?: string | null
+          id?: string
+          is_active?: boolean | null
+          meals_per_day?: number
+          plan_data?: Json
+          preferences_notes?: string | null
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "user_meal_plans_user_id_fkey"
+            columns: ["user_id"]
+            isOneToOne: false
+            referencedRelation: "user_profiles"
+            referencedColumns: ["user_id"]
+          },
+        ]
+      }
+      user_profiles: {
+        Row: {
+          activity_level: string | null
+          age: number | null
+          created_at: string | null
+          gender: string | null
+          goal_weight: number | null
+          goal_weight_unit: string | null
+          height: number | null
+          height_unit: string | null
+          id: string
+          lifestyle_notes: string | null
+          medical_conditions: string | null
+          primary_goal: string | null
+          specific_body_goals: string | null
+          timeline: string | null
+          updated_at: string | null
+          user_id: string
+          weight: number | null
+          weight_unit: string | null
+        }
+        Insert: {
+          activity_level?: string | null
+          age?: number | null
+          created_at?: string | null
+          gender?: string | null
+          goal_weight?: number | null
+          goal_weight_unit?: string | null
+          height?: number | null
+          height_unit?: string | null
+          id?: string
+          lifestyle_notes?: string | null
+          medical_conditions?: string | null
+          primary_goal?: string | null
+          specific_body_goals?: string | null
+          timeline?: string | null
+          updated_at?: string | null
+          user_id: string
+          weight?: number | null
+          weight_unit?: string | null
+        }
+        Update: {
+          activity_level?: string | null
+          age?: number | null
+          created_at?: string | null
+          gender?: string | null
+          goal_weight?: number | null
+          goal_weight_unit?: string | null
+          height?: number | null
+          height_unit?: string | null
+          id?: string
+          lifestyle_notes?: string | null
+          medical_conditions?: string | null
+          primary_goal?: string | null
+          specific_body_goals?: string | null
+          timeline?: string | null
+          updated_at?: string | null
+          user_id?: string
+          weight?: number | null
+          weight_unit?: string | null
+        }
+        Relationships: []
+      }
+      user_tasks: {
+        Row: {
+          completed: boolean
+          completed_at: string | null
+          created_at: string
+          duration: number
+          id: string
+          scheduled_time: string
+          title: string
+          user_id: string
+        }
+        Insert: {
+          completed?: boolean
+          completed_at?: string | null
+          created_at?: string
+          duration: number
+          id?: string
+          scheduled_time: string
+          title: string
+          user_id: string
+        }
+        Update: {
+          completed?: boolean
+          completed_at?: string | null
+          created_at?: string
+          duration?: number
+          id?: string
+          scheduled_time?: string
+          title?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      user_workout_plans: {
+        Row: {
+          available_equipment: string[] | null
+          difficulty_level: string
+          duration_minutes: number
+          frequency_per_week: number
+          generated_at: string | null
+          id: string
+          is_active: boolean | null
+          physical_limitations: string | null
+          plan_data: Json
+          time_constraints: string | null
+          user_id: string
+          workout_type: string
+        }
+        Insert: {
+          available_equipment?: string[] | null
+          difficulty_level: string
+          duration_minutes: number
+          frequency_per_week: number
+          generated_at?: string | null
+          id?: string
+          is_active?: boolean | null
+          physical_limitations?: string | null
+          plan_data: Json
+          time_constraints?: string | null
+          user_id: string
+          workout_type: string
+        }
+        Update: {
+          available_equipment?: string[] | null
+          difficulty_level?: string
+          duration_minutes?: number
+          frequency_per_week?: number
+          generated_at?: string | null
+          id?: string
+          is_active?: boolean | null
+          physical_limitations?: string | null
+          plan_data?: Json
+          time_constraints?: string | null
+          user_id?: string
+          workout_type?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "user_workout_plans_user_id_fkey"
+            columns: ["user_id"]
+            isOneToOne: false
+            referencedRelation: "user_profiles"
+            referencedColumns: ["user_id"]
+          },
+        ]
       }
     }
     Views: {
