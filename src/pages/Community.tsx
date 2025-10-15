@@ -1,68 +1,14 @@
-import { useState } from "react";
 import { motion } from "framer-motion";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
-import { Search, Plus, Users } from "lucide-react";
+import { Users } from "lucide-react";
 import { toast } from "sonner";
 
-const forumCategories = [
-  { id: 1, name: "Introductions", description: "Introduce yourself to the community", postCount: 156, members: 245 },
-  { id: 2, name: "Business Strategy", description: "Discuss business strategy and planning", postCount: 284, members: 312 },
-  { id: 3, name: "Marketing & PR", description: "Share marketing ideas and get feedback", postCount: 427, members: 520 },
-  { id: 4, name: "Funding & Finance", description: "Discuss funding options and financial management", postCount: 198, members: 276 },
-  { id: 5, name: "Legal & Compliance", description: "Get advice on legal and compliance issues", postCount: 113, members: 189 },
-];
-
-const recentDiscussions = [
-  { 
-    id: 1, 
-    title: "What marketing strategies worked for your launch?", 
-    author: "Sarah Johnson",
-    authorAvatar: "https://via.placeholder.com/40",
-    date: "2 days ago",
-    replyCount: 24,
-    category: "Marketing & PR",
-    excerpt: "I'm planning my product launch for next month and would love to hear what marketing strategies worked well for others..."
-  },
-  { 
-    id: 2, 
-    title: "Looking for feedback on my business plan", 
-    author: "Michael Chen",
-    authorAvatar: "https://via.placeholder.com/40",
-    date: "3 days ago",
-    replyCount: 18,
-    category: "Business Strategy",
-    excerpt: "I've attached my business plan draft and would appreciate any constructive feedback from the community..."
-  },
-  { 
-    id: 3, 
-    title: "How to approach angel investors?", 
-    author: "Leila Washington",
-    authorAvatar: "https://via.placeholder.com/40",
-    date: "1 week ago",
-    replyCount: 32,
-    category: "Funding & Finance",
-    excerpt: "I'm ready to approach angel investors for my tech startup. Does anyone have advice on how to make a good first impression?"
-  }
-];
-
 export default function Community() {
-  const [searchQuery, setSearchQuery] = useState("");
-  const [selectedCategory, setSelectedCategory] = useState<number | null>(null);
-
-  const handleNewTopic = () => {
-    toast.info("New topic feature coming soon!");
-  };
-
   const handleJoinDiscussion = () => {
-    toast.info("Discussion feature coming soon!");
+    toast.info("Member login feature coming soon!");
   };
-
-  const filteredCategories = forumCategories.filter(
-    category => category.name.toLowerCase().includes(searchQuery.toLowerCase())
-  );
 
   return (
     <div className="container mx-auto px-4 py-12">
@@ -73,138 +19,199 @@ export default function Community() {
       >
         <div className="text-center mb-12">
           <h1 className="text-3xl md:text-4xl font-bold text-neutral-900 mb-4">
-            Community Forum
+            Join Your Local HWL Chapter
           </h1>
           <p className="text-lg text-neutral-600 max-w-2xl mx-auto">
-            Connect with fellow entrepreneurs, ask questions, share insights, and support each other.
+            Connect face-to-face with fellow women entrepreneurs in your city. Attend monthly meetings, build real friendships, and grow your business with local support.
           </p>
         </div>
 
+        {/* Local Chapters Section */}
+        <div className="max-w-6xl mx-auto mb-16">
+          <Card className="bg-gradient-to-r from-primary/10 to-secondary/10 border-primary/20 mb-8">
+            <CardHeader>
+              <CardTitle className="text-2xl">Find Your Local Chapter</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="text-neutral-600 mb-4">
+                HWL chapters meet monthly in cities across the country. Each meeting features networking, 
+                guest speakers, peer support, and practical workshops. It's where online connections become 
+                real friendships and accountability partnerships are formed.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Input 
+                  type="search"
+                  placeholder="Enter your city or zip code"
+                  className="flex-grow"
+                />
+                <Button className="bg-primary hover:bg-primary/90 whitespace-nowrap">
+                  Find My Chapter
+                </Button>
+              </div>
+              <p className="text-sm text-neutral-500 mt-3">
+                Don't see a chapter in your area? Interested in becoming an HWL Ambassador and starting one? 
+                <span className="text-primary font-medium ml-1 cursor-pointer hover:underline">Learn more</span>
+              </p>
+            </CardContent>
+          </Card>
+
+          {/* Popular Chapters Grid */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+            {[
+              { city: "Los Angeles, CA", members: 245, nextMeeting: "Feb 15, 2025" },
+              { city: "Atlanta, GA", members: 189, nextMeeting: "Feb 18, 2025" },
+              { city: "Houston, TX", members: 167, nextMeeting: "Feb 20, 2025" },
+              { city: "New York, NY", members: 312, nextMeeting: "Feb 22, 2025" },
+              { city: "Chicago, IL", members: 198, nextMeeting: "Feb 25, 2025" },
+              { city: "Miami, FL", members: 156, nextMeeting: "Feb 28, 2025" }
+            ].map((chapter) => (
+              <Card key={chapter.city} className="hover:shadow-lg transition-all duration-300">
+                <CardHeader>
+                  <CardTitle className="text-lg">{chapter.city}</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="flex items-center text-sm text-neutral-600 mb-2">
+                    <Users size={16} className="mr-2 text-primary" />
+                    <span>{chapter.members} members</span>
+                  </div>
+                  <p className="text-sm text-neutral-600">
+                    Next meeting: <span className="font-semibold">{chapter.nextMeeting}</span>
+                  </p>
+                </CardContent>
+                <CardFooter>
+                  <Button variant="outline" className="w-full border-primary text-primary hover:bg-primary/5">
+                    Join Chapter
+                  </Button>
+                </CardFooter>
+              </Card>
+            ))}
+          </div>
+        </div>
+
+        {/* Community Features */}
+        <div className="max-w-6xl mx-auto mb-16">
+          <h2 className="text-2xl md:text-3xl font-bold text-neutral-900 mb-8 text-center">
+            Community Benefits
+          </h2>
+          <div className="grid md:grid-cols-3 gap-8">
+            <Card>
+              <CardHeader>
+                <CardTitle>Monthly Meetups</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-neutral-600">
+                  In-person chapter meetings featuring guest speakers, networking, and workshops. 
+                  Build genuine connections with entrepreneurs in your city.
+                </p>
+              </CardContent>
+            </Card>
+            <Card>
+              <CardHeader>
+                <CardTitle>Accountability Partners</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-neutral-600">
+                  Get matched with a peer at your business stage for regular check-ins, goal setting, 
+                  and mutual support to keep you on track.
+                </p>
+              </CardContent>
+            </Card>
+            <Card>
+              <CardHeader>
+                <CardTitle>Online Community</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-neutral-600">
+                  Access our members-only online platform to connect between meetings, share wins, 
+                  ask questions, and get support 24/7.
+                </p>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+
+        {/* Community in Action */}
+        <div className="max-w-6xl mx-auto mb-16">
+          <h2 className="text-2xl font-bold text-neutral-900 mb-6 text-center">Community in Action</h2>
+          <motion.img
+            src="/lovable-uploads/f91aedcc-e16c-4cc7-a62e-7ba82f175dc1.png"
+            alt="Homegirls Who Launch Community"
+            className="w-full rounded-xl shadow-lg"
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.7, delay: 0.3 }}
+          />
+        </div>
+
+        {/* Success Stories Section */}
         <div className="max-w-6xl mx-auto mb-8">
-          <div className="flex flex-col md:flex-row justify-between gap-4 mb-8">
-            <div className="relative w-full md:w-1/2">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-neutral-400" size={18} />
-              <Input 
-                type="search"
-                placeholder="Search forum categories..."
-                className="pl-10"
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-              />
-            </div>
-            <Button onClick={handleNewTopic} className="bg-primary hover:bg-primary-dark">
-              <Plus size={16} className="mr-1" /> New Topic
+          <div className="flex justify-between items-center mb-6">
+            <h2 className="text-2xl font-bold text-neutral-900">Member Success Stories</h2>
+            <Button variant="outline" className="border-primary text-primary hover:bg-primary/5">
+              View All Stories
             </Button>
           </div>
 
-          <div className="grid grid-cols-1 gap-4 mb-12">
-            {filteredCategories.map((category) => (
-              <Collapsible
-                key={category.id}
-                open={selectedCategory === category.id}
-                onOpenChange={() => 
-                  setSelectedCategory(selectedCategory === category.id ? null : category.id)
-                }
+          <div className="grid grid-cols-1 gap-6">
+            {[
+              {
+                id: 1,
+                title: "From Side Hustle to Full-Time: My Journey with HWL",
+                author: "Sarah Martinez",
+                date: "1 week ago",
+                excerpt: "Thanks to my accountability partner and our local Atlanta chapter, I finally took the leap and went full-time with my boutique. The support system made all the difference...",
+                category: "Success Story"
+              },
+              {
+                id: 2,
+                title: "Secured $50K Funding After Joining the Cohort",
+                author: "Jennifer Wu",
+                date: "2 weeks ago",
+                excerpt: "The 6-month cohort accelerator completely transformed my pitch and business plan. I applied to HWL's funding partners and secured $50K to scale my tech platform...",
+                category: "Funding Win"
+              },
+              {
+                id: 3,
+                title: "Building My Network Through Monthly Meetups",
+                author: "Alicia Thompson",
+                date: "3 weeks ago",
+                excerpt: "I was nervous about attending my first Houston chapter meeting, but the women were so welcoming! I've made genuine friendships and business connections that have been invaluable...",
+                category: "Community"
+              }
+            ].map((story) => (
+              <motion.div
+                key={story.id}
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4 }}
               >
-                <CollapsibleTrigger asChild>
-                  <div className="bg-white border border-neutral-200 rounded-lg p-4 hover:shadow-sm transition-shadow cursor-pointer">
-                    <div className="flex justify-between items-center">
+                <Card className="hover:shadow-md transition-shadow">
+                  <CardHeader className="pb-3">
+                    <div className="flex justify-between items-start">
                       <div>
-                        <h3 className="font-semibold text-lg text-neutral-900">{category.name}</h3>
-                        <p className="text-neutral-600">{category.description}</p>
-                      </div>
-                      <div className="text-right">
-                        <p className="text-sm text-neutral-500">{category.postCount} posts</p>
-                        <div className="flex items-center justify-end mt-1 text-primary">
-                          <Users size={16} className="mr-1" />
-                          <span className="text-sm">{category.members}</span>
-                        </div>
+                        <CardTitle className="text-lg">{story.title}</CardTitle>
+                        <p className="text-xs text-neutral-500 mt-1">
+                          By {story.author} · {story.date} · {story.category}
+                        </p>
                       </div>
                     </div>
-                  </div>
-                </CollapsibleTrigger>
-                <CollapsibleContent>
-                  <div className="mt-2 pl-4 border-l-2 border-primary/20">
-                    <Card>
-                      <CardContent className="pt-4">
-                        <p className="text-neutral-600">Join this category to view discussions and participate in the conversation.</p>
-                      </CardContent>
-                      <CardFooter>
-                        <Button variant="outline" className="w-full border-primary text-primary hover:bg-primary/5">
-                          Join Category
-                        </Button>
-                      </CardFooter>
-                    </Card>
-                  </div>
-                </CollapsibleContent>
-              </Collapsible>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-neutral-600">{story.excerpt}</p>
+                  </CardContent>
+                  <CardFooter>
+                    <Button 
+                      variant="outline"
+                      className="w-full border-primary text-primary hover:bg-primary/5"
+                      onClick={handleJoinDiscussion}
+                    >
+                      Read Full Story
+                    </Button>
+                  </CardFooter>
+                </Card>
+              </motion.div>
             ))}
-          </div>
-
-          <div className="mb-8">
-            <motion.img
-              src="/lovable-uploads/f91aedcc-e16c-4cc7-a62e-7ba82f175dc1.png"
-              alt="Homegirls Who Launch Community"
-              className="w-full rounded-xl shadow-lg mt-12"
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.7, delay: 0.3 }}
-            />
-          </div>
-
-          <div className="mb-8">
-            <div className="flex justify-between items-center mb-6">
-              <h2 className="text-2xl font-bold text-neutral-900">Recent Discussions</h2>
-              <Button variant="outline" className="border-primary text-primary hover:bg-primary/5">
-                View All
-              </Button>
-            </div>
-
-            <div className="grid grid-cols-1 gap-6">
-              {recentDiscussions.map((discussion) => (
-                <motion.div
-                  key={discussion.id}
-                  initial={{ opacity: 0, y: 10 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4 }}
-                >
-                  <Card className="hover:shadow-md transition-shadow">
-                    <CardHeader className="pb-3">
-                      <div className="flex justify-between">
-                        <div className="flex items-center">
-                          <img 
-                            src={discussion.authorAvatar} 
-                            alt={discussion.author} 
-                            className="w-8 h-8 rounded-full mr-3" 
-                          />
-                          <div>
-                            <CardTitle className="text-lg">{discussion.title}</CardTitle>
-                            <p className="text-xs text-neutral-500">
-                              Posted by {discussion.author} · {discussion.date} · In {discussion.category}
-                            </p>
-                          </div>
-                        </div>
-                        <div className="text-xs text-neutral-500 whitespace-nowrap">
-                          {discussion.replyCount} replies
-                        </div>
-                      </div>
-                    </CardHeader>
-                    <CardContent>
-                      <p className="text-neutral-600">{discussion.excerpt}</p>
-                    </CardContent>
-                    <CardFooter>
-                      <Button 
-                        className="w-full bg-primary hover:bg-primary-dark"
-                        onClick={handleJoinDiscussion}
-                      >
-                        Join Discussion
-                      </Button>
-                    </CardFooter>
-                  </Card>
-                </motion.div>
-              ))}
-            </div>
           </div>
         </div>
       </motion.div>
