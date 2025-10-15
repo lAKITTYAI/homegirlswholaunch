@@ -84,6 +84,27 @@ const launchPlanTemplates = [
     kitItems,
   },
   {
+    id: "accelerator",
+    title: "3-6 Month Cohort Accelerator",
+    description: "Join a cohort of 20-50 women entrepreneurs and take your business from idea to launch with structured group coaching, resources, and peer support.",
+    accelerator: true,
+    price: "$2,000 - $3,000",
+    featured: true,
+    coverImage: "/lovable-uploads/c7ce2bf2-7c2d-4583-8804-83d2ba602e6a.png",
+    benefits: [
+      "3-6 month structured program",
+      "Weekly group coaching calls",
+      "Pre-recorded training modules",
+      "Templates, worksheets & checklists",
+      "Built-in business plan templates",
+      "Cohort-based learning (20-50 women)",
+      "Peer support & accountability",
+      "24/7 Resource Vault access",
+      "VIP event access",
+      "Certificate of completion"
+    ]
+  },
+  {
     id: "ambassador",
     title: "Become a HWL Ambassador",
     description: "Join our ambassador program to empower women, make money, and build your brand while representing HWL with 30% commission and no cap.",
@@ -278,6 +299,57 @@ export default function LaunchPlans() {
                       </Button>
                     </div>
                     <span className="text-xs text-primary-dark opacity-70 tracking-wide">Free for members | Net 30 available for purchases</span>
+                  </CardFooter>
+                </Card>
+              </motion.div>
+            ) : template.accelerator ? (
+              <motion.div
+                key={template.id}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4 }}
+                className="md:col-span-2 lg:col-span-3"
+              >
+                <Card className="h-full flex flex-col border-primary bg-primary/5 border-2 shadow-lg relative">
+                  <div className="absolute top-4 left-4 z-10">
+                    <span className="bg-secondary-dark text-primary px-3 py-1 rounded-full font-semibold text-xs uppercase tracking-wider shadow">
+                      New Program
+                    </span>
+                  </div>
+                  <img
+                    src={template.coverImage}
+                    alt={`${template.title} Visual`}
+                    className="rounded-t-lg w-full object-contain h-auto min-h-[300px] max-h-[500px] border-b border-primary bg-white"
+                  />
+                  <CardHeader>
+                    <div className="flex items-center justify-between mb-1">
+                      <CardTitle className="text-2xl font-extrabold text-primary-dark">
+                        {template.title}
+                      </CardTitle>
+                      <span className="text-lg font-semibold bg-primary text-white rounded-full px-4 py-1 shadow">{template.price}</span>
+                    </div>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-neutral-700 text-base mb-4">
+                      {template.description}
+                    </p>
+                    <ul className="grid md:grid-cols-2 gap-y-3 gap-x-6 text-sm mb-4">
+                      {template.benefits.map((benefit, i) => (
+                        <li key={i} className="flex items-start gap-2">
+                          <Check className="text-primary mt-1" size={18} />
+                          <span className="font-medium">{benefit}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </CardContent>
+                  <CardFooter className="flex flex-col gap-3 pt-0 items-center">
+                    <Button 
+                      className="w-full bg-primary hover:bg-primary-dark text-lg font-bold py-3"
+                    >
+                      Apply for Next Cohort
+                    </Button>
+                    <span className="text-xs text-primary-dark opacity-70 tracking-wide">Limited spots available | Next cohort starts soon</span>
                   </CardFooter>
                 </Card>
               </motion.div>
