@@ -54,7 +54,7 @@ const launchPlanTemplates = [
     accelerator: true,
     price: "$2,000 - $3,000",
     featured: true,
-    coverImage: "/lovable-uploads/c7ce2bf2-7c2d-4583-8804-83d2ba602e6a.png",
+    coverImage: "/lovable-uploads/accelerator-cohort.png",
     benefits: [
       "3-6 month structured program",
       "Weekly group coaching calls",
