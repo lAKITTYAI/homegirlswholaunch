@@ -7,6 +7,7 @@ import { Search } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { toast } from "sonner";
+import ProductDownloadButton from "@/components/ProductDownloadButton";
 
 interface Product {
   id: string;
@@ -156,12 +157,7 @@ export default function Resources() {
                     </div>
                   </CardContent>
                   <CardFooter>
-                    <Button 
-                      className="w-full bg-primary hover:bg-primary-dark"
-                      onClick={() => product.download_url && window.open(product.download_url, '_blank')}
-                    >
-                      {product.download_url ? "Download Resource" : "Coming Soon"}
-                    </Button>
+                    <ProductDownloadButton product={product} />
                   </CardFooter>
                 </Card>
               </motion.div>
