@@ -61,8 +61,6 @@ export default function ProductDownloadButton({ product }: ProductDownloadButton
       const { data, error } = await supabase.functions.invoke('create-product-checkout', {
         body: {
           productId: product.id,
-          productName: product.title,
-          price: product.price,
           email: email,
         }
       });

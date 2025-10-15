@@ -21,21 +21,14 @@ serve(async (req) => {
       apiVersion: "2023-10-16",
     });
 
-    const { productId, productName, price, email } = await req.json();
+    const { productId, email } = await req.json();
 
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ["card"],
       customer_email: email,
       line_items: [
         {
-          price_data: {
-            currency: "usd",
-            product_data: {
-              name: productName,
-              description: "Digital resource download",
-            },
-            unit_amount: Math.round(price * 100),
-          },
+          price: "price_1SIN2PInoWOIPoLwFRXyvwto",
           quantity: 1,
         },
       ],
