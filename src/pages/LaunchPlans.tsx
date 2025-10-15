@@ -34,44 +34,8 @@ const kitItems = [
   },
 ];
 
-// Sample launch plan templates (Ultimate Branding Package first, then Homegirls Kit, then Ambassador)
+// Sample launch plan templates (Launch options first, then kits at the bottom)
 const launchPlanTemplates = [
-  {
-    id: "ultimate-branding",
-    title: "Ultimate Branding Package",
-    description: "Everything you need to stand out like a boss. For a limited time, get $75 secrets to branding + brand essentials.",
-    kit: true,
-    price: "$75.00",
-    limitedTime: true,
-    featured: true,
-    coverImage: "/lovable-uploads/31e73e7b-f073-44bd-ae9d-635a594b3ad7.png",
-    kitItems: [
-      {
-        label: "Brand Strategy Guide",
-        description: "Step-by-step guide to developing your unique brand identity.",
-      },
-      {
-        label: "Logo Design Templates",
-        description: "Professional logo templates and design principles.",
-      },
-      {
-        label: "Color Palette & Typography Guide",
-        description: "Choose the perfect colors and fonts for your brand.",
-      },
-      {
-        label: "Brand Voice & Messaging Kit",
-        description: "Develop your brand's personality and communication style.",
-      },
-      {
-        label: "Social Media Branding Templates",
-        description: "Consistent branding across all your social platforms.",
-      },
-      {
-        label: "Business Branding Checklist",
-        description: "Complete checklist to ensure brand consistency everywhere.",
-      },
-    ],
-  },
   {
     id: "kit",
     title: "The Homegirls Who Launch Kit",
@@ -178,6 +142,42 @@ const launchPlanTemplates = [
     ],
     timeframe: "6 weeks",
     coverImage: "lovable-uploads/c89ebdaa-4404-42bb-b02e-c7958dd17e05.png",
+  },
+  {
+    id: "ultimate-branding",
+    title: "Ultimate Branding Package",
+    description: "Everything you need to stand out like a boss. For a limited time, get $75 secrets to branding + brand essentials.",
+    kit: true,
+    price: "$75.00",
+    limitedTime: true,
+    featured: true,
+    coverImage: "/lovable-uploads/31e73e7b-f073-44bd-ae9d-635a594b3ad7.png",
+    kitItems: [
+      {
+        label: "Brand Strategy Guide",
+        description: "Step-by-step guide to developing your unique brand identity.",
+      },
+      {
+        label: "Logo Design Templates",
+        description: "Professional logo templates and design principles.",
+      },
+      {
+        label: "Color Palette & Typography Guide",
+        description: "Choose the perfect colors and fonts for your brand.",
+      },
+      {
+        label: "Brand Voice & Messaging Kit",
+        description: "Develop your brand's personality and communication style.",
+      },
+      {
+        label: "Social Media Branding Templates",
+        description: "Consistent branding across all your social platforms.",
+      },
+      {
+        label: "Business Branding Checklist",
+        description: "Complete checklist to ensure brand consistency everywhere.",
+      },
+    ],
   },
 ];
 
