@@ -2,8 +2,44 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { CheckCircle, Rocket, Users, Target, TrendingUp, Calendar } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useState } from "react";
+import { supabase } from "@/integrations/supabase/client";
+import { toast } from "sonner";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 
 const Accelerator = () => {
+  const [isCheckoutOpen, setIsCheckoutOpen] = useState(false);
+  const [email, setEmail] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+
+  const handleCheckout = async () => {
+    if (!email) {
+      toast.error("Please enter your email address");
+      return;
+    }
+
+    setIsLoading(true);
+    try {
+      const { data, error } = await supabase.functions.invoke("create-accelerator-checkout", {
+        body: { email },
+      });
+
+      if (error) throw error;
+
+      if (data?.url) {
+        window.open(data.url, '_blank');
+        setIsCheckoutOpen(false);
+        setEmail("");
+      }
+    } catch (error) {
+      console.error("Checkout error:", error);
+      toast.error("Failed to start checkout. Please try again.");
+    } finally {
+      setIsLoading(false);
+    }
+  };
   const benefits = [
     {
       icon: Target,
@@ -54,11 +90,11 @@ const Accelerator = () => {
               Transform your business idea into a thriving company with our intensive 12-week accelerator program designed for ambitious women entrepreneurs.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="text-lg px-8">
-                Apply Now
+              <Button size="lg" className="text-lg px-8" onClick={() => setIsCheckoutOpen(true)}>
+                Apply Now - $3,000
               </Button>
-              <Button size="lg" variant="outline" className="text-lg px-8">
-                Learn More
+              <Button size="lg" variant="outline" className="text-lg px-8" asChild>
+                <a href="#program-details">Learn More</a>
               </Button>
             </div>
           </div>
@@ -86,7 +122,7 @@ const Accelerator = () => {
       </section>
 
       {/* Program Details */}
-      <section className="py-16 px-4">
+      <section id="program-details" className="py-16 px-4">
         <div className="container mx-auto max-w-6xl">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
@@ -140,8 +176,8 @@ const Accelerator = () => {
             Join our next cohort and take your business to new heights with the support of our community.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="text-lg px-8">
-              Submit Application
+            <Button size="lg" className="text-lg px-8" onClick={() => setIsCheckoutOpen(true)}>
+              Submit Application - $3,000
             </Button>
             <Link to="/pricing">
               <Button size="lg" variant="outline" className="text-lg px-8">
@@ -151,6 +187,38 @@ const Accelerator = () => {
           </div>
         </div>
       </section>
+
+      {/* Checkout Modal */}
+      <Dialog open={isCheckoutOpen} onOpenChange={setIsCheckoutOpen}>
+        <DialogContent>
+          <DialogHeader>
+            <DialogTitle>Apply to HWL Accelerator</DialogTitle>
+            <DialogDescription>
+              Enter your email to proceed with your $3,000 application payment.
+            </DialogDescription>
+          </DialogHeader>
+          <div className="space-y-4 py-4">
+            <div className="space-y-2">
+              <Label htmlFor="email">Email Address</Label>
+              <Input
+                id="email"
+                type="email"
+                placeholder="your@email.com"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                disabled={isLoading}
+              />
+            </div>
+            <Button 
+              className="w-full" 
+              onClick={handleCheckout}
+              disabled={isLoading || !email}
+            >
+              {isLoading ? "Processing..." : "Proceed to Payment"}
+            </Button>
+          </div>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 };
