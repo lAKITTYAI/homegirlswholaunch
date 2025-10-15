@@ -6,6 +6,7 @@ import { PodcastSection } from "@/components/PodcastSection";
 import PreLaunchBanner from "@/components/PreLaunchBanner";
 import AvailableNow from "@/components/AvailableNow";
 import ExclusiveMemberPrivileges from "@/components/ExclusiveMemberPrivileges";
+import HowItWorks from "@/components/HowItWorks";
 
 const Index = () => {
   return (
@@ -14,6 +15,7 @@ const Index = () => {
       <Hero />
       <AvailableNow />
       <AboutSection />
+      <HowItWorks />
       <Features />
       <ExclusiveMemberPrivileges />
       <PodcastSection />
