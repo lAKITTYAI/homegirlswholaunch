@@ -2,7 +2,6 @@
 import { Outlet, Link, useLocation } from "react-router-dom";
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
-import { Settings } from "lucide-react";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -134,19 +133,6 @@ const Navigation = () => {
                 )}
               >
                 Pricing
-              </Link>
-            </NavigationMenuItem>
-
-            <NavigationMenuItem>
-              <Link 
-                to="/admin/products" 
-                className={cn(
-                  "inline-flex h-12 w-max items-center justify-center rounded-md bg-background px-6 py-3 text-base font-medium transition-colors hover:bg-primary/10 hover:text-primary focus:bg-primary/10 focus:text-primary focus:outline-none disabled:pointer-events-none disabled:opacity-50",
-                  location.pathname === "/admin/products" ? "text-primary font-semibold bg-primary/10" : "text-neutral-700"
-                )}
-              >
-                <Settings className="h-4 w-4 mr-2" />
-                Admin
               </Link>
             </NavigationMenuItem>
           </NavigationMenuList>
