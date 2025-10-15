@@ -2,56 +2,53 @@
 import { motion } from "framer-motion";
 import { Lightbulb, Users, Heart, Calendar, Mic, Rocket, PartyPopper, UserCheck, Plus } from "lucide-react";
 import { Link } from "react-router-dom";
-import { Badge } from "@/components/ui/badge";
 
 const features = [
   {
-    icon: Lightbulb,
-    title: "Expert Guidance",
-    description: "Get personalized mentorship and strategic advice from successful entrepreneurs.",
-  },
-  {
     icon: Users,
-    title: "Supportive Community",
-    description: "Connect with like-minded individuals who share your entrepreneurial journey.",
+    title: "Local Chapter Meetings",
+    description: "Join monthly meetups in your city to connect face-to-face with fellow women entrepreneurs. Build genuine relationships and local business networks.",
   },
   {
-    icon: Heart,
-    title: "Sponsor a Launch",
-    description: "Support female entrepreneurs through our HomeGirls Launch Fund.",
-    link: "/donate"
+    icon: Rocket,
+    title: "3-6 Month Cohort Accelerator",
+    description: "Structured program with weekly group coaching, accountability partners, and milestone tracking. Launch or scale your business with intensive support.",
+  },
+  {
+    icon: UserCheck,
+    title: "Peer Accountability Groups",
+    description: "Get matched with fellow entrepreneurs at your stage. Regular check-ins, goal setting, and mutual support to keep you on track.",
+  },
+  {
+    icon: Lightbulb,
+    title: "Expert Mentorship",
+    description: "Get personalized guidance from successful entrepreneurs in your industry. Industry-specific expertise and strategic advice when you need it.",
   },
   {
     icon: Calendar,
-    title: "Monthly Meetings",
-    description: "Join our local meetups in cities near you for networking and learning.",
-    badge: "Coming Soon",
-    badgeVariant: "outline" as const
+    title: "Flexible Learning Options",
+    description: "Choose between self-paced digital resources or live coaching programs. Our hybrid model adapts to your schedule and learning style.",
   },
   {
     icon: Mic,
     title: "Guest Speaker Seminars",
-    description: "Learn from industry experts and successful entrepreneurs in exclusive seminars.",
+    description: "Learn from industry experts and successful entrepreneurs in exclusive seminars and monthly HWL meetings.",
   },
   {
-    icon: Rocket,
-    title: "Incubator Programs",
-    description: "Accelerate your business growth with our comprehensive incubator programs.",
+    icon: Heart,
+    title: "Funding Opportunities",
+    description: "Access to grants, credit building, and funding partners. Over $2.3M+ secured for members through our exclusive network.",
+    link: "/funding-options"
   },
   {
     icon: PartyPopper,
-    title: "VIP Launch Parties",
-    description: "Celebrate your business milestones with exclusive launch events and networking.",
-  },
-  {
-    icon: UserCheck,
-    title: "One-on-One Coaching",
-    description: "Get personalized coaching sessions tailored to your unique business needs.",
+    title: "VIP Launch Support",
+    description: "Celebrate your business milestones with launch parties, press features, and social media amplification from the HWL community.",
   },
   {
     icon: Plus,
     title: "And More",
-    description: "Discover additional resources, workshops, and opportunities to grow your business.",
+    description: "HWL Magazine features, ambassador opportunities, and exclusive member privileges await you.",
     link: "/about"
   },
 ];
@@ -68,11 +65,10 @@ export const Features = () => {
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 mb-4">
-            Everything You Need to Succeed
+            Built on Community, Powered by Support
           </h2>
           <p className="text-lg text-neutral-600 max-w-2xl mx-auto">
-            We provide all the tools and resources you need to transform your side hustle
-            into a successful business.
+            From local chapter meetings to intensive cohort programs, we combine in-person connection with digital flexibility to support your unique entrepreneurial journey.
           </p>
         </motion.div>
         <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
@@ -90,13 +86,6 @@ export const Features = () => {
                   <feature.icon className="w-6 h-6 text-primary" />
                 </div>
               </div>
-              {feature.badge && (
-                <div className="absolute top-4 right-4">
-                  <Badge variant={feature.badgeVariant || "default"} className="animate-fade-in">
-                    {feature.badge}
-                  </Badge>
-                </div>
-              )}
               <div className="mt-6 text-center">
                 <h3 className="text-xl font-semibold text-neutral-900 mb-3">
                   {feature.title}

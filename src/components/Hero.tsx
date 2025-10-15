@@ -35,13 +35,13 @@ export const Hero = () => {
             <img src="/lovable-uploads/9078973d-5f5e-4f0d-95ee-cfafef7ab155.png" alt="Homegirls Who Launch Logo" className="h-32 mx-auto" />
           </div>
           <span className="inline-block px-4 py-1.5 bg-primary/10 text-primary rounded-full text-sm font-medium mb-4">
-            Launch Your Dream Business
+            Community-Powered Business Growth
           </span>
           <h1 className="text-4xl md:text-6xl font-bold text-neutral-900 leading-tight">
-            Turn Your Side Hustle Into Your
-            <span className="text-purple-700"> Main Hustle</span>
+            Build Your Business With a
+            <span className="text-purple-700"> Sisterhood of Support</span>
           </h1>
-          <p className="text-lg md:text-xl text-neutral-600 max-w-2xl mx-auto">Join a community of ambitious entrepreneurs and get access to the resources, guidance, and funding you need to build and launch your dream business.</p>
+          <p className="text-lg md:text-xl text-neutral-600 max-w-2xl mx-auto">Join local chapter meetings, structured cohort programs, and a nationwide network of women entrepreneurs. Get the accountability, resources, and funding you need—all while building meaningful connections.</p>
           <form onSubmit={handleSubmit} className="max-w-md mx-auto space-y-4">
             <div className="flex flex-col sm:flex-row gap-3">
               <Input type="email" placeholder="Enter your email address" value={email} onChange={e => setEmail(e.target.value)} className="flex-grow" />

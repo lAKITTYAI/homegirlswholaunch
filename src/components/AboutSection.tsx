@@ -16,16 +16,13 @@ export const AboutSection = () => {
             className="order-2 md:order-1"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 mb-6">
-              Where Vision Meets Opportunity
+              Community First, Success Always
             </h2>
             <p className="text-lg text-neutral-600 mb-6">
-              At HomeGirls Who Launch, we create a supportive space for women entrepreneurs to 
-              transform their ideas into thriving businesses. Our community provides the resources, 
-              mentorship, and funding opportunities needed to help you make your mark in the business world.
+              Homegirls Who Launch combines the power of local community with digital flexibility. Join monthly chapter meetings in your city to connect face-to-face with fellow entrepreneurs, or dive into our structured 3-6 month cohort accelerator for intensive business growth.
             </p>
             <p className="text-lg text-neutral-600 mb-8">
-              Whether you're at the beginning stages of your entrepreneurial journey or ready to 
-              scale your existing venture, our tailored launch plans and expert network are here to guide you every step of the way.
+              Our hybrid model gives you the best of both worlds: downloadable resources you can access anytime, live coaching and accountability, peer support from women who get it, and real funding opportunities. Whether you prefer self-paced learning or hands-on guidance, we meet you where you are on your entrepreneurial journey.
             </p>
             <div className="flex flex-wrap gap-4">
               <Button 
