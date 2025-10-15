@@ -25,6 +25,7 @@ const Navigation = () => {
   const programs = [
     { to: "/launch-plans", label: "Launch Plans" },
     { to: "/resources", label: "Digital Resources" },
+    { to: "/accelerator", label: "Accelerator Program" },
   ];
 
   const company = [
