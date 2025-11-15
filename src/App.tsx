@@ -18,6 +18,7 @@ import BusinessSavingsAccount from "./pages/BusinessSavingsAccount";
 import Success from "./pages/Success";
 import AdminProducts from "./pages/AdminProducts";
 import Accelerator from "./pages/Accelerator";
+import BusinessDirectory from "./pages/BusinessDirectory";
 import Layout from "./components/Layout";
 
 const queryClient = new QueryClient();
@@ -44,6 +45,7 @@ const App = () => (
             <Route path="/success" element={<Success />} />
             <Route path="/admin/products" element={<AdminProducts />} />
             <Route path="/accelerator" element={<Accelerator />} />
+            <Route path="/business-directory" element={<BusinessDirectory />} />
           </Route>
         </Routes>
       </BrowserRouter>
