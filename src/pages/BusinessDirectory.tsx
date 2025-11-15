@@ -104,7 +104,7 @@ const BusinessDirectory = () => {
                   <h2 className="text-4xl font-serif text-luxury-charcoal mb-2">
                     Featured Businesses
                   </h2>
-                  <p className="text-lavender-600">Curated luxury experiences</p>
+                  <p className="text-lavender-600">Curated luxury experiences... We cant wait to feature you next.            </p>
                 </div>
                 <CheckCircle2 className="h-10 w-10 text-gold-500" />
               </div>
