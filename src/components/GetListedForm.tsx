@@ -228,7 +228,7 @@ export const GetListedForm = ({ onClose }: GetListedFormProps) => {
                     required
                     value={formData.category}
                     onChange={(e) => setFormData({ ...formData, category: e.target.value })}
-                    className="w-full px-3 py-2 rounded-md border border-input bg-background"
+                    className="w-full px-3 py-2 rounded-md border border-input bg-card text-foreground shadow-sm focus:outline-none focus:ring-2 focus:ring-gold-500"
                   >
                     <option value="">Select a category</option>
                     {CATEGORIES.map((cat) => (
@@ -266,7 +266,7 @@ export const GetListedForm = ({ onClose }: GetListedFormProps) => {
                     required
                     value={formData.state}
                     onChange={(e) => setFormData({ ...formData, state: e.target.value })}
-                    className="w-full px-3 py-2 rounded-md border border-input bg-background"
+                    className="w-full px-3 py-2 rounded-md border border-input bg-card text-foreground shadow-sm focus:outline-none focus:ring-2 focus:ring-gold-500"
                   >
                     <option value="">Select state</option>
                     {US_STATES.map((state) => (
