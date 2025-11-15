@@ -19,42 +19,34 @@ export default {
     },
     extend: {
       colors: {
-        primary: {
-          DEFAULT: "#8B6FF7", // Mixed between #9b87f5 and #6F00FF
-          light: "#A794F8", // Lighter version of the mix
-          dark: "#6F00FF", // New purple
-        },
-        secondary: {
-          DEFAULT: "#E5DEFF",
-          light: "#F3F0FF",
-          dark: "#D6BCFA",
-        },
-        accent: {
-          DEFAULT: "#6E59A5",
-          light: "#8B5CF6",
-          dark: "#553C9A",
+        lavender: {
+          50: "#FAF8FF",
+          100: "#F3EFFF",
+          200: "#E6DDFF",
+          300: "#D4C5F9",
+          400: "#B99EF0",
+          500: "#9B7FE5",
+          600: "#7D5FD9",
+          700: "#6447C2",
+          800: "#4E3899",
+          900: "#3D2B76",
         },
         gold: {
-          DEFAULT: "#FFD700",
-          light: "#FFF4CC",
-          dark: "#B8860B",
+          50: "#FFFEF5",
+          100: "#FFF9E0",
+          200: "#FFF0C2",
+          300: "#FFE499",
+          400: "#FFD666",
+          500: "#D4AF37",
+          600: "#B8941F",
+          700: "#8B6F14",
+          800: "#5C4A0D",
+          900: "#3D3108",
         },
-        pink: {
-          DEFAULT: "#FFB6C1",
-          light: "#FFE4E8", 
-          dark: "#FF69B4",
-        },
-        neutral: {
-          50: "#F8F9FA",
-          100: "#F1F3F5",
-          200: "#E9ECEF",
-          300: "#DEE2E6",
-          400: "#CED4DA",
-          500: "#ADB5BD",
-          600: "#868E96",
-          700: "#495057",
-          800: "#343A40",
-          900: "#212529",
+        luxury: {
+          cream: "#FEFCF9",
+          charcoal: "#2D2D35",
+          platinum: "#E8E8ED",
         },
       },
       fontFamily: {

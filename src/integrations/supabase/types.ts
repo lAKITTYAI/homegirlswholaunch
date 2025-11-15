@@ -58,19 +58,26 @@ export type Database = {
           featured_until: string | null
           full_address: string | null
           gallery_images: string[] | null
+          hours: Json | null
           id: string
           instagram: string | null
           is_active: boolean | null
           linkedin: string | null
           listing_type: string
           logo_url: string | null
+          owner_name: string | null
           owner_user_id: string | null
           payment_status: string | null
           phone: string | null
+          price_range: string | null
+          rating: number | null
+          review_count: number | null
+          services: string | null
           state: string
           stripe_checkout_session_id: string | null
           stripe_payment_intent_id: string | null
           updated_at: string | null
+          verified: boolean | null
           website: string | null
         }
         Insert: {
@@ -86,19 +93,26 @@ export type Database = {
           featured_until?: string | null
           full_address?: string | null
           gallery_images?: string[] | null
+          hours?: Json | null
           id?: string
           instagram?: string | null
           is_active?: boolean | null
           linkedin?: string | null
           listing_type: string
           logo_url?: string | null
+          owner_name?: string | null
           owner_user_id?: string | null
           payment_status?: string | null
           phone?: string | null
+          price_range?: string | null
+          rating?: number | null
+          review_count?: number | null
+          services?: string | null
           state: string
           stripe_checkout_session_id?: string | null
           stripe_payment_intent_id?: string | null
           updated_at?: string | null
+          verified?: boolean | null
           website?: string | null
         }
         Update: {
@@ -114,19 +128,26 @@ export type Database = {
           featured_until?: string | null
           full_address?: string | null
           gallery_images?: string[] | null
+          hours?: Json | null
           id?: string
           instagram?: string | null
           is_active?: boolean | null
           linkedin?: string | null
           listing_type?: string
           logo_url?: string | null
+          owner_name?: string | null
           owner_user_id?: string | null
           payment_status?: string | null
           phone?: string | null
+          price_range?: string | null
+          rating?: number | null
+          review_count?: number | null
+          services?: string | null
           state?: string
           stripe_checkout_session_id?: string | null
           stripe_payment_intent_id?: string | null
           updated_at?: string | null
+          verified?: boolean | null
           website?: string | null
         }
         Relationships: []
