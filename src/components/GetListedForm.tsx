@@ -137,7 +137,7 @@ export const GetListedForm = ({ onClose }: GetListedFormProps) => {
       <Card className="w-full max-w-4xl">
         <CardHeader>
           <CardTitle>Get Your Business Listed</CardTitle>
-          <CardDescription>Choose your plan and submit your business information</CardDescription>
+          <CardDescription>Choose your plan and submit your business information. All payments are ONE TIME PAYMENTS.</CardDescription>
         </CardHeader>
         <CardContent>
           <form onSubmit={handleSubmit} className="space-y-6">
