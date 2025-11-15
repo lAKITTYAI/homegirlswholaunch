@@ -36,7 +36,7 @@ interface GetListedFormProps {
 export const GetListedForm = ({ onClose }: GetListedFormProps) => {
   const { toast } = useToast();
   const [loading, setLoading] = useState(false);
-  const [selectedPlan, setSelectedPlan] = useState<"standard" | "featured">("standard");
+  const [selectedPlan, setSelectedPlan] = useState<"basic" | "highlighted" | "verified" | "founder" | "premium">("basic");
   
   const [formData, setFormData] = useState({
     businessName: "",
@@ -51,7 +51,16 @@ export const GetListedForm = ({ onClose }: GetListedFormProps) => {
     instagram: "",
     facebook: "",
     linkedin: "",
+    tagline: "",
   });
+
+  const planPrices = {
+    basic: 25,
+    highlighted: 49,
+    verified: 99,
+    founder: 199,
+    premium: 399,
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -133,78 +142,104 @@ export const GetListedForm = ({ onClose }: GetListedFormProps) => {
         <CardContent>
           <form onSubmit={handleSubmit} className="space-y-6">
             {/* Plan Selection */}
-            <div className="grid sm:grid-cols-2 gap-4">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
               <Card
                 className={`cursor-pointer transition-all ${
-                  selectedPlan === "standard"
+                  selectedPlan === "basic"
                     ? "ring-2 ring-gold-500 bg-secondary"
                     : "hover:ring-1 hover:ring-lavender-300"
                 }`}
-                onClick={() => setSelectedPlan("standard")}
+                onClick={() => setSelectedPlan("basic")}
               >
                 <CardHeader className="space-y-3 pb-4">
                   <div className="flex justify-between items-start gap-2">
-                    <CardTitle className="text-lg font-serif text-luxury-charcoal">Standard Listing</CardTitle>
-                    {selectedPlan === "standard" && <Check className="h-5 w-5 text-gold-500 flex-shrink-0" />}
+                    <CardTitle className="text-lg font-serif text-luxury-charcoal">Basic Listing</CardTitle>
+                    {selectedPlan === "basic" && <Check className="h-5 w-5 text-gold-500 flex-shrink-0" />}
                   </div>
                   <CardDescription className="text-2xl font-bold text-gold-600">$25</CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <ul className="text-sm space-y-2.5 text-lavender-700">
-                    <li className="flex items-start gap-2">
-                      <span className="text-gold-500 flex-shrink-0">✓</span>
-                      <span>Basic business profile</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-gold-500 flex-shrink-0">✓</span>
-                      <span>Contact information</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-gold-500 flex-shrink-0">✓</span>
-                      <span>Social media links</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-gold-500 flex-shrink-0">✓</span>
-                      <span>Search visibility</span>
-                    </li>
-                  </ul>
+                  <p className="text-sm text-lavender-700">Basic directory listing with contact information</p>
                 </CardContent>
               </Card>
 
               <Card
                 className={`cursor-pointer transition-all ${
-                  selectedPlan === "featured"
+                  selectedPlan === "highlighted"
                     ? "ring-2 ring-gold-500 bg-secondary"
                     : "hover:ring-1 hover:ring-lavender-300"
                 }`}
-                onClick={() => setSelectedPlan("featured")}
+                onClick={() => setSelectedPlan("highlighted")}
               >
                 <CardHeader className="space-y-3 pb-4">
                   <div className="flex justify-between items-start gap-2">
-                    <CardTitle className="text-lg font-serif text-luxury-charcoal">Featured Listing</CardTitle>
-                    {selectedPlan === "featured" && <Check className="h-5 w-5 text-gold-500 flex-shrink-0" />}
+                    <CardTitle className="text-lg font-serif text-luxury-charcoal">Highlighted Listing</CardTitle>
+                    {selectedPlan === "highlighted" && <Check className="h-5 w-5 text-gold-500 flex-shrink-0" />}
                   </div>
                   <CardDescription className="text-2xl font-bold text-gold-600">$49</CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <ul className="text-sm space-y-2.5 text-lavender-700">
-                    <li className="flex items-start gap-2">
-                      <span className="text-gold-500 flex-shrink-0">✓</span>
-                      <span>Everything in Standard</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-gold-500 flex-shrink-0">✓</span>
-                      <span>Priority placement</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-gold-500 flex-shrink-0">✓</span>
-                      <span>Featured badge</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-gold-500 flex-shrink-0">✓</span>
-                      <span>Enhanced visibility</span>
-                    </li>
-                  </ul>
+                  <p className="text-sm text-lavender-700">Enhanced visibility with priority placement</p>
+                </CardContent>
+              </Card>
+
+              <Card
+                className={`cursor-pointer transition-all ${
+                  selectedPlan === "verified"
+                    ? "ring-2 ring-gold-500 bg-secondary"
+                    : "hover:ring-1 hover:ring-lavender-300"
+                }`}
+                onClick={() => setSelectedPlan("verified")}
+              >
+                <CardHeader className="space-y-3 pb-4">
+                  <div className="flex justify-between items-start gap-2">
+                    <CardTitle className="text-lg font-serif text-luxury-charcoal">HWL Verified</CardTitle>
+                    {selectedPlan === "verified" && <Check className="h-5 w-5 text-gold-500 flex-shrink-0" />}
+                  </div>
+                  <CardDescription className="text-2xl font-bold text-gold-600">$99</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-sm text-lavender-700">Verified badge + social media spotlight</p>
+                </CardContent>
+              </Card>
+
+              <Card
+                className={`cursor-pointer transition-all ${
+                  selectedPlan === "founder"
+                    ? "ring-2 ring-gold-500 bg-secondary"
+                    : "hover:ring-1 hover:ring-lavender-300"
+                }`}
+                onClick={() => setSelectedPlan("founder")}
+              >
+                <CardHeader className="space-y-3 pb-4">
+                  <div className="flex justify-between items-start gap-2">
+                    <CardTitle className="text-lg font-serif text-luxury-charcoal">Founder Spotlight</CardTitle>
+                    {selectedPlan === "founder" && <Check className="h-5 w-5 text-gold-500 flex-shrink-0" />}
+                  </div>
+                  <CardDescription className="text-2xl font-bold text-gold-600">$199</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-sm text-lavender-700">1/4 or 1/2 page feature in magazine and website</p>
+                </CardContent>
+              </Card>
+
+              <Card
+                className={`cursor-pointer transition-all ${
+                  selectedPlan === "premium"
+                    ? "ring-2 ring-gold-500 bg-secondary"
+                    : "hover:ring-1 hover:ring-lavender-300"
+                }`}
+                onClick={() => setSelectedPlan("premium")}
+              >
+                <CardHeader className="space-y-3 pb-4">
+                  <div className="flex justify-between items-start gap-2">
+                    <CardTitle className="text-lg font-serif text-luxury-charcoal">Premium Spotlight</CardTitle>
+                    {selectedPlan === "premium" && <Check className="h-5 w-5 text-gold-500 flex-shrink-0" />}
+                  </div>
+                  <CardDescription className="text-2xl font-bold text-gold-600">$399</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-sm text-lavender-700">Full page feature in magazine and on site + custom tagline</p>
                 </CardContent>
               </Card>
             </div>
@@ -346,6 +381,19 @@ export const GetListedForm = ({ onClose }: GetListedFormProps) => {
                   />
                 </div>
               </div>
+
+              {selectedPlan === "premium" && (
+                <div className="space-y-2">
+                  <Label htmlFor="tagline">Profile Tagline *</Label>
+                  <Input
+                    id="tagline"
+                    required
+                    placeholder="Enter your custom tagline for your profile"
+                    value={formData.tagline}
+                    onChange={(e) => setFormData({ ...formData, tagline: e.target.value })}
+                  />
+                </div>
+              )}
             </div>
 
             <div className="flex gap-3 justify-end">
@@ -359,7 +407,7 @@ export const GetListedForm = ({ onClose }: GetListedFormProps) => {
                     Processing
                   </>
                 ) : (
-                  `Continue to Payment ($${selectedPlan === "standard" ? "25" : "49"})`
+                  `Continue to Payment ($${planPrices[selectedPlan]})`
                 )}
               </Button>
             </div>
