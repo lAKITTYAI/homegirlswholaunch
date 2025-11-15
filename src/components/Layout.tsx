@@ -126,6 +126,18 @@ const Navigation = () => {
 
             <NavigationMenuItem>
               <Link 
+                to="/business-directory" 
+                className={cn(
+                  "inline-flex h-12 w-max items-center justify-center rounded-md bg-background px-6 py-3 text-base font-medium transition-colors hover:bg-primary/10 hover:text-primary focus:bg-primary/10 focus:text-primary focus:outline-none disabled:pointer-events-none disabled:opacity-50",
+                  location.pathname === "/business-directory" ? "text-primary font-semibold bg-primary/10" : "text-neutral-700"
+                )}
+              >
+                BLK Business Directory
+              </Link>
+            </NavigationMenuItem>
+
+            <NavigationMenuItem>
+              <Link 
                 to="/pricing" 
                 className={cn(
                   "inline-flex h-12 w-max items-center justify-center rounded-md bg-background px-6 py-3 text-base font-medium transition-colors hover:bg-primary/10 hover:text-primary focus:bg-primary/10 focus:text-primary focus:outline-none disabled:pointer-events-none disabled:opacity-50",
