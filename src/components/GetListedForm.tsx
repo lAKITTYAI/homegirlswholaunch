@@ -124,7 +124,7 @@ export const GetListedForm = ({ onClose }: GetListedFormProps) => {
   };
 
   return (
-    <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4 overflow-y-auto">
+    <div className="fixed inset-0 z-[100] bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto">
       <Card className="w-full max-w-4xl my-8">
         <CardHeader>
           <CardTitle>Get Your Business Listed</CardTitle>
@@ -137,7 +137,7 @@ export const GetListedForm = ({ onClose }: GetListedFormProps) => {
               <Card
                 className={`cursor-pointer transition-all ${
                   selectedPlan === "standard"
-                    ? "ring-2 ring-gold-500 bg-gold-50/20"
+                    ? "ring-2 ring-gold-500 bg-secondary"
                     : "hover:ring-1 hover:ring-lavender-300"
                 }`}
                 onClick={() => setSelectedPlan("standard")}
@@ -174,7 +174,7 @@ export const GetListedForm = ({ onClose }: GetListedFormProps) => {
               <Card
                 className={`cursor-pointer transition-all ${
                   selectedPlan === "featured"
-                    ? "ring-2 ring-gold-500 bg-gold-50/20"
+                    ? "ring-2 ring-gold-500 bg-secondary"
                     : "hover:ring-1 hover:ring-lavender-300"
                 }`}
                 onClick={() => setSelectedPlan("featured")}
@@ -228,7 +228,7 @@ export const GetListedForm = ({ onClose }: GetListedFormProps) => {
                     required
                     value={formData.category}
                     onChange={(e) => setFormData({ ...formData, category: e.target.value })}
-                    className="w-full px-3 py-2 rounded-md border border-input bg-card text-foreground shadow-sm focus:outline-none focus:ring-2 focus:ring-gold-500"
+                    className="relative z-50 w-full px-3 py-2 rounded-md border border-input bg-card text-foreground shadow-sm focus:outline-none focus:ring-2 focus:ring-gold-500"
                   >
                     <option value="">Select a category</option>
                     {CATEGORIES.map((cat) => (
@@ -266,7 +266,7 @@ export const GetListedForm = ({ onClose }: GetListedFormProps) => {
                     required
                     value={formData.state}
                     onChange={(e) => setFormData({ ...formData, state: e.target.value })}
-                    className="w-full px-3 py-2 rounded-md border border-input bg-card text-foreground shadow-sm focus:outline-none focus:ring-2 focus:ring-gold-500"
+                    className="relative z-50 w-full px-3 py-2 rounded-md border border-input bg-card text-foreground shadow-sm focus:outline-none focus:ring-2 focus:ring-gold-500"
                   >
                     <option value="">Select state</option>
                     {US_STATES.map((state) => (
