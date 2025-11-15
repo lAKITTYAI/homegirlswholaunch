@@ -1,47 +1,64 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Search, MapPin, ExternalLink, Star } from "lucide-react";
+import { Search, MapPin, ExternalLink, Star, Plus } from "lucide-react";
+import { supabase } from "@/integrations/supabase/client";
+import { GetListedForm } from "@/components/GetListedForm";
 
 const BusinessDirectory = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("all");
+  const [selectedCity, setSelectedCity] = useState("all");
+  const [businesses, setBusinesses] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [showGetListed, setShowGetListed] = useState(false);
+  const [categories, setCategories] = useState<string[]>([]);
+  const [cities, setCities] = useState<string[]>([]);
 
-  // Mock data - will be replaced with Supabase data
-  const businesses = [
-    {
-      id: 1,
-      name: "Bloom Beauty Bar",
-      category: "Beauty & Wellness",
-      description: "Luxury beauty services for the modern woman entrepreneur",
-      location: "Atlanta, GA",
-      featured: true,
-      image: "/lovable-uploads/316cf67d-f73c-4fc8-b3b0-c054aa99fde2.png"
-    },
-    {
-      id: 2,
-      name: "Tech Savvy Solutions",
-      category: "Technology",
-      description: "IT consulting and digital transformation for small businesses",
-      location: "Los Angeles, CA",
-      featured: false,
-      image: "/lovable-uploads/6326d9ea-3f1e-49ce-a6de-ab9b6907e4b6.png"
+  useEffect(() => {
+    fetchBusinesses();
+  }, []);
+
+  const fetchBusinesses = async () => {
+    try {
+      const { data, error } = await supabase
+        .from("business_listings")
+        .select("*")
+        .eq("is_active", true)
+        .eq("payment_status", "completed")
+        .order("listing_type", { ascending: false })
+        .order("created_at", { ascending: false });
+
+      if (error) throw error;
+
+      setBusinesses(data || []);
+      
+      // Extract unique categories and cities
+      const uniqueCategories = [...new Set(data?.map(b => b.category) || [])];
+      const uniqueCities = [...new Set(data?.map(b => b.city) || [])];
+      setCategories(uniqueCategories);
+      setCities(uniqueCities);
+    } catch (error) {
+      console.error("Error fetching businesses:", error);
+    } finally {
+      setLoading(false);
     }
-  ];
-
-  const categories = ["All", "Beauty & Wellness", "Technology", "Food & Beverage", "Retail", "Professional Services"];
+  };
 
   const filteredBusinesses = businesses.filter(business => {
-    const matchesSearch = business.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    const matchesSearch = business.business_name.toLowerCase().includes(searchQuery.toLowerCase()) ||
       business.description.toLowerCase().includes(searchQuery.toLowerCase());
     const matchesCategory = selectedCategory === "all" || business.category === selectedCategory;
-    return matchesSearch && matchesCategory;
+    const matchesCity = selectedCity === "all" || business.city === selectedCity;
+    return matchesSearch && matchesCategory && matchesCity;
   });
 
   return (
     <div className="min-h-screen bg-background">
+      {showGetListed && <GetListedForm onClose={() => setShowGetListed(false)} />}
+      
       {/* Hero Section */}
       <section className="bg-primary/5 border-b border-border py-20">
         <div className="container mx-auto px-4">
@@ -52,7 +69,12 @@ const BusinessDirectory = () => {
             <p className="text-xl text-muted-foreground mb-8">
               Discover and connect with women-owned businesses in our community
             </p>
-            <Button size="lg" className="bg-primary hover:bg-primary/90">
+            <Button 
+              size="lg" 
+              className="bg-primary hover:bg-primary/90"
+              onClick={() => setShowGetListed(true)}
+            >
+              <Plus className="mr-2 h-5 w-5" />
               Get Your Business Listed
             </Button>
           </div>
@@ -76,10 +98,21 @@ const BusinessDirectory = () => {
               <select
                 value={selectedCategory}
                 onChange={(e) => setSelectedCategory(e.target.value)}
-                className="px-4 py-2 rounded-md border border-input bg-background text-foreground"
+                className="px-4 py-2 rounded-md border border-input bg-background text-foreground z-10"
               >
+                <option value="all">All Categories</option>
                 {categories.map(cat => (
-                  <option key={cat} value={cat.toLowerCase()}>{cat}</option>
+                  <option key={cat} value={cat}>{cat}</option>
+                ))}
+              </select>
+              <select
+                value={selectedCity}
+                onChange={(e) => setSelectedCity(e.target.value)}
+                className="px-4 py-2 rounded-md border border-input bg-background text-foreground z-10"
+              >
+                <option value="all">All Cities</option>
+                {cities.map(city => (
+                  <option key={city} value={city}>{city}</option>
                 ))}
               </select>
             </div>
@@ -88,66 +121,93 @@ const BusinessDirectory = () => {
       </section>
 
       {/* Featured Businesses */}
-      <section className="py-12 bg-secondary/20">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-foreground mb-8 flex items-center gap-2">
-            <Star className="h-6 w-6 text-primary" />
-            Featured Businesses
-          </h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filteredBusinesses.filter(b => b.featured).map(business => (
-              <Card key={business.id} className="overflow-hidden hover:shadow-lg transition-shadow border-primary">
-                <div className="aspect-video relative overflow-hidden bg-muted">
-                  <img src={business.image} alt={business.name} className="object-cover w-full h-full" />
-                  <Badge className="absolute top-2 right-2 bg-primary">Featured</Badge>
-                </div>
-                <CardHeader>
-                  <CardTitle className="flex items-center justify-between">
-                    {business.name}
-                    <ExternalLink className="h-4 w-4 text-muted-foreground" />
-                  </CardTitle>
-                  <CardDescription>{business.category}</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-sm text-muted-foreground mb-4">{business.description}</p>
-                  <div className="flex items-center text-sm text-muted-foreground">
-                    <MapPin className="h-4 w-4 mr-1" />
-                    {business.location}
+      {filteredBusinesses.filter(b => b.listing_type === "featured").length > 0 && (
+        <section className="py-12 bg-secondary/20">
+          <div className="container mx-auto px-4">
+            <h2 className="text-3xl font-bold text-foreground mb-8 flex items-center gap-2">
+              <Star className="h-6 w-6 text-primary" />
+              Featured Businesses
+            </h2>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {filteredBusinesses.filter(b => b.listing_type === "featured").map(business => (
+                <Card key={business.id} className="overflow-hidden hover:shadow-lg transition-shadow border-primary">
+                  <div className="aspect-video relative overflow-hidden bg-muted">
+                    {business.cover_image_url && (
+                      <img src={business.cover_image_url} alt={business.business_name} className="object-cover w-full h-full" />
+                    )}
+                    <Badge className="absolute top-2 right-2 bg-primary">Featured</Badge>
                   </div>
-                </CardContent>
-              </Card>
-            ))}
+                  <CardHeader>
+                    <CardTitle className="flex items-center justify-between">
+                      {business.business_name}
+                      {business.website && (
+                        <a href={business.website} target="_blank" rel="noopener noreferrer">
+                          <ExternalLink className="h-4 w-4 text-muted-foreground" />
+                        </a>
+                      )}
+                    </CardTitle>
+                    <CardDescription>{business.category}</CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-sm text-muted-foreground mb-4">{business.description}</p>
+                    <div className="flex items-center text-sm text-muted-foreground">
+                      <MapPin className="h-4 w-4 mr-1" />
+                      {business.city}, {business.state}
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* All Businesses */}
       <section className="py-12">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-foreground mb-8">All Businesses</h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filteredBusinesses.filter(b => !b.featured).map(business => (
-              <Card key={business.id} className="overflow-hidden hover:shadow-lg transition-shadow">
-                <div className="aspect-video relative overflow-hidden bg-muted">
-                  <img src={business.image} alt={business.name} className="object-cover w-full h-full" />
-                </div>
-                <CardHeader>
-                  <CardTitle className="flex items-center justify-between">
-                    {business.name}
-                    <ExternalLink className="h-4 w-4 text-muted-foreground" />
-                  </CardTitle>
-                  <CardDescription>{business.category}</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-sm text-muted-foreground mb-4">{business.description}</p>
-                  <div className="flex items-center text-sm text-muted-foreground">
-                    <MapPin className="h-4 w-4 mr-1" />
-                    {business.location}
+          {loading ? (
+            <div className="text-center py-12">
+              <p className="text-muted-foreground">Loading businesses...</p>
+            </div>
+          ) : filteredBusinesses.length === 0 ? (
+            <div className="text-center py-12">
+              <p className="text-muted-foreground">No businesses found. Be the first to list your business!</p>
+              <Button onClick={() => setShowGetListed(true)} className="mt-4">
+                Get Listed
+              </Button>
+            </div>
+          ) : (
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {filteredBusinesses.map(business => (
+                <Card key={business.id} className="overflow-hidden hover:shadow-lg transition-shadow">
+                  <div className="aspect-video relative overflow-hidden bg-muted">
+                    {business.cover_image_url && (
+                      <img src={business.cover_image_url} alt={business.business_name} className="object-cover w-full h-full" />
+                    )}
                   </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+                  <CardHeader>
+                    <CardTitle className="flex items-center justify-between">
+                      {business.business_name}
+                      {business.website && (
+                        <a href={business.website} target="_blank" rel="noopener noreferrer">
+                          <ExternalLink className="h-4 w-4 text-muted-foreground" />
+                        </a>
+                      )}
+                    </CardTitle>
+                    <CardDescription>{business.category}</CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-sm text-muted-foreground mb-4">{business.description}</p>
+                    <div className="flex items-center text-sm text-muted-foreground">
+                      <MapPin className="h-4 w-4 mr-1" />
+                      {business.city}, {business.state}
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          )}
         </div>
       </section>
 
@@ -158,14 +218,14 @@ const BusinessDirectory = () => {
           <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
             Get your business in front of thousands of potential customers in our community
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-primary hover:bg-primary/90">
-              Standard Listing - $25
-            </Button>
-            <Button size="lg" variant="outline">
-              Featured Listing - $49
-            </Button>
-          </div>
+          <Button 
+            size="lg" 
+            className="bg-primary hover:bg-primary/90"
+            onClick={() => setShowGetListed(true)}
+          >
+            <Plus className="mr-2 h-5 w-5" />
+            Get Your Business Listed
+          </Button>
         </div>
       </section>
     </div>
