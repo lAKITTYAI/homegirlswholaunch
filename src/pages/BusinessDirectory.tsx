@@ -75,7 +75,7 @@ const BusinessDirectory = () => {
       <section className="bg-gradient-to-r from-lavender-100 via-white to-gold-50 border-b border-lavender-200 py-24">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-5xl md:text-7xl font-serif text-luxury-charcoal mb-6 tracking-tight">
+            <h1 className="text-4xl md:text-6xl font-body text-luxury-charcoal mb-6 tracking-wide leading-tight">
               The HWL Business Roll Call
             </h1>
             <p className="text-xl md:text-2xl text-lavender-700 mb-8 leading-relaxed">
