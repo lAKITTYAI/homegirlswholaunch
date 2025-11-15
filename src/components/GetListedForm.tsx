@@ -209,8 +209,20 @@ export const GetListedForm = ({ onClose }: GetListedFormProps) => {
               </Card>
             </div>
 
+            <div className="flex justify-center">
+              <Button
+                type="button"
+                className="bg-green-600 hover:bg-green-700 text-white font-semibold px-6 py-3"
+                onClick={() =>
+                  document.getElementById('application-form')?.scrollIntoView({ behavior: 'smooth' })
+                }
+              >
+                Apply Now
+              </Button>
+            </div>
+
             {/* Business Information */}
-            <div className="space-y-4">
+            <div id="application-form" className="space-y-4">
               <div className="grid md:grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <Label htmlFor="businessName">Business Name *</Label>
