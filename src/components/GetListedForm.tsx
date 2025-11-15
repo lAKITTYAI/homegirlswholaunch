@@ -36,7 +36,7 @@ interface GetListedFormProps {
 export const GetListedForm = ({ onClose }: GetListedFormProps) => {
   const { toast } = useToast();
   const [loading, setLoading] = useState(false);
-  const [selectedPlan, setSelectedPlan] = useState<"basic" | "highlighted" | "verified" | "founder">("basic");
+  const [selectedPlan, setSelectedPlan] = useState<"standard" | "expanded" | "verified" | "spotlight">("standard");
   
   const [formData, setFormData] = useState({
     businessName: "",
@@ -58,10 +58,10 @@ export const GetListedForm = ({ onClose }: GetListedFormProps) => {
   });
 
   const planPrices = {
-    basic: 25,
-    highlighted: 49,
+    standard: 25,
+    expanded: 49,
     verified: 99,
-    founder: 199,
+    spotlight: 199,
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -153,20 +153,20 @@ export const GetListedForm = ({ onClose }: GetListedFormProps) => {
               <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
                 <Card
                   className={`cursor-pointer transition-all hover:shadow-lg ${
-                    selectedPlan === "basic"
+                    selectedPlan === "standard"
                       ? "ring-2 ring-gold-500 bg-gradient-to-br from-gold-50 to-lavender-50 shadow-xl scale-[1.02]"
                       : "hover:ring-2 hover:ring-gold-300 bg-card"
                   }`}
-                  onClick={() => setSelectedPlan("basic")}
+                  onClick={() => setSelectedPlan("standard")}
                 >
                   <CardHeader className="space-y-3 pb-4">
                     <div className="flex justify-between items-start gap-2">
                       <div className="space-y-1">
                         <CardTitle className="text-lg font-serif text-luxury-charcoal flex items-center gap-2">
-                          Basic Directory
-                          {selectedPlan === "basic" && <Check className="h-5 w-5 text-gold-500" />}
+                          Standard Listing
+                          {selectedPlan === "standard" && <Check className="h-5 w-5 text-gold-500" />}
                         </CardTitle>
-                        <p className="text-xs text-lavender-600">Perfect for getting started</p>
+                        <p className="text-xs text-lavender-600 italic">Directory + Roll Call Feature</p>
                       </div>
                     </div>
                     <div className="flex items-baseline gap-1">
@@ -178,36 +178,37 @@ export const GetListedForm = ({ onClose }: GetListedFormProps) => {
                     <ul className="space-y-2 text-sm text-lavender-700">
                       <li className="flex items-start gap-2">
                         <span className="text-gold-500 mt-0.5">✓</span>
-                        <span>Basic business profile</span>
+                        <span>Business listed in HWL Directory</span>
                       </li>
                       <li className="flex items-start gap-2">
                         <span className="text-gold-500 mt-0.5">✓</span>
-                        <span>Contact & social links</span>
+                        <span>Basic profile page</span>
                       </li>
                       <li className="flex items-start gap-2">
                         <span className="text-gold-500 mt-0.5">✓</span>
-                        <span>Search visibility</span>
+                        <span>Included in next <em>HWL Magazine</em> Roll Call (name-only listing)</span>
                       </li>
                     </ul>
+                    <p className="text-xs text-lavender-600 italic mt-3">Perfect for new or growing businesses.</p>
                   </CardContent>
                 </Card>
 
                 <Card
                   className={`cursor-pointer transition-all hover:shadow-lg ${
-                    selectedPlan === "highlighted"
+                    selectedPlan === "expanded"
                       ? "ring-2 ring-gold-500 bg-gradient-to-br from-gold-50 to-lavender-50 shadow-xl scale-[1.02]"
                       : "hover:ring-2 hover:ring-gold-300 bg-card"
                   }`}
-                  onClick={() => setSelectedPlan("highlighted")}
+                  onClick={() => setSelectedPlan("expanded")}
                 >
                   <CardHeader className="space-y-3 pb-4">
                     <div className="flex justify-between items-start gap-2">
                       <div className="space-y-1">
                         <CardTitle className="text-lg font-serif text-luxury-charcoal flex items-center gap-2">
-                          Highlighted
-                          {selectedPlan === "highlighted" && <Check className="h-5 w-5 text-gold-500" />}
+                          Expanded Listing
+                          {selectedPlan === "expanded" && <Check className="h-5 w-5 text-gold-500" />}
                         </CardTitle>
-                        <p className="text-xs text-lavender-600">Stand out from the crowd</p>
+                        <p className="text-xs text-lavender-600 italic">Enhanced Profile + Directory Feature</p>
                       </div>
                     </div>
                     <div className="flex items-baseline gap-1">
@@ -219,17 +220,18 @@ export const GetListedForm = ({ onClose }: GetListedFormProps) => {
                     <ul className="space-y-2 text-sm text-lavender-700">
                       <li className="flex items-start gap-2">
                         <span className="text-gold-500 mt-0.5">✓</span>
-                        <span>Everything in Basic</span>
+                        <span>Everything in Standard Listing</span>
                       </li>
                       <li className="flex items-start gap-2">
                         <span className="text-gold-500 mt-0.5">✓</span>
-                        <span>Priority placement</span>
+                        <span>Expanded profile page</span>
                       </li>
                       <li className="flex items-start gap-2">
                         <span className="text-gold-500 mt-0.5">✓</span>
-                        <span>Enhanced visibility</span>
+                        <span>Priority approval (48 hours)</span>
                       </li>
                     </ul>
+                    <p className="text-xs text-lavender-600 italic mt-3">Ideal for businesses wanting to stand out.</p>
                   </CardContent>
                 </Card>
 
@@ -251,7 +253,7 @@ export const GetListedForm = ({ onClose }: GetListedFormProps) => {
                           HWL Verified
                           {selectedPlan === "verified" && <Check className="h-5 w-5 text-gold-500" />}
                         </CardTitle>
-                        <p className="text-xs text-lavender-600">Build trust & credibility</p>
+                        <p className="text-xs text-lavender-600 italic">Verification + Social Feature + Top 10 Spotlight</p>
                       </div>
                     </div>
                     <div className="flex items-baseline gap-1">
@@ -263,36 +265,53 @@ export const GetListedForm = ({ onClose }: GetListedFormProps) => {
                     <ul className="space-y-2 text-sm text-lavender-700">
                       <li className="flex items-start gap-2">
                         <span className="text-gold-500 mt-0.5">✓</span>
-                        <span>Everything in Highlighted</span>
+                        <span>Everything in Standard Listing</span>
                       </li>
                       <li className="flex items-start gap-2">
                         <span className="text-gold-500 mt-0.5">✓</span>
-                        <span><strong>HWL Verified badge</strong></span>
+                        <span>HWL Verified badge</span>
                       </li>
                       <li className="flex items-start gap-2">
                         <span className="text-gold-500 mt-0.5">✓</span>
-                        <span>Social media spotlight</span>
+                        <span>Instagram Story Feature on @HomegirlsWhoLaunch</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="text-gold-500 mt-0.5">✓</span>
+                        <span>Added to Top 10 Most Loved Businesses section</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="text-gold-500 mt-0.5">✓</span>
+                        <span>Priority approval (48 hours)</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="text-gold-500 mt-0.5">✓</span>
+                        <span>White-labeled badge for your own branding</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="text-gold-500 mt-0.5">✓</span>
+                        <span>Verified placement on homepage</span>
                       </li>
                     </ul>
+                    <p className="text-xs text-lavender-600 italic mt-3">Best for businesses ready for credibility + visibility.</p>
                   </CardContent>
                 </Card>
 
                 <Card
                   className={`cursor-pointer transition-all hover:shadow-lg ${
-                    selectedPlan === "founder"
+                    selectedPlan === "spotlight"
                       ? "ring-2 ring-gold-500 bg-gradient-to-br from-gold-50 to-lavender-50 shadow-xl scale-[1.02]"
                       : "hover:ring-2 hover:ring-gold-300 bg-card"
                   }`}
-                  onClick={() => setSelectedPlan("founder")}
+                  onClick={() => setSelectedPlan("spotlight")}
                 >
                   <CardHeader className="space-y-3 pb-4">
                     <div className="flex justify-between items-start gap-2">
                       <div className="space-y-1">
                         <CardTitle className="text-lg font-serif text-luxury-charcoal flex items-center gap-2">
-                          Founder Spotlight
-                          {selectedPlan === "founder" && <Check className="h-5 w-5 text-gold-500" />}
+                          Spotlight Listing
+                          {selectedPlan === "spotlight" && <Check className="h-5 w-5 text-gold-500" />}
                         </CardTitle>
-                        <p className="text-xs text-lavender-600">Magazine + website feature</p>
+                        <p className="text-xs text-lavender-600 italic">Premium Visibility + Full Feature Access</p>
                       </div>
                     </div>
                     <div className="flex items-baseline gap-1">
@@ -304,17 +323,26 @@ export const GetListedForm = ({ onClose }: GetListedFormProps) => {
                     <ul className="space-y-2 text-sm text-lavender-700">
                       <li className="flex items-start gap-2">
                         <span className="text-gold-500 mt-0.5">✓</span>
-                        <span>Everything in Verified</span>
+                        <span>Everything in HWL Verified</span>
                       </li>
                       <li className="flex items-start gap-2">
                         <span className="text-gold-500 mt-0.5">✓</span>
-                        <span><strong>1/4 or 1/2 page spread</strong></span>
+                        <span>Featured placement on HWL website homepage</span>
                       </li>
                       <li className="flex items-start gap-2">
                         <span className="text-gold-500 mt-0.5">✓</span>
-                        <span>Magazine & website</span>
+                        <span>Dedicated Instagram Post + Story on @HomegirlsWhoLaunch</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="text-gold-500 mt-0.5">✓</span>
+                        <span>Featured in <em>HWL Magazine</em> (full profile spread)</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="text-gold-500 mt-0.5">✓</span>
+                        <span>Email newsletter feature sent to 10K+ subscribers</span>
                       </li>
                     </ul>
+                    <p className="text-xs text-lavender-600 italic mt-3">Maximum visibility + credibility for businesses ready to scale.</p>
                   </CardContent>
                 </Card>
 
