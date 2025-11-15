@@ -110,7 +110,7 @@ const BusinessDirectory = () => {
               <select
                 value={selectedCategory}
                 onChange={(e) => setSelectedCategory(e.target.value)}
-                className="px-6 py-3 h-12 rounded-md border border-lavender-200 bg-lavender-50 text-lavender-900 font-medium z-10 hover:border-gold-500 transition-colors"
+                className="px-6 py-3 h-12 rounded-md border border-lavender-200 bg-card text-luxury-charcoal font-medium relative z-50 shadow-sm hover:border-gold-500 focus:outline-none focus:ring-2 focus:ring-gold-500 transition-colors"
               >
                 <option value="all">All Categories</option>
                 {categories.map(cat => (
@@ -120,7 +120,7 @@ const BusinessDirectory = () => {
               <select
                 value={selectedCity}
                 onChange={(e) => setSelectedCity(e.target.value)}
-                className="px-6 py-3 h-12 rounded-md border border-lavender-200 bg-lavender-50 text-lavender-900 font-medium z-10 hover:border-gold-500 transition-colors"
+                className="px-6 py-3 h-12 rounded-md border border-lavender-200 bg-card text-luxury-charcoal font-medium relative z-50 shadow-sm hover:border-gold-500 focus:outline-none focus:ring-2 focus:ring-gold-500 transition-colors"
               >
                 <option value="all">All Cities</option>
                 {cities.map(city => (
