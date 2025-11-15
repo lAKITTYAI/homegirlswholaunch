@@ -133,28 +133,40 @@ export const GetListedForm = ({ onClose }: GetListedFormProps) => {
         <CardContent>
           <form onSubmit={handleSubmit} className="space-y-6">
             {/* Plan Selection */}
-            <div className="grid md:grid-cols-2 gap-4">
+            <div className="grid sm:grid-cols-2 gap-4">
               <Card
                 className={`cursor-pointer transition-all ${
                   selectedPlan === "standard"
-                    ? "ring-2 ring-primary"
-                    : "hover:ring-1 hover:ring-border"
+                    ? "ring-2 ring-gold-500 bg-gold-50/20"
+                    : "hover:ring-1 hover:ring-lavender-300"
                 }`}
                 onClick={() => setSelectedPlan("standard")}
               >
-                <CardHeader>
-                  <div className="flex justify-between items-start">
-                    <CardTitle className="text-lg">Standard Listing</CardTitle>
-                    {selectedPlan === "standard" && <Check className="h-5 w-5 text-primary" />}
+                <CardHeader className="space-y-3 pb-4">
+                  <div className="flex justify-between items-start gap-2">
+                    <CardTitle className="text-lg font-serif text-luxury-charcoal">Standard Listing</CardTitle>
+                    {selectedPlan === "standard" && <Check className="h-5 w-5 text-gold-500 flex-shrink-0" />}
                   </div>
-                  <CardDescription className="text-2xl font-bold">$25</CardDescription>
+                  <CardDescription className="text-2xl font-bold text-gold-600">$25</CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <ul className="text-sm space-y-2 text-muted-foreground">
-                    <li>✓ Basic business profile</li>
-                    <li>✓ Contact information</li>
-                    <li>✓ Social media links</li>
-                    <li>✓ Search visibility</li>
+                  <ul className="text-sm space-y-2.5 text-lavender-700">
+                    <li className="flex items-start gap-2">
+                      <span className="text-gold-500 flex-shrink-0">✓</span>
+                      <span>Basic business profile</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-gold-500 flex-shrink-0">✓</span>
+                      <span>Contact information</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-gold-500 flex-shrink-0">✓</span>
+                      <span>Social media links</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-gold-500 flex-shrink-0">✓</span>
+                      <span>Search visibility</span>
+                    </li>
                   </ul>
                 </CardContent>
               </Card>
@@ -162,24 +174,36 @@ export const GetListedForm = ({ onClose }: GetListedFormProps) => {
               <Card
                 className={`cursor-pointer transition-all ${
                   selectedPlan === "featured"
-                    ? "ring-2 ring-primary"
-                    : "hover:ring-1 hover:ring-border"
+                    ? "ring-2 ring-gold-500 bg-gold-50/20"
+                    : "hover:ring-1 hover:ring-lavender-300"
                 }`}
                 onClick={() => setSelectedPlan("featured")}
               >
-                <CardHeader>
-                  <div className="flex justify-between items-start">
-                    <CardTitle className="text-lg">Featured Listing</CardTitle>
-                    {selectedPlan === "featured" && <Check className="h-5 w-5 text-primary" />}
+                <CardHeader className="space-y-3 pb-4">
+                  <div className="flex justify-between items-start gap-2">
+                    <CardTitle className="text-lg font-serif text-luxury-charcoal">Featured Listing</CardTitle>
+                    {selectedPlan === "featured" && <Check className="h-5 w-5 text-gold-500 flex-shrink-0" />}
                   </div>
-                  <CardDescription className="text-2xl font-bold">$49</CardDescription>
+                  <CardDescription className="text-2xl font-bold text-gold-600">$49</CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <ul className="text-sm space-y-2 text-muted-foreground">
-                    <li>✓ Everything in Standard</li>
-                    <li>✓ Priority placement</li>
-                    <li>✓ Featured badge</li>
-                    <li>✓ Enhanced visibility</li>
+                  <ul className="text-sm space-y-2.5 text-lavender-700">
+                    <li className="flex items-start gap-2">
+                      <span className="text-gold-500 flex-shrink-0">✓</span>
+                      <span>Everything in Standard</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-gold-500 flex-shrink-0">✓</span>
+                      <span>Priority placement</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-gold-500 flex-shrink-0">✓</span>
+                      <span>Featured badge</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-gold-500 flex-shrink-0">✓</span>
+                      <span>Enhanced visibility</span>
+                    </li>
                   </ul>
                 </CardContent>
               </Card>
