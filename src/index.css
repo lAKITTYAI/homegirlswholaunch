@@ -6,25 +6,26 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Luxury Lavender + Gold Palette */
+    --background: 270 30% 98%;
+    --foreground: 264 15% 15%;
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 264 15% 15%;
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-    --primary: 262 83% 58%;
-    --primary-foreground: 210 40% 98%;
-    --secondary: 270 60% 92%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 249 58% 58%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --popover-foreground: 264 15% 15%;
+    --primary: 270 65% 65%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 270 40% 95%;
+    --secondary-foreground: 264 15% 15%;
+    --muted: 270 30% 96%;
+    --muted-foreground: 264 10% 50%;
+    --accent: 45 100% 51%;
+    --accent-foreground: 264 15% 15%;
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 262 83% 58%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 270 20% 90%;
+    --input: 270 20% 90%;
+    --ring: 270 65% 65%;
     --radius: 0.5rem;
   }
 

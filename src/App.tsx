@@ -19,6 +19,7 @@ import Success from "./pages/Success";
 import AdminProducts from "./pages/AdminProducts";
 import Accelerator from "./pages/Accelerator";
 import BusinessDirectory from "./pages/BusinessDirectory";
+import BusinessProfile from "./pages/BusinessProfile";
 import Layout from "./components/Layout";
 
 const queryClient = new QueryClient();
@@ -46,6 +47,7 @@ const App = () => (
             <Route path="/admin/products" element={<AdminProducts />} />
             <Route path="/accelerator" element={<Accelerator />} />
             <Route path="/business-directory" element={<BusinessDirectory />} />
+            <Route path="/business/:id" element={<BusinessProfile />} />
           </Route>
         </Routes>
       </BrowserRouter>
