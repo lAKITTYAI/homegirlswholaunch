@@ -44,6 +44,93 @@ export type Database = {
         }
         Relationships: []
       }
+      business_listings: {
+        Row: {
+          amount_paid: number | null
+          business_name: string
+          category: string
+          city: string
+          cover_image_url: string | null
+          created_at: string | null
+          description: string
+          email: string
+          facebook: string | null
+          featured_until: string | null
+          full_address: string | null
+          gallery_images: string[] | null
+          id: string
+          instagram: string | null
+          is_active: boolean | null
+          linkedin: string | null
+          listing_type: string
+          logo_url: string | null
+          owner_user_id: string | null
+          payment_status: string | null
+          phone: string | null
+          state: string
+          stripe_checkout_session_id: string | null
+          stripe_payment_intent_id: string | null
+          updated_at: string | null
+          website: string | null
+        }
+        Insert: {
+          amount_paid?: number | null
+          business_name: string
+          category: string
+          city: string
+          cover_image_url?: string | null
+          created_at?: string | null
+          description: string
+          email: string
+          facebook?: string | null
+          featured_until?: string | null
+          full_address?: string | null
+          gallery_images?: string[] | null
+          id?: string
+          instagram?: string | null
+          is_active?: boolean | null
+          linkedin?: string | null
+          listing_type: string
+          logo_url?: string | null
+          owner_user_id?: string | null
+          payment_status?: string | null
+          phone?: string | null
+          state: string
+          stripe_checkout_session_id?: string | null
+          stripe_payment_intent_id?: string | null
+          updated_at?: string | null
+          website?: string | null
+        }
+        Update: {
+          amount_paid?: number | null
+          business_name?: string
+          category?: string
+          city?: string
+          cover_image_url?: string | null
+          created_at?: string | null
+          description?: string
+          email?: string
+          facebook?: string | null
+          featured_until?: string | null
+          full_address?: string | null
+          gallery_images?: string[] | null
+          id?: string
+          instagram?: string | null
+          is_active?: boolean | null
+          linkedin?: string | null
+          listing_type?: string
+          logo_url?: string | null
+          owner_user_id?: string | null
+          payment_status?: string | null
+          phone?: string | null
+          state?: string
+          stripe_checkout_session_id?: string | null
+          stripe_payment_intent_id?: string | null
+          updated_at?: string | null
+          website?: string | null
+        }
+        Relationships: []
+      }
       calendar_events: {
         Row: {
           created_at: string
