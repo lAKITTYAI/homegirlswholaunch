@@ -66,7 +66,7 @@ const BusinessDirectory = () => {
  Business Roll Call
             </h1>
             <p className="text-xl md:text-2xl text-lavender-700 mb-8 leading-relaxed">BE SEEN. BE SUPPORTED. BE CELEBRATED.</p>
-            <Button size="lg" className="bg-gold-500 hover:bg-gold-600 text-luxury-charcoal font-semibold px-8 py-6 text-lg" onClick={() => setShowGetListed(true)}>
+            <Button size="lg" className="bg-green-500 hover:bg-green-600 text-white font-semibold px-8 py-6 text-lg" onClick={() => setShowGetListed(true)}>
               <Plus className="mr-2 h-5 w-5" />
               List Your Business
             </Button>
@@ -233,7 +233,7 @@ const BusinessDirectory = () => {
           <p className="text-xl text-lavender-700 mb-10 max-w-2xl mx-auto leading-relaxed">
             Elevate your business with premium placement in our curated directory of Black excellence
           </p>
-          <Button size="lg" className="bg-gold-500 hover:bg-gold-600 text-luxury-charcoal font-semibold px-10 py-7 text-lg" onClick={() => setShowGetListed(true)}>
+          <Button size="lg" className="bg-green-500 hover:bg-green-600 text-white font-semibold px-10 py-7 text-lg" onClick={() => setShowGetListed(true)}>
             <Plus className="mr-2 h-6 w-6" />
             List Your Business Today
           </Button>
