@@ -36,7 +36,7 @@ interface GetListedFormProps {
 export const GetListedForm = ({ onClose }: GetListedFormProps) => {
   const { toast } = useToast();
   const [loading, setLoading] = useState(false);
-  const [selectedPlan, setSelectedPlan] = useState<"basic" | "highlighted" | "verified" | "founder" | "premium">("basic");
+  const [selectedPlan, setSelectedPlan] = useState<"basic" | "highlighted" | "verified" | "founder">("basic");
   
   const [formData, setFormData] = useState({
     businessName: "",
@@ -62,7 +62,6 @@ export const GetListedForm = ({ onClose }: GetListedFormProps) => {
     highlighted: 49,
     verified: 99,
     founder: 199,
-    premium: 399,
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -151,7 +150,7 @@ export const GetListedForm = ({ onClose }: GetListedFormProps) => {
                 <p className="text-sm text-lavender-600">Select the perfect plan to showcase your business</p>
               </div>
               
-              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
                 <Card
                   className={`cursor-pointer transition-all hover:shadow-lg ${
                     selectedPlan === "basic"
@@ -319,49 +318,6 @@ export const GetListedForm = ({ onClose }: GetListedFormProps) => {
                   </CardContent>
                 </Card>
 
-                <Card
-                  className={`cursor-pointer transition-all hover:shadow-lg relative ${
-                    selectedPlan === "premium"
-                      ? "ring-2 ring-gold-500 bg-gradient-to-br from-gold-50 to-lavender-50 shadow-xl scale-[1.02]"
-                      : "hover:ring-2 hover:ring-gold-300 bg-card"
-                  }`}
-                  onClick={() => setSelectedPlan("premium")}
-                >
-                  <div className="absolute top-3 right-3 bg-purple-500 text-white text-xs px-2 py-1 rounded-full font-semibold">
-                    PREMIUM
-                  </div>
-                  <CardHeader className="space-y-3 pb-4">
-                    <div className="flex justify-between items-start gap-2">
-                      <div className="space-y-1">
-                        <CardTitle className="text-lg font-serif text-luxury-charcoal flex items-center gap-2">
-                          Premium Spotlight
-                          {selectedPlan === "premium" && <Check className="h-5 w-5 text-gold-500" />}
-                        </CardTitle>
-                        <p className="text-xs text-lavender-600">Full VIP treatment</p>
-                      </div>
-                    </div>
-                    <div className="flex items-baseline gap-1">
-                      <span className="text-3xl font-bold text-gold-600">$399</span>
-                      <span className="text-sm text-lavender-500">one-time</span>
-                    </div>
-                  </CardHeader>
-                  <CardContent>
-                    <ul className="space-y-2 text-sm text-lavender-700">
-                      <li className="flex items-start gap-2">
-                        <span className="text-gold-500 mt-0.5">✓</span>
-                        <span>Everything in Founder</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <span className="text-gold-500 mt-0.5">✓</span>
-                        <span><strong>Full page feature</strong></span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <span className="text-gold-500 mt-0.5">✓</span>
-                        <span><strong>Custom tagline</strong></span>
-                      </li>
-                    </ul>
-                  </CardContent>
-                </Card>
               </div>
             </div>
 
@@ -545,18 +501,16 @@ export const GetListedForm = ({ onClose }: GetListedFormProps) => {
                 </div>
               </div>
 
-              {selectedPlan === "premium" && (
-                <div className="space-y-2">
-                  <Label htmlFor="tagline">Profile Tagline *</Label>
-                  <Input
-                    id="tagline"
-                    required
-                    placeholder="Enter your custom tagline for your profile"
-                    value={formData.tagline}
-                    onChange={(e) => setFormData({ ...formData, tagline: e.target.value })}
-                  />
-                </div>
-              )}
+              <div className="space-y-2">
+                <Label htmlFor="tagline">Profile Tagline (Optional)</Label>
+                <Input
+                  id="tagline"
+                  placeholder="A catchy phrase that describes your business"
+                  value={formData.tagline}
+                  onChange={(e) => setFormData({ ...formData, tagline: e.target.value })}
+                />
+                <p className="text-xs text-lavender-600">Free for everyone! Make it memorable.</p>
+              </div>
             </div>
 
             <div className="flex gap-3 justify-end pt-4 border-t border-lavender-200">
