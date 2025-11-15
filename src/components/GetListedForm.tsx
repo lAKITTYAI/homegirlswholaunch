@@ -124,8 +124,8 @@ export const GetListedForm = ({ onClose }: GetListedFormProps) => {
   };
 
   return (
-    <div className="fixed inset-0 z-[100] bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto">
-      <Card className="w-full max-w-4xl my-8">
+    <div className="fixed inset-0 z-[100] bg-black/60 backdrop-blur-sm flex items-start justify-center p-4 overflow-y-auto py-8">
+      <Card className="w-full max-w-4xl">
         <CardHeader>
           <CardTitle>Get Your Business Listed</CardTitle>
           <CardDescription>Choose your plan and submit your business information</CardDescription>
@@ -207,18 +207,6 @@ export const GetListedForm = ({ onClose }: GetListedFormProps) => {
                   </ul>
                 </CardContent>
               </Card>
-            </div>
-
-            <div className="flex justify-center">
-              <Button
-                type="button"
-                className="bg-green-600 hover:bg-green-700 text-white font-semibold px-6 py-3"
-                onClick={() =>
-                  document.getElementById('application-form')?.scrollIntoView({ behavior: 'smooth' })
-                }
-              >
-                Apply Now
-              </Button>
             </div>
 
             {/* Business Information */}
