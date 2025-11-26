@@ -88,6 +88,7 @@ export const GetListedForm = ({ onClose }: GetListedFormProps) => {
           listing_type: selectedPlan,
           payment_status: "pending",
           is_active: false, // Will be activated after payment
+          app_identifier: "homegirls-who-launch",
         })
         .select()
         .single();
