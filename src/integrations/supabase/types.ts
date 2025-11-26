@@ -47,6 +47,7 @@ export type Database = {
       business_listings: {
         Row: {
           amount_paid: number | null
+          app_identifier: string | null
           business_name: string
           category: string
           city: string
@@ -82,6 +83,7 @@ export type Database = {
         }
         Insert: {
           amount_paid?: number | null
+          app_identifier?: string | null
           business_name: string
           category: string
           city: string
@@ -117,6 +119,7 @@ export type Database = {
         }
         Update: {
           amount_paid?: number | null
+          app_identifier?: string | null
           business_name?: string
           category?: string
           city?: string

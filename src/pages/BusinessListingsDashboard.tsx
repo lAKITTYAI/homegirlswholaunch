@@ -39,6 +39,7 @@ const BusinessListingsDashboard = () => {
       const { data, error } = await supabase
         .from('business_listings')
         .select('*')
+        .eq('app_identifier', 'homegirls-who-launch')
         .order('created_at', { ascending: false });
 
       if (error) throw error;
