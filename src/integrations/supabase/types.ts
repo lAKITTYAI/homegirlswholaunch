@@ -574,6 +574,33 @@ export type Database = {
         }
         Relationships: []
       }
+      user_transformations: {
+        Row: {
+          created_at: string
+          gender: string
+          id: string
+          original_image_url: string
+          transformed_image_url: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          gender: string
+          id?: string
+          original_image_url: string
+          transformed_image_url: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          gender?: string
+          id?: string
+          original_image_url?: string
+          transformed_image_url?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
       user_workout_plans: {
         Row: {
           available_equipment: string[] | null

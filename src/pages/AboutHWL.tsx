@@ -14,18 +14,6 @@ const AboutHWL = () => {
       <div className="max-w-4xl mx-auto">
         <h1 className="text-4xl font-bold text-center mb-8">About Homegirls Who Launch</h1>
         
-        <motion.div initial={{
-        opacity: 0,
-        scale: 0.95
-      }} animate={{
-        opacity: 1,
-        scale: 1
-      }} transition={{
-        duration: 0.7
-      }} className="mb-12 rounded-2xl overflow-hidden shadow-xl">
-          <img src="/lovable-uploads/d02fc1fd-22cb-4a5b-a8a7-dcac63d2fe3f.png" alt="Homegirls Who Launch - Woman in purple suit with neon sign and supportive community" className="w-full h-auto object-cover" />
-        </motion.div>
-        
         <Card className="mb-8">
           <CardHeader>
             <CardTitle>Our Mission</CardTitle>
