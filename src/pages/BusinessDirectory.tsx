@@ -96,7 +96,7 @@ const BusinessDirectory = () => {
       </section>
 
       {/* Featured Businesses */}
-      {filteredBusinesses.filter(b => b.listing_type === "featured").length > 0 && <section className="py-16 bg-gradient-to-br from-gold-50 to-lavender-50">
+      {filteredBusinesses.filter(b => b.listing_type === "featured" || b.listing_type === "spotlight").length > 0 && <section className="py-16 bg-gradient-to-br from-gold-50 to-lavender-50">
           <div className="container mx-auto px-4">
             <div className="max-w-7xl mx-auto">
               <div className="flex items-center justify-between mb-12">
@@ -110,7 +110,7 @@ const BusinessDirectory = () => {
               </div>
               
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {filteredBusinesses.filter(b => b.listing_type === "featured").map(business => <Link key={business.id} to={`/business/${business.id}`}>
+                {filteredBusinesses.filter(b => b.listing_type === "featured" || b.listing_type === "spotlight").map(business => <Link key={business.id} to={`/business/${business.id}`}>
                     <Card className="overflow-hidden hover:shadow-2xl transition-all duration-300 border-2 border-gold-200 hover:border-gold-400 group bg-white">
                       <div className="aspect-[4/3] relative overflow-hidden bg-lavender-100">
                         {business.cover_image_url && <img src={business.cover_image_url} alt={business.business_name} className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-300" />}
