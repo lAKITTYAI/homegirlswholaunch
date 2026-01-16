@@ -224,6 +224,59 @@ export type Database = {
         }
         Relationships: []
       }
+      challenge_entries: {
+        Row: {
+          created_at: string
+          engagement_comments: number | null
+          engagement_likes: number | null
+          engagement_shares: number | null
+          entry_type: string
+          featured: boolean | null
+          featured_at: string | null
+          id: string
+          influencer_id: string | null
+          post_link: string | null
+          transformation_url: string | null
+          user_id: string | null
+        }
+        Insert: {
+          created_at?: string
+          engagement_comments?: number | null
+          engagement_likes?: number | null
+          engagement_shares?: number | null
+          entry_type: string
+          featured?: boolean | null
+          featured_at?: string | null
+          id?: string
+          influencer_id?: string | null
+          post_link?: string | null
+          transformation_url?: string | null
+          user_id?: string | null
+        }
+        Update: {
+          created_at?: string
+          engagement_comments?: number | null
+          engagement_likes?: number | null
+          engagement_shares?: number | null
+          entry_type?: string
+          featured?: boolean | null
+          featured_at?: string | null
+          id?: string
+          influencer_id?: string | null
+          post_link?: string | null
+          transformation_url?: string | null
+          user_id?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "challenge_entries_influencer_id_fkey"
+            columns: ["influencer_id"]
+            isOneToOne: false
+            referencedRelation: "influencers"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       early_access_signups: {
         Row: {
           approved_at: string | null
@@ -245,6 +298,48 @@ export type Database = {
           email?: string
           id?: string
           status?: string | null
+        }
+        Relationships: []
+      }
+      email_campaigns: {
+        Row: {
+          body: string
+          campaign_name: string
+          created_at: string
+          day_in_sequence: number | null
+          email_type: string
+          id: string
+          recipient_count: number | null
+          scheduled_for: string | null
+          sent_at: string | null
+          status: string
+          subject: string
+        }
+        Insert: {
+          body: string
+          campaign_name: string
+          created_at?: string
+          day_in_sequence?: number | null
+          email_type: string
+          id?: string
+          recipient_count?: number | null
+          scheduled_for?: string | null
+          sent_at?: string | null
+          status?: string
+          subject: string
+        }
+        Update: {
+          body?: string
+          campaign_name?: string
+          created_at?: string
+          day_in_sequence?: number | null
+          email_type?: string
+          id?: string
+          recipient_count?: number | null
+          scheduled_for?: string | null
+          sent_at?: string | null
+          status?: string
+          subject?: string
         }
         Relationships: []
       }
@@ -305,6 +400,138 @@ export type Database = {
           previous_funding?: string | null
           status?: string
           years_in_operation?: string
+        }
+        Relationships: []
+      }
+      influencers: {
+        Row: {
+          created_at: string
+          creator_code: string | null
+          email: string | null
+          follower_count: number
+          followup_sent_at: string | null
+          id: string
+          niche: string
+          notes: string | null
+          outreach_sent_at: string | null
+          platform: string
+          post_link: string | null
+          posted_at: string | null
+          status: string
+          tier: string
+          updated_at: string
+          username: string
+        }
+        Insert: {
+          created_at?: string
+          creator_code?: string | null
+          email?: string | null
+          follower_count?: number
+          followup_sent_at?: string | null
+          id?: string
+          niche: string
+          notes?: string | null
+          outreach_sent_at?: string | null
+          platform?: string
+          post_link?: string | null
+          posted_at?: string | null
+          status?: string
+          tier: string
+          updated_at?: string
+          username: string
+        }
+        Update: {
+          created_at?: string
+          creator_code?: string | null
+          email?: string | null
+          follower_count?: number
+          followup_sent_at?: string | null
+          id?: string
+          niche?: string
+          notes?: string | null
+          outreach_sent_at?: string | null
+          platform?: string
+          post_link?: string | null
+          posted_at?: string | null
+          status?: string
+          tier?: string
+          updated_at?: string
+          username?: string
+        }
+        Relationships: []
+      }
+      marketing_content: {
+        Row: {
+          category: string | null
+          content: string
+          content_type: string
+          created_at: string
+          id: string
+          scheduled_date: string | null
+          status: string
+          title: string
+        }
+        Insert: {
+          category?: string | null
+          content: string
+          content_type: string
+          created_at?: string
+          id?: string
+          scheduled_date?: string | null
+          status?: string
+          title: string
+        }
+        Update: {
+          category?: string | null
+          content?: string
+          content_type?: string
+          created_at?: string
+          id?: string
+          scheduled_date?: string | null
+          status?: string
+          title?: string
+        }
+        Relationships: []
+      }
+      marketing_daily_logs: {
+        Row: {
+          challenge_entries: number | null
+          content_created: number | null
+          created_at: string
+          followups_sent: number | null
+          highlights_featured: number | null
+          id: string
+          influencers_discovered: number | null
+          log_date: string
+          notes: string | null
+          outreach_sent: number | null
+          responses_received: number | null
+        }
+        Insert: {
+          challenge_entries?: number | null
+          content_created?: number | null
+          created_at?: string
+          followups_sent?: number | null
+          highlights_featured?: number | null
+          id?: string
+          influencers_discovered?: number | null
+          log_date?: string
+          notes?: string | null
+          outreach_sent?: number | null
+          responses_received?: number | null
+        }
+        Update: {
+          challenge_entries?: number | null
+          content_created?: number | null
+          created_at?: string
+          followups_sent?: number | null
+          highlights_featured?: number | null
+          id?: string
+          influencers_discovered?: number | null
+          log_date?: string
+          notes?: string | null
+          outreach_sent?: number | null
+          responses_received?: number | null
         }
         Relationships: []
       }
@@ -410,6 +637,48 @@ export type Database = {
         }
         Relationships: []
       }
+      subscriptions: {
+        Row: {
+          cancel_at_period_end: boolean | null
+          created_at: string
+          current_period_end: string | null
+          current_period_start: string | null
+          id: string
+          plan_type: string
+          status: string
+          stripe_customer_id: string | null
+          stripe_subscription_id: string | null
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          cancel_at_period_end?: boolean | null
+          created_at?: string
+          current_period_end?: string | null
+          current_period_start?: string | null
+          id?: string
+          plan_type?: string
+          status?: string
+          stripe_customer_id?: string | null
+          stripe_subscription_id?: string | null
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          cancel_at_period_end?: boolean | null
+          created_at?: string
+          current_period_end?: string | null
+          current_period_start?: string | null
+          id?: string
+          plan_type?: string
+          status?: string
+          stripe_customer_id?: string | null
+          stripe_subscription_id?: string | null
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
       tags: {
         Row: {
           created_at: string
@@ -425,6 +694,39 @@ export type Database = {
           created_at?: string
           id?: string
           name?: string
+        }
+        Relationships: []
+      }
+      transformation_credits: {
+        Row: {
+          created_at: string
+          credits_remaining: number
+          id: string
+          purchased_at: string
+          stripe_checkout_session_id: string | null
+          stripe_payment_intent_id: string | null
+          used_at: string | null
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          credits_remaining?: number
+          id?: string
+          purchased_at?: string
+          stripe_checkout_session_id?: string | null
+          stripe_payment_intent_id?: string | null
+          used_at?: string | null
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          credits_remaining?: number
+          id?: string
+          purchased_at?: string
+          stripe_checkout_session_id?: string | null
+          stripe_payment_intent_id?: string | null
+          used_at?: string | null
+          user_id?: string
         }
         Relationships: []
       }
@@ -482,15 +784,23 @@ export type Database = {
         Row: {
           activity_level: string | null
           age: number | null
+          allergies: string[] | null
+          check_in_frequency: string | null
           created_at: string | null
+          display_name: string | null
+          food_preferences: string[] | null
+          foods_to_avoid: string[] | null
           gender: string | null
           goal_weight: number | null
           goal_weight_unit: string | null
+          has_seen_dashboard_welcome: boolean | null
           height: number | null
           height_unit: string | null
           id: string
           lifestyle_notes: string | null
           medical_conditions: string | null
+          partner_name: string | null
+          partner_tone: string | null
           primary_goal: string | null
           specific_body_goals: string | null
           timeline: string | null
@@ -502,15 +812,23 @@ export type Database = {
         Insert: {
           activity_level?: string | null
           age?: number | null
+          allergies?: string[] | null
+          check_in_frequency?: string | null
           created_at?: string | null
+          display_name?: string | null
+          food_preferences?: string[] | null
+          foods_to_avoid?: string[] | null
           gender?: string | null
           goal_weight?: number | null
           goal_weight_unit?: string | null
+          has_seen_dashboard_welcome?: boolean | null
           height?: number | null
           height_unit?: string | null
           id?: string
           lifestyle_notes?: string | null
           medical_conditions?: string | null
+          partner_name?: string | null
+          partner_tone?: string | null
           primary_goal?: string | null
           specific_body_goals?: string | null
           timeline?: string | null
@@ -522,15 +840,23 @@ export type Database = {
         Update: {
           activity_level?: string | null
           age?: number | null
+          allergies?: string[] | null
+          check_in_frequency?: string | null
           created_at?: string | null
+          display_name?: string | null
+          food_preferences?: string[] | null
+          foods_to_avoid?: string[] | null
           gender?: string | null
           goal_weight?: number | null
           goal_weight_unit?: string | null
+          has_seen_dashboard_welcome?: boolean | null
           height?: number | null
           height_unit?: string | null
           id?: string
           lifestyle_notes?: string | null
           medical_conditions?: string | null
+          partner_name?: string | null
+          partner_tone?: string | null
           primary_goal?: string | null
           specific_body_goals?: string | null
           timeline?: string | null
@@ -538,6 +864,27 @@ export type Database = {
           user_id?: string
           weight?: number | null
           weight_unit?: string | null
+        }
+        Relationships: []
+      }
+      user_roles: {
+        Row: {
+          created_at: string
+          id: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          role?: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          role?: Database["public"]["Enums"]["app_role"]
+          user_id?: string
         }
         Relationships: []
       }
@@ -580,6 +927,7 @@ export type Database = {
           gender: string
           id: string
           original_image_url: string
+          transformation_type: string | null
           transformed_image_url: string
           user_id: string
         }
@@ -588,6 +936,7 @@ export type Database = {
           gender: string
           id?: string
           original_image_url: string
+          transformation_type?: string | null
           transformed_image_url: string
           user_id: string
         }
@@ -596,6 +945,7 @@ export type Database = {
           gender?: string
           id?: string
           original_image_url?: string
+          transformation_type?: string | null
           transformed_image_url?: string
           user_id?: string
         }
@@ -654,15 +1004,81 @@ export type Database = {
           },
         ]
       }
+      weight_logs: {
+        Row: {
+          created_at: string
+          id: string
+          logged_at: string
+          notes: string | null
+          user_id: string
+          weight: number
+          weight_unit: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          logged_at?: string
+          notes?: string | null
+          user_id: string
+          weight: number
+          weight_unit?: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          logged_at?: string
+          notes?: string | null
+          user_id?: string
+          weight?: number
+          weight_unit?: string
+        }
+        Relationships: []
+      }
+      workout_completions: {
+        Row: {
+          completed: boolean
+          completed_at: string | null
+          created_at: string
+          exercise_name: string
+          id: string
+          user_id: string
+          workout_date: string
+        }
+        Insert: {
+          completed?: boolean
+          completed_at?: string | null
+          created_at?: string
+          exercise_name: string
+          id?: string
+          user_id: string
+          workout_date?: string
+        }
+        Update: {
+          completed?: boolean
+          completed_at?: string | null
+          created_at?: string
+          exercise_name?: string
+          id?: string
+          user_id?: string
+          workout_date?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      has_role: {
+        Args: {
+          _role: Database["public"]["Enums"]["app_role"]
+          _user_id: string
+        }
+        Returns: boolean
+      }
     }
     Enums: {
-      [_ in never]: never
+      app_role: "admin" | "moderator" | "user"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -789,6 +1205,8 @@ export type CompositeTypes<
 
 export const Constants = {
   public: {
-    Enums: {},
+    Enums: {
+      app_role: ["admin", "moderator", "user"],
+    },
   },
 } as const
