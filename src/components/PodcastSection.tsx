@@ -65,8 +65,8 @@ export const PodcastSection = () => {
             
             <div className="relative">
               <img 
-                src="/lovable-uploads/316cf67d-f73c-4fc8-b3b0-c054aa99fde2.png" 
-                alt="Homegirls Who Launch Podcast recording session with host getting makeup done" 
+                src="/lovable-uploads/hwl-luxury-lifestyle.jpeg" 
+                alt="Homegirls Who Launch Podcast Host" 
                 className="w-full h-full object-cover" 
               />
             </div>
