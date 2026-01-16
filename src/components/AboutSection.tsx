@@ -50,8 +50,8 @@ export const AboutSection = () => {
           >
             <div className="relative rounded-2xl overflow-hidden shadow-2xl">
               <img
-                src="/lovable-uploads/e0b98406-c828-4fe9-a386-fcd9612d9a77.png"
-                alt="HomeGirls Who Launch Workspace"
+                src="/lovable-uploads/hwl-founder-neon.jpeg"
+                alt="Homegirls Who Launch Founder"
                 className="w-full h-auto rounded-2xl"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent opacity-60 rounded-2xl"></div>
