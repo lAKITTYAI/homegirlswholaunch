@@ -1,10 +1,13 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import { Button } from "@/components/ui/button";
 import { supabase } from "@/integrations/supabase/client";
-import { Users, CreditCard, Building2, FileText, Mail } from "lucide-react";
+import { useAuth } from "@/hooks/useAuth";
+import { CreditCard, Building2, FileText, Mail, LogOut } from "lucide-react";
 
 interface EarlyAccessSignup {
   id: string;
@@ -48,6 +51,13 @@ const AdminDashboard = () => {
   const [businessListings, setBusinessListings] = useState<BusinessListing[]>([]);
   const [fundingApplications, setFundingApplications] = useState<FundingApplication[]>([]);
   const [loading, setLoading] = useState(true);
+  const { signOut } = useAuth();
+  const navigate = useNavigate();
+
+  const handleLogout = async () => {
+    await signOut();
+    navigate("/admin/login");
+  };
 
   useEffect(() => {
     fetchAllData();
@@ -110,9 +120,15 @@ const AdminDashboard = () => {
   return (
     <div className="min-h-screen bg-background p-6">
       <div className="max-w-7xl mx-auto space-y-6">
-        <div>
-          <h1 className="text-3xl font-bold text-foreground">Admin Dashboard</h1>
-          <p className="text-muted-foreground">Overview of all signups, subscribers, and applications</p>
+        <div className="flex items-center justify-between">
+          <div>
+            <h1 className="text-3xl font-bold text-foreground">Admin Dashboard</h1>
+            <p className="text-muted-foreground">Overview of all signups, subscribers, and applications</p>
+          </div>
+          <Button variant="outline" onClick={handleLogout}>
+            <LogOut className="h-4 w-4 mr-2" />
+            Logout
+          </Button>
         </div>
 
         {/* Stats Overview */}
