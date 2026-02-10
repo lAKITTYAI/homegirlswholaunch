@@ -196,7 +196,7 @@ const AboutHWL = () => {
       }} transition={{
         duration: 0.7
       }} className="mb-12 rounded-2xl overflow-hidden shadow-xl">
-          <img src="/lovable-uploads/hwl-founder-neon.jpeg?v=1" alt="Homegirls Who Launch founder in a white suit" className="w-full h-auto object-cover" />
+          <img src="/lovable-uploads/hwl-luxury-lifestyle.jpeg" alt="Homegirls Who Launch founder holding a book" className="w-full h-auto object-cover" />
         </motion.div>
       </div>
     </div>;
